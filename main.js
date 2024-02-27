@@ -30,13 +30,13 @@ document.addEventListener("DOMContentLoaded", function() {
         
         const e = randomNumber(1,3);
         let t = e.toString();
-        const r = new Audio('sounds/hi-${t}.mp3');
+        const r = new Audio(`/sounds/hi-${t}.mp3`);
         r.volume = .7;
         r.play();
     }
 
     function randomNumber(x, y){
-        return Math.floor(Math.random()*3) + 1;
+        return Math.floor(Math.random()*y) + x;
     }
 
     image.addEventListener("click", playNoise);
