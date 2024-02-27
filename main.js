@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         const e = randomNumber(1,3);
         let t = e.toString();
-        const r = new Audio(`/sounds/hi-${t}.mp3`);
+        const r = new Audio(`/oh-hi/sounds/hi-${t}.mp3`);
         r.volume = .7;
         r.play();
     }
