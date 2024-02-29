@@ -31,6 +31,10 @@ body {
 h1 a {
     color: inherit; /* Use the color of the parent element */
     text-decoration: none; /* Remove underline */
+    transition: text-decoration 0.3s;
+}
+h1 a:hover {
+    text-decoration: underline;
 }
 .card {
     border: 0px solid #ccc;
