@@ -13,11 +13,11 @@ body {
     text-rendering: optimizeLegibility;
 }
 .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: lightblue; /* Change background color */
+    border: 0px solid #ccc;
+    border-radius: 0.8rem;
+    padding: 2rem;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgb(200, 160, 110);
     max-width: 40rem; /* Change max-width to adjust size */
     margin: 0 auto;
 }
