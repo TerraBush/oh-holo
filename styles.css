@@ -5,10 +5,10 @@
     position: relative;
 }
 .image-container {
-    text-align: center;
     width: 200px;
     height: 200px;
     margin-bottom: 20px;
+    margin: auto; /*Centers horizontally*/
 }
 #clickableImage {
     width: 100%;
