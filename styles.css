@@ -12,3 +12,20 @@ body {
     font-family: Patrick Hand,Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
     text-rendering: optimizeLegibility;
 }
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: lightblue; /* Change background color */
+    max-width: 40rem; /* Change max-width to adjust size */
+    margin: 0 auto;
+}
+.card h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+.card p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
