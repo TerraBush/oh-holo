@@ -45,7 +45,7 @@ h1 a:hover {
     max-width: 40rem; /* Change max-width to adjust size */
     margin: 30px auto;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: calc(40rem + 30px) ) {
     .card {
         margin: 30px 15px;
     }
