@@ -30,8 +30,8 @@ body {
 }
 h1 a {
     color: inherit; /* Use the color of the parent element */
-    text-decoration: none; /* Remove underline */
-    transition: text-decoration 0.3s;
+    text-decoration: underline transparent;
+    transition: text-decoration 0.3s ease;
 }
 h1 a:hover {
     text-decoration: underline;
