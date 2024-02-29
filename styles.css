@@ -43,7 +43,8 @@ h1 a:hover {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: rgb(200, 160, 110);
     max-width: 40rem; /* Change max-width to adjust size */
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 30px;
 }
 .card h2 {
     font-size: 3rem;
