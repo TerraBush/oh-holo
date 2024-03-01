@@ -55,16 +55,14 @@ h1 a:hover {
     color: rgb(92, 42, 36);
     margin-bottom: 10px;
 }
-.card p {
+/*.card p {
     font-size: 2rem;
     color: rgb(92, 42, 36);
     line-height: 1.5;
-}
+}*/
 #sub {
     float: left;
-    width: auto;
 }
-#sub {
+#view {
     float: left;
-    width: auto;
 }
