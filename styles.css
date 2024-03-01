@@ -39,7 +39,9 @@ h1 a:hover {
 .card {
     border: 0px solid #ccc;
     border-radius: 0.8rem;
-    padding: calc(2rem + 25px);
+    padding: 2rem;
+    padding-left: calc(2rem + 25px);
+    padding-left: calc(2rem + 25px);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: rgb(200, 160, 110);
     max-width: 40rem; /* Change max-width to adjust size */
@@ -78,4 +80,13 @@ h1 a:hover {
     content: "";
     display: table;
     clear: both;
+}
+.divider {
+    position: absolute;
+    top: 20;
+    bottom: 20;
+    left: 50%; /* Position the divider in the middle */
+    width: 2px; /* Set the width of the divider */
+    background-color: rgb(92, 42, 36); /* Choose the color of the divider */
+    transform: translateX(-50%);  /*Center the divider horizontally */
 }
