@@ -44,10 +44,17 @@ h1 a:hover {
     background-color: rgb(200, 160, 110);
     max-width: 40rem; /* Change max-width to adjust size */
     margin: 30px auto;
+    height: auto;
 }
 @media screen and (max-width: calc(40rem + 30px) ) {
     .card {
         margin: 30px 15px;
+    }
+    #sub {
+        float: top;
+    }
+    #view {
+        float: bottom;
     }
 }
 .card h2 {
@@ -55,11 +62,11 @@ h1 a:hover {
     color: rgb(92, 42, 36);
     margin-bottom: 10px;
 }
-/*.card p {
+.card p {
     font-size: 2rem;
     color: rgb(92, 42, 36);
     line-height: 1.5;
-}*/
+}
 #sub {
     float: left;
 }
