@@ -50,11 +50,12 @@ h1 a:hover {
     .card {
         margin: 30px 15px;
     }
-    #sub {
-        float: top;
-    }
-    #view {
-        float: bottom;
+}
+@media screen and (max-width: calc(35rem) ) {
+    #subs, #views {
+        float: none;
+        text-align: center;
+        width: 100%; /* Make the headings occupy full width */
     }
 }
 .card h2 {
@@ -67,9 +68,14 @@ h1 a:hover {
     color: rgb(92, 42, 36);
     line-height: 1.5;
 }
-#sub {
+#subs {
     float: left;
 }
-#view {
-    float: left;
+#views {
+    float: right;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
 }
