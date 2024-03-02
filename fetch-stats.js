@@ -24,4 +24,4 @@ function updateSubscriberCount() {
 updateSubscriberCount();
 
 // Set interval to update subscriber count every 60 seconds (adjust interval as needed)
-setInterval(updateSubscriberCount, 5000); // 60000 milliseconds = 60 seconds
+setInterval(updateSubscriberCount, 60000); // 60000 milliseconds = 60 seconds
