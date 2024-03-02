@@ -7,12 +7,13 @@ function updateSubscriberCount() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const subscriberCount = data.items[0].statistics.subscriberCount;
-            const viewCount = data.items[0].statistics.viewCount;
+            let subscriberCount = parseInt(data.items[0].statistics.subscriberCount);
             if (subscriberCount >= 1000000) {
-                subscriberCount = (subscriberCount / 1000000).toFixed(2);
-                document.getElementById('subscriberCount').textContent = `${subscriberCount} M`;
+                subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
             }
+            let viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString();
+
+            document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
             document.getElementById('viewCount').textContent = `${viewCount}`;
         })
         .catch(error => {
