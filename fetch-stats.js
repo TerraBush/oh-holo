@@ -9,8 +9,11 @@ function updateSubscriberCount() {
         .then(data => {
             const subscriberCount = data.items[0].statistics.subscriberCount;
             const viewCount = data.items[0].statistics.viewCount;
-            document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
+            if (subscriberCount >= 1000000) {
+                subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
+            }
             document.getElementById('viewCount').textContent = `${viewCount}`;
+            document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
         })
         .catch(error => {
             console.error('Error fetching data:', error);
@@ -21,4 +24,4 @@ function updateSubscriberCount() {
 updateSubscriberCount();
 
 // Set interval to update subscriber count every 60 seconds (adjust interval as needed)
-setInterval(updateSubscriberCount, 1000); // 60000 milliseconds = 60 seconds
+setInterval(updateSubscriberCount, 5000); // 60000 milliseconds = 60 seconds
