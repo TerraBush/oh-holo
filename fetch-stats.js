@@ -10,10 +10,10 @@ function updateSubscriberCount() {
             const subscriberCount = data.items[0].statistics.subscriberCount;
             const viewCount = data.items[0].statistics.viewCount;
             if (subscriberCount >= 1000000) {
-                subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
+                subscriberCount = (subscriberCount / 1000000).toFixed(2);
+                document.getElementById('subscriberCount').textContent = `${subscriberCount} M`;
             }
             document.getElementById('viewCount').textContent = `${viewCount}`;
-            document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
         })
         .catch(error => {
             console.error('Error fetching data:', error);
