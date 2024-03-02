@@ -15,8 +15,9 @@ document.addEventListener("DOMContentLoaded", function() {
         return Math.floor(Math.random()*y) + x;
     }
 
-    image.addEventListener("click", () => {
+    image.addEventListener("click", playNoise);
+    /*image.addEventListener("click", () => {
         playNoise();
         updateSubscriberCount();
-    });
+    });*/
 });
