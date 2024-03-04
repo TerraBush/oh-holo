@@ -1,6 +1,6 @@
 function updateSubscriberCount() {
     const channelId = 'UC3n5uGu18FoCy23ggWWp8tA';
-    const apiKey = 'AIzaSyCPwdfWWjTSmphfkK-NgVKJay0x0j9dCvY';
+    const apiKey = 'no';
 
     const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
 

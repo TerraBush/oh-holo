@@ -16,8 +16,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     image.addEventListener("click", playNoise);
-    /*image.addEventListener("click", () => {
-        playNoise();
-        updateSubscriberCount();
-    });*/
 });
