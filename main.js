@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the mumei icon
 
     var image = document.getElementById("clickableImage");
 
@@ -15,5 +15,42 @@ document.addEventListener("DOMContentLoaded", function() {
         return Math.floor(Math.random()*y) + x;
     }
 
-    image.addEventListener("click", playNoise);
+    //image.addEventListener("click", playNoise);
+    image.addEventListener("click", () => {
+        playNoise();
+        updateSubscriberCount();
+    });
 });
+document.addEventListener("DOMContentLoaded", function() { //event listener for input key field & button
+    
+    const apiKey = getCookie("apiKey"); //get api key from cookie
+    
+    if(apiKey) { //if have api key, hide input field
+        document.getElementById("apiKeyInputContainer").style.display = "none";
+    }
+
+    document.getElementById("apiKeySubmitButton").addEventListener("click", function() { //button event listener, saves api key and hides input field
+        const apiKeyInput = document.getElementById("apiKeyInput").value;
+
+        setCookie("apiKey", apiKeyInput, 14);
+
+        document.getElementById("apiKeyInputcontainer").style.display = "none";
+    });
+});
+
+function setCookie(name, value, days) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (1000 * 60 * 60 * 24 * days));
+    document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + expires.toUTCString() + ";path=/";
+}
+
+function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if(cookie.startsWith(name + '=')) {
+            return decodeURIComponent(cookie.substring(name.length + 1));
+        }
+    }
+    return null;
+}
