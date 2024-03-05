@@ -2,11 +2,17 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
 
     var image = document.getElementById("clickableImage");
 
-    function playNoise() {
+    /*function playNoise() {
         
         const e = randomNumber(1,3);
         let t = e.toString();
-        const r = new Audio(`/oh-hi/sounds/hi-${t}.mp3`);
+        const r = new Audio(`C:/Users/redro/Documents/git repos something/oh-hi_local/sounds/hi-${t}.mp3`);
+        r.volume = .7;
+        r.play();
+    }*/
+
+    function playNoise() {
+        const r = new Audio(`C:/Users/redro/Documents/git repos something/oh-hi_local/sounds/hi-1.mp3`);
         r.volume = .7;
         r.play();
     }
@@ -34,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
 
         setCookie("apiKey", apiKeyInput, 14);
 
-        document.getElementById("apiKeyInputcontainer").style.display = "none";
+        document.getElementById("apiKeyInputContainer").style.display = "none";
     });
 });
 

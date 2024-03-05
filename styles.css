@@ -59,6 +59,9 @@ h1 a:hover {
         text-align: center;
         width: 100%; /* Make the headings occupy full width */
     }
+    .divider {
+        display: none;
+    }
 }
 .card h2 {
     font-size: 3rem;
