@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         return Math.floor(Math.random()*y) + x;
     }
 
-    //image.addEventListener("click", playNoise);
-    image.addEventListener("click", () => {
+    image.addEventListener("click", playNoise);
+    /*image.addEventListener("click", () => {
         playNoise();
         updateSubscriberCount();
-    });
+    });*/
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for input key field & button
     
@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
         setCookie("apiKey", apiKeyInput, 14);
 
         document.getElementById("apiKeyInputContainer").style.display = "none";
+
+        updateSubscriberCount();
     });
 });
 
