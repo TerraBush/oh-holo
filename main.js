@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
     }
 
     document.getElementById("apiKeySubmitButton").addEventListener("click", function() { //button event listener, saves api key and hides input field
-        const apiKeyInput = document.getElementById("apiKeyInput").value;
+        const apiKeyInput = document.getElementById("apiKeyInputBox").value;
 
         setCookie("apiKey", apiKeyInput, 14);
 
