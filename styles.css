@@ -159,6 +159,6 @@ h1 a:hover {
     color: white;
   }
   
-  .bottom-right-button {
+  .button {
     align-self: flex-end;
   }
