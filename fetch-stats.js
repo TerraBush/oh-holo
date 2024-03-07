@@ -39,15 +39,19 @@ function lastestLivestream() {
             const videoId = livestream.id.videoId;
             const title = livestream.snippet.title;
             const publishedAt = livestream.snippet.publishedAt;
+            const thumbnailUrlHigh = data.items[0].snippet.thumbnails.high.url;
 
             const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
             const dateTime = new Date(publishedAt);
             const localDateTime = dateTime.toLocaleString();
 
-            document.getElementById('livestreamDetails').innerHTML = `
-            <p>${title}</p>
-            <p>Published ${localDateTime}</p>
-            <a href="${videoUrl}" target="_blank">Watch Now</a>
+            document.getElementById('livestreamDisplay').innerHTML = `
+                <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
+                <div class="card-overlay">
+                    <p class="top-left-text"${title}</p>
+                    <p class="bottom-left-text">${localDateTime}</p>
+                    <a href="${videoId}" class="bottom-right-button" role="button">Watch</a>
+                </div>
             `;
         })
         .catch(error => {
