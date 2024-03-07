@@ -52,3 +52,5 @@ function lastestLivestream() {
             console.error('Error fetching data:', error);
         });
 }
+
+lastestLivestream();
