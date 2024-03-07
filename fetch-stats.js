@@ -41,10 +41,12 @@ function lastestLivestream() {
             const publishedAt = livestream.snippet.publishedAt;
 
             const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+            const dateTime = new Date(publishedAt);
+            const localDateTime = dateTime.toLocaleString();
 
             document.getElementById('livestreamDetails').innerHTML = `
-            <p>Title: ${title}</p>
-            <p>Published At: ${publishedAt}</p>
+            <p>${title}</p>
+            <p>Published ${localDateTime}</p>
             <a href="${videoUrl}" target="_blank">Watch Now</a>
             `;
         })
