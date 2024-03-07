@@ -50,7 +50,7 @@ function lastestLivestream() {
                 <div class="card-overlay">
                     <p class="top-left-text"${title}</p>
                     <p class="bottom-left-text">${localDateTime}</p>
-                    <a href="${videoId}" class="bottom-right-button" role="button">Watch</a>
+                    <a href="${videoUrl}" class="button">Watch</a>
                 </div>
             `;
         })
