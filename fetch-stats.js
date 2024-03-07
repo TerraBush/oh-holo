@@ -21,9 +21,7 @@ function updateSubscriberCount() {
             console.error('Error fetching data:', error);
         });
 }
-
 // Initial call to update subscriber count
 updateSubscriberCount();
-
 // Set interval to update subscriber count every 60 seconds (adjust interval as needed)
-setInterval(updateSubscriberCount, 60000); // 60000 milliseconds = 60 seconds
+setInterval(updateSubscriberCount, 300000); // 300000 milliseconds = 300 seconds

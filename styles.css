@@ -59,7 +59,7 @@ h1 a:hover {
         text-align: center;
         width: 100%; /* Make the headings occupy full width */
     }
-    .divider {
+    #horizontalDivider {
         display: none;
     }
 }
@@ -84,7 +84,7 @@ h1 a:hover {
     display: table;
     clear: both;
 }
-.divider {
+#horizontalDivider {
     position: absolute;
     top: 20;
     bottom: 20;
