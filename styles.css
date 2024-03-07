@@ -111,7 +111,8 @@ h1 a:hover {
 
 
 #livestreamDisplay {
-	padding: 0;
+    padding: 1rem;
+	padding-top: 2rem;
 }
 .card-image {
     display: block;
