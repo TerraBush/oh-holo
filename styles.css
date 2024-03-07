@@ -110,11 +110,14 @@ h1 a:hover {
 }
 
 
-
+#livestreamDisplay {
+	padding: 0;
+}
 .card-image {
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 0.8rem;
 }
 .card-overlay {
     position: absolute;
