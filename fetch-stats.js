@@ -35,22 +35,18 @@ function lastestLivestream() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            if (data.items && data.items.length > 0) {
-                // Livestream is currently ongoing
-                const livestream = data.items[0];
-                const videoId = livestream.id.videoId;
-                const title = livestream.snippet.title;
-                const publishedAt = livestream.snippet.publishedAt;
+            const livestream = data.items[0];
+            const videoId = livestream.id.videoId;
+            const title = livestream.snippet.title;
+            const publishedAt = livestream.snippet.publishedAt;
 
-                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
-                document.getElementById('livestreamDetails').innerHTML = `
-                <p>Status: Live</p>
-                <p>Title: ${title}</p>
-                <p>Published At: ${publishedAt}</p>
-                <a href="${videoUrl}" target="_blank">Watch Now</a>
-                `;
-            }
+            document.getElementById('livestreamDetails').innerHTML = `
+            <p>Title: ${title}</p>
+            <p>Published At: ${publishedAt}</p>
+            <a href="${videoUrl}" target="_blank">Watch Now</a>
+            `;
         })
         .catch(error => {
             console.error('Error fetching data:', error);
