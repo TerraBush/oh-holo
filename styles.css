@@ -45,12 +45,12 @@ h1 a:hover {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: rgb(200, 160, 110);
     max-width: 40rem; /* Change max-width to adjust size */
-    margin: 15px auto 0;
+    margin: 15px auto;
     height: auto;
 }
 @media screen and (max-width: calc(40rem + 30px) ) {
     .card {
-        margin: 30px 15px;
+        margin: 15px 15px;
     }
 }
 @media screen and (max-width: calc(35rem) ) {
