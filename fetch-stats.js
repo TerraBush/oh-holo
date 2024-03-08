@@ -46,8 +46,8 @@ function lastestLivestream() {
             const localDateTime = dateTime.toLocaleString();
 
             document.getElementById('livestreamDisplay').innerHTML = `
-                <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
                 <p class="top-left-text">${title}</p>
+                <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
                 <p class="bottom-left-text">${localDateTime}</p>
                 <a href="${videoUrl}" class="button">Watch</a>
             `;
