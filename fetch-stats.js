@@ -48,7 +48,7 @@ function lastestLivestream() {
             document.getElementById('livestreamDisplay').innerHTML = `
                 <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
                 <div class="card-overlay">
-                    <p class="top-left-text"${title}</p>
+                    <p class="top-left-text">${title}</p>
                     <p class="bottom-left-text">${localDateTime}</p>
                     <a href="${videoUrl}" class="button">Watch</a>
                 </div>
