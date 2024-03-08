@@ -39,7 +39,8 @@ function lastestLivestream() {
             const videoId = livestream.id.videoId;
             const title = livestream.snippet.title;
             const publishedAt = livestream.snippet.publishedAt;
-            const thumbnailUrlHigh = data.items[0].snippet.thumbnails.high.url;
+            //const thumbnailUrlHigh = data.items[0].snippet.thumbnails.high.url;
+            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
             const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
             const dateTime = new Date(publishedAt);

@@ -71,7 +71,6 @@ h1 a:hover {
 .card p {
     font-size: 2rem;
     color: rgb(92, 42, 36);
-    line-height: 1.5;
 }
 #subs {
     float: left;
