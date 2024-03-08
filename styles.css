@@ -130,26 +130,6 @@ h1 a:hover {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Change the color and opacity as needed */
 }
-.card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    box-sizing: border-box;
-}
-.card-overlay::after {
-    content: ""; /* Create a pseudo-element */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 .top-left-text {
     margin: 0;
     color: white;
@@ -160,6 +140,7 @@ h1 a:hover {
 }
   
 .button {
+    display: flex;
     align-self: flex-end;
     padding: 1px 6px;
     border: 1px outset buttonborder;
