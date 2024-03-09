@@ -1,7 +1,8 @@
+const channelId = 'UCO_aKKYxn4tvrqPjcTzZ6EQ';
+const apiKey = getCookie("apiKey");
+
+
 function updateSubscriberCount() {
-    
-    const channelId = 'UCO_aKKYxn4tvrqPjcTzZ6EQ';
-    const apiKey = getCookie("apiKey");
 
     const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
 
@@ -27,9 +28,6 @@ updateSubscriberCount();
 setInterval(updateSubscriberCount, 300000); // 300000 milliseconds = 300 seconds
 
 function lastestLivestream() {
-    
-    const channelId = 'UC3n5uGu18FoCy23ggWWp8tA';
-    const apiKey = getCookie("apiKey");
 
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
     fetch(url)
