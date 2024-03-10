@@ -111,6 +111,9 @@ h1 a:hover {
 
 #livestreamDisplay {
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .card-image {
     display: block;
@@ -124,14 +127,14 @@ p.top-left-text {
 }
 p.bottom-left-text {
     margin: 0;
+    margin-bottom: -2rem;
     text-align: left;
     font-size: 2rem;
 }
   
 .button {
     max-width: fit-content;
-    padding: 1px 6px;
-    border: 1px outset buttonborder;
+    padding: 6px 12px;
     border-radius: 3px;
     background-color: rgb(92, 42, 36);
     color: rgb(255, 215, 170);
@@ -139,5 +142,4 @@ p.bottom-left-text {
     margin-left: auto; 
     margin-right: 0;
     display: block;
-    text-align: right;
 }
