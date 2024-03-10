@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     image.addEventListener("click", playNoise);
     /*image.addEventListener("click", () => {
         playNoise();
-        updateSubscriberCount();
+        updateSubscriberCountMumei();
     });*/
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for input key field & button
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
 
         document.getElementById("apiKeyInputContainer").style.display = "none";
 
-        updateSubscriberCount();
+        updateSubscriberCountMumei();
     });
 });
 

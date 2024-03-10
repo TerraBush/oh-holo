@@ -2,7 +2,7 @@ const channelId = 'UC3n5uGu18FoCy23ggWWp8tA';
 const apiKey = getCookie("apiKey");
 
 
-function updateSubscriberCount() {
+function updateSubscriberCountMumei() {
 
     const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
 
@@ -23,9 +23,9 @@ function updateSubscriberCount() {
         });
 }
 // Initial call to update subscriber count
-updateSubscriberCount();
+updateSubscriberCountMumei();
 // Set interval to update subscriber count every 60 seconds (adjust interval as needed)
-setInterval(updateSubscriberCount, 300000); // 300000 milliseconds = 300 seconds
+setInterval(updateSubscriberCountMumei, 300000); // 300000 milliseconds = 300 seconds = 5 minutes
 
 function lastestLivestream() {
 
