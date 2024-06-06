@@ -11,10 +11,15 @@
     --mumei-text-color-light: rgb(255, 215, 170);
 }
 .image-container {
+    display: flex;
     width: 200px;
     height: 200px;
     margin: auto; /*Centers horizontally*/
     margin-bottom: 20px;
+    flex-direction: row;
+}
+.image-container a{
+    align-self: flex-end;
 }
 #clickableImage {
     width: 100%;
@@ -23,6 +28,18 @@
     filter: grayscale(100%); /* Convert image to grayscale */
 }
 #clickableImage:hover {
+    transform: scale(1.1); /* Scale image by 10% on hover */
+    filter: grayscale(0%); /* Remove grayscale filter on hover */
+}
+#altClickableImage {
+    width: 90;
+    height: 90;
+    transition: transform 0.3s, filter 0.3s; /* Smooth transition */
+    filter: grayscale(100%); /* Convert image to grayscale */
+    
+    align-self: flex-end;
+}
+#altClickableImage:hover {
     transform: scale(1.1); /* Scale image by 10% on hover */
     filter: grayscale(0%); /* Remove grayscale filter on hover */
 }
