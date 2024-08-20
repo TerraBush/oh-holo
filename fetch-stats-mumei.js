@@ -1,4 +1,4 @@
-const channelId = 'UC3n5uGu18FoCy23ggWWp8tA';
+const channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
 const apiKey = getCookie("apiKey");
 
 
@@ -54,6 +54,9 @@ function lastestLivestream() {
         .catch(error => {
             console.error('Error fetching data:', error);
         });
+    console.log(videoID);
+    console.log(title);
+    console.log(videoUrl);
 }
 
 lastestLivestream();
