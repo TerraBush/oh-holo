@@ -54,7 +54,7 @@ function lastestLivestream() {
         .catch(error => {
             console.error('Error fetching data:', error);
         });
-    console.log(videoID);
+    console.log(videoId);
     console.log(title);
     console.log(videoUrl);
 }
