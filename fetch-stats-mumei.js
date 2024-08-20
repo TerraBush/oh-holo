@@ -28,7 +28,7 @@ updateSubscriberCountMumei();
 setInterval(updateSubscriberCountMumei, 300000); // 300000 milliseconds = 300 seconds = 5 minutes
 
 function lastestLivestream() {
-
+    //eventType= completed, upcoming, or live
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
     fetch(url)
         .then(response => response.json())
