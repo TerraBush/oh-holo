@@ -50,13 +50,14 @@ function lastestLivestream() {
                 <p class="bottom-left-text">${localDateTime}</p>
                 <a href="${videoUrl}" class="button" target="_blank">Watch</a>
             `;
+        console.log(videoId);
+        console.log(title);
+        console.log(videoUrl);
         })
         .catch(error => {
             console.error('Error fetching data:', error);
         });
-    console.log(videoId);
-    console.log(title);
-    console.log(videoUrl);
+    
 }
 
 lastestLivestream();
