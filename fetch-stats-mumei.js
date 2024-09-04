@@ -13,6 +13,8 @@ function updateSubscriberCountMumei() {
             let subscriberCount = parseInt(data.items[0].statistics.subscriberCount);
             if (subscriberCount >= 1000000) {
                 subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
+            }else{
+                subscriberCount = subscriberCount.toLocaleString();
             }
             let viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString();
 
