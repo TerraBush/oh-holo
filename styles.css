@@ -145,13 +145,13 @@ h1 a:hover {
 }
 p.top-left-text {
     margin-bottom: 5px;
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 p.bottom-left-text {
-    margin: 0;
+    margin: 10;
     margin-bottom: -2rem;
     text-align: left;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .button {
     max-width: fit-content;
