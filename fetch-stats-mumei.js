@@ -65,6 +65,12 @@ function currentLivestream() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
+            const results = data.pageInfo.totalResults;
+            if(results == 0){
+                console.log("Not currently live~");
+                lastestLivestream();
+                return;
+            }
             const livestream = data.items[0];
             const videoId = livestream.id.videoId;
             const title = livestream.snippet.title;
