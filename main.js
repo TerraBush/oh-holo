@@ -2,8 +2,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
 
     var image = document.getElementById("clickableImage");
 
-    /*function playNoise() {
-        
+    /*function playRandomNoise() {
         const e = randomNumber(1,3);
         let t = e.toString();
         const r = new Audio(`sounds/hi-${t}.mp3`);
@@ -21,11 +20,12 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         return Math.floor(Math.random()*y) + x;
     }
 
-    image.addEventListener("click", playNoise);
-    /*image.addEventListener("click", () => {
+    //image.addEventListener("click", playNoise);
+    image.addEventListener("click", () => {
         playNoise();
-        updateSubscriberCountMumei();
-    });*/
+        //updateSubscriberCountMumei();
+        currentLivestream();
+    });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for input key field & button
     

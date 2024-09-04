@@ -59,5 +59,37 @@ function lastestLivestream() {
         });
     
 }
+function currentLivestream() {
+    //eventType= completed, upcoming, or live
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&order=date&maxResults=1&key=${apiKey}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const livestream = data.items[0];
+            const videoId = livestream.id.videoId;
+            const title = livestream.snippet.title;
+            const publishedAt = livestream.snippet.publishedAt;
+            //const thumbnailUrlHigh = data.items[0].snippet.thumbnails.high.url;
+            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
-lastestLivestream();
+            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+            const dateTime = new Date(publishedAt);
+            const localDateTime = dateTime.toLocaleString();
+
+            document.getElementById('livestreamDisplay').innerHTML = `
+                <p class="top-left-text">🔴${title}</p>
+                <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
+                <p class="bottom-left-text">${localDateTime}</p>
+                <a href="${videoUrl}" class="button" target="_blank">Watch</a>
+            `;
+        console.log(videoId);
+        console.log(title);
+        console.log(videoUrl);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    
+}
+
+currentLivestream();
