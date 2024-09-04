@@ -1,5 +1,5 @@
 //const channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
-const channelID = 'UCO_aKKYxn4tvrqPjcTzZ6EQ'; //fauna
+const channelId = 'UCO_aKKYxn4tvrqPjcTzZ6EQ'; //fauna
 const apiKey = getCookie("apiKey");
 
 
