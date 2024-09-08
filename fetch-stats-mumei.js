@@ -54,7 +54,7 @@ function lastestLivestream() {
                     <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
                 </a>
                 <div id="livestreamInfoDisplay">
-                    <p class="bottom-left-text">Date</p>
+                    <p class="bottom-left-text">${localDateTime}</p>
                     <div id="livestreamButtonDisplay">
                         <a href="${videoUrl}" class="button" target="_blank">🕔</a>
                         <a href="${videoUrl}" class="button" target="_blank">🔴</a>
@@ -100,7 +100,7 @@ function currentLivestream() {
                     <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
                 </a>
                 <div id="livestreamInfoDisplay">
-                    <p class="bottom-left-text">Date</p>
+                    <p class="bottom-left-text">${localDateTime}</p>
                     <div id="livestreamButtonDisplay">
                         <a href="${videoUrl}" class="button" target="_blank">🕔</a>
                         <a href="${videoUrl}" class="button" target="_blank">🔴</a>
