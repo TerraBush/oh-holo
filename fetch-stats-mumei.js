@@ -49,10 +49,18 @@ function lastestLivestream() {
             const localDateTime = dateTime.toLocaleString();
 
             document.getElementById('livestreamDisplay').innerHTML = `
-                <p class="top-left-text">${title}</p>
-                <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
-                <p class="bottom-left-text">${localDateTime}</p>
-                <a href="${videoUrl}" class="button" target="_blank">Watch</a>
+                <p class="top-left-text">🔴${title}/p>
+                <a href="${videoUrl}" target="_blank">
+                    <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
+                </a>
+                <div id="livestreamInfoDisplay">
+                    <p class="bottom-left-text">Date</p>
+                    <div id="livestreamButtonDisplay">
+                        <a href="${videoUrl}" class="button" target="_blank">🕔</a>
+                        <a href="${videoUrl}" class="button" target="_blank">🔴</a>
+                        <a href="${videoUrl}" class="button" target="_blank">🔘</a>
+                    </div>
+                </div>
             `;
         console.log(videoId);
         console.log(title);
@@ -87,11 +95,20 @@ function currentLivestream() {
             const localDateTime = dateTime.toLocaleString();
 
             document.getElementById('livestreamDisplay').innerHTML = `
-                <p class="top-left-text">🔴${title}</p>
-                <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
-                <p class="bottom-left-text">${localDateTime}</p>
-                <a href="${videoUrl}" class="button" target="_blank">Watch</a>
+                <p class="top-left-text">🔴${title}/p>
+                <a href="${videoUrl}" target="_blank">
+                    <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
+                </a>
+                <div id="livestreamInfoDisplay">
+                    <p class="bottom-left-text">Date</p>
+                    <div id="livestreamButtonDisplay">
+                        <a href="${videoUrl}" class="button" target="_blank">🕔</a>
+                        <a href="${videoUrl}" class="button" target="_blank">🔴</a>
+                        <a href="${videoUrl}" class="button" target="_blank">🔘</a>
+                    </div>
+                </div>
             `;
+            //<a href="${videoUrl}" class="button" target="_blank">Watch</a>
         console.log(videoId);
         console.log(title);
         console.log(videoUrl);

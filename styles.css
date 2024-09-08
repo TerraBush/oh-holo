@@ -147,20 +147,30 @@ p.top-left-text {
     margin-bottom: 5px;
     font-size: 1.75rem;
 }
+#livestreamInfoDisplay {
+    padding: 1rem;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 p.bottom-left-text {
-    margin: 10;
-    margin-bottom: -2rem;
-    text-align: left;
+    margin: 0;
+    align-self: flex-start;
     font-size: 1.5rem;
+}
+#livestreamButtonDisplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .button {
     max-width: fit-content;
-    padding: 6px 12px;
-    border-radius: 3px;
+    padding: 6px 6px;
+    border-radius: 12px;
     background-color: var(--mumei-text-color-dark);
     color: var(--mumei-text-color-light);
     text-decoration: none;
-    margin-left: auto; 
-    margin-right: 0;
-    display: block;
+    align-self: flex-start;
+    margin-left: 5;
 }
