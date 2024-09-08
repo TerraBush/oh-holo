@@ -49,7 +49,7 @@ function lastestLivestream() {
             const localDateTime = dateTime.toLocaleString();
 
             document.getElementById('livestreamDisplay').innerHTML = `
-                <p class="top-left-text">🔴${title}/p>
+                <p class="top-left-text">${title}</p>
                 <a href="${videoUrl}" target="_blank">
                     <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
                 </a>
@@ -95,7 +95,7 @@ function currentLivestream() {
             const localDateTime = dateTime.toLocaleString();
 
             document.getElementById('livestreamDisplay').innerHTML = `
-                <p class="top-left-text">🔴${title}/p>
+                <p class="top-left-text">🔴${title}</p>
                 <a href="${videoUrl}" target="_blank">
                     <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
                 </a>
