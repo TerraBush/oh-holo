@@ -132,7 +132,7 @@ h1 a:hover {
 }
 
 #livestreamDisplay {
-    padding: 1rem;
+    padding: .5rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -148,8 +148,7 @@ p.top-left-text {
     font-size: 1.75rem;
 }
 #livestreamInfoDisplay {
-    padding: 1rem 0;
-    padding-bottom: 0;
+    padding: .5rem 0rem 0rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
