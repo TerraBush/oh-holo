@@ -29,7 +29,7 @@ function updateSubscriberCountMumei() {
 // Initial call to update subscriber count
 updateSubscriberCountMumei();
 // Set interval to update subscriber count every 60 seconds (adjust interval as needed)
-setInterval(updateSubscriberCountMumei, 300000); // 300000 milliseconds = 300 seconds = 5 minutes
+//setInterval(updateSubscriberCountMumei, 300000); // 300000 milliseconds = 300 seconds = 5 minutes
 
 function lastestLivestream() {
     //eventType= completed, upcoming, or live
