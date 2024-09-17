@@ -2,7 +2,9 @@ const channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
 //const channelId = 'UCO_aKKYxn4tvrqPjcTzZ6EQ'; //fauna
 //const channelId = 'UCgmPnx-EEeOrZSg5Tiw7ZRQ'; //bae
 const apiKey = getCookie("apiKey");
-
+const premiereEmote = '🕔';
+const liveEmote = '🔴';
+const completedEmote = '🔘';
 
 function updateSubscriberCountMumei() {
 
@@ -47,21 +49,29 @@ function lastestLivestream() {
             const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
             const dateTime = new Date(publishedAt);
             const localDateTime = dateTime.toLocaleString();
+            
+            document.getElementById("titleDisplay").innerHTML = `${completedEmote}${title}`;
+            document.getElementById("videoThumbnail").src = `${thumbnailUrlHigh}`;
+            document.getElementById("videoThumbnailLink").href = `${videoUrl}`;
+            document.getElementById("dateDisplay").innerHTML = `${localDateTime}`;
+            document.getElementById("premiereLinkButton").href = `${videoUrl}`;
+            document.getElementById("liveLinkButton").href = `${videoUrl}`;
+            document.getElementById("completedLinkButton").href = `${videoUrl}`;
 
-            document.getElementById('livestreamDisplay').innerHTML = `
-                <p class="top-left-text">${title}</p>
+/*            document.getElementById('livestreamDisplay').innerHTML = ` //old replacing info
+                <p class="top-left-text">${completedEmote}${title}</p>
                 <a href="${videoUrl}" target="_blank">
                     <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
                 </a>
                 <div id="livestreamInfoDisplay">
                     <p class="bottom-left-text">${localDateTime}</p>
                     <div id="livestreamButtonDisplay">
-                        <a href="${videoUrl}" class="button" target="_blank">🕔</a>
-                        <a href="${videoUrl}" class="button" target="_blank">🔴</a>
-                        <a href="${videoUrl}" class="button" target="_blank">🔘</a>
+                        <a href="${videoUrl}" class="button" id="premiereLinkButton" target="_blank">🕔</a>
+                        <a href="${videoUrl}" class="button" id="liveLinkButton" target="_blank">🔴</a>
+                        <a href="${videoUrl}" class="button" id="completedLinkButton" target="_blank">🔘</a>
                     </div>
                 </div>
-            `;
+            `;*/
         console.log(videoId);
         console.log(title);
         console.log(videoUrl);
@@ -95,16 +105,16 @@ function currentLivestream() {
             const localDateTime = dateTime.toLocaleString();
 
             document.getElementById('livestreamDisplay').innerHTML = `
-                <p class="top-left-text">🔴${title}</p>
+                <p class="top-left-text">${liveEmote}${title}</p>
                 <a href="${videoUrl}" target="_blank">
                     <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
                 </a>
                 <div id="livestreamInfoDisplay">
                     <p class="bottom-left-text">${localDateTime}</p>
                     <div id="livestreamButtonDisplay">
-                        <a href="${videoUrl}" class="button" target="_blank">🕔</a>
-                        <a href="${videoUrl}" class="button" target="_blank">🔴</a>
-                        <a href="${videoUrl}" class="button" target="_blank">🔘</a>
+                        <a href="${videoUrl}" class="button" id="premiereLinkButton" target="_blank">🕔</a>
+                        <a href="${videoUrl}" class="button" id="liveLinkButton" target="_blank">🔴</a>
+                        <a href="${videoUrl}" class="button" id="completedLinkButton" target="_blank">🔘</a>
                     </div>
                 </div>
             `;
