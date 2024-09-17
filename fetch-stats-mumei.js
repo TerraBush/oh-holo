@@ -50,7 +50,7 @@ function lastestLivestream() {
             const dateTime = new Date(publishedAt);
             const localDateTime = dateTime.toLocaleString();
             
-            document.getElementById("titleDisplay").innerHTML = `${completedEmote}`;
+            document.getElementById("titleDisplay").innerHTML = `${completedEmote}${title}`;
             document.getElementById("videoThumbnail").src = `${thumbnailUrlHigh}`;
             document.getElementById("videoThumbnailLink").href = `${videoUrl}`;
             document.getElementById("dateDisplay").innerHTML = `${localDateTime}`;
