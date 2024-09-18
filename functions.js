@@ -210,21 +210,21 @@ function getCookie(name) {
     return null;
 }
 function updateButtonDisplay() {
-    if(getCookie("premiereUrl") == null){
+    if(getCookie("premiereUrl") == "null"){
         document.getElementById("premiereLinkButton").style.display = "none";
         console.log("hid premiereButton");
     } else {
         document.getElementById("premiereLinkButton").style.display = "";
         console.log("revealed premiereButton")
     }
-    if(getCookie("liveUrl") == null){
+    if(getCookie("liveUrl") == "null"){
         document.getElementById("liveLinkButton").style.display = "none";;
         console.log("hid liveButton");
     } else {
         document.getElementById("liveLinkButton").style.display = "";
         console.log("revealed liveButton");
     }
-    if(getCookie("completedUrl") == null){
+    if(getCookie("completedUrl") == "null"){
         document.getElementById("completedLinkButton").style.display = "none";
         console.log("hid completedButton");
     } else {
@@ -233,17 +233,17 @@ function updateButtonDisplay() {
     }
 }
 function initialDisplay() {
-    if(getCookie("premiereUrl") != null){
+    if(getCookie("premiereUrl") != "null"){
         updateDisplay("premiere");
         console.log("attempted to initial display premiereing livestream");
         return;
     }
-    if(getCookie("liveUrl") != null){
+    if(getCookie("liveUrl") != "null"){
         updateDisplay("live");
         console.log("attempted to initial display live livestream");
         return;
     }
-    if(getCookie("completedUrl") != null){
+    if(getCookie("completedUrl") != "null"){
         updateDisplay("completed");
         console.log("attempted to initial display completed livestream");
         return;
