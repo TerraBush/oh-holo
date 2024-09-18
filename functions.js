@@ -44,7 +44,7 @@ function latestLivestream() {
             setCookie("completedTitle", title, 365);
             setCookie("completedThumbnail", thumbnailUrlHigh, 365);
             setCookie("completedUrl", videoUrl, 365);
-            setCookie("completedDate", publishedAt, 365);
+            setCookie("completedDate", localDateTime, 365);
 
         console.log(videoId);
         console.log(title);
@@ -79,7 +79,7 @@ function currentLivestream() {
             setCookie("liveTitle", title, 365);
             setCookie("liveThumbnail", thumbnailUrlHigh, 365);
             setCookie("liveUrl", videoUrl, 365);
-            setCookie("liveDate", publishedAt, 365);
+            setCookie("liveDate", localDateTime, 365);
             
         console.log(videoId);
         console.log(title);
@@ -115,7 +115,7 @@ function upcomingLivestream() {
             setCookie("premiereTitle", title, 365);
             setCookie("premiereThumbnail", thumbnailUrlHigh, 365);
             setCookie("premiereUrl", videoUrl, 365);
-            setCookie("premiereDate", publishedAt, 365);
+            setCookie("premiereDate", localDateTime, 365);
             
         console.log(videoId);
         console.log(title);
