@@ -22,7 +22,7 @@ function updateSubscriberCount() {
             console.error('Error fetching data:', error);
         });
 }
-function lastestLivestream() {
+function latestLivestream() {
     //eventType= completed, upcoming, or live
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
     fetch(url)
@@ -39,17 +39,10 @@ function lastestLivestream() {
             const dateTime = new Date(publishedAt);
             const localDateTime = dateTime.toLocaleString();
             
-
-
-
-
-            document.getElementById("titleDisplay").innerHTML = `${completedEmote}${title}`;
-            document.getElementById("videoThumbnail").src = `${thumbnailUrlHigh}`;
-            document.getElementById("videoThumbnailLink").href = `${videoUrl}`;
-            document.getElementById("dateDisplay").innerHTML = `${localDateTime}`;
-            document.getElementById("premiereLinkButton").href = `${videoUrl}`;
-            document.getElementById("liveLinkButton").href = `${videoUrl}`;
-            document.getElementById("completedLinkButton").href = `${videoUrl}`;
+            setCookie("completedTitle", title, 365);
+            setCookie("completedThumbnail", thumbnailUrlHigh, 365);
+            setCookie("completedUrl"), videoUrl, 365;
+            setCookie("completedDate", publishedAt, 365);
 
         console.log(videoId);
         console.log(title);
@@ -68,7 +61,6 @@ function currentLivestream() {
             const results = data.pageInfo.totalResults;
             if(results == 0){
                 console.log("Not currently live~");
-                lastestLivestream();
                 return;
             }
             const livestream = data.items[0];
@@ -82,13 +74,10 @@ function currentLivestream() {
             const dateTime = new Date(publishedAt);
             const localDateTime = dateTime.toLocaleString();
 
-            document.getElementById("titleDisplay").innerHTML = `${liveEmote}${title}`;
-            document.getElementById("videoThumbnail").src = `${thumbnailUrlHigh}`;
-            document.getElementById("videoThumbnailLink").href = `${videoUrl}`;
-            document.getElementById("dateDisplay").innerHTML = `${localDateTime}`;
-            document.getElementById("premiereLinkButton").href = `${videoUrl}`;
-            document.getElementById("liveLinkButton").href = `${videoUrl}`;
-            document.getElementById("completedLinkButton").href = `${videoUrl}`;
+            setCookie("liveTitle", title, 365);
+            setCookie("liveThumbnail", thumbnailUrlHigh, 365);
+            setCookie("liveUrl"), videoUrl, 365;
+            setCookie("liveDate", publishedAt, 365);
             
         console.log(videoId);
         console.log(title);
@@ -96,8 +85,8 @@ function currentLivestream() {
         })
         .catch(error => {
             console.error('Error fetching data:', error);
-        });
-    
+        }
+    );
 }
 function upcomingLivestream() {
     //eventType= completed, upcoming, or live
@@ -108,7 +97,6 @@ function upcomingLivestream() {
             const results = data.pageInfo.totalResults;
             if(results == 0){
                 console.log("No current premiere~");
-                currentLivestream();
                 return;
             }
             const livestream = data.items[0];
@@ -122,13 +110,10 @@ function upcomingLivestream() {
             const dateTime = new Date(publishedAt);
             const localDateTime = dateTime.toLocaleString();
 
-            document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${title}`;
-            document.getElementById("videoThumbnail").src = `${thumbnailUrlHigh}`;
-            document.getElementById("videoThumbnailLink").href = `${videoUrl}`;
-            document.getElementById("dateDisplay").innerHTML = `${localDateTime}`;
-            document.getElementById("premiereLinkButton").href = `${videoUrl}`;
-            document.getElementById("liveLinkButton").href = `${videoUrl}`;
-            document.getElementById("completedLinkButton").href = `${videoUrl}`;
+            setCookie("premiereTitle", title, 365);
+            setCookie("premiereThumbnail", thumbnailUrlHigh, 365);
+            setCookie("premiereUrl"), videoUrl, 365;
+            setCookie("premiereDate", publishedAt, 365);
             
         console.log(videoId);
         console.log(title);
@@ -136,8 +121,26 @@ function upcomingLivestream() {
         })
         .catch(error => {
             console.error('Error fetching data:', error);
-        });
-    
+        }
+    );
+}
+function updateDisplay(videoType) {
+    if(videoType == "premiere") {
+        document.getElementById("titleDisplay").innerHTML = `${premiereTitle}`;
+        document.getElementById("videoThumbnail").src = `${premiereThumbnail}`;
+        document.getElementById("videoThumbnailLink").href = `${premiereUrl}`;
+        document.getElementById("dateDisplay").innerHTML = `${premiereDate}`;
+    } else if (videoType == "live") {
+        document.getElementById("titleDisplay").innerHTML = `${liveTitle}`;
+        document.getElementById("videoThumbnail").src = `${liveThumbnail}`;
+        document.getElementById("videoThumbnailLink").href = `${liveUrl}`;
+        document.getElementById("dateDisplay").innerHTML = `${liveDate}`;
+    } else {
+        document.getElementById("titleDisplay").innerHTML = `${completedTitle}`;
+        document.getElementById("videoThumbnail").src = `${completedThumbnail}`;
+        document.getElementById("videoThumbnailLink").href = `${completedUrl}`;
+        document.getElementById("dateDisplay").innerHTML = `${completedDate}`;
+    }
 }
 function setCookie(name, value, days) {
     const expires = new Date();
@@ -154,4 +157,34 @@ function getCookie(name) {
     }
     return null;
 }
-
+function updateButtonDisplay() {
+    if(getCookie("premiereUrl") == null){
+        document.getElementById("premiereLinkButton").style.display = "none";
+    } else {
+        document.getElementById("premiereLinkButton").style.display = "";
+    }
+    if(getCookie("liveUrl") == null){
+        document.getElementById("liveLinkButton").style.display = "none";
+    } else {
+        document.getElementById("liveLinkButton").style.display = "";
+    }
+    if(getCookie("completedUrl") == null){
+        document.getElementById("completedLinkButton").style.display = "none";
+    } else {
+        document.getElementById("completedLinkButton").style.display = "";
+    }
+}
+function initialDisplay() {
+    if(getCookie(premiereUrl) != null){
+        updateDisplay("premiere");
+    } else if(getCookie(LiveUrl) != null){
+        updateDisplay("live");
+    } else if(getCookie(completedUrl) != null){
+        updateDisplay("completed");
+    } else {
+        upcomingLivestream();
+        currentLivestream();
+        latestLivestream();
+        initialDisplay();
+    }
+}
