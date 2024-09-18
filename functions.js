@@ -233,13 +233,18 @@ function updateButtonDisplay() {
     }
 }
 function initialDisplay() {
-    if(getCookie("premiereUrl") == null){
+    if(getCookie("premiereUrl") != null){
         updateDisplay("premiere");
+        return;
     }
-    if(getCookie("liveUrl") == null){
+    if(getCookie("liveUrl") != null){
         updateDisplay("live");
+        return;
     }
-    if(getCookie("completedUrl") == null){
+    if(getCookie("completedUrl") != null){
         updateDisplay("completed");
+        return;
     }
+    latestLivestream();
+    initialDisplay();
 }
