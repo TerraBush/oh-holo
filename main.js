@@ -27,7 +27,6 @@ const completedEmote = '🔘';
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the mumei icon
 
     var image = document.getElementById("clickableImage");
-
     /*function playRandomNoise() {
         const e = randomNumber(1,3);
         let t = e.toString();

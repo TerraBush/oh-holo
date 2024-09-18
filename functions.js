@@ -112,7 +112,7 @@ function upcomingLivestream() {
 
             setCookie("premiereTitle", title, 365);
             setCookie("premiereThumbnail", thumbnailUrlHigh, 365);
-            setCookie("premiereUrl"), videoUrl, 365;
+            setCookie("premiereUrl", videoUrl, 365);
             setCookie("premiereDate", publishedAt, 365);
             
         console.log(videoId);
