@@ -167,7 +167,7 @@ function updateDisplay(videoType) {
         document.getElementById("videoThumbnailLink").href = `${liveUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${liveDate}`;
     } else {
-        document.getElementById("titleDisplay").innerHTML = `${completedEmote}${completedTitle}`;
+        document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${premiereTitle}`;
         document.getElementById("videoThumbnail").src = `${completedThumbnail}`;
         document.getElementById("videoThumbnailLink").href = `${completedUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${completedDate}`;
@@ -186,7 +186,7 @@ function getCookie(name) {
             return decodeURIComponent(cookie.substring(name.length + 1));
         }
     }
-    return "none";
+    return "abcdefg";
 }
 function updateButtonDisplay() {
     if(getCookie("premiereUrl") == null){
