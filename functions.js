@@ -11,6 +11,7 @@ var liveUrl = getCookie("liveUrl");
 var liveDate = getCookie("liveDate");
 
 var completedTitle = getCookie("completedTitle");
+console.log(completedTitle);
 var completedThumbnail = getCookie("completedThumbnail");
 var completedUrl = getCookie("completedUrl");
 var completedDate = getCookie("completedDate");
