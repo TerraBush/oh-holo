@@ -4,17 +4,28 @@ var premiereTitle = getCookie("premiereTitle");
 var premiereThumbnail = getCookie("premiereThumbnail");
 var premiereUrl = getCookie("premiereUrl");
 var premiereDate = getCookie("premiereDate");
+console.log(premiereTitle);
+console.log(premiereThumbnail);
+console.log(premiereUrl);
+console.log(premiereDate);
 
 var liveTitle = getCookie("liveTitle");
 var liveThumbnail = getCookie("liveThumbnail");
 var liveUrl = getCookie("liveUrl");
 var liveDate = getCookie("liveDate");
+console.log(liveTitle);
+console.log(liveThumbnail);
+console.log(liveUrl);
+console.log(liveDate);
 
 var completedTitle = getCookie("completedTitle");
-console.log(completedTitle);
 var completedThumbnail = getCookie("completedThumbnail");
 var completedUrl = getCookie("completedUrl");
 var completedDate = getCookie("completedDate");
+console.log(completedTitle);
+console.log(completedThumbnail);
+console.log(completedUrl);
+console.log(completedDate);
 
 const premiereEmote = '🕔';
 const liveEmote = '🔴';
