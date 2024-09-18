@@ -1,4 +1,19 @@
+const apiKey = getCookie("apiKey");
 
+var premiereTitle = getCookie("premiereTitle");
+var premiereThumbnail = getCookie("premiereThumbnail");
+var premiereUrl = getCookie("premiereUrl");
+var premiereDate = getCookie("premiereDate");
+
+var liveTitle = getCookie("liveTitle");
+var livehumbnail = getCookie("liveThumbnail");
+var liveUrl = getCookie("liveUrl");
+var liveDate = getCookie("liveDate");
+
+var completedTitle = getCookie("completedTitle");
+var completedThumbnail = getCookie("completedThumbnail");
+var completedUrl = getCookie("completedUrl");
+var completedDate = getCookie("completedDate");
 
 function updateSubscriberCount() {
 
