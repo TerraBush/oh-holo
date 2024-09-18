@@ -59,6 +59,15 @@ function latestLivestream() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
+            const results = data.pageInfo.totalResults;
+            if(results == 0){
+                console.log("No completed strem~");
+                setCookie("completedTitle", null, 365);
+                setCookie("completedThumbnail", null, 365);
+                setCookie("completedUrl", null, 365);
+                setCookie("completedDate", null, 365);
+                return;
+            }
             const livestream = data.items[0];
             const videoId = livestream.id.videoId;
             const title = livestream.snippet.title;
@@ -92,6 +101,10 @@ function currentLivestream() {
             const results = data.pageInfo.totalResults;
             if(results == 0){
                 console.log("Not currently live~");
+                setCookie("liveTitle", null, 365);
+                setCookie("liveThumbnail", null, 365);
+                setCookie("liveUrl", null, 365);
+                setCookie("liveDate", null, 365);
                 return;
             }
             const livestream = data.items[0];
@@ -128,6 +141,10 @@ function upcomingLivestream() {
             const results = data.pageInfo.totalResults;
             if(results == 0){
                 console.log("No current premiere~");
+                setCookie("premiereTitle", null, 365);
+                setCookie("premiereThumbnail", null, 365);
+                setCookie("premiereUrl", null, 365);
+                setCookie("premiereDate", null, 365);
                 return;
             }
             const livestream = data.items[0];
