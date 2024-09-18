@@ -1,11 +1,6 @@
-const channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
-//const channelId = 'UCO_aKKYxn4tvrqPjcTzZ6EQ'; //fauna
-//const channelId = 'UCgmPnx-EEeOrZSg5Tiw7ZRQ'; //bae
-const premiereEmote = '🕔';
-const liveEmote = '🔴';
-const completedEmote = '🔘';
 
-function updateSubscriberCountMumei() {
+
+function updateSubscriberCount() {
 
     const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
 
@@ -27,8 +22,6 @@ function updateSubscriberCountMumei() {
             console.error('Error fetching data:', error);
         });
 }
-//setInterval(updateSubscriberCountMumei, 300000); // 300000 milliseconds = 300 seconds = 5 minutes
-
 function lastestLivestream() {
     //eventType= completed, upcoming, or live
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
@@ -146,3 +139,19 @@ function upcomingLivestream() {
         });
     
 }
+function setCookie(name, value, days) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (1000 * 60 * 60 * 24 * days));
+    document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + expires.toUTCString() + ";path=/";
+}
+function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if(cookie.startsWith(name + '=')) {
+            return decodeURIComponent(cookie.substring(name.length + 1));
+        }
+    }
+    return null;
+}
+

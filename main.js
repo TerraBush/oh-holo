@@ -1,4 +1,12 @@
 const apiKey = getCookie("apiKey");
+const channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
+//const channelId = 'UCO_aKKYxn4tvrqPjcTzZ6EQ'; //fauna
+//const channelId = 'UCgmPnx-EEeOrZSg5Tiw7ZRQ'; //bae
+const premiereEmote = '🕔';
+const liveEmote = '🔴';
+const completedEmote = '🔘';
+
+
 
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the mumei icon
 
@@ -25,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     //image.addEventListener("click", playNoise);
     image.addEventListener("click", () => {
         playNoise();
-        //updateSubscriberCountMumei();
+        //updateSubscriberCount();
         currentLivestream();
     });
 });
@@ -44,27 +52,10 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
 
         document.getElementById("apiKeyInputContainer").style.display = "none";
 
-        updateSubscriberCountMumei();
+        updateSubscriberCount();
     });
 });
 
-function setCookie(name, value, days) {
-    const expires = new Date();
-    expires.setTime(expires.getTime() + (1000 * 60 * 60 * 24 * days));
-    document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + expires.toUTCString() + ";path=/";
-}
-
-function getCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if(cookie.startsWith(name + '=')) {
-            return decodeURIComponent(cookie.substring(name.length + 1));
-        }
-    }
-    return null;
-}
-
 // Initial call to update subscriber count and livestream display
-updateSubscriberCountMumei();
+updateSubscriberCount();
 upcomingLivestream();
