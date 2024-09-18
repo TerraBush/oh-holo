@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for input key field & button
-    const apiKey = getCookie("apiKey");
+    //const apiKey = getCookie("apiKey");
     if(apiKey) { //if have api key, hide input field
         document.getElementById("apiKeyInputContainer").style.display = "none";
     }
