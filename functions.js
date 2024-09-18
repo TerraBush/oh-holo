@@ -175,7 +175,7 @@ function getCookie(name) {
             return decodeURIComponent(cookie.substring(name.length + 1));
         }
     }
-    return null;
+    return "none";
 }
 function updateButtonDisplay() {
     if(getCookie("premiereUrl") == null){
