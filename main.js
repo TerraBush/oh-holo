@@ -1,3 +1,5 @@
+const apiKey = getCookie("apiKey");
+
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the mumei icon
 
     var image = document.getElementById("clickableImage");
