@@ -89,4 +89,4 @@ document.addEventListener("DOMContentLoaded", function() { //completed button li
 
 // Initial call to update subscriber count and livestream display
 updateSubscriberCount();
-initialDisplay();
+updateDisplay("latest");

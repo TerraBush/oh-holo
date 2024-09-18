@@ -126,17 +126,17 @@ function upcomingLivestream() {
 }
 function updateDisplay(videoType) {
     if(videoType == "premiere") {
-        document.getElementById("titleDisplay").innerHTML = `${premiereTitle}`;
+        document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${premiereTitle}`;
         document.getElementById("videoThumbnail").src = `${premiereThumbnail}`;
         document.getElementById("videoThumbnailLink").href = `${premiereUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${premiereDate}`;
     } else if (videoType == "live") {
-        document.getElementById("titleDisplay").innerHTML = `${liveTitle}`;
+        document.getElementById("titleDisplay").innerHTML = `${liveEmote}${liveTitle}`;
         document.getElementById("videoThumbnail").src = `${liveThumbnail}`;
         document.getElementById("videoThumbnailLink").href = `${liveUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${liveDate}`;
     } else {
-        document.getElementById("titleDisplay").innerHTML = `${completedTitle}`;
+        document.getElementById("titleDisplay").innerHTML = `${completedEmote}${completedTitle}`;
         document.getElementById("videoThumbnail").src = `${completedThumbnail}`;
         document.getElementById("videoThumbnailLink").href = `${completedUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${completedDate}`;
@@ -172,28 +172,5 @@ function updateButtonDisplay() {
         document.getElementById("completedLinkButton").style.display = "none";
     } else {
         document.getElementById("completedLinkButton").style.display = "";
-    }
-}
-function initialDisplay() {
-    if(getCookie(premiereTitle) != null){
-        updateDisplay("premiere");
-    } else if(getCookie(liveTitle) != null){
-        updateDisplay("live");
-    } else if(getCookie(completedTitle) != null){
-        updateDisplay("completed");
-    } else {
-        latestLivestream();
-        initialDisplay2();
-    }
-}
-function initialDisplay2() {
-    if(getCookie(premiereTitle) != null){
-        updateDisplay("premiere");
-    } else if(getCookie(liveTitle) != null){
-        updateDisplay("live");
-    } else if(getCookie(completedTitle) != null){
-        updateDisplay("completed");
-    } else {
-        return;
     }
 }
