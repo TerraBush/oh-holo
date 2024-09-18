@@ -195,17 +195,23 @@ function getCookie(name) {
 function updateButtonDisplay() {
     if(getCookie("premiereUrl") == null){
         document.getElementById("premiereLinkButton").style.display = "none";
+        console.log("hid premiereButton");
     } else {
         document.getElementById("premiereLinkButton").style.display = "";
+        console.log("revealed premiereButton")
     }
     if(getCookie("liveUrl") == null){
         document.getElementById("liveLinkButton").style.display = "none";
+        console.log("hid liveButton");
     } else {
         document.getElementById("liveLinkButton").style.display = "";
+        console.log("revealed liveButton");
     }
     if(getCookie("completedUrl") == null){
         document.getElementById("completedLinkButton").style.display = "none";
+        console.log("hid completedButton");
     } else {
         document.getElementById("completedLinkButton").style.display = "";
+        console.log("revealed completedButton");
     }
 }
