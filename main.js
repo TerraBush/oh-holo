@@ -62,3 +62,7 @@ function getCookie(name) {
     }
     return null;
 }
+
+// Initial call to update subscriber count and livestream display
+updateSubscriberCountMumei();
+upcomingLivestream();

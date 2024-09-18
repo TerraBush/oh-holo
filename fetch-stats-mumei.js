@@ -28,9 +28,6 @@ function updateSubscriberCountMumei() {
             console.error('Error fetching data:', error);
         });
 }
-// Initial call to update subscriber count
-updateSubscriberCountMumei();
-// Set interval to update subscriber count every 60 seconds (adjust interval as needed)
 //setInterval(updateSubscriberCountMumei, 300000); // 300000 milliseconds = 300 seconds = 5 minutes
 
 function lastestLivestream() {
@@ -50,6 +47,10 @@ function lastestLivestream() {
             const dateTime = new Date(publishedAt);
             const localDateTime = dateTime.toLocaleString();
             
+
+
+
+
             document.getElementById("titleDisplay").innerHTML = `${completedEmote}${title}`;
             document.getElementById("videoThumbnail").src = `${thumbnailUrlHigh}`;
             document.getElementById("videoThumbnailLink").href = `${videoUrl}`;
@@ -58,20 +59,6 @@ function lastestLivestream() {
             document.getElementById("liveLinkButton").href = `${videoUrl}`;
             document.getElementById("completedLinkButton").href = `${videoUrl}`;
 
-/*            document.getElementById('livestreamDisplay').innerHTML = ` //old replacing info
-                <p class="top-left-text">${completedEmote}${title}</p>
-                <a href="${videoUrl}" target="_blank">
-                    <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
-                </a>
-                <div id="livestreamInfoDisplay">
-                    <p class="bottom-left-text">${localDateTime}</p>
-                    <div id="livestreamButtonDisplay">
-                        <a href="${videoUrl}" class="button" id="premiereLinkButton" target="_blank">🕔</a>
-                        <a href="${videoUrl}" class="button" id="liveLinkButton" target="_blank">🔴</a>
-                        <a href="${videoUrl}" class="button" id="completedLinkButton" target="_blank">🔘</a>
-                    </div>
-                </div>
-            `;*/
         console.log(videoId);
         console.log(title);
         console.log(videoUrl);
@@ -79,7 +66,6 @@ function lastestLivestream() {
         .catch(error => {
             console.error('Error fetching data:', error);
         });
-    
 }
 function currentLivestream() {
     //eventType= completed, upcoming, or live
@@ -104,21 +90,14 @@ function currentLivestream() {
             const dateTime = new Date(publishedAt);
             const localDateTime = dateTime.toLocaleString();
 
-            document.getElementById('livestreamDisplay').innerHTML = `
-                <p class="top-left-text">${liveEmote}${title}</p>
-                <a href="${videoUrl}" target="_blank">
-                    <img src="${thumbnailUrlHigh}" class="card-image" alt="Image">
-                </a>
-                <div id="livestreamInfoDisplay">
-                    <p class="bottom-left-text">${localDateTime}</p>
-                    <div id="livestreamButtonDisplay">
-                        <a href="${videoUrl}" class="button" id="premiereLinkButton" target="_blank">🕔</a>
-                        <a href="${videoUrl}" class="button" id="liveLinkButton" target="_blank">🔴</a>
-                        <a href="${videoUrl}" class="button" id="completedLinkButton" target="_blank">🔘</a>
-                    </div>
-                </div>
-            `;
-            //<a href="${videoUrl}" class="button" target="_blank">Watch</a>
+            document.getElementById("titleDisplay").innerHTML = `${liveEmote}${title}`;
+            document.getElementById("videoThumbnail").src = `${thumbnailUrlHigh}`;
+            document.getElementById("videoThumbnailLink").href = `${videoUrl}`;
+            document.getElementById("dateDisplay").innerHTML = `${localDateTime}`;
+            document.getElementById("premiereLinkButton").href = `${videoUrl}`;
+            document.getElementById("liveLinkButton").href = `${videoUrl}`;
+            document.getElementById("completedLinkButton").href = `${videoUrl}`;
+            
         console.log(videoId);
         console.log(title);
         console.log(videoUrl);
@@ -128,5 +107,43 @@ function currentLivestream() {
         });
     
 }
+function upcomingLivestream() {
+    //eventType= completed, upcoming, or live
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=upcoming&type=video&order=date&maxResults=1&key=${apiKey}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const results = data.pageInfo.totalResults;
+            if(results == 0){
+                console.log("No current premiere~");
+                currentLivestream();
+                return;
+            }
+            const livestream = data.items[0];
+            const videoId = livestream.id.videoId;
+            const title = livestream.snippet.title;
+            const publishedAt = livestream.snippet.publishedAt;
+            //const thumbnailUrlHigh = data.items[0].snippet.thumbnails.high.url;
+            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
-currentLivestream();
+            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+            const dateTime = new Date(publishedAt);
+            const localDateTime = dateTime.toLocaleString();
+
+            document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${title}`;
+            document.getElementById("videoThumbnail").src = `${thumbnailUrlHigh}`;
+            document.getElementById("videoThumbnailLink").href = `${videoUrl}`;
+            document.getElementById("dateDisplay").innerHTML = `${localDateTime}`;
+            document.getElementById("premiereLinkButton").href = `${videoUrl}`;
+            document.getElementById("liveLinkButton").href = `${videoUrl}`;
+            document.getElementById("completedLinkButton").href = `${videoUrl}`;
+            
+        console.log(videoId);
+        console.log(title);
+        console.log(videoUrl);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    
+}
