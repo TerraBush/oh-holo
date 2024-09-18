@@ -175,16 +175,25 @@ function updateButtonDisplay() {
     }
 }
 function initialDisplay() {
-    if(getCookie(premiereUrl) != null){
+    if(getCookie(premiereTitle) != null){
         updateDisplay("premiere");
-    } else if(getCookie(liveUrl) != null){
+    } else if(getCookie(liveTitle) != null){
         updateDisplay("live");
-    } else if(getCookie(completedUrl) != null){
+    } else if(getCookie(completedTitle) != null){
         updateDisplay("completed");
     } else {
-        upcomingLivestream();
-        currentLivestream();
         latestLivestream();
-        initialDisplay();
+        initialDisplay2();
+    }
+}
+function initialDisplay2() {
+    if(getCookie(premiereTitle) != null){
+        updateDisplay("premiere");
+    } else if(getCookie(liveTitle) != null){
+        updateDisplay("live");
+    } else if(getCookie(completedTitle) != null){
+        updateDisplay("completed");
+    } else {
+        return;
     }
 }
