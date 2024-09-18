@@ -166,11 +166,14 @@ function updateDisplay(videoType) {
         document.getElementById("videoThumbnail").src = `${liveThumbnail}`;
         document.getElementById("videoThumbnailLink").href = `${liveUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${liveDate}`;
-    } else {
+    } else if (videoType == "completed") {
         document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${premiereTitle}`;
         document.getElementById("videoThumbnail").src = `${completedThumbnail}`;
         document.getElementById("videoThumbnailLink").href = `${completedUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${completedDate}`;
+    } else {
+        console.log("updateDisplay has not recieved a proper arguement");
+        return;
     }
 }
 function setCookie(name, value, days) {
