@@ -218,7 +218,7 @@ function updateButtonDisplay() {
         console.log("revealed premiereButton")
     }
     if(getCookie("liveUrl") == null){
-        document.getElementById("liveLinkButton").style.display = "none";
+        document.getElementById("liveLinkButton").style.display = "none";;
         console.log("hid liveButton");
     } else {
         document.getElementById("liveLinkButton").style.display = "";
