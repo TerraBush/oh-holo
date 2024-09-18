@@ -232,3 +232,14 @@ function updateButtonDisplay() {
         console.log("revealed completedButton");
     }
 }
+function initialDisplay() {
+    if(getCookie("premiereUrl") == null){
+        updateDisplay("premiere");
+    }
+    if(getCookie("liveUrl") == null){
+        updateDisplay("live");
+    }
+    if(getCookie("completedUrl") == null){
+        updateDisplay("completed");
+    }
+}
