@@ -177,7 +177,7 @@ function updateButtonDisplay() {
 function initialDisplay() {
     if(getCookie(premiereUrl) != null){
         updateDisplay("premiere");
-    } else if(getCookie(LiveUrl) != null){
+    } else if(getCookie(liveUrl) != null){
         updateDisplay("live");
     } else if(getCookie(completedUrl) != null){
         updateDisplay("completed");
