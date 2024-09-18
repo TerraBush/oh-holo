@@ -138,9 +138,9 @@ function updateDisplay(videoType) {
         document.getElementById("videoThumbnailLink").href = `${liveUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${liveDate}`;
     } else {
-        document.getElementById("titleDisplay").innerHTML = `${completedEmote}${completedTitle}`;
         console.log(completedEmote);
         console.log(completedTitle);
+        document.getElementById("titleDisplay").innerHTML = `${completedEmote}${completedTitle}`;
         document.getElementById("videoThumbnail").src = `${completedThumbnail}`;
         document.getElementById("videoThumbnailLink").href = `${completedUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${completedDate}`;
