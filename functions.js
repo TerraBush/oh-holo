@@ -206,7 +206,7 @@ function getCookie(name) {
             return decodeURIComponent(cookie.substring(name.length + 1));
         }
     }
-    setCookie(name, null, 365);
+    //setCookie(name, "null", 365);
     return null;
 }
 function updateButtonDisplay() {
