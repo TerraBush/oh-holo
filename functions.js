@@ -236,20 +236,20 @@ function updateButtonDisplay() {
 }
 function initialDisplay() {
     if(getCookie("premiereUrl") != "null"){
-        updateDisplay("premiere");
         console.log("attempted to initial display premiereing livestream");
+        updateDisplay("premiere");
         return;
     }
     console.log("no premiereUrl");
     if(getCookie("liveUrl") != "null"){
-        updateDisplay("live");
         console.log("attempted to initial display live livestream");
+        updateDisplay("live");
         return;
     }
     console.log("no liveUrl");
     if(getCookie("completedUrl") != "null"){
-        updateDisplay("completed");
         console.log("attempted to initial display completed livestream");
+        updateDisplay("completed");
         return;
     }
     console.log("no completedUrl");
