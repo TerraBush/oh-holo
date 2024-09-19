@@ -206,7 +206,6 @@ function getCookie(name) {
             return decodeURIComponent(cookie.substring(name.length + 1));
         }
     }
-    //setCookie(name, "null", 365);
     return null;
 }
 function updateButtonDisplay() {
@@ -238,15 +237,18 @@ function initialDisplay() {
         console.log("attempted to initial display premiereing livestream");
         return;
     }
+    console.log("no premiereUrl");
     if(getCookie("liveUrl") != "null"){
         updateDisplay("live");
         console.log("attempted to initial display live livestream");
         return;
     }
+    console.log("no liveUrl");
     if(getCookie("completedUrl") != "null"){
         updateDisplay("completed");
         console.log("attempted to initial display completed livestream");
         return;
     }
+    console.log("no completedUrl");
     console.log("unable to find data");
 }
