@@ -233,25 +233,6 @@ function updateButtonDisplay() {
     }
 }
 function initialDisplay(attempt) {
-    if(attempt == 2){
-        if(getCookie("premiereUrl") != "null"){
-            updateDisplay("premiere");
-            console.log("attempted to initial display premiereing livestream");
-            return;
-        }
-        if(getCookie("liveUrl") != "null"){
-            updateDisplay("live");
-            console.log("attempted to initial display live livestream");
-            return;
-        }
-        if(getCookie("completedUrl") != "null"){
-            updateDisplay("completed");
-            console.log("attempted to initial display completed livestream");
-            return;
-        }
-    } else if(attempt > 2){
-        return;
-    }
     if(getCookie("premiereUrl") != "null"){
         updateDisplay("premiere");
         console.log("attempted to initial display premiereing livestream");
@@ -267,7 +248,5 @@ function initialDisplay(attempt) {
         console.log("attempted to initial display completed livestream");
         return;
     }
-    latestLivestream();
-    console.log("called api to retrieve initial data");
-    initialDisplay(2);
+    console.log("unable to find data");
 }
