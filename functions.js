@@ -173,6 +173,7 @@ function upcomingLivestream() {
     );
 }
 function updateDisplay(videoType) {
+    defineLivestreamCookies();
     if(videoType == "premiere") {
         document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${premiereTitle}`;
         document.getElementById("videoThumbnail").src = `${premiereThumbnail}`;
@@ -254,4 +255,18 @@ function initialDisplay() {
     }
     console.log("no completedUrl");
     console.log("unable to find data");
+}
+function defineLivestreamCookies(){
+    premiereTitle = getCookie("premiereTitle");
+    premiereThumbnail = getCookie("premiereThumbnail");
+    premiereUrl = getCookie("premiereUrl");
+    premiereDate = getCookie("premiereDate");
+    liveTitle = getCookie("liveTitle");
+    liveThumbnail = getCookie("liveThumbnail");
+    liveUrl = getCookie("liveUrl");
+    liveDate = getCookie("liveDate");
+    completedTitle = getCookie("completedTitle");
+    completedThumbnail = getCookie("completedThumbnail");
+    completedUrl = getCookie("completedUrl");
+    completedDate = getCookie("completedDate");
 }
