@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         updateButtonDisplay();
     });
 });
-document.addEventListener("DOMContentLoaded", function() { //event listener for input key field & button
+document.addEventListener("DOMContentLoaded", function() { //event listener for input api key field & button
     //const apiKey = getCookie("apiKey");
     if(apiKey) { //if have api key, hide input field
         document.getElementById("apiKeyInputContainer").style.display = "none";
@@ -49,25 +49,23 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
 document.addEventListener("DOMContentLoaded", function() { //premiere button listener
     document.getElementById("premiereLinkButton").addEventListener("click", function() {
         updateDisplay("premiere");
-        console.log("switch to premiere thumbnail and link!");
+        console.log("attempt switch to premiere thumbnail and link!");
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //live button listener
     document.getElementById("liveLinkButton").addEventListener("click", function() {
         updateDisplay("live");
-        console.log("switch to live thumbnail and link!");
+        console.log("attempt switch to live thumbnail and link!");
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //completed button listener
     document.getElementById("completedLinkButton").addEventListener("click", function() {
         updateDisplay("completed");
-        console.log("switch to completed thumbnail and link!");
+        console.log("attempt switch to completed thumbnail and link!");
     });
 });
 
-
 // Initial call to update subscriber count and livestream display
 updateSubscriberCount();
-updateButtonDisplay();
+updateButtonDisplay;
 initialDisplay();
-

@@ -178,16 +178,19 @@ function updateDisplay(videoType) {
         document.getElementById("videoThumbnail").src = `${premiereThumbnail}`;
         document.getElementById("videoThumbnailLink").href = `${premiereUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${premiereDate}`;
+        console.log("switched to premiere data!");
     } else if (videoType == "live") {
         document.getElementById("titleDisplay").innerHTML = `${liveEmote}${liveTitle}`;
         document.getElementById("videoThumbnail").src = `${liveThumbnail}`;
         document.getElementById("videoThumbnailLink").href = `${liveUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${liveDate}`;
+        console.log("switched to live data!");
     } else if (videoType == "completed") {
         document.getElementById("titleDisplay").innerHTML = `${completedEmote}${completedTitle}`;
         document.getElementById("videoThumbnail").src = `${completedThumbnail}`;
         document.getElementById("videoThumbnailLink").href = `${completedUrl}`;
         document.getElementById("dateDisplay").innerHTML = `${completedDate}`;
+        console.log("switched to completed data!");
     } else {
         console.log("updateDisplay has not recieved a proper arguement");
         return;
