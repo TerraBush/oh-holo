@@ -232,7 +232,7 @@ function updateButtonDisplay() {
         console.log("revealed completedButton");
     }
 }
-function initialDisplay(attempt) {
+function initialDisplay() {
     if(getCookie("premiereUrl") != "null"){
         updateDisplay("premiere");
         console.log("attempted to initial display premiereing livestream");
