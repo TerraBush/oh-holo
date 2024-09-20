@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         currentLivestream();
         latestLivestream();
         updateButtonDisplay();
+        updateDisplay();
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for input api key field & button
