@@ -192,12 +192,15 @@ p.bottom-left-text {
     appearance: none;
     font-size: 8rem;
     font-weight: 400;
-    margin: -10px;
+    margin: -1rem;
 } 
 .select option {
     font-size: 4rem;
     text-align: center;
     background: var(--mumei-background-color);
+    -webkit-appearance: none;
+    appearance: none;
+
 }
 select:focus{
     outline:none;
