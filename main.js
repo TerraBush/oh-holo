@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         upcomingLivestream();
         currentLivestream();
         latestLivestream();
-        updateButtonDisplay();
         initialDisplay();
+        updateButtonDisplay();
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for input api key field & button
