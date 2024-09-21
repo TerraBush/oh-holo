@@ -190,6 +190,7 @@ p.bottom-left-text {
     border: none;
     -webkit-appearance: none;
     appearance: none;
+    text-align: center;
     font-size: 8rem;
     font-weight: 400;
     margin: -1rem;
