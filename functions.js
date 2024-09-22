@@ -125,12 +125,12 @@ function latestLivestreamPromise() {
             console.log(videoId);
             console.log(title);
             console.log(videoUrl);
+            resolve();
             })
         .catch(error => {
             console.error('Error fetching latest livestream data:', error);
         });
         console.log("ran latestLivestreamPromise");
-        resolve();
     });
 }
 function currentLivestream() {
@@ -206,12 +206,12 @@ function currentLivestreamPromise() {
             console.log(videoId);
             console.log(title);
             console.log(videoUrl);
+            resolve();
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
             console.log("ran currentLivestreamPromise");
-        resolve();
     });
 }
 function upcomingLivestream() {
@@ -288,12 +288,12 @@ function upcomingLivestreamPromise() {
             console.log(videoId);
             console.log(title);
             console.log(videoUrl);
+            resolve();
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
             console.log("ran upcomingLivestreamPromise");
-        resolve();
     });
 }
 function updateDisplay(videoType) {
