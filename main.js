@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         setTimeout(() => {
             initialDisplay();
             updateButtonDisplay();
-        }, 150);
+        }, 200);
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for input api key field & button
