@@ -129,6 +129,7 @@ function latestLivestreamPromise() {
         .catch(error => {
             console.error('Error fetching latest livestream data:', error);
         });
+        console.log("ran latestLivestreamPromise");
         resolve();
     });
 }
@@ -209,6 +210,7 @@ function currentLivestreamPromise() {
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
+            console.log("ran currentLivestreamPromise");
         resolve();
     });
 }
@@ -290,6 +292,7 @@ function upcomingLivestreamPromise() {
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
+            console.log("ran upcomingLivestreamPromise");
         resolve();
     });
 }
@@ -394,8 +397,10 @@ function defineLivestreamCookies() {
 function updateAllDisplays() {
     initialDisplay();
     updateButtonDisplay();
+    console.log("ran updateAllDisplays");
 }
 function updateStreamPromise(){
+    console.log("run updateStreamPromise");
     return new Promise((resolve) => {
         Promise.all([
             upcomingLivestreamPromise(),
@@ -407,6 +412,7 @@ function updateStreamPromise(){
 function updateAll() {
     updateStreamPromise().then(updateAllDisplays).catch(error => {
         console.error("Error updating:", error);
+    console.log("updated all");
     });
 }
 
