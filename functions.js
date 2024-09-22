@@ -401,13 +401,11 @@ function updateAllDisplays() {
 }
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
-    return new Promise((resolve) => {
-        Promise.all([
-            upcomingLivestreamPromise(),
-            currentLivestreamPromise(),
-            latestLivestreamPromise()
-        ])
-    });
+    return Promise.all([
+        upcomingLivestreamPromise(),
+        currentLivestreamPromise(),
+        latestLivestreamPromise()
+    ]);
 }
 function updateAll() {
     updateStreamPromise().then(updateAllDisplays).catch(error => {
