@@ -93,7 +93,7 @@ function latestLivestream() {
         });
 }
 function latestLivestreamPromise() {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
         fetch(url)
             .then(response => response.json())
@@ -105,6 +105,7 @@ function latestLivestreamPromise() {
                     setCookie("completedThumbnail", null, 365);
                     setCookie("completedUrl", null, 365);
                     setCookie("completedDate", null, 365);
+                    resolve();
                     return;
                 }
                 const livestream = data.items[0];
@@ -125,12 +126,13 @@ function latestLivestreamPromise() {
             console.log(videoId);
             console.log(title);
             console.log(videoUrl);
+            console.log("ran latestLivestreamPromise");
             resolve();
             })
         .catch(error => {
             console.error('Error fetching latest livestream data:', error);
+            reject(error);
         });
-        console.log("ran latestLivestreamPromise");
     });
 }
 function currentLivestream() {
@@ -173,7 +175,7 @@ function currentLivestream() {
         });
 }
 function currentLivestreamPromise() {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&order=date&maxResults=1&key=${apiKey}`;
         fetch(url)
             .then(response => response.json())
@@ -185,6 +187,7 @@ function currentLivestreamPromise() {
                     setCookie("liveThumbnail", null, 365);
                     setCookie("liveUrl", null, 365);
                     setCookie("liveDate", null, 365);
+                    resolve();
                     return;
                 }
                 const livestream = data.items[0];
@@ -206,12 +209,13 @@ function currentLivestreamPromise() {
             console.log(videoId);
             console.log(title);
             console.log(videoUrl);
+            console.log("ran currentLivestreamPromise");
             resolve();
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
+                reject(error);
             });
-            console.log("ran currentLivestreamPromise");
     });
 }
 function upcomingLivestream() {
@@ -255,7 +259,7 @@ function upcomingLivestream() {
     );
 }
 function upcomingLivestreamPromise() {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=upcoming&type=video&order=date&maxResults=1&key=${apiKey}`;
         fetch(url)
             .then(response => response.json())
@@ -267,6 +271,7 @@ function upcomingLivestreamPromise() {
                     setCookie("premiereThumbnail", null, 365);
                     setCookie("premiereUrl", null, 365);
                     setCookie("premiereDate", null, 365);
+                    resolve();
                     return;
                 }
                 const livestream = data.items[0];
@@ -288,12 +293,13 @@ function upcomingLivestreamPromise() {
             console.log(videoId);
             console.log(title);
             console.log(videoUrl);
+            console.log("ran upcomingLivestreamPromise");
             resolve();
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
+                reject(error);
             });
-            console.log("ran upcomingLivestreamPromise");
     });
 }
 function updateDisplay(videoType) {
@@ -412,9 +418,11 @@ function updateStreamPromise(){
     ]);
 }
 function updateAll() {
-    updateStreamPromise().then(updateAllDisplays).catch(error => {
-        console.error("Error updating:", error);
-    });
+    updateStreamPromise()
+        .then(updateAllDisplays)
+        .catch(error => {
+            console.error("Error updating:", error);
+        });
     console.log("updated all");
 }
 
