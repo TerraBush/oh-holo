@@ -395,8 +395,12 @@ function defineLivestreamCookies() {
     completedDate = getCookie("completedDate");
 }
 function updateAllDisplays() {
+    console.log("updateAllDisplays will run initialDisplay");
     initialDisplay();
+    console.log("updateAllDisplays ran initialDisplay");
+    console.log("updateAllDisplays will run updateButtonDisplay");
     updateButtonDisplay();
+    console.log("updateAllDisplays ran updateButtonDisplay");
     console.log("ran updateAllDisplays");
 }
 function updateStreamPromise(){
@@ -410,7 +414,7 @@ function updateStreamPromise(){
 function updateAll() {
     updateStreamPromise().then(updateAllDisplays).catch(error => {
         console.error("Error updating:", error);
-    console.log("updated all");
     });
+    console.log("updated all");
 }
 
