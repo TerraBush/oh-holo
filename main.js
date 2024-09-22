@@ -25,13 +25,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     image.addEventListener("click", () => {
         playNoise();
         //updateSubscriberCount();
-        upcomingLivestream();
-        currentLivestream();
-        latestLivestream();
-        setTimeout(() => {
-            initialDisplay();
-            updateButtonDisplay();
-        }, 200);
+        updateAll();
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for input api key field & button

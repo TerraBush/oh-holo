@@ -92,6 +92,46 @@ function latestLivestream() {
             console.error('Error fetching data:', error);
         });
 }
+function latestLivestreamPromise() {
+    return new Promise((resolve) => {
+        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const results = data.pageInfo.totalResults;
+                if(results == 0){
+                    console.log("No completed strem~");
+                    setCookie("completedTitle", null, 365);
+                    setCookie("completedThumbnail", null, 365);
+                    setCookie("completedUrl", null, 365);
+                    setCookie("completedDate", null, 365);
+                    return;
+                }
+                const livestream = data.items[0];
+                const videoId = livestream.id.videoId;
+                const title = livestream.snippet.title;
+                const publishedAt = livestream.snippet.publishedAt;
+                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+
+                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+                const dateTime = new Date(publishedAt);
+                const localDateTime = dateTime.toLocaleString();
+            
+                setCookie("completedTitle", title, 365);
+                setCookie("completedThumbnail", thumbnailUrlHigh, 365);
+                setCookie("completedUrl", videoUrl, 365);
+                setCookie("completedDate", localDateTime, 365);
+
+            console.log(videoId);
+            console.log(title);
+            console.log(videoUrl);
+            })
+        .catch(error => {
+            console.error('Error fetching latest livestream data:', error);
+        });
+        resolve();
+    });
+}
 function currentLivestream() {
     //eventType= completed, upcoming, or live
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&order=date&maxResults=1&key=${apiKey}`;
@@ -129,8 +169,48 @@ function currentLivestream() {
         })
         .catch(error => {
             console.error('Error fetching data:', error);
-        }
-    );
+        });
+}
+function currentLivestreamPromise() {
+    return new Promise((resolve) => {
+        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&order=date&maxResults=1&key=${apiKey}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const results = data.pageInfo.totalResults;
+                if(results == 0){
+                    console.log("Not currently live~");
+                    setCookie("liveTitle", null, 365);
+                    setCookie("liveThumbnail", null, 365);
+                    setCookie("liveUrl", null, 365);
+                    setCookie("liveDate", null, 365);
+                    return;
+                }
+                const livestream = data.items[0];
+                const videoId = livestream.id.videoId;
+                const title = livestream.snippet.title;
+                const publishedAt = livestream.snippet.publishedAt;
+            
+                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+
+                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+                const dateTime = new Date(publishedAt);
+                const localDateTime = dateTime.toLocaleString();
+
+                setCookie("liveTitle", title, 365);
+                setCookie("liveThumbnail", thumbnailUrlHigh, 365);
+                setCookie("liveUrl", videoUrl, 365);
+                setCookie("liveDate", localDateTime, 365);
+            
+            console.log(videoId);
+            console.log(title);
+            console.log(videoUrl);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        resolve();
+    });
 }
 function upcomingLivestream() {
     //eventType= completed, upcoming, or live
@@ -171,6 +251,47 @@ function upcomingLivestream() {
             console.error('Error fetching data:', error);
         }
     );
+}
+function upcomingLivestreamPromise() {
+    return new Promise((resolve) => {
+        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=upcoming&type=video&order=date&maxResults=1&key=${apiKey}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const results = data.pageInfo.totalResults;
+                if(results == 0){
+                    console.log("No current premiere~");
+                    setCookie("premiereTitle", null, 365);
+                    setCookie("premiereThumbnail", null, 365);
+                    setCookie("premiereUrl", null, 365);
+                    setCookie("premiereDate", null, 365);
+                    return;
+                }
+                const livestream = data.items[0];
+                const videoId = livestream.id.videoId;
+                const title = livestream.snippet.title;
+                const publishedAt = livestream.snippet.publishedAt;
+
+                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+
+                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+                const dateTime = new Date(publishedAt);
+                const localDateTime = dateTime.toLocaleString();
+
+                setCookie("premiereTitle", title, 365);
+                setCookie("premiereThumbnail", thumbnailUrlHigh, 365);
+                setCookie("premiereUrl", videoUrl, 365);
+                setCookie("premiereDate", localDateTime, 365);
+            
+            console.log(videoId);
+            console.log(title);
+            console.log(videoUrl);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        resolve();
+    });
 }
 function updateDisplay(videoType) {
     defineLivestreamCookies();
@@ -256,7 +377,7 @@ function initialDisplay() {
     console.log("no completedUrl");
     console.log("unable to find data");
 }
-function defineLivestreamCookies(){
+function defineLivestreamCookies() {
     premiereTitle = getCookie("premiereTitle");
     premiereThumbnail = getCookie("premiereThumbnail");
     premiereUrl = getCookie("premiereUrl");
@@ -270,3 +391,22 @@ function defineLivestreamCookies(){
     completedUrl = getCookie("completedUrl");
     completedDate = getCookie("completedDate");
 }
+function updateAllDisplays() {
+    initialDisplay();
+    updateButtonDisplay();
+}
+function updateStreamPromise(){
+    return new Promise((resolve) => {
+        Promise.all([
+            upcomingLivestreamPromise(),
+            currentLivestreamPromise(),
+            latestLivestreamPromise()
+        ])
+    });
+}
+function updateAll() {
+    updateStreamPromise().then(updateAllDisplays).catch(error => {
+        console.error("Error updating:", error);
+    });
+}
+
