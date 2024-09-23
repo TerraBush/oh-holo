@@ -78,7 +78,7 @@ h1 a:hover {
     text-decoration: underline;
 }
 .card {
-    border: 3px solid var(--border-color);
+    border: 0px solid var(--border-color);
     border-radius: 0.8rem;
     padding: 2rem;
     padding-left: calc(2rem + 25px);
