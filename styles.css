@@ -1,4 +1,6 @@
 @import"https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap";
+@import"https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap";
+
 *,*:before,*:after {
     box-sizing: border-box;
     margin: 0;
@@ -6,16 +8,18 @@
 }
 :root,
     :root.mumei {
-    --background-color: rgb(145, 108, 100);
-    --card-color: rgb(200, 160, 110);
-    --text-color-dark: rgb(92, 42, 36);
-    --text-color-light: rgb(255, 215, 170);
+        --background-color: rgb(145, 108, 100);
+        --card-color: rgb(200, 160, 110);
+        --text-color-dark: rgb(92, 42, 36);
+        --text-color-light: rgb(255, 215, 170);
+        --font-family: Patrick Hand;
     }
     :root.bae {
-        --background-color: rgb(224, 115, 90);
-        --card-color: rgb(255, 223, 223);
-        --text-color-dark: rgb(92, 42, 36);
-        --text-color-light: rgb(214, 160, 143);
+        --background-color: rgb(99 93 90);
+        --card-color: rgb(245 245 245);
+        --text-color-dark: rgb(37, 28, 26);
+        --text-color-light: rgb(202 29 19);
+        --font-family: Shadows Into Light Two;
         }
 .image-container {
     display: flex;
@@ -51,8 +55,8 @@
     filter: grayscale(0%); /* Remove grayscale filter on hover */
 }
 header {
+    font-family: var(--font-family);
     color: var(--text-color-light);
-    font-family: Patrick Hand,Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
     text-rendering: optimizeLegibility;
 }
 body {
@@ -60,8 +64,8 @@ body {
     background-color: var(--background-color);
     color: var(--text-color-light);
     text-align: center;
-    font-family: Patrick Hand,Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
     text-rendering: optimizeLegibility;
+    font-family: var(--font-family);
 }
 h1 a {
     color: inherit; /* Use the color of the parent element */
@@ -130,13 +134,13 @@ h1 a:hover {
 #apiKeySubmitButton {
     background: var(--text-color-dark);
     color: var(--text-color-light);
-    font-family: Patrick Hand,Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-family: var(--font-family);
     font-size: 1.5rem;
     border-radius: 1rem;
     padding: 5px 10px;
 }
 #apiKeyInputBox {
-    font-family: Patrick Hand,Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-family: var(--font-family);
     font-size: 1.5rem;
     margin: .5rem;
     border-radius: .4rem;
@@ -190,7 +194,7 @@ p.bottom-left-text {
     border-color: var(--text-color-dark);
 }
 .select {
-    font-family: Patrick Hand,Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-family: var(--font-family);
     color: var(--text-color-light);
     background-color: transparent;
     padding: 5px;
