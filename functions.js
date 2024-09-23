@@ -31,6 +31,8 @@ const premiereEmote = '🕔';
 const liveEmote = '🔴';
 const completedEmote = '🔘';
 
+const setTheme = theme => document.documentElement.className = theme;
+
 function updateSubscriberCount() {
 
     const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;

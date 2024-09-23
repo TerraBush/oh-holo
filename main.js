@@ -61,6 +61,9 @@ document.addEventListener("DOMContentLoaded", function() { //completed button li
         console.log("attempt switch to completed thumbnail and link!");
     });
 });
+document.getElementById('channelSelector').addEventListener('change', function() {
+    setTheme(this.value);
+});
 
 // Initial call to update subscriber count and livestream display
 updateSubscriberCount();
