@@ -202,6 +202,7 @@ p.bottom-left-text {
     -webkit-appearance: none;
     appearance: none;
     text-align: center;
+    text-align-last: center;
     font-size: 8rem;
     font-weight: 400;
     margin: -1rem;
