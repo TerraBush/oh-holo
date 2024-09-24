@@ -492,14 +492,10 @@ function defineChannelStatCookies() {
     viewCount = getCookie("viewCount");
 }
 function updateAllDisplays() {
-    //console.log("updateAllDisplays will run initialDisplay");
     initialDisplay();
-    //console.log("updateAllDisplays ran initialDisplay");
-    //console.log("updateAllDisplays will run updateButtonDisplay");
     updateButtonDisplay();
-    //console.log("updateAllDisplays ran updateButtonDisplay");
-    //console.log("ran updateAllDisplays");
     updateSubscriberDisplay();
+    console.log("updateAllDisplays ran updateSubscriberDisplay");
 }
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
