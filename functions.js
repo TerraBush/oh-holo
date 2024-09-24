@@ -1,4 +1,6 @@
 const apiKey = getCookie("apiKey");
+const channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
+var currentChannel = "Mumei";
 
 var premiereTitle = getCookie("premiereTitle");
 var premiereThumbnail = getCookie("premiereThumbnail");

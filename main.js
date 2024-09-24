@@ -1,6 +1,3 @@
-const channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
-var currentChannel = "Mumei";
-
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the mumei icon
 
     var image = document.getElementById("clickableImage");
@@ -65,6 +62,7 @@ document.getElementById('channelSelector').addEventListener('change', function()
     document.getElementById("altClickableImage").src = findChannelAltImg(this.value);
     document.getElementById("channelLink").href = findChannelLink(this.value);
     currentChannel = this.value;
+    channelId = findChannelId(this.value);
 });
 
 // Initial call to update subscriber count and livestream display
