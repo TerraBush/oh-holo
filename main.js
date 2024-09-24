@@ -1,21 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the mumei icon
 
     var image = document.getElementById("clickableImage");
-    /*function playRandomNoise() {
-        const e = randomNumber(1,3);
-        let t = e.toString();
-        const r = new Audio(`sounds/hi-${t}.mp3`);
-        r.volume = .7;
-        r.play();
-    }*/
-    function playNoise() {
-        const r = new Audio(`sounds/hi-1.mp3`);
-        r.volume = .7;
-        r.play();
-    }
-    function randomNumber(x, y){
-        return Math.floor(Math.random()*y) + x;
-    }
+
     //image.addEventListener("click", playNoise);
     image.addEventListener("click", () => {
         playNoise();
@@ -66,6 +52,4 @@ document.getElementById('channelSelector').addEventListener('change', function()
 });
 
 // Initial call to update subscriber count and livestream display
-updateSubscriberCount();
-updateButtonDisplay();
 initialDisplay();

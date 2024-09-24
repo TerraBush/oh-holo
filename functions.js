@@ -29,6 +29,9 @@ console.log(completedThumbnail);
 console.log(completedUrl);
 console.log(completedDate);
 
+var subscriberCount = getCookie("subscriberCount");
+var viewCount = getCookie("viewCount");
+
 const premiereEmote = '🕔';
 const liveEmote = '🔴';
 const completedEmote = '🔘';
@@ -38,6 +41,7 @@ const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "
 const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\mumeiload.png"];
 const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg"]
 const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz"];
+const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\hi-2.mp3", "sounds\\hi-3.mp3"];
 
 const setTheme = theme => document.documentElement.className = theme;
 
@@ -61,10 +65,23 @@ function findChannelLink(channelName){
     //console.log(x);
     return x;
 }
+function findChannelSound(channelName){
+    const x = channelSoundList[channelNameList.indexOf(channelName)];
+    //console.log(x);
+    return x;
+}
+function playNoise() {
+    //const r = new Audio(`sounds/hi-1.mp3`);
+    const r = new Audio(findChannelSound(currentChannel));
+    r.volume = .6;
+    r.play();
+}
+function randomNumber(x, y){
+    return Math.floor(Math.random()*y) + x;
+}
 function updateSubscriberCount() {
 
     const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
-
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -76,12 +93,51 @@ function updateSubscriberCount() {
             }
             let viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString();
 
-            document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
-            document.getElementById('viewCount').textContent = `${viewCount}`;
+            setCookie("subscriberCount", subscriberCount, 365);
+            setCookie("viewCount", viewCount, 365);
+
+            //document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
+            //document.getElementById('viewCount').textContent = `${viewCount}`;
         })
         .catch(error => {
             console.error('Error fetching data:', error);
         });
+}
+function updateSubscriberCountPromise() {
+    return new Promise((resolve, reject) => {
+        const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const results = data.pageInfo.totalResults;
+                    if(results == 0){
+                        console.log("No channel data");
+                        setCookie("subscriberCount", null, 365);
+                        setCookie("viewCount", null, 365);
+                        resolve();
+                        return;
+                    }
+                let subscriberCount = parseInt(data.items[0].statistics.subscriberCount);
+                if (subscriberCount >= 1000000) {
+                    subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
+                }else{
+                    subscriberCount = subscriberCount.toLocaleString();
+                }
+                let viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString();
+
+                setCookie("subscriberCount", subscriberCount, 365);
+                setCookie("viewCount", viewCount, 365);
+                resolve();
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                reject();
+            });
+    });
+}
+function updateSubscriberDisplay() {
+    document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
+    document.getElementById('viewCount').textContent = `${viewCount}`;
 }
 function latestLivestream() {
     //eventType= completed, upcoming, or live
@@ -159,10 +215,10 @@ function latestLivestreamPromise() {
             console.log("ran latestLivestreamPromise");
             resolve();
             })
-        .catch(error => {
-            console.error('Error fetching latest livestream data:', error);
-            reject(error);
-        });
+            .catch(error => {
+                console.error('Error fetching latest livestream data:', error);
+                reject(error);
+            });
     });
 }
 function currentLivestream() {
@@ -430,21 +486,27 @@ function defineLivestreamCookies() {
     completedUrl = getCookie("completedUrl");
     completedDate = getCookie("completedDate");
 }
+function defineChannelStatCookies() {
+    subscriberCount = getCookie("subscriberCount");
+    viewCount = getCookie("viewCount");
+}
 function updateAllDisplays() {
-    console.log("updateAllDisplays will run initialDisplay");
+    //console.log("updateAllDisplays will run initialDisplay");
     initialDisplay();
-    console.log("updateAllDisplays ran initialDisplay");
-    console.log("updateAllDisplays will run updateButtonDisplay");
+    //console.log("updateAllDisplays ran initialDisplay");
+    //console.log("updateAllDisplays will run updateButtonDisplay");
     updateButtonDisplay();
-    console.log("updateAllDisplays ran updateButtonDisplay");
-    console.log("ran updateAllDisplays");
+    //console.log("updateAllDisplays ran updateButtonDisplay");
+    //console.log("ran updateAllDisplays");
+    updateSubscriberDisplay();
 }
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
     return Promise.all([
         upcomingLivestreamPromise(),
         currentLivestreamPromise(),
-        latestLivestreamPromise()
+        latestLivestreamPromise(),
+        updateSubscriberCountPromise()
     ]);
 }
 function updateAll() {
