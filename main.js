@@ -61,6 +61,8 @@ document.addEventListener("DOMContentLoaded", function() { //completed button li
 document.getElementById('channelSelector').addEventListener('change', function() {
     setTheme(this.value);
     document.getElementById("clickableImage").src = findChannelImg(this.value);
+    document.getElementById("altClickableImage").src = findChannelAltImg(this.value);
+    document.getElementById("channelLink").href = findChannelLink(this.value);
 });
 
 // Initial call to update subscriber count and livestream display

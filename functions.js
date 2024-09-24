@@ -34,6 +34,8 @@ const completedEmote = '🔘';
 const channelNameList = ["Mumei", "Fauna", "Bae"];
 const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ"];
 const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\mumeiload.png"];
+const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg"]
+const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz"];
 
 const setTheme = theme => document.documentElement.className = theme;
 
@@ -44,6 +46,16 @@ function findChannelId(channelName){
 }
 function findChannelImg(channelName){
     const x = channelImgList[channelNameList.indexOf(channelName)];
+    console.log(x);
+    return x;
+}
+function findChannelAltImg(channelName){
+    const x = channelAltImgList[channelNameList.indexOf(channelName)];
+    console.log(x);
+    return x;
+}
+function findChannelLink(channelName){
+    const x = channelLinkList[channelNameList.indexOf(channelName)];
     console.log(x);
     return x;
 }
