@@ -12,14 +12,15 @@
         --card-color: rgb(200, 160, 110);
         --text-color-dark: rgb(92, 42, 36);
         --text-color-light: rgb(255, 215, 170);
+        --border-color: rgb(200, 160, 110);
         --font-family: Patrick Hand;
     }
     :root.bae {
         --background-color: rgb(150 50 50);
-        --card-color: rgb(255 254 234);
+        --card-color: rgb(243 232 197);
         --text-color-dark: rgb(37, 28, 26);
-        --text-color-light: rgb(137 180 255);
-        --border-color: rgb(204 146 131);
+        --text-color-light: rgb(165 238 224);
+        --border-color: rgb(200 186 143);
         --font-family: Shadows Into Light Two;
     }
 .image-container {
@@ -77,7 +78,7 @@ h1 a:hover {
     text-decoration: underline;
 }
 .card {
-    border: 0px solid #ccc;
+    border: 0px solid var(--border-color);
     border-radius: 0.8rem;
     padding: 2rem;
     padding-left: calc(2rem + 25px);
