@@ -1,5 +1,5 @@
 const channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
-const currentChannel = "Mumei";
+var currentChannel = "Mumei";
 
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the mumei icon
 
