@@ -31,8 +31,18 @@ const premiereEmote = '🕔';
 const liveEmote = '🔴';
 const completedEmote = '🔘';
 
+const channelNameList = ["Mumei", "Fauna", "Bae"];
+const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ"];
+const channelImgList = ["images\mumeiload.png", "images\uuuuu.png", "images\mumeiload.png"];
+
 const setTheme = theme => document.documentElement.className = theme;
 
+function channelId(channelName){
+    return channelIdList[channelNameList.indexOf(channelName)];
+}
+function channelImg(channelName){
+    return channelImgList[channelNameList.indexOf(channelName)];
+}
 function updateSubscriberCount() {
 
     const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;

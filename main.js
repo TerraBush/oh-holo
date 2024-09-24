@@ -1,7 +1,4 @@
 const channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
-//const channelId = 'UCO_aKKYxn4tvrqPjcTzZ6EQ'; //fauna
-//const channelId = 'UCgmPnx-EEeOrZSg5Tiw7ZRQ'; //bae
-//const channelId = 'UCIeSUTOTkF9Hs7q3SGcO-Ow'; //elira
 
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the mumei icon
 
@@ -63,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() { //completed button li
 });
 document.getElementById('channelSelector').addEventListener('change', function() {
     setTheme(this.value);
+    document.getElementById("clickableImage").src = channelImg(this.value);
 });
 
 // Initial call to update subscriber count and livestream display
