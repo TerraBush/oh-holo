@@ -33,7 +33,7 @@ const completedEmote = '🔘';
 
 const channelNameList = ["Mumei", "Fauna", "Bae"];
 const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ"];
-const channelImgList = ["images\mumeiload.png", "images\uuuuu.png", "images\mumeiload.png"];
+const channelImgList = ["images\mumeiload.png", "images\fauuuuuna.png", "images\mumeiload.png"];
 
 const setTheme = theme => document.documentElement.className = theme;
 
