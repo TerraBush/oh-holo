@@ -17,10 +17,10 @@
     }
     :root.bae {
         --background-color: rgb(150 50 50);
-        --card-color: rgb(243 232 197);
+        --card-color: rgb(255 254 234);
         --text-color-dark: rgb(37, 28, 26);
-        --text-color-light: rgb(165 238 224);
-        --border-color: rgb(200 186 143);
+        --text-color-light: rgb(137 180 255);
+        --border-color: rgb(204 146 131);
         --font-family: Shadows Into Light Two;
     }
 .image-container {
