@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     //image.addEventListener("click", playNoise);
     image.addEventListener("click", () => {
         playNoise();
-        //updateSubscriberCount();
         updateAll();
     });
 });
@@ -22,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
         document.getElementById("apiKeyInputContainer").style.display = "none";
 
         updateSubscriberCount();
+        updateSubscriberDisplay();
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //premiere button listener
@@ -53,3 +53,4 @@ document.getElementById('channelSelector').addEventListener('change', function()
 
 // Initial call to update subscriber count and livestream display
 initialDisplay();
+updateAllDisplays();

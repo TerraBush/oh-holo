@@ -138,6 +138,7 @@ function updateSubscriberCountPromise() {
 function updateSubscriberDisplay() {
     document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
     document.getElementById('viewCount').textContent = `${viewCount}`;
+    console.log("ran updateSubscriberDisplay");
 }
 function latestLivestream() {
     //eventType= completed, upcoming, or live
