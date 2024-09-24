@@ -65,7 +65,6 @@ document.getElementById('channelSelector').addEventListener('change', function()
     document.getElementById("altClickableImage").src = findChannelAltImg(this.value);
     document.getElementById("channelLink").href = findChannelLink(this.value);
     currentChannel = this.value;
-    console.log(currentChannel);
 });
 
 // Initial call to update subscriber count and livestream display

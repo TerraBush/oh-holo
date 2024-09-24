@@ -41,22 +41,22 @@ const setTheme = theme => document.documentElement.className = theme;
 
 function findChannelId(channelName){
     const x = channelIdList[channelNameList.indexOf(channelName)];
-    console.log(x);
+    //console.log(x);
     return x;
 }
 function findChannelImg(channelName){
     const x = channelImgList[channelNameList.indexOf(channelName)];
-    console.log(x);
+    //console.log(x);
     return x;
 }
 function findChannelAltImg(channelName){
     const x = channelAltImgList[channelNameList.indexOf(channelName)];
-    console.log(x);
+    //console.log(x);
     return x;
 }
 function findChannelLink(channelName){
     const x = channelLinkList[channelNameList.indexOf(channelName)];
-    console.log(x);
+    //console.log(x);
     return x;
 }
 function updateSubscriberCount() {
