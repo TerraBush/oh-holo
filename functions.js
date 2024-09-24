@@ -37,10 +37,10 @@ const channelImgList = ["images\mumeiload.png", "images\fauuuuuna.png", "images\
 
 const setTheme = theme => document.documentElement.className = theme;
 
-function channelId(channelName){
+function findChannelId(channelName){
     return channelIdList[channelNameList.indexOf(channelName)];
 }
-function channelImg(channelName){
+function findChannelImg(channelName){
     return channelImgList[channelNameList.indexOf(channelName)];
 }
 function updateSubscriberCount() {
