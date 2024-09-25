@@ -139,9 +139,10 @@ function updateSubscriberCountPromise() {
     });
 }
 function updateSubscriberDisplay() {
+    subscriberCount = getCookie("subscriberCount");
+    viewCount = getCookie("viewCount");
     document.getElementById('subscriberCount').textContent = subscriberCount;
     document.getElementById('viewCount').textContent = viewCount;
-    console.log(`ran updateSubscriberDisplay: ${subscriberCount}, ${viewCount}`);
 
 }
 function latestLivestream() {
