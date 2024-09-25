@@ -36,12 +36,12 @@ const premiereEmote = '🕔';
 const liveEmote = '🔴';
 const completedEmote = '🔘';
 
-const channelNameList = ["Mumei", "Fauna", "Bae"];
-const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ"];
-const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\mumeiload.png"];
-const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg"]
-const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz"];
-const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\hi-2.mp3", "sounds\\hi-3.mp3"];
+const channelNameList = ["Mumei", "Fauna", "Bae", "Kronii"];
+const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ", "UCmbs8T6MWqUHP1tIQvSgKrg"];
+const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\baeconfused.png", "images\\kroniiwink.png"];
+const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg", "images\\smolnii.jpg"]
+const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii"];
+const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3"];
 
 const setTheme = theme => document.documentElement.className = theme;
 
@@ -138,7 +138,8 @@ function updateSubscriberCountPromise() {
 function updateSubscriberDisplay() {
     document.getElementById('subscriberCount').textContent = subscriberCount;
     document.getElementById('viewCount').textContent = viewCount;
-    console.log("ran updateSubscriberDisplay");
+    console.log(`ran updateSubscriberDisplay: ${subscriberCount}, ${viewCount}`);
+
 }
 function latestLivestream() {
     //eventType= completed, upcoming, or live

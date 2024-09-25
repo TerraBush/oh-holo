@@ -31,6 +31,14 @@
         --border-color: rgb(204 146 131);
         --font-family: Shadows Into Light Two;
     }
+    :root.kronii {
+        --background-color: rgb(50 105 150);
+        --card-color: rgb(156 215 229);
+        --text-color-dark: rgb(42 53 68);
+        --text-color-light: rgb(212 176 53);
+        --border-color: rgb(156 215 229);
+        --font-family: Patrick Hand;
+    }
 .image-container {
     display: flex;
     width: 200px;

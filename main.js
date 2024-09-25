@@ -20,8 +20,11 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
 
         document.getElementById("apiKeyInputContainer").style.display = "none";
 
-        updateSubscriberCount();
-        updateSubscriberDisplay();
+        updateSubscriberCountPromise()
+            .then(updateSubscriberDisplay)
+            .catch(error => {
+                console.error("Error updating subscriberDisplay:", error);
+            });
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //premiere button listener
