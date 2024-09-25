@@ -57,7 +57,7 @@ document.getElementById('channelSelector').addEventListener('change', function()
 // Initial call to update subscriber count and livestream display
 initialDisplay();
 updateAllDisplays();
-console.log(`before updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
-updateSubscriberCountPromise().then(() => {
+//console.log(`before updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
+/*updateSubscriberCountPromise().then(() => {
     console.log(`after updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
-});
+});*/
