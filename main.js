@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the mumei icon
+document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the icon
 
     var image = document.getElementById("clickableImage");
 
@@ -57,3 +57,7 @@ document.getElementById('channelSelector').addEventListener('change', function()
 // Initial call to update subscriber count and livestream display
 initialDisplay();
 updateAllDisplays();
+console.log(`before updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
+updateSubscriberCountPromise().then(() => {
+    console.log(`after updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
+});

@@ -105,6 +105,8 @@ function updateSubscriberCount() {
 }
 function updateSubscriberCountPromise() {
     return new Promise((resolve, reject) => {
+        console.log(`before updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
+
         const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
         fetch(url)
             .then(response => response.json())
@@ -127,6 +129,7 @@ function updateSubscriberCountPromise() {
 
                 setCookie("subscriberCount", subscriberCount, 365);
                 setCookie("viewCount", viewCount, 365);
+                console.log(`after updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
                 resolve();
             })
             .catch(error => {
@@ -496,7 +499,6 @@ function updateAllDisplays() {
     initialDisplay();
     updateButtonDisplay();
     updateSubscriberDisplay();
-    console.log("updateAllDisplays ran updateSubscriberDisplay");
 }
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
