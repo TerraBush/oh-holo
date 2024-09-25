@@ -139,8 +139,7 @@ function updateSubscriberCountPromise() {
     });
 }
 function updateSubscriberDisplay() {
-    subscriberCount = getCookie("subscriberCount");
-    viewCount = getCookie("viewCount");
+    defineChannelStatCookies();
     document.getElementById('subscriberCount').textContent = subscriberCount;
     document.getElementById('viewCount').textContent = viewCount;
 
@@ -459,19 +458,19 @@ function updateButtonDisplay() {
 }
 function initialDisplay() {
     if(getCookie("premiereUrl") != "null"){
-        console.log("attempted to initial display premiereing livestream");
+        //console.log("attempted to initial display premiereing livestream");
         updateDisplay("premiere");
         return;
     }
     console.log("no premiereUrl");
     if(getCookie("liveUrl") != "null"){
-        console.log("attempted to initial display live livestream");
+        //console.log("attempted to initial display live livestream");
         updateDisplay("live");
         return;
     }
     console.log("no liveUrl");
     if(getCookie("completedUrl") != "null"){
-        console.log("attempted to initial display completed livestream");
+        //console.log("attempted to initial display completed livestream");
         updateDisplay("completed");
         return;
     }

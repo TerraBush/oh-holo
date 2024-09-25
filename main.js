@@ -55,5 +55,4 @@ document.getElementById('channelSelector').addEventListener('change', function()
 });
 
 // Initial call to update subscriber count and livestream display
-initialDisplay();
 updateAllDisplays();
