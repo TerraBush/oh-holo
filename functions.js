@@ -1,8 +1,10 @@
 const apiKey = getCookie("apiKey");
 var channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
 var currentChannel = "Mumei";
+
 if(getTheme()) {
     currentChannel = getTheme();
+    document.getElementById("channelSelector").value = getTheme;
 }
 
 var premiereTitle = getCookie("premiereTitle");
