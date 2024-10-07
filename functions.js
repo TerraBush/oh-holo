@@ -4,7 +4,7 @@ var currentChannel = "Mumei";
 
 if(getTheme()) {
     currentChannel = getTheme();
-    document.getElementById("channelSelector").value = getTheme;
+    document.getElementById("channelSelector").value = getTheme();
 }
 
 var premiereTitle = getCookie("premiereTitle");
