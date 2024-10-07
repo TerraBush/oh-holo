@@ -25,8 +25,8 @@
     }
     :root.bae {
         --background-color: rgb(150 50 50);
-        --card-color: rgb(255 254 234);
-        --text-color-dark: rgb(37, 28, 26);
+        --card-color: rgb(45 41 45);
+        --text-color-dark: rgb(240 238 229);
         --text-color-light: rgb(137 180 255);
         --border-color: rgb(204 146 131);
         --font-family: Shadows Into Light Two;
