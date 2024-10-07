@@ -44,13 +44,16 @@ const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\
 const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii"];
 const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3"];
 
-const setTheme = (theme) => {
+function setTheme(theme) {
     document.documentElement.className = theme;
     localStorage.setItem('theme', theme);
 }
-const getTheme = () => {
+function getTheme() {
     const theme = localStorage.getItem('theme');
-    theme && setTheme(theme);
+    if(theme) {
+        setTheme(theme);
+    }
+    return theme;
 }
 function findChannelId(channelName){
     const x = channelIdList[channelNameList.indexOf(channelName)];
@@ -464,7 +467,7 @@ function updateButtonDisplay() {
     }
 }
 function updateImageDisplay() {
-    document.getElementById("clickableImage").src = findChannelImg(currentch);
+    document.getElementById("clickableImage").src = findChannelImg(currentChannel);
     document.getElementById("altClickableImage").src = findChannelAltImg(currentChannel);
     document.getElementById("channelLink").href = findChannelLink(currentChannel);
 }
