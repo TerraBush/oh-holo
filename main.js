@@ -54,5 +54,7 @@ document.getElementById('channelSelector').addEventListener('change', function()
     channelId = findChannelId(this.value);
 });
 
+//Initial calls to update images and color scheme
+
 // Initial call to update subscriber count and livestream display
 updateAllDisplays();
