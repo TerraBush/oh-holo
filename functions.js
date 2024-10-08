@@ -2,41 +2,6 @@ const apiKey = getCookie("apiKey");
 var channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
 var currentChannel = "Mumei";
 
-if(getTheme()) {
-    currentChannel = getTheme();
-    document.getElementById("channelSelector").value = getTheme();
-}
-
-var premiereTitle = getCookie("premiereTitle");
-var premiereThumbnail = getCookie("premiereThumbnail");
-var premiereUrl = getCookie("premiereUrl");
-var premiereDate = getCookie("premiereDate");
-console.log(premiereTitle);
-console.log(premiereThumbnail);
-console.log(premiereUrl);
-console.log(premiereDate);
-
-var liveTitle = getCookie("liveTitle");
-var liveThumbnail = getCookie("liveThumbnail");
-var liveUrl = getCookie("liveUrl");
-var liveDate = getCookie("liveDate");
-console.log(liveTitle);
-console.log(liveThumbnail);
-console.log(liveUrl);
-console.log(liveDate);
-
-var completedTitle = getCookie("completedTitle");
-var completedThumbnail = getCookie("completedThumbnail");
-var completedUrl = getCookie("completedUrl");
-var completedDate = getCookie("completedDate");
-console.log(completedTitle);
-console.log(completedThumbnail);
-console.log(completedUrl);
-console.log(completedDate);
-
-var subscriberCount = getCookie("subscriberCount");
-var viewCount = getCookie("viewCount");
-
 const premiereEmote = '🕔';
 const liveEmote = '🔴';
 const completedEmote = '🔘';
@@ -47,6 +12,29 @@ const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "image
 const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg", "images\\smolnii.jpg"]
 const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii"];
 const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3"];
+
+if(getTheme()) {
+    currentChannel = getTheme();
+    document.getElementById("channelSelector").value = getTheme();
+}
+
+var premiereTitle = getCookie(`premiereTitle`);
+var premiereThumbnail = getCookie(`premiereThumbnail`);
+var premiereUrl = getCookie(`premiereUrl`);
+var premiereDate = getCookie(`premiereDate`);
+
+var liveTitle = getCookie(`liveTitle`);
+var liveThumbnail = getCookie(`liveThumbnail`);
+var liveUrl = getCookie(`liveUrl`);
+var liveDate = getCookie(`liveDate`);
+
+var completedTitle = getCookie(`completedTitle`);
+var completedThumbnail = getCookie(`completedThumbnail`);
+var completedUrl = getCookie(`completedUrl`);
+var completedDate = getCookie(`completedDate`);
+
+var subscriberCount = getCookie(`subscriberCount`);
+var viewCount = getCookie(`viewCount`);
 
 function setTheme(theme) {
     document.documentElement.className = theme;
