@@ -5,9 +5,15 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     //image.addEventListener("click", playNoise);
     image.addEventListener("click", () => {
         playNoise();
-        updateAll();
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    var  button = document.getElementById("reloadButton");
+
+    button.addEventListener("click"), () => {
+        updateAll;
+    }
+})
 document.addEventListener("DOMContentLoaded", function() { //event listener for input api key field & button
     //const apiKey = getCookie("apiKey");
     if(apiKey) { //if have api key, hide input field
