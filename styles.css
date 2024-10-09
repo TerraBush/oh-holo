@@ -250,9 +250,12 @@ p.bottom-left-text {
     text-align: center;
     background: var(--background-color);
     -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
 
 }
 select:focus{
     outline:none;
+    appearance: none;
+    -moz-appearance: none;
 }
