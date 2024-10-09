@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
 document.addEventListener("DOMContentLoaded", function() {
     var  button = document.getElementById("reloadButton");
 
-    button.addEventListener("click"), () => {
+    button.addEventListener("click", () => {
         updateAll;
-    }
+    });
 })
 document.addEventListener("DOMContentLoaded", function() { //event listener for input api key field & button
     //const apiKey = getCookie("apiKey");
