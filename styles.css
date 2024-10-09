@@ -75,7 +75,6 @@
 #reloadButton {
     width: 90;
     height: 90;
-    align-self: flex-start;
     align-self: flex-end;
     appearance: none;
     -webkit-appearance: none;
