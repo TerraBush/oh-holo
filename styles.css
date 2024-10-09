@@ -78,6 +78,7 @@
     align-self: flex-end;
     appearance: none;
     -webkit-appearance: none;
+    -webkit-text-size-adjust: 0%;
     text-decoration: none;
     border: none;
     background-color: var(--background-color);
@@ -236,6 +237,7 @@ p.bottom-left-text {
     padding: 5px;
     border: none;
     -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     text-align: center;
     text-align-last: center;
