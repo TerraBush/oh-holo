@@ -469,23 +469,23 @@ function updateImageDisplay() {
 }
 function initialDisplay() {
     if(getCookie("premiereUrl")){
-        //console.log("attempted to initial display premiereing livestream");
+        console.log("attempted to initial display premiereing livestream");
         updateDisplay("premiere");
         return;
     }
-    //console.log("no premiereUrl");
+    console.log("no premiereUrl");
     if(getCookie("liveUrl")){
-        //console.log("attempted to initial display live livestream");
+        console.log("attempted to initial display live livestream");
         updateDisplay("live");
         return;
     }
-    //console.log("no liveUrl");
+    console.log("no liveUrl");
     if(getCookie("completedUrl")){
-        //console.log("attempted to initial display completed livestream");
+        console.log("attempted to initial display completed livestream");
         updateDisplay("completed");
         return;
     }
-    //console.log("no completedUrl");
+    console.log("no completedUrl");
     console.log("initialDisplay unable to find data");
 }
 function defineLivestreamCookies() {
