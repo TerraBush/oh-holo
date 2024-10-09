@@ -10,12 +10,14 @@ const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\
 const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii", "https://www.youtube.com/@holoen_erbloodflame", "https://www.youtube.com/@NerissaRavencroft", "https://www.youtube.com/@GawrGura", "https://www.youtube.com/@NinomaeInanis", "https://www.youtube.com/@TakanashiKiara", "https://www.youtube.com/@holoen_raorapanthera", "https://www.youtube.com/@KaelaKovalskia"];
 const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3"];
 
-var currentChannel = channelAltImgList[0];
-var channelId = channelIdList[0];
 
 if(getTheme()) {
     currentChannel = getTheme();
+    channelId = findChannelId(getTheme());
     document.getElementById("channelSelector").value = getTheme();
+} else {
+    var currentChannel = channelAltImgList[0];
+    var channelId = channelIdList[0];
 }
 
 var premiereTitle = getCookie(`premiereTitle`);
