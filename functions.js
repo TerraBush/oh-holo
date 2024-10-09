@@ -1,17 +1,17 @@
 const apiKey = getCookie("apiKey");
-var channelId = 'UC3n5uGu18FoCy23ggWWp8tA'; //mumei
-var currentChannel = "Mumei";
-
 const premiereEmote = '🕔';
 const liveEmote = '🔴';
 const completedEmote = '🔘';
 
-const channelNameList = ["Mumei", "Fauna", "Bae", "Kronii"];
-const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ", "UCmbs8T6MWqUHP1tIQvSgKrg"];
-const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\baeconfused.png", "images\\kroniiwink.png"];
-const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg", "images\\smolnii.jpg"]
-const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii"];
+const channelNameList = ["Mumei", "Fauna", "Bae", "Kronii", "Liz", "Rissa", "Gura", "Ina", "Kiara", "Raora", "Kaela"];
+const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ", "UCmbs8T6MWqUHP1tIQvSgKrg", "UCW5uhrG1eCBYditmhL0Ykjw", "UC_sFNM0z0MWm9A6WlKPuMMg", "UCoSrY_IQQVpmIRZ9Xf-y93g", "UCMwGHR0BTZuLsmjY_NT5Pwg", "UCHsx4Hqa-1ORjQTh9TYDhww", "UCl69AEx4MdqMZH7Jtsm7Tig", "UCZLZ8Jjx_RN2CXloOmgTHVg"];
+const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\baeconfused.png", "images\\kroniiwink.png", "", "", "", "", "", "", ""];
+const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg", "images\\smolnii.jpg", "", "", "", "", "", "", ""]
+const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii", "https://www.youtube.com/@holoen_erbloodflame", "https://www.youtube.com/@NerissaRavencroft", "https://www.youtube.com/@GawrGura", "https://www.youtube.com/@NinomaeInanis", "https://www.youtube.com/@TakanashiKiara", "https://www.youtube.com/@holoen_raorapanthera", "https://www.youtube.com/@KaelaKovalskia"];
 const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3"];
+
+var currentChannel = channelAltImgList[0];
+var channelId = channelIdList[0];
 
 if(getTheme()) {
     currentChannel = getTheme();
@@ -436,21 +436,21 @@ function getCookie(name) {
     return null;
 }
 function updateButtonDisplay() {
-    if(getCookie("premiereUrl") == "null"){
+    if(!getCookie("premiereUrl")){
         document.getElementById("premiereLinkButton").style.display = "none";
         console.log("hid premiereButton");
     } else {
         document.getElementById("premiereLinkButton").style.display = "";
         console.log("revealed premiereButton")
     }
-    if(getCookie("liveUrl") == "null"){
+    if(!getCookie("liveUrl")){
         document.getElementById("liveLinkButton").style.display = "none";;
         console.log("hid liveButton");
     } else {
         document.getElementById("liveLinkButton").style.display = "";
         console.log("revealed liveButton");
     }
-    if(getCookie("completedUrl") == "null"){
+    if(!getCookie("completedUrl")){
         document.getElementById("completedLinkButton").style.display = "none";
         console.log("hid completedButton");
     } else {
@@ -464,25 +464,25 @@ function updateImageDisplay() {
     document.getElementById("channelLink").href = findChannelLink(currentChannel);
 }
 function initialDisplay() {
-    if(getCookie("premiereUrl") != "null"){
+    if(getCookie("premiereUrl")){
         //console.log("attempted to initial display premiereing livestream");
         updateDisplay("premiere");
         return;
     }
-    console.log("no premiereUrl");
-    if(getCookie("liveUrl") != "null"){
+    //console.log("no premiereUrl");
+    if(getCookie("liveUrl")){
         //console.log("attempted to initial display live livestream");
         updateDisplay("live");
         return;
     }
-    console.log("no liveUrl");
-    if(getCookie("completedUrl") != "null"){
+    //console.log("no liveUrl");
+    if(getCookie("completedUrl")){
         //console.log("attempted to initial display completed livestream");
         updateDisplay("completed");
         return;
     }
-    console.log("no completedUrl");
-    console.log("unable to find data");
+    //console.log("no completedUrl");
+    console.log("initialDisplay unable to find data");
 }
 function defineLivestreamCookies() {
     premiereTitle = getCookie("premiereTitle");
