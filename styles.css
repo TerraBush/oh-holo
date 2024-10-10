@@ -40,11 +40,19 @@
         --font-family: Patrick Hand;
     }
     :root.liz {
-        --background-color: rgb(150 50 50);
-        --card-color: rgb(255 174 176);
-        --text-color-dark: rgb(42 53 68);;
-        --text-color-light: rgb(240 238 229);
+        --background-color: rgb(154 42 44);
+        --card-color: rgb(28 90 163);
+        --text-color-dark: rgb(231 223 208);
+        --text-color-light: rgb(255 214 200);
         --border-color: rgb(204 146 131);
+        --font-family: Patrick Hand;
+    }
+    :root.nerissa {
+        --background-color: rgb(50 105 150);
+        --card-color: rgb(156 215 229);
+        --text-color-dark: rgb(42 53 68);
+        --text-color-light: rgb(212 176 53);
+        --border-color: rgb(156 215 229);
         --font-family: Patrick Hand;
     }
 .image-container {

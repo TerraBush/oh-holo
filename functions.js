@@ -5,8 +5,8 @@ const completedEmote = '🔘';
 
 const channelNameList = ["Mumei", "Fauna", "Bae", "Kronii", "Liz", "Rissa", "Gura", "Ina", "Kiara", "Raora", "Kaela"];
 const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ", "UCmbs8T6MWqUHP1tIQvSgKrg", "UCW5uhrG1eCBYditmhL0Ykjw", "UC_sFNM0z0MWm9A6WlKPuMMg", "UCoSrY_IQQVpmIRZ9Xf-y93g", "UCMwGHR0BTZuLsmjY_NT5Pwg", "UCHsx4Hqa-1ORjQTh9TYDhww", "UCl69AEx4MdqMZH7Jtsm7Tig", "UCZLZ8Jjx_RN2CXloOmgTHVg"];
-const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\baeconfused.png", "images\\kroniiwink.png", "images\\lizfreak.png", "", "", "", "", "", ""];
-const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg", "images\\smolnii.jpg", "images\\woahliz.png", "", "", "", "", "", ""]
+const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\baeconfused.png", "images\\kroniiwink.png", "images\\lizfreak.png", "images\\rissavibe.png", "", "", "", "", ""];
+const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg", "images\\smolnii.jpg", "images\\woahliz.png", "images\\rissastare.jpg", "", "", "", "", ""]
 const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii", "https://www.youtube.com/@holoen_erbloodflame", "https://www.youtube.com/@NerissaRavencroft", "https://www.youtube.com/@GawrGura", "https://www.youtube.com/@NinomaeInanis", "https://www.youtube.com/@TakanashiKiara", "https://www.youtube.com/@holoen_raorapanthera", "https://www.youtube.com/@KaelaKovalskia"];
 const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3"];
 
