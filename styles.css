@@ -32,9 +32,9 @@
         --font-family: Shadows Into Light Two;
     }
     :root.kronii {
-        --background-color: rgb(50 105 150);
-        --card-color: rgb(156 215 229);
-        --text-color-dark: rgb(42 53 68);
+        --background-color: rgb(77 114 192);
+        --card-color: rgb(164 207 234);
+        --text-color-dark: rgb(79 81 109);
         --text-color-light: rgb(212 176 53);
         --border-color: rgb(156 215 229);
         --font-family: Patrick Hand;
@@ -56,10 +56,10 @@
         --font-family: Patrick Hand;
     }
     :root.gura {
-        --background-color: rgb(50 105 150);
-        --card-color: rgb(156 215 229);
-        --text-color-dark: rgb(42 53 68);
-        --text-color-light: rgb(212 176 53);
+        --background-color: rgb(38 130 205);
+        --card-color: rgb(193 227 235);
+        --text-color-dark: rgb(15 60 120);
+        --text-color-light: rgb(228 96 96);
         --border-color: rgb(156 215 229);
         --font-family: Patrick Hand;
     }
