@@ -63,6 +63,14 @@
         --border-color: rgb(156 215 229);
         --font-family: Patrick Hand;
     }
+    :root.ina {
+        --background-color: rgb(56 16 78);
+        --card-color: rgb(32 33 33);
+        --text-color-dark: rgb(65 137 236);
+        --text-color-light: rgb(215 209 187);
+        --border-color: rgb(156 215 229);
+        --font-family: Patrick Hand;
+    }
 .image-container {
     display: flex;
     width: 380px;
