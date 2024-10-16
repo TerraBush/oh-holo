@@ -66,7 +66,7 @@ updateAllDisplays();
 let channelData;
 
 fetchData()
-    .then(console.log(channelData.channels.Mumei.stats.views))
+    //.then(console.log(channelData.channels.Mumei.stats.views))
     .then(console.log(channelData))
     .catch(error => {
         console.error("Error updating:", error);
@@ -84,6 +84,7 @@ function fetchData() {
             console.log(data.channels.Mumei.stats.views);
             channelData = data;
             console.log(channelData.channels.Mumei.stats.views);
+            console.log(channelData);
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
