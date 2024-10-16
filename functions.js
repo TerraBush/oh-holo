@@ -564,8 +564,6 @@ function defineDataPromise() {
         .then(obj => {
             channelData = obj;
             localStorage.setItem('localChannelData', JSON.stringify(channelData));
-            const x = JSON.parse(localStorage.getItem('localChannelData'));
-            console.log(x.channels.Mumei.stats.views);
             resolve();
         })
         .catch(error => {
