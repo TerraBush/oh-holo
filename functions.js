@@ -549,10 +549,7 @@ function fetchData() {
 function defineData() {
     fetchData()
         .then(obj => {
-            console.log(obj);
             channelData = obj;
-            console.log(channelData);
-            console.log(obj.channels.Mumei.stats.views);
             console.log(channelData.channels.Mumei.stats.views);
         })
         .catch(error => {
