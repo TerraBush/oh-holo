@@ -567,5 +567,5 @@ function defineDataPromise() {
                 console.error("Error fetching:", error);
                 reject(error);
             });
-    }
+    });
 }
