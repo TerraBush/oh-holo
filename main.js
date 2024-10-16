@@ -68,7 +68,6 @@ let channelData;
 fetchData()
     //.then(console.log(channelData.channels.Mumei.stats.views))
     .then(console.log(channelData))
-    .then(console.log("fetched data > .then")
     .catch(error => {
         console.error("Error updating:", error);
     });
@@ -83,10 +82,8 @@ function fetchData() {
         })
         .then(data => {
             console.log(data.channels.Mumei.stats.views);
-            console.log("before channelData initialization");
             channelData = data;
             console.log(channelData.channels.Mumei.stats.views);
-            console.log("after initialization");
             console.log(channelData);
         })
         .catch(error => {
