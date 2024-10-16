@@ -7,7 +7,7 @@
     position: relative;
 }
 :root,
-    :root.mumei {
+    :root.Mumei {
         --background-color: rgb(145, 108, 100);
         --card-color: rgb(200, 160, 110);
         --text-color-dark: rgb(92, 42, 36);
@@ -15,7 +15,7 @@
         --border-color: rgb(200, 160, 110);
         --font-family: Patrick Hand;
     }
-    :root.fauna {
+    :root.Fauna {
         --background-color: #69ab81;
         --card-color: #ade490;
         --text-color-dark: #2c3e50;
@@ -23,7 +23,7 @@
         --border-color: rgb(53 93 55);
         --font-family: Patrick Hand;
     }
-    :root.bae {
+    :root.Bae {
         --background-color: rgb(150 50 50);
         --card-color: rgb(255 174 176);
         --text-color-dark: rgb(42 53 68);;
@@ -31,7 +31,7 @@
         --border-color: rgb(204 146 131);
         --font-family: Shadows Into Light Two;
     }
-    :root.kronii {
+    :root.Kronii {
         --background-color: rgb(77 114 192);
         --card-color: rgb(164 207 234);
         --text-color-dark: rgb(79 81 109);
@@ -39,7 +39,7 @@
         --border-color: rgb(156 215 229);
         --font-family: Patrick Hand;
     }
-    :root.liz {
+    :root.Liz {
         --background-color: rgb(154 42 44);
         --card-color: rgb(28 90 163);
         --text-color-dark: rgb(231 223 208);
@@ -47,7 +47,7 @@
         --border-color: rgb(204 146 131);
         --font-family: Patrick Hand;
     }
-    :root.nerissa {
+    :root.Nerissa {
         --background-color: rgb(56 16 78);
         --card-color: rgb(32 33 33);
         --text-color-dark: rgb(65 137 236);
@@ -55,7 +55,7 @@
         --border-color: rgb(156 215 229);
         --font-family: Patrick Hand;
     }
-    :root.gura {
+    :root.Gura {
         --background-color: rgb(38 130 205);
         --card-color: rgb(193 227 235);
         --text-color-dark: rgb(15 60 120);
@@ -63,7 +63,7 @@
         --border-color: rgb(156 215 229);
         --font-family: Patrick Hand;
     }
-    :root.ina {
+    :root.Ina {
         --background-color: rgb(104 87 129);
         --card-color: rgb(142 159 189);
         --text-color-dark: rgb(255 217 202);
@@ -254,12 +254,12 @@ p.bottom-left-text {
     max-width: fit-content;
     padding: 6px 6px;
     border-radius: 12px;
-    border-width: 2;
+    border-width: 2px;
     background-color: var(--text-color-dark);
     color: var(--text-color-light);
     text-decoration: none;
     align-self: flex-start;
-    margin-left: 5;
+    margin-left: 5px;
     border-color: var(--text-color-dark);
 }
 .select {
