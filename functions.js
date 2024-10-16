@@ -549,8 +549,7 @@ function fetchData() {
 function defineData() {
     fetchData()
         .then(obj => {
-            channelData = obj;
-            localStorage.setItem('localChannelData', JSON.stringify(channelData));
+            localStorage.setItem('localChannelData', JSON.stringify(obj));
             //const x = JSON.parse(localStorage.getItem('localChannelData'));
             //console.log(x.channels.Mumei.stats.views);
         })
@@ -562,8 +561,7 @@ function defineDataPromise() {
     return new Promise((resolve, reject) => {
         fetchData()
         .then(obj => {
-            channelData = obj;
-            localStorage.setItem('localChannelData', JSON.stringify(channelData));
+            localStorage.setItem('localChannelData', JSON.stringify(obj));
             resolve();
         })
         .catch(error => {
@@ -571,4 +569,7 @@ function defineDataPromise() {
             reject(error);
         });
     });
+}
+function defineChannelData() {
+     channelData = JSON.parse(localStorage.getItem('localChannelData'));
 }
