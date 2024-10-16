@@ -72,7 +72,7 @@ fetchData()
     });
 
 function fetchData() {
-    fetch('datatemplate.json')
+    return fetch('datatemplate.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
