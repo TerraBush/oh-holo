@@ -64,32 +64,28 @@ document.getElementById('channelSelector').addEventListener('change', function()
 updateAllDisplays();
 
 let channelData;
+
 fetchData()
-        .then(console.log(channelData.channels.Mumei.stats.views))
-        .catch(error => {
-            console.error("Error updating:", error);
-        });
+    .then(console.log(channelData.channels.Mumei.stats.views))
+    .catch(error => {
+        console.error("Error updating:", error);
+    });
 
 function fetchData() {
-    return new Promise((resolve, reject) => {
-        fetch('datatemplate.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                    reject();
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log(data.channels.Mumei.stats.views);
-                channelData = data;
-                console.log(channelData.channels.Mumei.stats.views);
-                resolve();
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-                reject(error);
-            });
-    });
+    fetch('datatemplate.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data.channels.Mumei.stats.views);
+            channelData = data;
+            console.log(channelData.channels.Mumei.stats.views);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 }
 
