@@ -63,18 +63,31 @@ document.getElementById('channelSelector').addEventListener('change', function()
 // Initial call to update subscriber count and livestream display
 updateAllDisplays();
 
-fetch('datatemplate.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log(data.channels.Bae.stats.subs);
-        console.log(data.channels.Bae.videos.completed.link);
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+let channelData;
+fetchData()
+        .then(console.log(channelData.channels.Mumei.stats.views))
+        .catch(error => {
+            console.error("Error updating:", error);
+        });
+
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        fetch('datatemplate.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                    reject();
+                }
+                return response.json();
+            })
+            .then(data => {
+                channelData = data;
+                resolve();
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                reject(error);
+            });
     });
+}
 
