@@ -1,0 +1,212 @@
+{
+    "channels": {
+        "Mumei": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },
+        "Fauna": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },
+        "Bae": {
+            "stats": {
+                "subs": "9.9",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": "test"
+                }
+            }
+        },
+        "Kronii": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },
+        "Liz": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },
+        "Nerissa": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },
+        "Gura": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },
+        "Ina": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        }
+    }
+}

@@ -62,3 +62,19 @@ document.getElementById('channelSelector').addEventListener('change', function()
 
 // Initial call to update subscriber count and livestream display
 updateAllDisplays();
+
+fetch('datatemplate.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data.channels.Bae.stats.subs);
+        console.log(data.channels.Bae.videos.completed.link);
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+
