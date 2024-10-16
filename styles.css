@@ -93,8 +93,8 @@
     filter: grayscale(0%); /* Remove grayscale filter on hover */
 }
 #altClickableImage {
-    width: 90;
-    height: 90;
+    width: 90px;
+    height: 90px;
     transition: transform 0.3s, filter 0.3s; /* Smooth transition */
     filter: grayscale(100%); /* Convert image to grayscale */
     
@@ -105,8 +105,8 @@
     filter: grayscale(0%); /* Remove grayscale filter on hover */
 }
 #reloadButton {
-    width: 90;
-    height: 90;
+    width: 90px;
+    height: 90px;
     align-self: flex-end;
     appearance: none;
     -webkit-appearance: none;
