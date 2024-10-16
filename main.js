@@ -62,8 +62,4 @@ document.getElementById('channelSelector').addEventListener('change', function()
 
 // Initial call to update subscriber count and livestream display
 updateAllDisplays();
-defineDataPromise()
-    .then(console.log(channelData.channels.Mumei.stats.views))
-    .catch(error => {
-        console.error('error calling defineDataPromise:', error);
-    });
+defineData();
