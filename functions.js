@@ -3,12 +3,12 @@ const premiereEmote = '🕔';
 const liveEmote = '🔴';
 const completedEmote = '🔘';
 
-const channelNameList = ["Mumei", "Fauna", "Bae", "Kronii", "Liz", "Nerissa", "Gura", "Ina", "Kiara", "Raora", "Kaela", "Gigi"];
-const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ", "UCmbs8T6MWqUHP1tIQvSgKrg", "UCW5uhrG1eCBYditmhL0Ykjw", "UC_sFNM0z0MWm9A6WlKPuMMg", "UCoSrY_IQQVpmIRZ9Xf-y93g", "UCMwGHR0BTZuLsmjY_NT5Pwg", "UCHsx4Hqa-1ORjQTh9TYDhww", "UCl69AEx4MdqMZH7Jtsm7Tig", "UCZLZ8Jjx_RN2CXloOmgTHVg", "UCDHABijvPBnJm7F-KlNME3w"];
+const channelNameList = ["Mumei", "Fauna", "Bae", "Kronii", "Liz", "Nerissa", "Gura", "Ina", "Kiara", "Minto", "Raora", "Kaela", "Gigi"];
+const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ", "UCmbs8T6MWqUHP1tIQvSgKrg", "UCW5uhrG1eCBYditmhL0Ykjw", "UC_sFNM0z0MWm9A6WlKPuMMg", "UCoSrY_IQQVpmIRZ9Xf-y93g", "UCMwGHR0BTZuLsmjY_NT5Pwg", "UCHsx4Hqa-1ORjQTh9TYDhww", "UCcHHkJ98eSfa5aj0mdTwwLQ", "UCl69AEx4MdqMZH7Jtsm7Tig", "UCZLZ8Jjx_RN2CXloOmgTHVg", "UCDHABijvPBnJm7F-KlNME3w"];
 const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\baeconfused.png", "images\\kroniiwink.png", "images\\lizfreak.png", "images\\rissavibe.png", "images\\guraspin.png", "images\\tomorrow.png", "", "", "", ""];
 const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg", "images\\smolnii.jpg", "images\\woahliz.png", "images\\rissastare.jpg", "images\\guradum.jpg", "images\\inaeat.png", "", "", "", ""];
-const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii", "https://www.youtube.com/@holoen_erbloodflame", "https://www.youtube.com/@NerissaRavencroft", "https://www.youtube.com/@GawrGura", "https://www.youtube.com/@NinomaeInanis", "https://www.youtube.com/@TakanashiKiara", "https://www.youtube.com/@holoen_raorapanthera", "https://www.youtube.com/@KaelaKovalskia", "https://www.youtube.com/@holoen_gigimurin"];
-const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3", "", "", "sounds\\a.mp3", "sounds\\wah.mp3", "", "", "", ""];
+const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii", "https://www.youtube.com/@holoen_erbloodflame", "https://www.youtube.com/@NerissaRavencroft", "https://www.youtube.com/@GawrGura", "https://www.youtube.com/@NinomaeInanis", "https://www.youtube.com/@TakanashiKiara", "https://www.youtube.com/@mintfantome", "https://www.youtube.com/@holoen_raorapanthera", "https://www.youtube.com/@KaelaKovalskia", "https://www.youtube.com/@holoen_gigimurin"];
+const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3", "", "", "sounds\\a.mp3", "sounds\\wah.mp3", "", "", "", "", ""];
 
 var currentChannel;
 var channelId;
