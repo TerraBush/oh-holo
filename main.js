@@ -62,12 +62,4 @@ document.getElementById('channelSelector').addEventListener('change', function()
 
 // Initial call to update subscriber count and livestream display
 updateAllDisplays();
-
-let channelData;
-
-fetchData()
-    //.then(console.log(channelData.channels.Mumei.stats.views))
-    .then(console.log(channelData))
-    .catch(error => {
-        console.error("Error updating:", error);
-    });
+defineData();

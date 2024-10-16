@@ -13,6 +13,8 @@ const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\w
 var currentChannel;
 var channelId;
 
+let channelData;
+
 if(getTheme()) {
     currentChannel = getTheme();
     channelId = findChannelId(getTheme());
@@ -549,7 +551,10 @@ function fetchData() {
             console.error('There was a problem with the fetch operation:', error);
         });
 }
-
-
-
-
+function defineData() {
+    fetchData()
+        .then(console.log(channelData))
+        .catch(error => {
+            console.error("Error fetching:", error);
+        });
+}
