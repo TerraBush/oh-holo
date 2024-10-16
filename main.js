@@ -71,25 +71,3 @@ fetchData()
     .catch(error => {
         console.error("Error updating:", error);
     });
-
-function fetchData() {
-    return fetch('datatemplate.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data.channels.Mumei.stats.views);
-            channelData = data;
-            console.log(channelData.channels.Mumei.stats.views);
-        })
-        .then(function() {
-            console.log(channelData);
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-}
-
