@@ -81,7 +81,9 @@ function fetchData() {
                 return response.json();
             })
             .then(data => {
+                console.log(data.channels.Mumei.stats.views);
                 channelData = data;
+                console.log(channelData.channels.Mumei.stats.views);
                 resolve();
             })
             .catch(error => {
