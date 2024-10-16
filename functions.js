@@ -550,10 +550,9 @@ function defineData() {
     fetchData()
         .then(obj => {
             channelData = obj;
-            console.log(channelData.channels.Mumei.stats.views);
-            localStorage.setItem('localChannelData', JSON.stringify(obj));
-            const x = JSON.parse(localStorage.getItem('localChannelData'));
-            console.log(x.channels.Mumei.stats.views);
+            localStorage.setItem('localChannelData', JSON.stringify(channelData));
+            //const x = JSON.parse(localStorage.getItem('localChannelData'));
+            //console.log(x.channels.Mumei.stats.views);
         })
         .catch(error => {
             console.error("Error fetching:", error);
@@ -562,13 +561,16 @@ function defineData() {
 function defineDataPromise() {
     return new Promise((resolve, reject) => {
         fetchData()
-            .then(obj => {
-                channelData = obj;
-                resolve();
-            })
-            .catch(error => {
-                console.error("Error fetching:", error);
-                reject(error);
-            });
+        .then(obj => {
+            channelData = obj;
+            localStorage.setItem('localChannelData', JSON.stringify(channelData));
+            const x = JSON.parse(localStorage.getItem('localChannelData'));
+            console.log(x.channels.Mumei.stats.views);
+            resolve();
+        })
+        .catch(error => {
+            console.error("Error fetching:", error);
+            reject(error);
+        });
     });
 }
