@@ -540,12 +540,7 @@ function fetchData() {
             return response.json();
         })
         .then(data => {
-            console.log(data.channels.Mumei.stats.views);
-            channelData = data;
-            console.log(channelData.channels.Mumei.stats.views);
-        })
-        .then(function() {
-            console.log(channelData);
+            return data;
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -553,7 +548,9 @@ function fetchData() {
 }
 function defineData() {
     fetchData()
-        .then(console.log(channelData))
+        .then(obj => {
+            console.log(obj);
+        })
         .catch(error => {
             console.error("Error fetching:", error);
         });
