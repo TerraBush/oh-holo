@@ -551,9 +551,9 @@ function defineData() {
         .then(obj => {
             channelData = obj;
             console.log(channelData.channels.Mumei.stats.views);
-            localStorage.setItem('localChannelData', obj);
-            const x = localStorage.getItem('localChannelData');
-            console.log(x);
+            localStorage.setItem('localChannelData', JSON.stringify(obj));
+            const x = JSON.parse(localStorage.getItem('localChannelData'));
+            console.log(x.channels.Mumei.stats.views);
         })
         .catch(error => {
             console.error("Error fetching:", error);
