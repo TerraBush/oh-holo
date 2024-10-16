@@ -116,7 +116,7 @@
     background-color: var(--background-color);
     color: var(--text-color-light);
     border-radius: 50%;
-    font-size: 60;
+    font-size: 60px;
     transition: transform 0.3s, filter 0.3s; /* Smooth transition */
 }
 #reloadButton:hover {
@@ -193,8 +193,8 @@ h1 a:hover {
 }
 #horizontalDivider {
     position: absolute;
-    top: 20;
-    bottom: 20;
+    top: 20px;
+    bottom: 20px;
     left: 50%; /* Position the divider in the middle */
     width: 2px; /* Set the width of the divider */
     background-color: var(--text-color-dark); /* Choose the color of the divider */
