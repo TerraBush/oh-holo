@@ -556,3 +556,16 @@ function defineData() {
             console.error("Error fetching:", error);
         });
 }
+function defineDataPromise() {
+    return new Promise((resolve, reject) => {
+        fetchData()
+            .then(obj => {
+                channelData = obj;
+                resolve();
+            })
+            .catch(error => {
+                console.error("Error fetching:", error);
+                reject(error);
+            });
+    }
+}
