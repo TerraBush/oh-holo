@@ -60,5 +60,15 @@ document.getElementById('channelSelector').addEventListener('change', function()
 
 //Initial calls to update images and color scheme
 //Initial call to update subscriber count and livestream display
-updateAllDisplays();
 
+defineDataPromise()
+    .then(() => {
+        updateChannelData();
+        console.log(channelData);
+        console.log(channelData.channels[currentChannel].stats.views);
+    })
+    .catch(error => {
+        console.error('unable to complete defineDataPromise: ', error)
+    });
+
+updateAllDisplays();

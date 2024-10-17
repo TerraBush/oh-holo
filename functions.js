@@ -24,15 +24,6 @@ if(getTheme()) {
     channelId = channelIdList[0];
 }
 
-defineDataPromise()
-    .then(() => {
-        updateChannelData();
-        console.log(channelData);
-        console.log(channelData.channels[currentChannel].stats.views);
-    })
-    .catch(error => {
-        console.error('unable to complete defineDataPromise: ', error)
-    });
 
 var premiereTitle = getCookie(`premiereTitle`);
 var premiereThumbnail = getCookie(`premiereThumbnail`);
@@ -532,6 +523,7 @@ function defineLivestreamCookies() {
 function defineChannelStatCookies() {
     //subscriberCount = getCookie("subscriberCount");
     //viewCount = getCookie("viewCount");
+    
     subscriberCount = channelData.channels[currentChannel].stats.subs;
     viewCount = channelData.channels[currentChannel].stats.views;
 }
