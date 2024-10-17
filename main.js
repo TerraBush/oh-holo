@@ -56,6 +56,7 @@ document.getElementById('channelSelector').addEventListener('change', function()
     document.getElementById("channelLink").href = findChannelLink(this.value);
     currentChannel = this.value;
     channelId = findChannelId(this.value);
+    updateAllDisplays();
 });
 
 //Initial calls to update images and color scheme
