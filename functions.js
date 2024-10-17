@@ -584,6 +584,7 @@ function defineDataPromise() {
         fetchData()
         .then(obj => {
             if(localStorage.getItem('localChannelData')) {
+              console.log('already there chill out');
               resolve();
             }
             localStorage.setItem('localChannelData', JSON.stringify(obj));
