@@ -588,6 +588,9 @@ function defineDataPromise() {
     return new Promise((resolve, reject) => {
         fetchData()
         .then(obj => {
+            if(localStorage.getItem('localChannelData')) {
+              resolve();
+            }
             localStorage.setItem('localChannelData', JSON.stringify(obj));
             resolve();
         })
@@ -598,9 +601,5 @@ function defineDataPromise() {
     });
 }
 function updateChannelData() {
-    temp = JSON.parse(localStorage.getItem('localChannelData'));
-    if(temp) {
-      return;
-    }
-    channelData = temp;
+    channelData = JSON.parse(localStorage.getItem('localChannelData'));
 }
