@@ -586,6 +586,7 @@ function defineDataPromise() {
             if(localStorage.getItem('localChannelData')) {
               console.log('already there chill out');
               resolve();
+              return;
             }
             localStorage.setItem('localChannelData', JSON.stringify(obj));
             resolve();
