@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         playNoise();
     });
 });
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() { //reload button listener
     document.getElementById("reloadButton").addEventListener("click", function() {
         updateAll();
     });
@@ -64,11 +64,9 @@ document.getElementById('channelSelector').addEventListener('change', function()
 defineDataPromise()
     .then(() => {
         updateChannelData();
-        console.log(channelData);
-        console.log(channelData.channels[currentChannel].stats.views);
         updateAllDisplays();
     })
     .catch(error => {
-        console.error('unable to complete defineDataPromise: ', error)
+        console.error('unable to start initial stuff:', error)
     });
 

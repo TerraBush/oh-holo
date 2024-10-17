@@ -24,7 +24,6 @@ if(getTheme()) {
     channelId = channelIdList[0];
 }
 
-
 var premiereTitle = getCookie(`premiereTitle`);
 var premiereThumbnail = getCookie(`premiereThumbnail`);
 var premiereUrl = getCookie(`premiereUrl`);
@@ -526,6 +525,7 @@ function defineChannelStatCookies() {
     
     subscriberCount = channelData.channels[currentChannel].stats.subs;
     viewCount = channelData.channels[currentChannel].stats.views;
+    localStorage.setItem('localChannelData', JSON.stringify(channelData));
 }
 function updateAllDisplays() {
     updateImageDisplay();
