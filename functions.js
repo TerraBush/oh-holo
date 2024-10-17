@@ -570,6 +570,6 @@ function defineDataPromise() {
         });
     });
 }
-function defineChannelData() {
+function updateChannelData() {
      channelData = JSON.parse(localStorage.getItem('localChannelData'));
 }

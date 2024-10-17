@@ -59,20 +59,15 @@ document.getElementById('channelSelector').addEventListener('change', function()
 });
 
 //Initial calls to update images and color scheme
-
-// Initial call to update subscriber count and livestream display
+//Initial call to update subscriber count and livestream display
 updateAllDisplays();
-/*
-console.log('run defineData');
-defineData();
-console.log(channelData.channels.Mumei.stats.views);
-*/
-console.log('run defineDataPromise');
+
+
 defineDataPromise()
     .then(() => {
-        defineChannelData();
+        updateChannelData();
         console.log(channelData);
-        console.log(channelData.channels.Mumei.stats.views);
+        console.log(channelData.channels[currentChannel].stats.views);
     })
     .catch(error => {
         console.error('unable to complete defineDataPromise: ', error)
