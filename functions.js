@@ -568,6 +568,9 @@ function fetchData() {
 function defineData() {
     fetchData()
         .then(obj => {
+            if(localStorage.getItem('localChannelData')) {
+                return;
+            }
             localStorage.setItem('localChannelData', JSON.stringify(obj));
             //const x = JSON.parse(localStorage.getItem('localChannelData'));
             //console.log(x.channels.Mumei.stats.views);
