@@ -116,6 +116,9 @@ function updateSubscriberCount() {
                 
             channelData.channels[currentChannel].stats.subs = subscriberCount;
             channelData.channels[currentChannel].stats.views = viewCount; 
+            
+            localStorage.setItem('localChannelData', JSON.stringify(channelData));
+            
 
             //document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
             //document.getElementById('viewCount').textContent = `${viewCount}`;
@@ -139,6 +142,7 @@ function updateSubscriberCountPromise() {
                         channelData.channels[currentChannel].stats.subs = 'null';
                         setCookie("viewCount", null, 365);
                         channelData.channels[currentChannel].stats.views = 'null';
+                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
                         resolve();
                         return;
                     }
@@ -155,6 +159,8 @@ function updateSubscriberCountPromise() {
                 
                 channelData.channels[currentChannel].stats.subs = subscriberCount;
                 channelData.channels[currentChannel].stats.views = viewCount; 
+                
+                localStorage.setItem('localChannelData', JSON.stringify(channelData));
 
                 console.log(`after updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
                 resolve();
@@ -592,5 +598,9 @@ function defineDataPromise() {
     });
 }
 function updateChannelData() {
-     channelData = JSON.parse(localStorage.getItem('localChannelData'));
+    temp = JSON.parse(localStorage.getItem('localChannelData'));
+    if(temp) {
+      return;
+    }
+    channelData = temp;
 }
