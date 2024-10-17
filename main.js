@@ -72,7 +72,7 @@ defineDataPromise()
     .then(() => {
         defineChannelData();
         console.log(channelData);
-        console.log(channelData.channel.Mumei.stats.views);
+        console.log(channelData.channels.Mumei.stats.views);
     })
     .catch(error => {
         console.error('unable to complete defineDataPromise: ', error)
