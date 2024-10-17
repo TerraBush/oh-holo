@@ -66,9 +66,9 @@ defineDataPromise()
         updateChannelData();
         console.log(channelData);
         console.log(channelData.channels[currentChannel].stats.views);
+        updateAllDisplays();
     })
     .catch(error => {
         console.error('unable to complete defineDataPromise: ', error)
     });
 
-updateAllDisplays();
