@@ -101,8 +101,11 @@ function updateSubscriberCount() {
             }
             let viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString();
 
-            setCookie("subscriberCount", subscriberCount, 365);
-            setCookie("viewCount", viewCount, 365);
+            //setCookie("subscriberCount", subscriberCount, 365);
+            //setCookie("viewCount", viewCount, 365);
+                
+            channelData.channels[currentChannel].stats.subs = subscriberCount;
+            channelData.channels[currentChannel].stats.views = viewCount; 
 
             //document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
             //document.getElementById('viewCount').textContent = `${viewCount}`;
@@ -123,7 +126,9 @@ function updateSubscriberCountPromise() {
                     if(results == 0){
                         console.log("No channel data");
                         setCookie("subscriberCount", null, 365);
+                        channelData.channels[currentChannel].stats.subs = 'null';
                         setCookie("viewCount", null, 365);
+                        channelData.channels[currentChannel].stats.views = 'null';
                         resolve();
                         return;
                     }
@@ -135,8 +140,12 @@ function updateSubscriberCountPromise() {
                 }
                 let viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString();
 
-                setCookie("subscriberCount", subscriberCount, 365);
-                setCookie("viewCount", viewCount, 365);
+                //setCookie("subscriberCount", subscriberCount, 365);
+                //setCookie("viewCount", viewCount, 365);
+                
+                channelData.channels[currentChannel].stats.subs = subscriberCount;
+                channelData.channels[currentChannel].stats.views = viewCount; 
+
                 console.log(`after updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
                 resolve();
             })
@@ -505,8 +514,10 @@ function defineLivestreamCookies() {
     completedDate = getCookie("completedDate");
 }
 function defineChannelStatCookies() {
-    subscriberCount = getCookie("subscriberCount");
-    viewCount = getCookie("viewCount");
+    //subscriberCount = getCookie("subscriberCount");
+    //viewCount = getCookie("viewCount");
+    subscriberCount = channelData.channels[currentChannel].stats.subs;
+    viewcount = channelData.channels[currentChannel].stats.views;
 }
 function updateAllDisplays() {
     updateImageDisplay();
