@@ -87,40 +87,8 @@ function playNoise() {
 function randomNumber(x, y){
     return Math.floor(Math.random()*y) + x;
 }
-function updateSubscriberCount() {
-
-    const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            let subscriberCount = parseInt(data.items[0].statistics.subscriberCount);
-            if (subscriberCount >= 1000000) {
-                subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
-            }else{
-                subscriberCount = subscriberCount.toLocaleString();
-            }
-            let viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString();
-
-            //setCookie("subscriberCount", subscriberCount, 365);
-            //setCookie("viewCount", viewCount, 365);
-                
-            channelData.channels[currentChannel].stats.subs = subscriberCount;
-            channelData.channels[currentChannel].stats.views = viewCount; 
-            
-            localStorage.setItem('localChannelData', JSON.stringify(channelData));
-            
-
-            //document.getElementById('subscriberCount').textContent = `${subscriberCount}`;
-            //document.getElementById('viewCount').textContent = `${viewCount}`;
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-}
 function updateSubscriberCountPromise() {
     return new Promise((resolve, reject) => {
-        console.log(`before updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
-
         const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
         fetch(url)
             .then(response => response.json())
@@ -152,7 +120,6 @@ function updateSubscriberCountPromise() {
                 
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
 
-                console.log(`after updateSubscriberDisplayPromise: ${subscriberCount}, ${viewCount}`);
                 resolve();
             })
             .catch(error => {
@@ -162,50 +129,11 @@ function updateSubscriberCountPromise() {
     });
 }
 function updateSubscriberDisplay() {
-    defineChannelStatCookies();
-    document.getElementById('subscriberCount').textContent = subscriberCount;
-    document.getElementById('viewCount').textContent = viewCount;
+    document.getElementById('subscriberCount').textContent = channelData.channels[currentChannel].stats.subs;;
+    document.getElementById('viewCount').textContent = channelData.channels[currentChannel].stats.views;
 
 }
-function latestLivestream() {
-    //eventType= completed, upcoming, or live
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const results = data.pageInfo.totalResults;
-            if(results == 0){
-                console.log("No completed strem~");
-                setCookie("completedTitle", null, 365);
-                setCookie("completedThumbnail", null, 365);
-                setCookie("completedUrl", null, 365);
-                setCookie("completedDate", null, 365);
-                return;
-            }
-            const livestream = data.items[0];
-            const videoId = livestream.id.videoId;
-            const title = livestream.snippet.title;
-            const publishedAt = livestream.snippet.publishedAt;
-            //const thumbnailUrlHigh = data.items[0].snippet.thumbnails.high.url;
-            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
-            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-            const dateTime = new Date(publishedAt);
-            const localDateTime = dateTime.toLocaleString();
-            
-            setCookie("completedTitle", title, 365);
-            setCookie("completedThumbnail", thumbnailUrlHigh, 365);
-            setCookie("completedUrl", videoUrl, 365);
-            setCookie("completedDate", localDateTime, 365);
-
-        console.log(videoId);
-        console.log(title);
-        console.log(videoUrl);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-}
 function latestLivestreamPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
@@ -249,45 +177,7 @@ function latestLivestreamPromise() {
             });
     });
 }
-function currentLivestream() {
-    //eventType= completed, upcoming, or live
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&order=date&maxResults=1&key=${apiKey}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const results = data.pageInfo.totalResults;
-            if(results == 0){
-                console.log("Not currently live~");
-                setCookie("liveTitle", null, 365);
-                setCookie("liveThumbnail", null, 365);
-                setCookie("liveUrl", null, 365);
-                setCookie("liveDate", null, 365);
-                return;
-            }
-            const livestream = data.items[0];
-            const videoId = livestream.id.videoId;
-            const title = livestream.snippet.title;
-            const publishedAt = livestream.snippet.publishedAt;
-            //const thumbnailUrlHigh = data.items[0].snippet.thumbnails.high.url;
-            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
-            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-            const dateTime = new Date(publishedAt);
-            const localDateTime = dateTime.toLocaleString();
-
-            setCookie("liveTitle", title, 365);
-            setCookie("liveThumbnail", thumbnailUrlHigh, 365);
-            setCookie("liveUrl", videoUrl, 365);
-            setCookie("liveDate", localDateTime, 365);
-            
-        console.log(videoId);
-        console.log(title);
-        console.log(videoUrl);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-}
 function currentLivestreamPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&order=date&maxResults=1&key=${apiKey}`;
@@ -332,46 +222,7 @@ function currentLivestreamPromise() {
             });
     });
 }
-function upcomingLivestream() {
-    //eventType= completed, upcoming, or live
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=upcoming&type=video&order=date&maxResults=1&key=${apiKey}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const results = data.pageInfo.totalResults;
-            if(results == 0){
-                console.log("No current premiere~");
-                setCookie("premiereTitle", null, 365);
-                setCookie("premiereThumbnail", null, 365);
-                setCookie("premiereUrl", null, 365);
-                setCookie("premiereDate", null, 365);
-                return;
-            }
-            const livestream = data.items[0];
-            const videoId = livestream.id.videoId;
-            const title = livestream.snippet.title;
-            const publishedAt = livestream.snippet.publishedAt;
-            //const thumbnailUrlHigh = data.items[0].snippet.thumbnails.high.url;
-            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
-            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-            const dateTime = new Date(publishedAt);
-            const localDateTime = dateTime.toLocaleString();
-
-            setCookie("premiereTitle", title, 365);
-            setCookie("premiereThumbnail", thumbnailUrlHigh, 365);
-            setCookie("premiereUrl", videoUrl, 365);
-            setCookie("premiereDate", localDateTime, 365);
-            
-        console.log(videoId);
-        console.log(title);
-        console.log(videoUrl);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        }
-    );
-}
 function upcomingLivestreamPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=upcoming&type=video&order=date&maxResults=1&key=${apiKey}`;
@@ -518,14 +369,6 @@ function defineLivestreamCookies() {
     completedThumbnail = getCookie("completedThumbnail");
     completedUrl = getCookie("completedUrl");
     completedDate = getCookie("completedDate");
-}
-function defineChannelStatCookies() {
-    //subscriberCount = getCookie("subscriberCount");
-    //viewCount = getCookie("viewCount");
-    
-    subscriberCount = channelData.channels[currentChannel].stats.subs;
-    viewCount = channelData.channels[currentChannel].stats.views;
-    localStorage.setItem('localChannelData', JSON.stringify(channelData));
 }
 function updateAllDisplays() {
     updateImageDisplay();
