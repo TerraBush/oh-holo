@@ -62,6 +62,7 @@ document.getElementById('channelSelector').addEventListener('change', function()
 //Initial calls to update images and color scheme
 //Initial call to update subscriber count and livestream display
 
+/*
 defineDataPromise()
     .then(() => {
         updateChannelDataPromise()
@@ -75,4 +76,12 @@ defineDataPromise()
     .catch(error => {
         console.error('unable to start initial stuff because of defineDataPromise:', error)
     });
-
+*/
+defineDataPromise()
+    .then(() => {
+        updateChannelData();
+        updateAllDisplays();
+    })
+    .catch(error => {
+        console.error('unable to start initial stuff because of defineDataPromise:', error)
+    });
