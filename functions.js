@@ -296,6 +296,7 @@ function updateButtonDisplay() {
         document.getElementById("liveLinkButton").style.display = "none";;
         console.log("hid liveButton");
     } else {
+        console.log(channelData.channels[currentChannel].videos.premiere.link);
         document.getElementById("liveLinkButton").style.display = "";
         console.log("revealed liveButton");
     }
