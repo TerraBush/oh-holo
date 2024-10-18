@@ -319,13 +319,13 @@ function initialDisplay() {
         return;
     }
     console.log("no premiereUrl");
-    if(channelData.channels[currentChannel].videos.premiere.link != "null"){
+    if(channelData.channels[currentChannel].videos.live.link != "null"){
         console.log("attempted to initial display live livestream");
         updateDisplay("live");
         return;
     }
     console.log("no liveUrl");
-    if(channelData.channels[currentChannel].videos.premiere.link != "null"){
+    if(channelData.channels[currentChannel].videos.completed.link != "null"){
         console.log("attempted to initial display completed livestream");
         updateDisplay("completed");
         return;
@@ -387,6 +387,7 @@ function defineData() {
 }
 function defineDataPromise() {
     return new Promise((resolve, reject) => {
+        console.log('running defineDataPromise');
         fetchData()
         .then(obj => {
             if(localStorage.getItem('localChannelData')) {
@@ -407,6 +408,7 @@ function updateChannelData() {
 }
 function updateChannelDataPromise() {
     return new Promise((resolve, reject) => {
+        console.log('running updateChannelDataPromise');
         channelData = JSON.parse(localStorage.getItem('localChannelData'));
         if(channelData) {
             resolve(channelData);
