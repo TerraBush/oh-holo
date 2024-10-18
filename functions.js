@@ -291,17 +291,15 @@ function updateButtonDisplay() {
         console.log("revealed premiereButton")
     }
 
-    if(channelData.channels[currentChannel].videos.premiere.link == "null"){
-        console.log(channelData.channels[currentChannel].videos.premiere.link);
+    if(channelData.channels[currentChannel].videos.live.link == "null"){
         document.getElementById("liveLinkButton").style.display = "none";;
         console.log("hid liveButton");
     } else {
-        console.log(channelData.channels[currentChannel].videos.premiere.link);
         document.getElementById("liveLinkButton").style.display = "";
         console.log("revealed liveButton");
     }
 
-    if(channelData.channels[currentChannel].videos.premiere.link == "null"){
+    if(channelData.channels[currentChannel].videos.completed.link == "null"){
         document.getElementById("completedLinkButton").style.display = "none";
         console.log("hid completedButton");
     } else {
