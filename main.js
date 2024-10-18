@@ -64,10 +64,15 @@ document.getElementById('channelSelector').addEventListener('change', function()
 
 defineDataPromise()
     .then(() => {
-        updateChannelData();
-        updateAllDisplays();
+        updateChannelDataPromise()
+            .then(() => {
+                updateAllDisplays();
+            })
+            .catch(error => {
+                console.error('unable to start initial stuff because of updateChannelDataPromise:', error)
+            });
     })
     .catch(error => {
-        console.error('unable to start initial stuff:', error)
+        console.error('unable to start initial stuff because of defineDataPromise:', error)
     });
 

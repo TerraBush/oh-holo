@@ -405,3 +405,14 @@ function defineDataPromise() {
 function updateChannelData() {
     channelData = JSON.parse(localStorage.getItem('localChannelData'));
 }
+function updateChannelDataPromise() {
+    return new Promise(() => {
+        channelData = JSON.parse(localStorage.getItem('localChannelData'));
+        if(channelData) {
+            resolve(channelData);
+        } else {
+            reject(new Error('localChannelData not found'));
+        }
+    });
+
+}
