@@ -23,7 +23,7 @@ if(getTheme()) {
     currentChannel = channelAltImgList[0];
     channelId = channelIdList[0];
 }
-
+/*
 var premiereTitle = getCookie(`premiereTitle`);
 var premiereThumbnail = getCookie(`premiereThumbnail`);
 var premiereUrl = getCookie(`premiereUrl`);
@@ -41,7 +41,7 @@ var completedDate = getCookie(`completedDate`);
 
 var subscriberCount = getCookie(`subscriberCount`);
 var viewCount = getCookie(`viewCount`);
-
+*/
 function setTheme(theme) {
     document.documentElement.className = theme;
     localStorage.setItem('theme', theme);
@@ -96,9 +96,7 @@ function updateSubscriberCountPromise() {
                 const results = data.pageInfo.totalResults;
                     if(results == 0){
                         console.log("No channel data");
-                        setCookie("subscriberCount", null, 365);
                         channelData.channels[currentChannel].stats.subs = 'null';
-                        setCookie("viewCount", null, 365);
                         channelData.channels[currentChannel].stats.views = 'null';
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
                         resolve();
@@ -112,14 +110,9 @@ function updateSubscriberCountPromise() {
                 }
                 let viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString();
 
-                //setCookie("subscriberCount", subscriberCount, 365);
-                //setCookie("viewCount", viewCount, 365);
-                
                 channelData.channels[currentChannel].stats.subs = subscriberCount;
                 channelData.channels[currentChannel].stats.views = viewCount; 
-                
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
-
                 resolve();
             })
             .catch(error => {
@@ -133,7 +126,6 @@ function updateSubscriberDisplay() {
     document.getElementById('viewCount').textContent = channelData.channels[currentChannel].stats.views;
 
 }
-
 function latestLivestreamPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
@@ -143,10 +135,11 @@ function latestLivestreamPromise() {
                 const results = data.pageInfo.totalResults;
                 if(results == 0){
                     console.log("No completed strem~");
-                    setCookie("completedTitle", null, 365);
-                    setCookie("completedThumbnail", null, 365);
-                    setCookie("completedUrl", null, 365);
-                    setCookie("completedDate", null, 365);
+                    channelData.channels[currentChannel].videos.completed.title = "null";
+                    channelData.channels[currentChannel].videos.completed.thumbnail = "null";
+                    channelData.channels[currentChannel].videos.completed.link = "null";
+                    channelData.channels[currentChannel].videos.completed.date = "null";
+                    localStorage.setItem('localChannelData', JSON.stringify(channelData));
                     resolve();
                     return;
                 }
@@ -159,11 +152,12 @@ function latestLivestreamPromise() {
                 const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
                 const dateTime = new Date(publishedAt);
                 const localDateTime = dateTime.toLocaleString();
-            
-                setCookie("completedTitle", title, 365);
-                setCookie("completedThumbnail", thumbnailUrlHigh, 365);
-                setCookie("completedUrl", videoUrl, 365);
-                setCookie("completedDate", localDateTime, 365);
+
+                channelData.channels[currentChannel].videos.completed.title = title;
+                channelData.channels[currentChannel].videos.completed.thumbnail = thumbnailUrlHigh;
+                channelData.channels[currentChannel].videos.completed.link = videoUrl;
+                channelData.channels[currentChannel].videos.completed.date = localDateTime;
+                localStorage.setItem('localChannelData', JSON.stringify(channelData));
 
             console.log(videoId);
             console.log(title);
@@ -177,7 +171,6 @@ function latestLivestreamPromise() {
             });
     });
 }
-
 function currentLivestreamPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&order=date&maxResults=1&key=${apiKey}`;
@@ -187,10 +180,10 @@ function currentLivestreamPromise() {
                 const results = data.pageInfo.totalResults;
                 if(results == 0){
                     console.log("Not currently live~");
-                    setCookie("liveTitle", null, 365);
-                    setCookie("liveThumbnail", null, 365);
-                    setCookie("liveUrl", null, 365);
-                    setCookie("liveDate", null, 365);
+                    channelData.channels[currentChannel].videos.live.title = "null";
+                    channelData.channels[currentChannel].videos.live.thumbnail = "null";
+                    channelData.channels[currentChannel].videos.live.link = "null";
+                    channelData.channels[currentChannel].videos.live.date = "null";
                     resolve();
                     return;
                 }
@@ -205,10 +198,11 @@ function currentLivestreamPromise() {
                 const dateTime = new Date(publishedAt);
                 const localDateTime = dateTime.toLocaleString();
 
-                setCookie("liveTitle", title, 365);
-                setCookie("liveThumbnail", thumbnailUrlHigh, 365);
-                setCookie("liveUrl", videoUrl, 365);
-                setCookie("liveDate", localDateTime, 365);
+                channelData.channels[currentChannel].videos.live.title = title;
+                channelData.channels[currentChannel].videos.live.thumbnail = thumbnailUrlHigh;
+                channelData.channels[currentChannel].videos.live.link = videoUrl;
+                channelData.channels[currentChannel].videos.live.date = localDateTime;
+                localStorage.setItem('localChannelData', JSON.stringify(channelData));
             
             console.log(videoId);
             console.log(title);
@@ -222,7 +216,6 @@ function currentLivestreamPromise() {
             });
     });
 }
-
 function upcomingLivestreamPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=upcoming&type=video&order=date&maxResults=1&key=${apiKey}`;
@@ -232,10 +225,10 @@ function upcomingLivestreamPromise() {
                 const results = data.pageInfo.totalResults;
                 if(results == 0){
                     console.log("No current premiere~");
-                    setCookie("premiereTitle", null, 365);
-                    setCookie("premiereThumbnail", null, 365);
-                    setCookie("premiereUrl", null, 365);
-                    setCookie("premiereDate", null, 365);
+                    channelData.channels[currentChannel].videos.premiere.title = "null";
+                    channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
+                    channelData.channels[currentChannel].videos.premiere.link = "null";
+                    channelData.channels[currentChannel].videos.premiere.date = "null";
                     resolve();
                     return;
                 }
@@ -250,10 +243,11 @@ function upcomingLivestreamPromise() {
                 const dateTime = new Date(publishedAt);
                 const localDateTime = dateTime.toLocaleString();
 
-                setCookie("premiereTitle", title, 365);
-                setCookie("premiereThumbnail", thumbnailUrlHigh, 365);
-                setCookie("premiereUrl", videoUrl, 365);
-                setCookie("premiereDate", localDateTime, 365);
+                channelData.channels[currentChannel].videos.premiere.title = title;
+                channelData.channels[currentChannel].videos.premiere.thumbnail = thumbnailUrlHigh;
+                channelData.channels[currentChannel].videos.premiere.link = videoUrl;
+                channelData.channels[currentChannel].videos.premiere.date = localDateTime;
+                localStorage.setItem('localChannelData', JSON.stringify(channelData));
             
             console.log(videoId);
             console.log(title);
@@ -268,24 +262,23 @@ function upcomingLivestreamPromise() {
     });
 }
 function updateDisplay(videoType) {
-    defineLivestreamCookies();
     if(videoType == "premiere") {
-        document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${premiereTitle}`;
-        document.getElementById("videoThumbnail").src = `${premiereThumbnail}`;
-        document.getElementById("videoThumbnailLink").href = `${premiereUrl}`;
-        document.getElementById("dateDisplay").innerHTML = `${premiereDate}`;
+        document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${channelData.channels[currentChannel].videos.premiere.title}`;
+        document.getElementById("videoThumbnail").src = channelData.channels[currentChannel].videos.premiere.thumbnail;
+        document.getElementById("videoThumbnailLink").href = channelData.channels[currentChannel].videos.premiere.link;
+        document.getElementById("dateDisplay").innerHTML = channelData.channels[currentChannel].videos.premiere.date;
         console.log("switched to premiere data!");
     } else if (videoType == "live") {
-        document.getElementById("titleDisplay").innerHTML = `${liveEmote}${liveTitle}`;
-        document.getElementById("videoThumbnail").src = `${liveThumbnail}`;
-        document.getElementById("videoThumbnailLink").href = `${liveUrl}`;
-        document.getElementById("dateDisplay").innerHTML = `${liveDate}`;
+        document.getElementById("titleDisplay").innerHTML = `${liveEmote}${channelData.channels[currentChannel].videos.live.title}`;
+        document.getElementById("videoThumbnail").src = channelData.channels[currentChannel].videos.live.thumbnail;
+        document.getElementById("videoThumbnailLink").href = channelData.channels[currentChannel].videos.live.link;
+        document.getElementById("dateDisplay").innerHTML = channelData.channels[currentChannel].videos.live.date;
         console.log("switched to live data!");
     } else if (videoType == "completed") {
-        document.getElementById("titleDisplay").innerHTML = `${completedEmote}${completedTitle}`;
-        document.getElementById("videoThumbnail").src = `${completedThumbnail}`;
-        document.getElementById("videoThumbnailLink").href = `${completedUrl}`;
-        document.getElementById("dateDisplay").innerHTML = `${completedDate}`;
+        document.getElementById("titleDisplay").innerHTML = `${completedEmote}${channelData.channels[currentChannel].videos.completed.title}`;
+        document.getElementById("videoThumbnail").src = channelData.channels[currentChannel].videos.completed.thumbnail;
+        document.getElementById("videoThumbnailLink").href = channelData.channels[currentChannel].videos.completed.link;
+        document.getElementById("dateDisplay").innerHTML = channelData.channels[currentChannel].videos.completed.date;
         console.log("switched to completed data!");
     } else {
         console.log("updateDisplay has not recieved a proper arguement");
@@ -308,21 +301,21 @@ function getCookie(name) {
     return null;
 }
 function updateButtonDisplay() {
-    if(getCookie("premiereUrl") == "null"){
+    if(channelData.channels[currentChannel].videos.premiere.link == "null"){
         document.getElementById("premiereLinkButton").style.display = "none";
         console.log("hid premiereButton");
     } else {
         document.getElementById("premiereLinkButton").style.display = "";
         console.log("revealed premiereButton")
     }
-    if(getCookie("liveUrl") == "null"){
+    if(channelData.channels[currentChannel].videos.premiere.link == "null"){
         document.getElementById("liveLinkButton").style.display = "none";;
         console.log("hid liveButton");
     } else {
         document.getElementById("liveLinkButton").style.display = "";
         console.log("revealed liveButton");
     }
-    if(getCookie("completedUrl") == "null"){
+    if(channelData.channels[currentChannel].videos.premiere.link == "null"){
         document.getElementById("completedLinkButton").style.display = "none";
         console.log("hid completedButton");
     } else {
@@ -336,19 +329,19 @@ function updateImageDisplay() {
     document.getElementById("channelLink").href = findChannelLink(currentChannel);
 }
 function initialDisplay() {
-    if(getCookie("premiereUrl") != "null"){
+    if(channelData.channels[currentChannel].videos.premiere.link != "null"){
         console.log("attempted to initial display premiereing livestream");
         updateDisplay("premiere");
         return;
     }
     console.log("no premiereUrl");
-    if(getCookie("liveUrl") != "null"){
+    if(channelData.channels[currentChannel].videos.premiere.link != "null"){
         console.log("attempted to initial display live livestream");
         updateDisplay("live");
         return;
     }
     console.log("no liveUrl");
-    if(getCookie("completedUrl") != "null"){
+    if(channelData.channels[currentChannel].videos.premiere.link != "null"){
         console.log("attempted to initial display completed livestream");
         updateDisplay("completed");
         return;
