@@ -23,25 +23,7 @@ if(getTheme()) {
     currentChannel = channelAltImgList[0];
     channelId = channelIdList[0];
 }
-/*
-var premiereTitle = getCookie(`premiereTitle`);
-var premiereThumbnail = getCookie(`premiereThumbnail`);
-var premiereUrl = getCookie(`premiereUrl`);
-var premiereDate = getCookie(`premiereDate`);
 
-var liveTitle = getCookie(`liveTitle`);
-var liveThumbnail = getCookie(`liveThumbnail`);
-var liveUrl = getCookie(`liveUrl`);
-var liveDate = getCookie(`liveDate`);
-
-var completedTitle = getCookie(`completedTitle`);
-var completedThumbnail = getCookie(`completedThumbnail`);
-var completedUrl = getCookie(`completedUrl`);
-var completedDate = getCookie(`completedDate`);
-
-var subscriberCount = getCookie(`subscriberCount`);
-var viewCount = getCookie(`viewCount`);
-*/
 function setTheme(theme) {
     document.documentElement.className = theme;
     localStorage.setItem('theme', theme);
@@ -308,13 +290,16 @@ function updateButtonDisplay() {
         document.getElementById("premiereLinkButton").style.display = "";
         console.log("revealed premiereButton")
     }
+
     if(channelData.channels[currentChannel].videos.premiere.link == "null"){
+        console.log(channelData.channels[currentChannel].videos.premiere.link);
         document.getElementById("liveLinkButton").style.display = "none";;
         console.log("hid liveButton");
     } else {
         document.getElementById("liveLinkButton").style.display = "";
         console.log("revealed liveButton");
     }
+
     if(channelData.channels[currentChannel].videos.premiere.link == "null"){
         document.getElementById("completedLinkButton").style.display = "none";
         console.log("hid completedButton");
@@ -348,20 +333,6 @@ function initialDisplay() {
     }
     console.log("no completedUrl");
     console.log("initialDisplay unable to find data");
-}
-function defineLivestreamCookies() {
-    premiereTitle = getCookie("premiereTitle");
-    premiereThumbnail = getCookie("premiereThumbnail");
-    premiereUrl = getCookie("premiereUrl");
-    premiereDate = getCookie("premiereDate");
-    liveTitle = getCookie("liveTitle");
-    liveThumbnail = getCookie("liveThumbnail");
-    liveUrl = getCookie("liveUrl");
-    liveDate = getCookie("liveDate");
-    completedTitle = getCookie("completedTitle");
-    completedThumbnail = getCookie("completedThumbnail");
-    completedUrl = getCookie("completedUrl");
-    completedDate = getCookie("completedDate");
 }
 function updateAllDisplays() {
     updateImageDisplay();
