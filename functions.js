@@ -406,7 +406,7 @@ function updateChannelData() {
     channelData = JSON.parse(localStorage.getItem('localChannelData'));
 }
 function updateChannelDataPromise() {
-    return new Promise(() => {
+    return new Promise((resolve, reject) => {
         channelData = JSON.parse(localStorage.getItem('localChannelData'));
         if(channelData) {
             resolve(channelData);
