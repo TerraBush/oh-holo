@@ -141,10 +141,10 @@ function latestLivestreamPromise() {
                 channelData.channels[currentChannel].videos.completed.date = localDateTime;
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
 
-            console.log(videoId);
-            console.log(title);
-            console.log(videoUrl);
-            console.log("ran latestLivestreamPromise");
+//            console.log(videoId);
+//            console.log(title);
+//            console.log(videoUrl);
+//            console.log("ran latestLivestreamPromise");
             resolve();
             })
             .catch(error => {
@@ -186,10 +186,10 @@ function currentLivestreamPromise() {
                 channelData.channels[currentChannel].videos.live.date = localDateTime;
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
             
-            console.log(videoId);
-            console.log(title);
-            console.log(videoUrl);
-            console.log("ran currentLivestreamPromise");
+//            console.log(videoId);
+//            console.log(title);
+//            console.log(videoUrl);
+//            console.log("ran currentLivestreamPromise");
             resolve();
             })
             .catch(error => {
@@ -231,10 +231,10 @@ function upcomingLivestreamPromise() {
                 channelData.channels[currentChannel].videos.premiere.date = localDateTime;
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
             
-            console.log(videoId);
-            console.log(title);
-            console.log(videoUrl);
-            console.log("ran upcomingLivestreamPromise");
+//            console.log(videoId);
+//            console.log(title);
+//            console.log(videoUrl);
+//            console.log("ran upcomingLivestreamPromise");
             resolve();
             })
             .catch(error => {
