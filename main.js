@@ -1,3 +1,11 @@
+function domready(callback) {
+    document.readyState === 'interactive' || document.readyState === 'complete'
+        ? callback()
+        : document.addEventListener('DOMContentLoaded', callback);
+};
+domready(() => {
+    document.body.style.visibility = 'visible';
+};
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the icon
 
     var image = document.getElementById("clickableImage");
@@ -58,7 +66,6 @@ document.getElementById('channelSelector').addEventListener('change', function()
     channelId = findChannelId(this.value);
     updateAllDisplays();
 });
-
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json import button
 
     var image = document.getElementById("jsonImportButton");
@@ -77,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         playNoise();
     });
 });
+
 //Initial calls to update images and color scheme
 //Initial call to update subscriber count and livestream display
 
