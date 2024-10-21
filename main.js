@@ -76,7 +76,7 @@ document.getElementById('actualImportButton').addEventListener('change', functio
     var input = document.getElementById("actualImportButton");
     const selectedFile = input.files[0];
     //console.log(selectedFile);
-    channelData = JSON.parse(selectedFile);
+    channelData = selectedFile;
     localStorage.setItem('localChannelData', JSON.stringify(channelData));
 
     updateAllDisplays();
