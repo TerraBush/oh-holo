@@ -67,7 +67,8 @@ document.getElementById('channelSelector').addEventListener('change', function()
     updateAllDisplays();
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json import button
-    document.getElementById('jsonImportButton').addEventListener("click", () => {
+    const importButton = document.getElementById('jsonImportButton');
+    importButton.addEventListener("click", () => {
         var input = document.getElementById("actualInputButton");
         const selectedFile = input.files[0];
         
