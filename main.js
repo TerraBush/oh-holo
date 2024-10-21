@@ -67,8 +67,7 @@ document.getElementById('channelSelector').addEventListener('change', function()
     updateAllDisplays();
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json import button
-    const importButton = document.getElementById('jsonImportButton');
-    importButton.addEventListener("click", () => {
+    document.getElementById('jsonImportButton').addEventListener("click", () => {
         var input = document.getElementById("actualInputButton");
         const selectedFile = input.files[0];
         
@@ -79,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
 
     });
 });
-document.getElementById('actualInputButton').addEventListener('input', function() {
+document.getElementById('actualImportButton').addEventListener('input', function() {
     document.getElementById('jsonImportButton').click();
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json export button
