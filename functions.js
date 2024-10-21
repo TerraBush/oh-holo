@@ -285,26 +285,26 @@ function getCookie(name) {
 function updateButtonDisplay() {
     if(channelData.channels[currentChannel].videos.premiere.link == "null"){
         document.getElementById("premiereLinkButton").style.display = "none";
-        console.log("hid premiereButton");
+        //console.log("hid premiereButton");
     } else {
         document.getElementById("premiereLinkButton").style.display = "";
-        console.log("revealed premiereButton")
+        //console.log("revealed premiereButton")
     }
 
     if(channelData.channels[currentChannel].videos.live.link == "null"){
         document.getElementById("liveLinkButton").style.display = "none";;
-        console.log("hid liveButton");
+        //console.log("hid liveButton");
     } else {
         document.getElementById("liveLinkButton").style.display = "";
-        console.log("revealed liveButton");
+        //console.log("revealed liveButton");
     }
 
     if(channelData.channels[currentChannel].videos.completed.link == "null"){
         document.getElementById("completedLinkButton").style.display = "none";
-        console.log("hid completedButton");
+        //console.log("hid completedButton");
     } else {
         document.getElementById("completedLinkButton").style.display = "";
-        console.log("revealed completedButton");
+        //console.log("revealed completedButton");
     }
 }
 function updateImageDisplay() {
