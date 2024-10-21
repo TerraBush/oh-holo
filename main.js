@@ -67,12 +67,19 @@ document.getElementById('channelSelector').addEventListener('change', function()
     updateAllDisplays();
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json import button
-
-    var button = document.getElementById("jsonImportButton");
-
     button.addEventListener("click", () => {
-        playNoise();
+        var input = document.getElementById("actualInputButton");
+        const selectedFile = input.files[0];
+        
+        channelData = JSON.parse(selectedFile);
+        localStorage.setItem('localChannelData', JSON.stringify(selectedFile));
+
+        updateAllDisplays();
+
     });
+});
+document.getElementById('actualInputButton').addEventListener('change', function() {
+    document.getElementById('jsonImportButton').click();
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json export button
     const button = document.getElementById("jsonExportButton");
@@ -93,22 +100,6 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
 
 //Initial calls to update images and color scheme
 //Initial call to update subscriber count and livestream display
-
-/*
-defineDataPromise()
-    .then(() => {
-        updateChannelDataPromise()
-            .then(() => {
-                updateAllDisplays();
-            })
-            .catch(error => {
-                console.error('unable to start initial stuff because of updateChannelDataPromise:', error)
-            });
-    })
-    .catch(error => {
-        console.error('unable to start initial stuff because of defineDataPromise:', error)
-    });
-*/
 defineDataPromise()
     .then(() => {
         updateChannelData();

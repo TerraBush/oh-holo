@@ -16,7 +16,7 @@
     <meta name="apple-mobile-web-app-title" content="oh hi">
 
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/solid.min.css?v=1234">
 </head>
 <body style="visibility: hidden;">
     <script>0</script> <!-- dummy script so firefox only shows page after all css from <head> is loaded -->
@@ -77,7 +77,8 @@
             <button id="apiKeySubmitButton">Submit</button>
         </div>
         <div id="jsonImportExport" class="card">
-            <button id="jsonImportButton"><i class="fa-solid fa-file-import"></i></button>
+            <button id="jsonImportButton" for="actualImportButton"><i class="fa-solid fa-file-import"></i></button>
+            <input type="file" accept=".json" id="actualImportButton" hidden/>
             <button id="jsonExportButton"><i class="fa-solid fa-file-export"></i></button>
         </div>
     </main>
