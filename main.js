@@ -77,14 +77,13 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         updateAllDisplays();*/
     });
 });
-document.getElementById('actualImportButton').addEventListener('input', function() {
+/*document.getElementById('actualImportButton').addEventListener('input', function() {
     var input = document.getElementById("actualInputButton");
     const selectedFile = input.files[0];
     channelData = JSON.parse(selectedFile);
     localStorage.setItem('localChannelData', JSON.stringify(selectedFile));
     updateAllDisplays();
-    //document.getElementById('jsonImportButton').click();
-});
+});*/
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json export button
     const button = document.getElementById("jsonExportButton");
     
