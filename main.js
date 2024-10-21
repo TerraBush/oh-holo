@@ -5,7 +5,7 @@ function domready(callback) {
 };
 domready(() => {
     document.body.style.visibility = 'visible';
-};
+});
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the icon
 
     var image = document.getElementById("clickableImage");
