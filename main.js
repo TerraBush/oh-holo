@@ -78,7 +78,7 @@ document.getElementById('actualImportButton').addEventListener('change', functio
 
     const reader = new FileReader();
     reader.addEventListener('load', a => {
-        console.log(JSON.parse(a.target.files[0]));
+        console.log(JSON.parse(a.target.result));
     });
     reader.readAsText(selectedFile);
 
