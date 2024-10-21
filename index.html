@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body style="visibility: hidden;">
     <script>0</script> <!-- dummy script so firefox only shows page after all css from <head> is loaded -->
     <main>
         <header>
@@ -81,6 +81,7 @@
             <button id="jsonExportButton"><i class="fa-solid fa-file-export"></i></button>
         </div>
     </main>
+    <noscript><style>body { visibility: visible; }</style></noscript>
 </body>
 
 <script src="functions.js"></script>
