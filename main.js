@@ -72,22 +72,15 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     });
 });
 document.getElementById('actualImportButton').addEventListener('change', function() {
-    /*var input = document.getElementById("actualImportButton");
-    const selectedFile = input.files[0];
-    console.log(selectedFile);
-    channelData = selectedFile;
-    localStorage.setItem('localChannelData', JSON.stringify(channelData));*/
 
     var input = document.getElementById("actualImportButton");
     const selectedFile = input.files[0];
-    fetch(selectedFile)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json);
-            console.log(JSON.parse(JSON));
-            //channelData = json;
-            //localStorage.setItem('localChannelData', JSON.stringify(channelData));
-        });
+
+    const reader = new FileReader();
+    reader.addEventListener('load', a => {
+        console.log(JSON.parse(a.target.files[0]));
+    });
+    reader.readAsText(selectedFile);
 
     updateAllDisplays();
 });
