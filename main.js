@@ -70,9 +70,10 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     document.getElementById('jsonImportButton').addEventListener("click", () => {
         var input = document.getElementById("actualImportButton");
         const selectedFile = input.files[0];
+        console.log(selectedFile);
         
-        channelData = JSON.parse(selectedFile);
-        localStorage.setItem('localChannelData', JSON.stringify(selectedFile));
+        //channelData = JSON.parse(selectedFile);
+        //localStorage.setItem('localChannelData', JSON.stringify(selectedFile));
 
         updateAllDisplays();
     });
