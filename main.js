@@ -75,9 +75,9 @@ document.getElementById('actualImportButton').addEventListener('change', functio
     //document.getElementById('jsonImportButton').click();
     var input = document.getElementById("actualImportButton");
     const selectedFile = input.files[0];
-    console.log(selectedFile);
-    //channelData = JSON.parse(selectedFile);
-    //localStorage.setItem('localChannelData', JSON.stringify(selectedFile));
+    //console.log(selectedFile);
+    channelData = JSON.parse(selectedFile);
+    localStorage.setItem('localChannelData', JSON.stringify(channelData));
 
     updateAllDisplays();
 });
