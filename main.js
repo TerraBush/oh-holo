@@ -68,20 +68,26 @@ document.getElementById('channelSelector').addEventListener('change', function()
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json import button
 
-    var image = document.getElementById("jsonImportButton");
+    var button = document.getElementById("jsonImportButton");
 
-    //image.addEventListener("click", playNoise);
-    image.addEventListener("click", () => {
+    button.addEventListener("click", () => {
         playNoise();
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json export button
+    const button = document.getElementById("jsonExportButton");
+    
+    button.addEventListener("click", () => {
+        
+        const channelDataString = JSON.stringify(channelData, null, 2);
+        const dataUrl = 'data:application/json;charset=utf-8,' + encodeURIComponent(channelDataString);
+        button.href = dataUrl;
 
-    var image = document.getElementById("jsonExportButton");
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        link.download = 'data.json';
+        link.click();
 
-    //image.addEventListener("click", playNoise);
-    image.addEventListener("click", () => {
-        playNoise();
     });
 });
 
