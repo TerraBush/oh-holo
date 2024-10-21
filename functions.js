@@ -249,19 +249,19 @@ function updateDisplay(videoType) {
         document.getElementById("videoThumbnail").src = channelData.channels[currentChannel].videos.premiere.thumbnail;
         document.getElementById("videoThumbnailLink").href = channelData.channels[currentChannel].videos.premiere.link;
         document.getElementById("dateDisplay").innerHTML = channelData.channels[currentChannel].videos.premiere.date;
-        console.log("switched to premiere data!");
+        //console.log("switched to premiere data!");
     } else if (videoType == "live") {
         document.getElementById("titleDisplay").innerHTML = `${liveEmote}${channelData.channels[currentChannel].videos.live.title}`;
         document.getElementById("videoThumbnail").src = channelData.channels[currentChannel].videos.live.thumbnail;
         document.getElementById("videoThumbnailLink").href = channelData.channels[currentChannel].videos.live.link;
         document.getElementById("dateDisplay").innerHTML = channelData.channels[currentChannel].videos.live.date;
-        console.log("switched to live data!");
+        //console.log("switched to live data!");
     } else if (videoType == "completed") {
         document.getElementById("titleDisplay").innerHTML = `${completedEmote}${channelData.channels[currentChannel].videos.completed.title}`;
         document.getElementById("videoThumbnail").src = channelData.channels[currentChannel].videos.completed.thumbnail;
         document.getElementById("videoThumbnailLink").href = channelData.channels[currentChannel].videos.completed.link;
         document.getElementById("dateDisplay").innerHTML = channelData.channels[currentChannel].videos.completed.date;
-        console.log("switched to completed data!");
+        //console.log("switched to completed data!");
     } else {
         console.log("updateDisplay has not recieved a proper arguement");
         return;
@@ -314,19 +314,19 @@ function updateImageDisplay() {
 }
 function initialDisplay() {
     if(channelData.channels[currentChannel].videos.premiere.link != "null"){
-        console.log("attempted to initial display premiereing livestream");
+        //console.log("attempted to initial display premiereing livestream");
         updateDisplay("premiere");
         return;
     }
     console.log("no premiereUrl");
     if(channelData.channels[currentChannel].videos.live.link != "null"){
-        console.log("attempted to initial display live livestream");
+        //console.log("attempted to initial display live livestream");
         updateDisplay("live");
         return;
     }
     console.log("no liveUrl");
     if(channelData.channels[currentChannel].videos.completed.link != "null"){
-        console.log("attempted to initial display completed livestream");
+        //console.log("attempted to initial display completed livestream");
         updateDisplay("completed");
         return;
     }
@@ -387,7 +387,7 @@ function defineData() {
 }
 function defineDataPromise() {
     return new Promise((resolve, reject) => {
-        console.log('running defineDataPromise');
+        //console.log('running defineDataPromise');
         fetchData()
         .then(obj => {
             if(localStorage.getItem('localChannelData')) {
