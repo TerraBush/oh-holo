@@ -59,6 +59,24 @@ document.getElementById('channelSelector').addEventListener('change', function()
     updateAllDisplays();
 });
 
+document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json import button
+
+    var image = document.getElementById("jsonImportButton");
+
+    //image.addEventListener("click", playNoise);
+    image.addEventListener("click", () => {
+        playNoise();
+    });
+});
+document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json export button
+
+    var image = document.getElementById("jsonExportButton");
+
+    //image.addEventListener("click", playNoise);
+    image.addEventListener("click", () => {
+        playNoise();
+    });
+});
 //Initial calls to update images and color scheme
 //Initial call to update subscriber count and livestream display
 

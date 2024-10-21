@@ -291,3 +291,55 @@ select:focus{
     appearance: none;
     -moz-appearance: none;
 }
+#jsonImportExport{
+    width: 120px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    
+    border: 0px solid var(--border-color);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0);
+    border-radius: 0.8rem;
+    background-color: var(--background-color);
+}
+#jsonImportButton {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    align-self: flex-start;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 0%;
+    text-decoration: none;
+    border: none;
+    background-color: var(--card-color);
+    color: var(--text-color-light);
+    border-radius: 20%;
+    font-size: 25px;
+    transition: transform 0.3s, filter 0.3s; /* Smooth transition */
+}
+#jsonImportButton:hover {
+    transform: scale(1.1); /* Scale image by 10% on hover */
+    transition: transform 0.3s, filter 0.3s; /* Smooth transition */
+}
+#jsonExportButton {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    align-self: flex-end;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 0%;
+    text-decoration: none;
+    border: none;
+    background-color: var(--card-color);
+    color: var(--text-color-light);
+    border-radius: 20%;
+    font-size: 25px;
+    transition: transform 0.3s, filter 0.3s; /* Smooth transition */
+}
+#jsonExportButton:hover {
+    transform: scale(1.1); /* Scale image by 10% on hover */
+    transition: transform 0.3s, filter 0.3s; /* Smooth transition */
+}
