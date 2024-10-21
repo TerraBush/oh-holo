@@ -72,12 +72,22 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     });
 });
 document.getElementById('actualImportButton').addEventListener('change', function() {
-    //document.getElementById('jsonImportButton').click();
+    /*var input = document.getElementById("actualImportButton");
+    const selectedFile = input.files[0];
+    console.log(selectedFile);
+    channelData = selectedFile;
+    localStorage.setItem('localChannelData', JSON.stringify(channelData));*/
+
     var input = document.getElementById("actualImportButton");
     const selectedFile = input.files[0];
-    //console.log(selectedFile);
-    channelData = selectedFile;
-    localStorage.setItem('localChannelData', JSON.stringify(channelData));
+    fetch(selectedFile)
+        .then(response => response.json())
+        .then(json => {
+            console.log(json);
+            console.log(JSON.parse(JSON));
+            //channelData = json;
+            //localStorage.setItem('localChannelData', JSON.stringify(channelData));
+        });
 
     updateAllDisplays();
 });
