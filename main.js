@@ -79,7 +79,7 @@ document.getElementById('actualImportButton').addEventListener('change', functio
     const reader = new FileReader();
     reader.addEventListener('load', a => {
         channelData = JSON.parse(a.target.result);
-        localStorage.setItem('localChannelData', JSON.stringify(a.target.result));
+        localStorage.setItem('localChannelData', a.target.result);
     });
     reader.readAsText(selectedFile);
 
