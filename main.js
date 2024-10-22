@@ -76,14 +76,17 @@ document.getElementById('actualImportButton').addEventListener('change', functio
     var input = document.getElementById("actualImportButton");
     const selectedFile = input.files[0];
 
-    const reader = new FileReader();
-    reader.addEventListener('load', a => {
-        channelData = JSON.parse(a.target.result);
-        localStorage.setItem('localChannelData', a.target.result);
-    });
-    reader.readAsText(selectedFile);
-
-    updateAllDisplays();
+    readFile(selectedFile)
+        .then(content => {
+            channelData = JSON.parse(content.target.result);
+            localStorage.setItem('localChannelData', content.target.result);
+        })
+        .then(() => {
+            updateAllDisplays();
+        })
+        .catch(error => {
+            alert('error reading file:' + error);
+        });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json export button
     const button = document.getElementById("jsonExportButton");

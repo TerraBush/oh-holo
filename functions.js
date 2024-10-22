@@ -418,3 +418,16 @@ function updateChannelDataPromise() {
     });
 
 }
+function readFile(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+
+        reader.addEventListener('load', a => {
+            resolve(a.target.result);
+        });
+        reader.addEventListener('error', e => {
+            reject(e);
+        });
+        reader.readAsText(file);
+    })
+}
