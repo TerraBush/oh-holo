@@ -424,6 +424,8 @@ function readFile(file) {
 
         reader.addEventListener('load', a => {
             resolve(a.target.result);
+            channelData = JSON.parse(a.target.result);
+            localStorage.setItem('localChannelData', a.target.result);
         });
         reader.addEventListener('error', e => {
             reject(e);
