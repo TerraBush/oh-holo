@@ -116,7 +116,7 @@ function latestLivestreamPromise() {
             .then(data => {
                 const results = data.pageInfo.totalResults;
                 if(results == 0){
-                    console.log("No completed strem~");
+                    //console.log("No completed strem~");
                     channelData.channels[currentChannel].videos.completed.title = "null";
                     channelData.channels[currentChannel].videos.completed.thumbnail = "null";
                     channelData.channels[currentChannel].videos.completed.link = "null";
@@ -161,7 +161,7 @@ function currentLivestreamPromise() {
             .then(data => {
                 const results = data.pageInfo.totalResults;
                 if(results == 0){
-                    console.log("Not currently live~");
+                    //console.log("Not currently live~");
                     channelData.channels[currentChannel].videos.live.title = "null";
                     channelData.channels[currentChannel].videos.live.thumbnail = "null";
                     channelData.channels[currentChannel].videos.live.link = "null";
@@ -206,7 +206,7 @@ function upcomingLivestreamPromise() {
             .then(data => {
                 const results = data.pageInfo.totalResults;
                 if(results == 0){
-                    console.log("No current premiere~");
+                    //console.log("No current premiere~");
                     channelData.channels[currentChannel].videos.premiere.title = "null";
                     channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
                     channelData.channels[currentChannel].videos.premiere.link = "null";
@@ -318,19 +318,19 @@ function initialDisplay() {
         updateDisplay("premiere");
         return;
     }
-    console.log("no premiereUrl");
+    //console.log("no premiereUrl");
     if(channelData.channels[currentChannel].videos.live.link != "null"){
         //console.log("attempted to initial display live livestream");
         updateDisplay("live");
         return;
     }
-    console.log("no liveUrl");
+    //console.log("no liveUrl");
     if(channelData.channels[currentChannel].videos.completed.link != "null"){
         //console.log("attempted to initial display completed livestream");
         updateDisplay("completed");
         return;
     }
-    console.log("no completedUrl");
+    //console.log("no completedUrl");
     console.log("initialDisplay unable to find data");
 }
 function updateAllDisplays() {
@@ -408,7 +408,7 @@ function updateChannelData() {
 }
 function updateChannelDataPromise() {
     return new Promise((resolve, reject) => {
-        console.log('running updateChannelDataPromise');
+        //console.log('running updateChannelDataPromise');
         channelData = JSON.parse(localStorage.getItem('localChannelData'));
         if(channelData) {
             resolve(channelData);
