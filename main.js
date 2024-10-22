@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         
     });
 });
-document.getElementById('actualImportButton').addEventListener('change', function() {
+document.getElementById('actualImportButton').addEventListener('change', function() { //event listener for uploading a json
 
     var input = document.getElementById("actualImportButton");
     const selectedFile = input.files[0];
