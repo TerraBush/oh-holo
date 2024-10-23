@@ -1,4 +1,5 @@
 const apiKey = getCookie("apiKey");
+const apiKeyHolo = getCookie("apiKeyHolo");
 const premiereEmote = '🕔';
 const liveEmote = '🔴';
 const completedEmote = '🔘';
@@ -432,4 +433,18 @@ function readFile(file) {
         });
         reader.readAsText(file);
     })
+}
+function holoText() {
+    
+    const url = 'https://holodex.net/api/v2/users/live/channels=UC3n5uGu18FoCy23ggWWp8tA,UCO_aKKYxn4tvrqPjcTzZ6EQ,UCgmPnx-EEeOrZSg5Tiw7ZRQ';
+    
+    const response = await fetch(url, {
+      	headers: {
+        	  'X-APIKEY': '${apiKeyHolo}'
+    	  },
+    });
+    
+    const text = await response.text();
+    
+    console.log(text);
 }

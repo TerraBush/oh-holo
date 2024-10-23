@@ -39,6 +39,25 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
             });
     });
 });
+document.addEventListener("DOMContentLoaded", function() { //event listener for holodex input api key field & button
+    //const apiKey = getCookie("apiKey");
+    if(apiKey) { //if have api key, hide input field
+        document.getElementById("apiKeyHoloInputContainer").style.display = "none";
+    }
+    document.getElementById("apiKeyHoloSubmitButton").addEventListener("click", function() { //button event listener, saves api key and hides input field
+        const apiKeyInput = document.getElementById("apiKeyHoloInputBox").value;
+
+        setCookie("apiKeyHolo", apiKeyInput, 365);
+
+        document.getElementById("apiKeyHoloInputContainer").style.display = "none";
+
+        /*updateSubscriberCountPromise()
+            .then(updateSubscriberDisplay)
+            .catch(error => {
+                console.error("Error updating subscriberDisplay:", error);
+            });*/
+    });
+});
 document.addEventListener("DOMContentLoaded", function() { //premiere button listener
     document.getElementById("premiereLinkButton").addEventListener("click", function() {
         updateDisplay("premiere");
