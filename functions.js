@@ -434,7 +434,7 @@ function readFile(file) {
         reader.readAsText(file);
     })
 }
-function holoText() {
+/*function holoText() {
     
     const url = 'https://holodex.net/api/v2/users/live/channels=UC3n5uGu18FoCy23ggWWp8tA,UCO_aKKYxn4tvrqPjcTzZ6EQ,UCgmPnx-EEeOrZSg5Tiw7ZRQ';
     
@@ -447,4 +447,4 @@ function holoText() {
     const text = await response.text();
     
     console.log(text);
-}
+}*/
