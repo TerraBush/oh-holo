@@ -15,6 +15,7 @@ var currentChannel;
 var channelId;
 
 let channelData;
+let holoChannelData;
 
 if(getTheme()) {
     currentChannel = getTheme();
@@ -434,17 +435,22 @@ function readFile(file) {
         reader.readAsText(file);
     })
 }
-/*function holoText() {
-    
+function holoTest() {
     const url = 'https://holodex.net/api/v2/users/live/channels=UC3n5uGu18FoCy23ggWWp8tA,UCO_aKKYxn4tvrqPjcTzZ6EQ,UCgmPnx-EEeOrZSg5Tiw7ZRQ';
-    
-    const response = await fetch(url, {
-      	headers: {
-        	  'X-APIKEY': '${apiKeyHolo}'
-    	  },
+    return new Promise((resolve, reject) => {
+        fetch(url, {
+            headers: {
+                'X-APIKEY': `${apiKeyHolo}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                holoChannelData = data;
+            })
+            .catch(error => {
+                console.error('Error fetching holodex data:', error);
+                reject(error);
+            });
     });
-    
-    const text = await response.text();
-    
-    console.log(text);
-}*/
+}

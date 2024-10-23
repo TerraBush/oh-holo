@@ -56,6 +56,14 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
             .catch(error => {
                 console.error("Error updating subscriberDisplay:", error);
             });*/
+
+        holoTest()
+            .then(() => {
+                console.log(holoChannelData);
+            })
+            .catch(error => {
+                console.log("unable to complete holoTest call:", error);
+            });
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //premiere button listener
