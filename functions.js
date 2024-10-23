@@ -436,9 +436,10 @@ function readFile(file) {
     })
 }
 function holoTest() {
-    const url = 'https://holodex.net/api/v2/users/live/channels=UC3n5uGu18FoCy23ggWWp8tA,UCO_aKKYxn4tvrqPjcTzZ6EQ,UCgmPnx-EEeOrZSg5Tiw7ZRQ';
+    const url = 'https://holodex.net/api/v2/users/live?channels=UC3n5uGu18FoCy23ggWWp8tA,UCO_aKKYxn4tvrqPjcTzZ6EQ,UCgmPnx-EEeOrZSg5Tiw7ZRQ';
     return new Promise((resolve, reject) => {
         fetch(url, {
+            method: 'GET',
             headers: {
                 'X-APIKEY': `${apiKeyHolo}`
             }
@@ -447,6 +448,7 @@ function holoTest() {
             .then(data => {
                 console.log(data);
                 holoChannelData = data;
+                resolve();
             })
             .catch(error => {
                 console.error('Error fetching holodex data:', error);
