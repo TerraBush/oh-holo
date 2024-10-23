@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for holodex input api key field & button
     //const apiKey = getCookie("apiKey");
-    if(apiKey) { //if have api key, hide input field
+    if(apiKeyHolo) { //if have api key, hide input field
         document.getElementById("apiKeyHoloInputContainer").style.display = "none";
     }
     document.getElementById("apiKeyHoloSubmitButton").addEventListener("click", function() { //button event listener, saves api key and hides input field
