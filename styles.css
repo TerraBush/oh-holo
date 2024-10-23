@@ -215,7 +215,21 @@ h1 a:hover {
     border-radius: .4rem;
     text-align: center;
 }
-
+#apiKeyHoloSubmitButton {
+    background: var(--text-color-dark);
+    color: var(--text-color-light);
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    padding: 5px 10px;
+}
+#apiKeyHoloInputBox {
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    margin: .5rem;
+    border-radius: .4rem;
+    text-align: center;
+}
 #livestreamDisplay {
     padding: .5rem 1rem;
     display: flex;
