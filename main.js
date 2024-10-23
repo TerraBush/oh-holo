@@ -45,9 +45,9 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
         document.getElementById("apiKeyHoloInputContainer").style.display = "none";
     }
     document.getElementById("apiKeyHoloSubmitButton").addEventListener("click", function() { //button event listener, saves api key and hides input field
-        const apiKeyInput = document.getElementById("apiKeyHoloInputBox").value;
+        const apiKeyHoloInput = document.getElementById("apiKeyHoloInputBox").value;
 
-        setCookie("apiKeyHolo", apiKeyInput, 365);
+        setCookie("apiKeyHolo", apiKeyHoloInput, 365);
 
         document.getElementById("apiKeyHoloInputContainer").style.display = "none";
 
