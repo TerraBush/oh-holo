@@ -138,3 +138,11 @@ defineDataPromise()
     .catch(error => {
         console.error('unable to start initial stuff because of defineDataPromise:', error)
     });
+
+updateLivestreamHoloPromise()
+    .then(() => {
+        console.log("updateLivestreamHoloPromise successful");
+    })
+    .catch(error => {
+        console.error("updateLivestreamHoloPromise error:", error);
+    });

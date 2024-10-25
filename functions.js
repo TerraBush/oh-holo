@@ -11,6 +11,52 @@ const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\
 const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii", "https://www.youtube.com/@holoen_erbloodflame", "https://www.youtube.com/@NerissaRavencroft", "https://www.youtube.com/@GawrGura", "https://www.youtube.com/@NinomaeInanis", "https://www.youtube.com/@TakanashiKiara", "https://www.youtube.com/@mintfantome", "https://www.youtube.com/@holoen_raorapanthera", "https://www.youtube.com/@KaelaKovalskia", "https://www.youtube.com/@holoen_gigimurin", "https://www.youtube.com/@ShioriNovella"];
 const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3", "sounds\\ohohohoho.mp3", "", "sounds\\a.mp3", "sounds\\wah.mp3", "", "", "", "", "", ""];
 
+
+let holoDataTest = [
+  {
+    "id": "J3dODan6-u8",
+    "title": "test upcoming",
+    "type": "stream",
+    "topic_id": "TCG_Card_Shop_Simulator",
+    "published_at": "2024-10-25T06:58:08.000Z",
+    "available_at": "2024-10-26T03:00:00.000Z",
+    "duration": 0,
+    "status": "upcoming",
+    "start_scheduled": "2024-10-26T03:00:00.000Z",
+    "live_viewers": 0,
+    "channel": {
+      "id": "UCZLZ8Jjx_RN2CXloOmgTHVg",
+      "name": "Kaela Kovalskia Ch. hololive-ID",
+      "org": "Hololive",
+      "suborg": "keIndonesia 3rd Gen (holoh3ro)",
+      "type": "vtuber",
+      "photo": "https://yt3.ggpht.com/i-aqA-4BPUKlCYErdtAkp2_s2AsG_8IB1saxXSSBXevz6bA8ptaIm53-SXB1_KIODP4SI4_l=s800-c-k-c0x00ffffff-no-rj",
+      "english_name": "Kaela Kovalskia"
+    }
+  }
+    {
+  "id": "J3dODan6-u8",
+  "title": "test live",
+  "type": "stream",
+  "topic_id": "TCG_Card_Shop_Simulator",
+  "published_at": "2024-10-25T06:58:08.000Z",
+  "available_at": "2024-10-26T03:00:00.000Z",
+  "duration": 0,
+  "status": "live",
+  "start_scheduled": "2024-10-26T03:00:00.000Z",
+  "live_viewers": 0,
+  "channel": {
+    "id": "UCZLZ8Jjx_RN2CXloOmgTHVg",
+    "name": "Kaela Kovalskia Ch. hololive-ID",
+    "org": "Hololive",
+    "suborg": "keIndonesia 3rd Gen (holoh3ro)",
+    "type": "vtuber",
+    "photo": "https://yt3.ggpht.com/i-aqA-4BPUKlCYErdtAkp2_s2AsG_8IB1saxXSSBXevz6bA8ptaIm53-SXB1_KIODP4SI4_l=s800-c-k-c0x00ffffff-no-rj",
+    "english_name": "Kaela Kovalskia"
+  }
+}
+];
+
 var currentChannel;
 var channelId;
 
@@ -216,7 +262,7 @@ function upcomingLivestreamPromise() {
                     resolve();
                     return;
                 }
-                const livestream = data.items[0];
+          const livestream = data.items[0];
                 const videoId = livestream.id.videoId;
                 const title = livestream.snippet.title;
                 const publishedAt = livestream.snippet.publishedAt;
@@ -243,6 +289,41 @@ function upcomingLivestreamPromise() {
                 console.error('Error fetching data:', error);
                 reject(error);
             });
+    });
+}
+function updateLivestreamHoloPromise() {
+    return new Promise(() => {
+        for(let i = 0; i < holoDataTest.length; i++){
+            if(holoDataTest[i].status == "upcoming") {
+
+                let videoId = holoDataTest[i].id;
+                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+                const dateTime = new Date(start_scheduled);
+                const localDateTime = dateTime.toLocaleString();
+
+                channelData.channels[currentChannel].videos.premiere.title = holoDataTest[i].title;
+                channelData.channels[currentchannel].videos.premiere.thumbnail = thumbnailUrlHigh;
+                channelData.channels[currentChannel].videos.premiere.link = videoUrl;
+                channelData.channels[currentChannel].videos.premiere.date = localDateTime;
+                localStorage.setItem('localChannelData', JSON.stringify(channelData));
+            }
+        } else if(holoDataTest[i].status == "live") {
+
+            let videoId = holoDataTest[i].id;
+            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+            const dateTime = new Date(start_actual);
+            const localDateTime = dateTime.toLocaleString();
+
+            channelData.channels[currentChannel].videos.live.title = holoDataTest[i].title;
+            channelData.channels[currentchannel].videos.live.thumbnail = thumbnailUrlHigh;
+            channelData.channels[currentChannel].videos.live.link = videoUrl;
+            channelData.channels[currentChannel].videos.live.date = localDateTime;
+            localStorage.setItem('localChannelData', JSON.stringify(channelData));
+        }
     });
 }
 function updateDisplay(videoType) {
