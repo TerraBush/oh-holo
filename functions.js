@@ -304,7 +304,7 @@ function updateLivestreamHoloPromise() {
                 const localDateTime = dateTime.toLocaleString();
 
                 channelData.channels[currentChannel].videos.premiere.title = holoDataTest[i].title;
-                channelData.channels[currentchannel].videos.premiere.thumbnail = thumbnailUrlHigh;
+                channelData.channels[currentChannel].videos.premiere.thumbnail = thumbnailUrlHigh;
                 channelData.channels[currentChannel].videos.premiere.link = videoUrl;
                 channelData.channels[currentChannel].videos.premiere.date = localDateTime;
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
