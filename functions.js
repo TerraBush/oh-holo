@@ -308,21 +308,23 @@ function updateLivestreamHoloPromise() {
                 channelData.channels[currentChannel].videos.premiere.link = videoUrl;
                 channelData.channels[currentChannel].videos.premiere.date = localDateTime;
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
+            }else if(holoDataTest[i].status == "live") {
+
+                let videoId = holoDataTest[i].id;
+                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+    
+                const dateTime = new Date(start_actual);
+                const localDateTime = dateTime.toLocaleString();
+    
+                channelData.channels[currentChannel].videos.live.title = holoDataTest[i].title;
+                channelData.channels[currentchannel].videos.live.thumbnail = thumbnailUrlHigh;
+                channelData.channels[currentChannel].videos.live.link = videoUrl;
+                channelData.channels[currentChannel].videos.live.date = localDateTime;
+                localStorage.setItem('localChannelData', JSON.stringify(channelData));
+            } else {
+                console.log("no holoDataTest");
             }
-        } else if(holoDataTest[i].status == "live") {
-
-            let videoId = holoDataTest[i].id;
-            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-
-            const dateTime = new Date(start_actual);
-            const localDateTime = dateTime.toLocaleString();
-
-            channelData.channels[currentChannel].videos.live.title = holoDataTest[i].title;
-            channelData.channels[currentchannel].videos.live.thumbnail = thumbnailUrlHigh;
-            channelData.channels[currentChannel].videos.live.link = videoUrl;
-            channelData.channels[currentChannel].videos.live.date = localDateTime;
-            localStorage.setItem('localChannelData', JSON.stringify(channelData));
         }
     });
 }
