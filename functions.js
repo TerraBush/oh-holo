@@ -300,7 +300,7 @@ function updateLivestreamHoloPromise() {
                 const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
                 const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
-                const dateTime = new Date(start_scheduled);
+                const dateTime = new Date(holoDataTest[i].start_scheduled);
                 const localDateTime = dateTime.toLocaleString();
 
                 channelData.channels[currentChannel].videos.premiere.title = holoDataTest[i].title;
@@ -314,7 +314,7 @@ function updateLivestreamHoloPromise() {
                 const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
                 const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
     
-                const dateTime = new Date(start_actual);
+                const dateTime = new Date(holoDataTest[i].start_actual);
                 const localDateTime = dateTime.toLocaleString();
     
                 channelData.channels[currentChannel].videos.live.title = holoDataTest[i].title;
