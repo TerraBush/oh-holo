@@ -33,28 +33,28 @@ let holoDataTest = [
       "photo": "https://yt3.ggpht.com/i-aqA-4BPUKlCYErdtAkp2_s2AsG_8IB1saxXSSBXevz6bA8ptaIm53-SXB1_KIODP4SI4_l=s800-c-k-c0x00ffffff-no-rj",
       "english_name": "Kaela Kovalskia"
     }
+  },
+  {
+    "id": "J3dODan6-u8",
+    "title": "test live",
+    "type": "stream",
+    "topic_id": "TCG_Card_Shop_Simulator",
+    "published_at": "2024-10-25T06:58:08.000Z",
+    "available_at": "2024-10-26T03:00:00.000Z",
+    "duration": 0,
+    "status": "live",
+    "start_scheduled": "2024-10-26T03:00:00.000Z",
+    "live_viewers": 0,
+    "channel": {
+      "id": "UCZLZ8Jjx_RN2CXloOmgTHVg",
+      "name": "Kaela Kovalskia Ch. hololive-ID",
+      "org": "Hololive",
+      "suborg": "keIndonesia 3rd Gen (holoh3ro)",
+      "type": "vtuber",
+      "photo": "https://yt3.ggpht.com/i-aqA-4BPUKlCYErdtAkp2_s2AsG_8IB1saxXSSBXevz6bA8ptaIm53-SXB1_KIODP4SI4_l=s800-c-k-c0x00ffffff-no-rj",
+      "english_name": "Kaela Kovalskia"
+    }
   }
-    {
-  "id": "J3dODan6-u8",
-  "title": "test live",
-  "type": "stream",
-  "topic_id": "TCG_Card_Shop_Simulator",
-  "published_at": "2024-10-25T06:58:08.000Z",
-  "available_at": "2024-10-26T03:00:00.000Z",
-  "duration": 0,
-  "status": "live",
-  "start_scheduled": "2024-10-26T03:00:00.000Z",
-  "live_viewers": 0,
-  "channel": {
-    "id": "UCZLZ8Jjx_RN2CXloOmgTHVg",
-    "name": "Kaela Kovalskia Ch. hololive-ID",
-    "org": "Hololive",
-    "suborg": "keIndonesia 3rd Gen (holoh3ro)",
-    "type": "vtuber",
-    "photo": "https://yt3.ggpht.com/i-aqA-4BPUKlCYErdtAkp2_s2AsG_8IB1saxXSSBXevz6bA8ptaIm53-SXB1_KIODP4SI4_l=s800-c-k-c0x00ffffff-no-rj",
-    "english_name": "Kaela Kovalskia"
-  }
-}
 ];
 
 var currentChannel;
