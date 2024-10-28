@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
 
         document.getElementById("apiKeyInputContainer").style.display = "none";
 
-        updateSubscriberCountPromise()
+        //updateSubscriberCountPromise()
+        updateSubscriberCountHoloPromise()
             .then(updateSubscriberDisplay)
             .catch(error => {
                 console.error("Error updating subscriberDisplay:", error);
