@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
 
 //Initial calls to update images and color scheme
 //Initial call to update subscriber count and livestream display
+/*
 defineDataPromise()
     .then(() => {
         updateChannelData();
@@ -148,5 +149,23 @@ defineDataPromise()
     .catch(error => {
         console.error('unable to start initial stuff because of defineDataPromise:', error)
     });
+*/
+
+defineDataPromise()
+    .then(() => {
+        updateChannelData();
+        updateAllDisplays();
+
+            updateLivestreamHoloPromise()
+                .then(() => {
+                    console.log("updateLivestreamHoloPromise successful");
+                })
+                .catch(error => {
+                    console.error("updateLivestreamHoloPromise error:", error);
+                });
 
 
+    })
+    .catch(error => {
+        console.error('unable to start initial stuff because of defineDataPromise:', error)
+    });

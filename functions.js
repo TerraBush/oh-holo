@@ -278,12 +278,13 @@ function upcomingLivestreamPromise() {
                 channelData.channels[currentChannel].videos.premiere.link = videoUrl;
                 channelData.channels[currentChannel].videos.premiere.date = localDateTime;
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
-            
-//            console.log(videoId);
-//            console.log(title);
-//            console.log(videoUrl);
-//            console.log("ran upcomingLivestreamPromise");
-            resolve();
+
+//              console.log(videoId);
+//              console.log(title);
+//              console.log(videoUrl);
+//              console.log("ran upcomingLivestreamPromise");
+
+                resolve();
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -292,40 +293,56 @@ function upcomingLivestreamPromise() {
     });
 }
 function updateLivestreamHoloPromise() {
-    return new Promise(() => {
-        for(let i = 0; i < holoDataTest.length; i++){
-            if(holoDataTest[i].status == "upcoming") {
-
-                let videoId = holoDataTest[i].id;
-                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-
-                const dateTime = new Date(holoDataTest[i].start_scheduled);
-                const localDateTime = dateTime.toLocaleString();
-
-                channelData.channels[currentChannel].videos.premiere.title = holoDataTest[i].title;
-                channelData.channels[currentChannel].videos.premiere.thumbnail = thumbnailUrlHigh;
-                channelData.channels[currentChannel].videos.premiere.link = videoUrl;
-                channelData.channels[currentChannel].videos.premiere.date = localDateTime;
-                localStorage.setItem('localChannelData', JSON.stringify(channelData));
-            }else if(holoDataTest[i].status == "live") {
-
-                let videoId = holoDataTest[i].id;
-                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-    
-                const dateTime = new Date(holoDataTest[i].start_actual);
-                const localDateTime = dateTime.toLocaleString();
-    
-                channelData.channels[currentChannel].videos.live.title = holoDataTest[i].title;
-                channelData.channels[currentChannel].videos.live.thumbnail = thumbnailUrlHigh;
-                channelData.channels[currentChannel].videos.live.link = videoUrl;
-                channelData.channels[currentChannel].videos.live.date = localDateTime;
-                localStorage.setItem('localChannelData', JSON.stringify(channelData));
-            } else {
-                console.log("no holoDataTest");
+    return new Promise((resolve, reject) => {
+        const url = `https://holodex.net/api/v2/live?channel_id=${channelId}&type=stream&sort=start_actual&max_upcoming_hours=168`;
+        fetch(url, {
+            headers: {
+                'X-APIKEY': 'b3051192-044d-4da1-8822-75a9160af659'
             }
-        }
+        })
+            .then(response => response.json())
+            .then(holoData => {
+                console.log(holoData);
+                for(let i = 0; i < holoData.length; i++){
+                    if(holoData[i].status == "upcoming") {
+        
+                        let videoId = holoData[i].id;
+                        const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                        const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        
+                        const dateTime = new Date(holoData[i].start_scheduled);
+                        const localDateTime = dateTime.toLocaleString();
+        
+                        channelData.channels[currentChannel].videos.premiere.title = holoData[i].title;
+                        channelData.channels[currentChannel].videos.premiere.thumbnail = thumbnailUrlHigh;
+                        channelData.channels[currentChannel].videos.premiere.link = videoUrl;
+                        channelData.channels[currentChannel].videos.premiere.date = localDateTime;
+                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                    }else if(holoData[i].status == "live") {
+        
+                        let videoId = holoData[i].id;
+                        const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                        const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+            
+                        const dateTime = new Date(holoData[i].start_actual);
+                        const localDateTime = dateTime.toLocaleString();
+            
+                        channelData.channels[currentChannel].videos.live.title = holoData[i].title;
+                        channelData.channels[currentChannel].videos.live.thumbnail = thumbnailUrlHigh;
+                        channelData.channels[currentChannel].videos.live.link = videoUrl;
+                        channelData.channels[currentChannel].videos.live.date = localDateTime;
+                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                    } else {
+                        console.log("no holoData");
+                        reject(error);
+                    }
+                }
+                resolve();
+            })
+            .catch(error => {
+                console.error('Error fetching holo data:', error);
+                reject(error);
+            });
     });
 }
 function updateDisplay(videoType) {
@@ -493,7 +510,6 @@ function updateChannelData() {
 }
 function updateChannelDataPromise() {
     return new Promise((resolve, reject) => {
-        //console.log('running updateChannelDataPromise');
         channelData = JSON.parse(localStorage.getItem('localChannelData'));
         if(channelData) {
             resolve(channelData);
