@@ -526,8 +526,8 @@ function readFile(file) {
 function preloadImages() {
     for(let i = 0; i < channelImgList.length; i++) {
         if(channelImgList[i] != "") {
-            document.body.innerHTML += `<img id="new-img" style="display:none;" src="${channelImgList[i]}"/>`;
-            document.body.innerHTML += `<img id="new-img" style="display:none;" src="${channelAltImgList[i]}"/>`;
+            document.body.innerHTML += `img id="new-img" style="display:none;" src="${channelImgList[i]}"/>`;
+            document.body.innerHTML += `img id="new-img" style="display:none;" src="${channelAltImgList[i]}"/>`;
         }
     }
 }
