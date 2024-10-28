@@ -207,6 +207,183 @@
                     "link": ""
                 }
             }
+        },"Kiara": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },
+        "Minto": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },"Raora": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },"Kaela": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },"Gigi": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },"Shiorin": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },
+        "Doki": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
         }
     }
 }
