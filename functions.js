@@ -316,7 +316,6 @@ function updateLivestreamHoloPromise() {
                     resolve();
                     return;
                 }
-
                 for(let i = 0; i < holoData.length; i++){
                     if(holoData[i].status == "upcoming") {
         
@@ -332,12 +331,17 @@ function updateLivestreamHoloPromise() {
                         channelData.channels[currentChannel].videos.premiere.link = videoUrl;
                         channelData.channels[currentChannel].videos.premiere.date = localDateTime;
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
+
+                        if(holoData.length == 1) {
+                            channelData.channels[currentChannel].videos.live.title = "null";
+                            channelData.channels[currentChannel].videos.live.thumbnail = "null";
+                            channelData.channels[currentChannel].videos.live.link = "null";
+                            channelData.channels[currentChannel].videos.live.date = "null";
+                            resolve();
+                            return;
+                        }
+
                     }else if(holoData[i].status == "live") {
-        
-                        channelData.channels[currentChannel].videos.premiere.title = "null";
-                        channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
-                        channelData.channels[currentChannel].videos.premiere.link = "null";
-                        channelData.channels[currentChannel].videos.premiere.date = "null";
 
                         let videoId = holoData[i].id;
                         const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
@@ -351,6 +355,16 @@ function updateLivestreamHoloPromise() {
                         channelData.channels[currentChannel].videos.live.link = videoUrl;
                         channelData.channels[currentChannel].videos.live.date = localDateTime;
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
+
+                        if(holoData.length == 1) {
+                            channelData.channels[currentChannel].videos.premiere.title = "null";
+                            channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
+                            channelData.channels[currentChannel].videos.premiere.link = "null";
+                            channelData.channels[currentChannel].videos.premiere.date = "null";
+                            resolve();
+                            return;
+                        }
+
                     } else {
                         console.log("no holoData");
                         reject(error);
