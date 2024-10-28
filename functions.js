@@ -117,40 +117,6 @@ function playNoise() {
 function randomNumber(x, y){
     return Math.floor(Math.random()*y) + x;
 }
-function updateSubscriberCountPromise() {
-    return new Promise((resolve, reject) => {
-        const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const results = data.pageInfo.totalResults;
-                    if(results == 0){
-                        console.log("No channel data");
-                        channelData.channels[currentChannel].stats.subs = 'null';
-                        channelData.channels[currentChannel].stats.views = 'null';
-                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
-                        resolve();
-                        return;
-                    }
-                let subscriberCount = parseInt(data.items[0].statistics.subscriberCount);
-                if (subscriberCount >= 1000000) {
-                    subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
-                }else{
-                    subscriberCount = subscriberCount.toLocaleString();
-                }
-                let viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString();
-
-                channelData.channels[currentChannel].stats.subs = subscriberCount;
-                channelData.channels[currentChannel].stats.views = viewCount; 
-                localStorage.setItem('localChannelData', JSON.stringify(channelData));
-                resolve();
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-                reject(error);
-            });
-    });
-}
 function updateSubscriberCountHoloPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://holodex.net/api/v2/channels/${channelId}`;
@@ -161,17 +127,14 @@ function updateSubscriberCountHoloPromise() {
         })
             .then(response => response.json())
             .then(holoData => {
-                console.log(holoData);
 
                 let subscriberCount = parseInt(holoData.subscriber_count);
-                console.log(subscriberCount);
                 if (subscriberCount >= 1000000) {
                     subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
                 }else{
                     subscriberCount = subscriberCount.toLocaleString();
                 }
                 let viewCount = parseInt(holoData.view_count).toLocaleString();
-                console.log(viewCount);
 
                 channelData.channels[currentChannel].stats.subs = subscriberCount;
                 channelData.channels[currentChannel].stats.views = viewCount; 
@@ -279,52 +242,6 @@ function currentLivestreamPromise() {
             });
     });
 }
-function upcomingLivestreamPromise() {
-    return new Promise((resolve, reject) => {
-        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=upcoming&type=video&order=date&maxResults=1&key=${apiKey}`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const results = data.pageInfo.totalResults;
-                if(results == 0){
-                    //console.log("No current premiere~");
-                    channelData.channels[currentChannel].videos.premiere.title = "null";
-                    channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
-                    channelData.channels[currentChannel].videos.premiere.link = "null";
-                    channelData.channels[currentChannel].videos.premiere.date = "null";
-                    resolve();
-                    return;
-                }
-          const livestream = data.items[0];
-                const videoId = livestream.id.videoId;
-                const title = livestream.snippet.title;
-                const publishedAt = livestream.snippet.publishedAt;
-
-                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-
-                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-                const dateTime = new Date(publishedAt);
-                const localDateTime = dateTime.toLocaleString();
-
-                channelData.channels[currentChannel].videos.premiere.title = title;
-                channelData.channels[currentChannel].videos.premiere.thumbnail = thumbnailUrlHigh;
-                channelData.channels[currentChannel].videos.premiere.link = videoUrl;
-                channelData.channels[currentChannel].videos.premiere.date = localDateTime;
-                localStorage.setItem('localChannelData', JSON.stringify(channelData));
-
-//              console.log(videoId);
-//              console.log(title);
-//              console.log(videoUrl);
-//              console.log("ran upcomingLivestreamPromise");
-
-                resolve();
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-                reject(error);
-            });
-    });
-}
 function updateLivestreamHoloPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://holodex.net/api/v2/live?channel_id=${channelId}&type=stream&sort=start_actual&max_upcoming_hours=168`;
@@ -335,8 +252,6 @@ function updateLivestreamHoloPromise() {
         })
             .then(response => response.json())
             .then(holoData => {
-                console.log(holoData);
-
                 if(holoData.length == 0) {
                     channelData.channels[currentChannel].videos.premiere.title = "null";
                     channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
@@ -607,25 +522,4 @@ function readFile(file) {
         });
         reader.readAsText(file);
     })
-}
-function holoTest() {
-    const url = 'https://holodex.net/api/v2/users/live?channels=UC3n5uGu18FoCy23ggWWp8tA,UCO_aKKYxn4tvrqPjcTzZ6EQ,UCgmPnx-EEeOrZSg5Tiw7ZRQ';
-    return new Promise((resolve, reject) => {
-        fetch(url, {
-            method: 'GET',
-            headers: {
-                'X-APIKEY': `${apiKeyHolo}`
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                holoChannelData = data;
-                resolve();
-            })
-            .catch(error => {
-                console.error('Error fetching holodex data:', error);
-                reject(error);
-            });
-    });
 }

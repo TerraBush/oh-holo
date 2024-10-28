@@ -20,26 +20,6 @@ document.addEventListener("DOMContentLoaded", function() { //reload button liste
         updateAll();
     });
 });
-document.addEventListener("DOMContentLoaded", function() { //event listener for input api key field & button
-    //const apiKey = getCookie("apiKey");
-    if(apiKey) { //if have api key, hide input field
-        document.getElementById("apiKeyInputContainer").style.display = "none";
-    }
-    document.getElementById("apiKeySubmitButton").addEventListener("click", function() { //button event listener, saves api key and hides input field
-        const apiKeyInput = document.getElementById("apiKeyInputBox").value;
-
-        setCookie("apiKey", apiKeyInput, 365);
-
-        document.getElementById("apiKeyInputContainer").style.display = "none";
-
-        //updateSubscriberCountPromise()
-        updateSubscriberCountHoloPromise()
-            .then(updateSubscriberDisplay)
-            .catch(error => {
-                console.error("Error updating subscriberDisplay:", error);
-            });
-    });
-});
 document.addEventListener("DOMContentLoaded", function() { //event listener for holodex input api key field & button
     //const apiKey = getCookie("apiKey");
     if(apiKeyHolo) { //if have api key, hide input field
@@ -51,21 +31,10 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
         setCookie("apiKeyHolo", apiKeyHoloInput, 365);
 
         document.getElementById("apiKeyHoloInputContainer").style.display = "none";
-
-        /*updateSubscriberCountPromise()
-            .then(updateSubscriberDisplay)
-            .catch(error => {
-                console.error("Error updating subscriberDisplay:", error);
-            });*/
-
-        holoTest()
-            .then(() => {
-                console.log(holoChannelData);
-            })
-            .catch(error => {
-                console.log("unable to complete holoTest call:", error);
-            });
-    });
+        });
+    reloadButton = document.getElementById("reloadButton");
+    reloadButton.click();
+        
 });
 document.addEventListener("DOMContentLoaded", function() { //premiere button listener
     document.getElementById("premiereLinkButton").addEventListener("click", function() {
@@ -136,16 +105,6 @@ defineDataPromise()
     .then(() => {
         updateChannelData();
         updateAllDisplays();
-
-            /*updateLivestreamHoloPromise()
-                .then(() => {
-                    console.log("updateLivestreamHoloPromise successful");
-                })
-                .catch(error => {
-                    console.error("updateLivestreamHoloPromise error:", error);
-                });*/
-
-
     })
     .catch(error => {
         console.error('unable to start initial stuff because of defineDataPromise:', error)
