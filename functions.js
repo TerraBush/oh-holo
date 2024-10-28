@@ -153,7 +153,7 @@ function updateSubscriberCountPromise() {
 }
 function updateSubscriberCountHoloPromise() {
     return new Promise((resolve, reject) => {
-        const url = `https://holodex.net/api/v2/live?channel_id=${channelId}&type=stream&sort=start_actual&max_upcoming_hours=168`;
+        const url = `https://holodex.net/api/v2/channels/${channelId}`;
         fetch(url, {
             headers: {
                 'X-APIKEY': 'b3051192-044d-4da1-8822-75a9160af659'
@@ -164,12 +164,14 @@ function updateSubscriberCountHoloPromise() {
                 console.log(holoData);
 
                 let subscriberCount = parseInt(holoData.subscriber_count);
+                console.log(subscriberCount);
                 if (subscriberCount >= 1000000) {
                     subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
                 }else{
                     subscriberCount = subscriberCount.toLocaleString();
                 }
                 let viewCount = parseInt(holoData.view_count).toLocaleString();
+                console.log(viewCount);
 
                 channelData.channels[currentChannel].stats.subs = subscriberCount;
                 channelData.channels[currentChannel].stats.views = viewCount; 
