@@ -315,7 +315,13 @@ function updateLivestreamHoloPromise() {
                     channelData.channels[currentChannel].videos.live.date = "null";
                     resolve();
                     return;
+                }else if(holoData.length == 2 && holoData[0].status == "upcoming") {
+                    channelData.channels[currentChannel].videos.live.title = "null";
+                    channelData.channels[currentChannel].videos.live.thumbnail = "null";
+                    channelData.channels[currentChannel].videos.live.link = "null";
+                    channelData.channels[currentChannel].videos.live.date = "null";
                 }
+
                 for(let i = 0; i < holoData.length; i++){
                     if(holoData[i].status == "upcoming") {
         
