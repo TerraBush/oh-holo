@@ -444,8 +444,9 @@ function updateAllDisplays() {
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
     return Promise.all([
-        upcomingLivestreamPromise(),
-        currentLivestreamPromise(),
+        //upcomingLivestreamPromise(),
+        //currentLivestreamPromise(),
+        updateLivestreamHoloPromise(),
         latestLivestreamPromise(),
         updateSubscriberCountPromise()
     ]);
