@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
 
 //Initial calls to update images and color scheme
 //Initial call to update subscriber count and livestream display
-preloadImages();
+
 defineDataPromise()
     .then(() => {
         updateChannelData();
