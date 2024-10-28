@@ -303,6 +303,20 @@ function updateLivestreamHoloPromise() {
             .then(response => response.json())
             .then(holoData => {
                 console.log(holoData);
+
+                if(holoData.length == 0) {
+                    channelData.channels[currentChannel].videos.premiere.title = "null";
+                    channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
+                    channelData.channels[currentChannel].videos.premiere.link = "null";
+                    channelData.channels[currentChannel].videos.premiere.date = "null";
+                    channelData.channels[currentChannel].videos.live.title = "null";
+                    channelData.channels[currentChannel].videos.live.thumbnail = "null";
+                    channelData.channels[currentChannel].videos.live.link = "null";
+                    channelData.channels[currentChannel].videos.live.date = "null";
+                    resolve();
+                    return;
+                }
+
                 for(let i = 0; i < holoData.length; i++){
                     if(holoData[i].status == "upcoming") {
         
@@ -320,6 +334,11 @@ function updateLivestreamHoloPromise() {
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
                     }else if(holoData[i].status == "live") {
         
+                        channelData.channels[currentChannel].videos.premiere.title = "null";
+                        channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
+                        channelData.channels[currentChannel].videos.premiere.link = "null";
+                        channelData.channels[currentChannel].videos.premiere.date = "null";
+
                         let videoId = holoData[i].id;
                         const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
                         const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
