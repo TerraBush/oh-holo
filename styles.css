@@ -71,6 +71,14 @@
         --border-color: rgb(156 215 229);
         --font-family: Patrick Hand;
     }
+    :root.Minto {
+        --background-color: rgb(91, 183, 166);
+        --card-color: rgb(158, 243, 214);
+        --text-color-dark: rgb(101 67 63);
+        --text-color-light: rgb(188 237 255);
+        --border-color: rgb(158, 243, 214);
+        --font-family: Patrick Hand;
+    }
 .image-container {
     display: flex;
     width: 380px;
