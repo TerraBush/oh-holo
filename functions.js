@@ -462,7 +462,6 @@ function allLivestreamDataPromise() {
         let tmp = fetches[j];
         console.log(tmp);
     }
-    responses.push(JSON.parse(fetches[0]));
 }  
 
 function updateDisplay(videoType) {
