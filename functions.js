@@ -461,7 +461,7 @@ function allLivestreamDataPromise() {
     }
     for(let j = 0; j < fetches.length; j++) {
         let tmp = fetches[j];
-        console.log(tmp);
+        console.log(JSON.parse(tmp));
     }
 }  
 
