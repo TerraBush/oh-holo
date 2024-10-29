@@ -55,6 +55,7 @@ const channelImgList = [
     "",
     "",
     "",
+    "",
     ""
 ];
 const channelAltImgList = [
@@ -68,6 +69,7 @@ const channelAltImgList = [
     "images\\inaeat.png",
     "",
     "images\\mintload.png", 
+    "",
     "",
     "",
     "",
@@ -106,6 +108,7 @@ const channelSoundList = [
     "",
     "",
     "", 
+    "",
     "",
     ""
 ];

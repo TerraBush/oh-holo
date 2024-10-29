@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     //image.addEventListener("click", playNoise);
     image.addEventListener("click", () => {
         playNoise();
-        updateAllLivestreamDataPromise();
+        updateAllLivestreamHoloPromise();
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //reload button listener
