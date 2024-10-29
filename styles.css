@@ -79,6 +79,14 @@
         --border-color: rgb(158, 243, 214);
         --font-family: Patrick Hand;
     }
+    :root.Gigi {
+        --background-color: rgb(232 125 43);
+        --card-color: rgb(182 6 24);
+        --text-color-dark: rgb(255 178 210);
+        --text-color-light: rgb(255 232 115);
+        --border-color: rgb(158, 243, 214);
+        --font-family: Patrick Hand;
+    }
 .image-container {
     display: flex;
     width: 380px;
