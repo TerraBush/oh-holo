@@ -445,11 +445,15 @@ function allLivestreamDataPromise() {
     let responses = [];
     for(let i = 0; i < channelIdList.length; i++) {
         let url = `https://holodex.net/api/v2/live?channel_id=${channelIdList[i]}&type=stream&sort=start_actual&max_upcoming_hours=168`;
-        fetches.push(fetch(url, {
+        fetch(url, {
             headers: {
                 'X-APIKEY': `${apiKeyHolo}`
             }
-        }));
+        })
+            .then(response => response.json)
+            .then(data => {
+                fetches.push(data);
+            }
     }
     for(let j = 0; j < fetches.length; j++) {
         let tmp = fetches[j];
