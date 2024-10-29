@@ -4,12 +4,111 @@ const premiereEmote = '🕔';
 const liveEmote = '🔴';
 const completedEmote = '🔘';
 
-const channelNameList = ["Mumei", "Fauna", "Bae", "Kronii", "Liz", "Nerissa", "Gura", "Ina", "Kiara", "Minto", "Raora", "Kaela", "Gigi", "Shiorin", "Doki"];
-const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ", "UCmbs8T6MWqUHP1tIQvSgKrg", "UCW5uhrG1eCBYditmhL0Ykjw", "UC_sFNM0z0MWm9A6WlKPuMMg", "UCoSrY_IQQVpmIRZ9Xf-y93g", "UCMwGHR0BTZuLsmjY_NT5Pwg", "UCHsx4Hqa-1ORjQTh9TYDhww", "UCcHHkJ98eSfa5aj0mdTwwLQ", "UCl69AEx4MdqMZH7Jtsm7Tig", "UCZLZ8Jjx_RN2CXloOmgTHVg", "UCDHABijvPBnJm7F-KlNME3w", "UCgnfPPb9JI3e9A4cXHnWbyg", ""];
-const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\baeconfused.png", "images\\kroniiwink.png", "images\\lizfreak.png", "images\\rissavibe.png", "images\\guraspin.png", "images\\tomorrow.png", "", "", "", "", "", ""];
-const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg", "images\\smolnii.jpg", "images\\woahliz.png", "images\\rissastare.jpg", "images\\guradum.jpg", "images\\inaeat.png", "", "", "", "", "", ""];
-const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii", "https://www.youtube.com/@holoen_erbloodflame", "https://www.youtube.com/@NerissaRavencroft", "https://www.youtube.com/@GawrGura", "https://www.youtube.com/@NinomaeInanis", "https://www.youtube.com/@TakanashiKiara", "https://www.youtube.com/@mintfantome", "https://www.youtube.com/@holoen_raorapanthera", "https://www.youtube.com/@KaelaKovalskia", "https://www.youtube.com/@holoen_gigimurin", "https://www.youtube.com/@ShioriNovella", ""];
-const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3", "sounds\\ohohohoho.mp3", "", "sounds\\a.mp3", "sounds\\wah.mp3", "", "", "", "", "", "", ""];
+const channelNameList = [
+    "Mumei",
+    "Fauna",
+    "Bae",
+    "Kronii",
+    "Liz",
+    "Nerissa",
+    "Gura",
+    "Ina",
+    //"Kiara",
+    "Minto",
+    //"Raora",
+    //"Kaela",
+    //"Gigi",
+    //"Shiorin",
+    //"Doki", 
+    //"Doob"
+];
+const channelIdList = [
+    "UC3n5uGu18FoCy23ggWWp8tA", //Mumei
+    "UCO_aKKYxn4tvrqPjcTzZ6EQ", //Fauna
+    "UCgmPnx-EEeOrZSg5Tiw7ZRQ", //Bae
+    "UCmbs8T6MWqUHP1tIQvSgKrg", //Kronii
+    "UCW5uhrG1eCBYditmhL0Ykjw", //Liz
+    "UC_sFNM0z0MWm9A6WlKPuMMg", //Nerissa
+    "UCoSrY_IQQVpmIRZ9Xf-y93g", //Gura
+    "UCMwGHR0BTZuLsmjY_NT5Pwg", //Ina
+    //"UCHsx4Hqa-1ORjQTh9TYDhww", //Kiara
+    "UCcHHkJ98eSfa5aj0mdTwwLQ", //Minto
+    //"UCl69AEx4MdqMZH7Jtsm7Tig", //Raora
+    //"UCZLZ8Jjx_RN2CXloOmgTHVg", //Kaela
+    //"UCDHABijvPBnJm7F-KlNME3w", //Gigi
+    //"UCgnfPPb9JI3e9A4cXHnWbyg", //Shiorin
+    //"UComInW10MkHJs-_vi4rHQCQ", //Doki
+    //"UC6T7TJZbW6nO-qsc5coo8Pg"  //Doob
+];
+const channelImgList = [
+    "images\\mumeiload.png",
+    "images\\fauuuuuna.png",
+    "images\\baeconfused.png",
+    "images\\kroniiwink.png",
+    "images\\lizfreak.png",
+    "images\\rissavibe.png",
+    "images\\guraspin.png",
+    "images\\tomorrow.png",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+];
+const channelAltImgList = [
+    "images\\smolmei.jpg",
+    "images\\smolna.png",
+    "images\\smolbae.jpg",
+    "images\\smolnii.jpg",
+    "images\\woahliz.png",
+    "images\\rissastare.jpg",
+    "images\\guradum.jpg",
+    "images\\inaeat.png",
+    "",
+    "", 
+    "",
+    "",
+    "",
+    "",
+    ""
+];
+const channelLinkList = [
+    "https://www.youtube.com/@NanashiMumei",
+    "https://www.youtube.com/@ceresfauna",
+    "https://www.youtube.com/@HakosBaelz",
+    "https://www.youtube.com/@OuroKronii",
+    "https://www.youtube.com/@holoen_erbloodflame",
+    "https://www.youtube.com/@NerissaRavencroft",
+    "https://www.youtube.com/@GawrGura", 
+    "https://www.youtube.com/@NinomaeInanis",
+    "https://www.youtube.com/@TakanashiKiara",
+    "https://www.youtube.com/@mintfantome",
+    "https://www.youtube.com/@holoen_raorapanthera",
+    "https://www.youtube.com/@KaelaKovalskia",
+    "https://www.youtube.com/@holoen_gigimurin",
+    "https://www.youtube.com/@ShioriNovella",
+    "https://www.youtube.com/@Dokibird",
+    "https://www.youtube.com/@dooby3d"
+];
+const channelSoundList = [
+    "sounds\\hi-1.mp3",
+    "sounds\\konfauna.mp3",
+    "sounds\\wazzup.mp3",
+    "sounds\\kroniichiwa.mp3",
+    "sounds\\ohohohoho.mp3",
+    "",
+    "sounds\\a.mp3",
+    "sounds\\wah.mp3",
+    "",
+    "",
+    "",
+    "",
+    "", 
+    "",
+    ""
+];
 
 
 let holoDataTest = [
@@ -332,6 +431,99 @@ function updateLivestreamHoloPromise() {
             });
     });
 }
+function updateAllLivestreamHoloPromise() {
+    return new Promise((resolve, reject) => {
+        for(let i = (channelNameList.length - 1); i = 0; i--) {
+            console.log(`fetching ${channelNameList[i]}`);
+            const url = `https://holodex.net/api/v2/live?channel_id=${channelIdList[i]}&type=stream&sort=start_actual&max_upcoming_hours=168`;
+            fetch(url, {
+                headers: {
+                    'X-APIKEY': 'b3051192-044d-4da1-8822-75a9160af659'
+                }
+            })
+                .then(response => response.json())
+                .then(holoData => {
+                    if(holoData.length == 0) {
+                        channelData.channels[channelNameList[i]].videos.premiere.title = "null";
+                        channelData.channels[channelNameList[i]].videos.premiere.thumbnail = "null";
+                        channelData.channels[channelNameList[i]].videos.premiere.link = "null";
+                        channelData.channels[channelNameList[i]].videos.premiere.date = "null";
+                        channelData.channels[channelNameList[i]].videos.live.title = "null";
+                        channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
+                        channelData.channels[channelNameList[i]].videos.live.link = "null";
+                        channelData.channels[channelNameList[i]].videos.live.date = "null";
+                        resolve();
+                        return;
+                    }else if(holoData.length == 2 && holoData[0].status == "upcoming") {
+                        channelData.channels[channelNameList[i]].videos.live.title = "null";
+                        channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
+                        channelData.channels[channelNameList[i]].videos.live.link = "null";
+                        channelData.channels[channelNameList[i]].videos.live.date = "null";
+                    }
+
+                    for(let j = 0; i < holoData.length; i++){
+                        if(holoData[j].status == "upcoming") {
+            
+                            let videoId = holoData[j].id;
+                            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+            
+                            const dateTime = new Date(holoData[j].start_scheduled);
+                            const localDateTime = dateTime.toLocaleString();
+            
+                            channelData.channels[channelNameList[i]].videos.premiere.title = holoData[j].title;
+                            channelData.channels[channelNameList[i]].videos.premiere.thumbnail = thumbnailUrlHigh;
+                            channelData.channels[channelNameList[i]].videos.premiere.link = videoUrl;
+                            channelData.channels[channelNameList[i]].videos.premiere.date = localDateTime;
+                            localStorage.setItem('localChannelData', JSON.stringify(channelData));
+
+                            if(holoData.length == 1) {
+                                channelData.channels[channelNameList[i]].videos.live.title = "null";
+                                channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
+                                channelData.channels[channelNameList[i]].videos.live.link = "null";
+                                channelData.channels[channelNameList[i]].videos.live.date = "null";
+                                resolve();
+                                return;
+                            }
+
+                        }else if(holoData[j].status == "live") {
+
+                            let videoId = holoData[j].id;
+                            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+                
+                            const dateTime = new Date(holoData[j].start_actual);
+                            const localDateTime = dateTime.toLocaleString();
+                
+                            channelData.channels[channelNameList[i]].videos.live.title = holoData[j].title;
+                            channelData.channels[channelNameList[i]].videos.live.thumbnail = thumbnailUrlHigh;
+                            channelData.channels[channelNameList[i]].videos.live.link = videoUrl;
+                            channelData.channels[channelNameList[i]].videos.live.date = localDateTime;
+                            localStorage.setItem('localChannelData', JSON.stringify(channelData));
+
+                            if(holoData.length == 1) {
+                                channelData.channels[channelNameList[i]].videos.premiere.title = "null";
+                                channelData.channels[channelNameList[i]].videos.premiere.thumbnail = "null";
+                                channelData.channels[channelNameList[i]].videos.premiere.link = "null";
+                                channelData.channels[channelNameList[i]].videos.premiere.date = "null";
+                                resolve();
+                                return;
+                            }
+
+                        } else {
+                            console.log("no holoData");
+                            reject(error);
+                        }
+                    }
+                    resolve();
+                })
+                .catch(error => {
+                    console.error('Error fetching holo data:', error);
+                    reject(error);
+                });
+            }
+    });
+}
 function updateDisplay(videoType) {
     if(videoType == "premiere") {
         document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${channelData.channels[currentChannel].videos.premiere.title}`;
@@ -431,12 +623,11 @@ function updateAllDisplays() {
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
     return Promise.all([
-        //upcomingLivestreamPromise(),
-        //currentLivestreamPromise(),
-        updateLivestreamHoloPromise(),
+        //updateLivestreamHoloPromise(),
+        updateAllLivestreamHoloPromise(),
         latestLivestreamPromise(),
-        //updateSubscriberCountPromise()
         updateSubscriberCountHoloPromise()
+        
     ]);
 }
 function updateAll() {
