@@ -32,8 +32,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
 
         document.getElementById("apiKeyHoloInputContainer").style.display = "none";
         });
-    reloadButton = document.getElementById("reloadButton");
-    reloadButton.click();
+    updateAll();
         
 });
 document.addEventListener("DOMContentLoaded", function() { //premiere button listener
