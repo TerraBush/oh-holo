@@ -71,6 +71,14 @@
         --border-color: rgb(156 215 229);
         --font-family: Patrick Hand;
     }
+    :root.Kiara {
+        --background-color: rgb(232 125 43);
+        --card-color: rgb(182 6 24);
+        --text-color-dark: rgb(255 178 210);
+        --text-color-light: rgb(255 232 115);
+        --border-color: rgb(158, 243, 214);
+        --font-family: Patrick Hand;
+    }
     :root.Minto {
         --background-color: rgb(91, 183, 166);
         --card-color: rgb(158, 243, 214);
@@ -79,7 +87,47 @@
         --border-color: rgb(158, 243, 214);
         --font-family: Patrick Hand;
     }
+    :root.Raora {
+        --background-color: rgb(232 125 43);
+        --card-color: rgb(182 6 24);
+        --text-color-dark: rgb(255 178 210);
+        --text-color-light: rgb(255 232 115);
+        --border-color: rgb(158, 243, 214);
+        --font-family: Patrick Hand;
+    }
+    :root.Kaela {
+        --background-color: rgb(232 125 43);
+        --card-color: rgb(182 6 24);
+        --text-color-dark: rgb(255 178 210);
+        --text-color-light: rgb(255 232 115);
+        --border-color: rgb(158, 243, 214);
+        --font-family: Patrick Hand;
+    }
     :root.Gigi {
+        --background-color: rgb(232 125 43);
+        --card-color: rgb(182 6 24);
+        --text-color-dark: rgb(255 178 210);
+        --text-color-light: rgb(255 232 115);
+        --border-color: rgb(158, 243, 214);
+        --font-family: Patrick Hand;
+    }
+    :root.Shiorin {
+        --background-color: rgb(232 125 43);
+        --card-color: rgb(182 6 24);
+        --text-color-dark: rgb(255 178 210);
+        --text-color-light: rgb(255 232 115);
+        --border-color: rgb(158, 243, 214);
+        --font-family: Patrick Hand;
+    }
+    :root.Doki {
+        --background-color: rgb(232 125 43);
+        --card-color: rgb(182 6 24);
+        --text-color-dark: rgb(255 178 210);
+        --text-color-light: rgb(255 232 115);
+        --border-color: rgb(158, 243, 214);
+        --font-family: Patrick Hand;
+    }
+    :root.Doob {
         --background-color: rgb(232 125 43);
         --card-color: rgb(182 6 24);
         --text-color-dark: rgb(255 178 210);

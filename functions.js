@@ -432,15 +432,12 @@ function updateLivestreamHoloPromise() {
     });
 }
 function updateAllLivestreamHoloPromise() {
-    /*
-        game Plan:
-        new function to return an array of fetch promises as Promise.all(array) (fetchAll() or something)
-        use .map to create a corresponding array of all the responses from the promises of the input array
-        create function(similar to updateallLivestreamHoloPromise() that takes a json and adds it to channelData)
-        create a promise chain; fetchAll().then(mapAllData).then(udpateAllData)
-    */
+    fetchAllLivestreamDataPromise()
+        .then(data => {
+            console.log(data);
+        })
 }
-function allLivestreamDataPromise() {
+function fetchAllLivestreamDataPromise() {
     let fetches = [];
 
     for(let i = 0; i < channelIdList.length; i++) {
@@ -452,7 +449,7 @@ function allLivestreamDataPromise() {
         }));
     }
 
-    Promise.all(fetches)
+    return Promise.all(fetches)
         .then(responses => {
             return Promise.all(responses.map(response => {
                 if(response.ok) return response.json();
@@ -460,7 +457,7 @@ function allLivestreamDataPromise() {
             }))
         })
         .then(data => {
-            console.log(data);
+            return data;
         })
     
 }  
