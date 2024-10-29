@@ -453,7 +453,10 @@ function allLivestreamDataPromise() {
             .then(response => response.json)
             .then(data => {
                 fetches.push(data);
-            }
+            })
+            .catch(error => {
+                console.error("error in test:", error);
+            });
     }
     for(let j = 0; j < fetches.length; j++) {
         let tmp = fetches[j];
