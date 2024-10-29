@@ -17,7 +17,7 @@ const channelNameList = [
     "Minto",
     "Raora",
     "Kaela",
-    "Gigi",
+    "GG",
     "Shiorin",
     "Doki", 
     "Doob"
@@ -35,7 +35,7 @@ const channelIdList = [
     "UCcHHkJ98eSfa5aj0mdTwwLQ", //Minto
     "UCl69AEx4MdqMZH7Jtsm7Tig", //Raora
     "UCZLZ8Jjx_RN2CXloOmgTHVg", //Kaela
-    "UCDHABijvPBnJm7F-KlNME3w", //Gigi
+    "UCDHABijvPBnJm7F-KlNME3w", //GG
     "UCgnfPPb9JI3e9A4cXHnWbyg", //Shiorin
     "UComInW10MkHJs-_vi4rHQCQ", //Doki
     "UC6T7TJZbW6nO-qsc5coo8Pg"  //Doob
@@ -348,6 +348,17 @@ function updateAllLivestreamHoloPromise() {
     fetchAllLivestreamDataPromise()
         .then(data => {
             console.log(data);
+            for(let i = 0; i < channelNameList.length; i++) {
+                if(data[i].length > 1) {
+                    if(data[i][0].status == "live") {
+                        document.getElementById(`${channelNameList[i]}`).text = `${liveEmote}${channelNameList[i]}`
+                    } else if (data[i][0].status == "upcoming") {
+                        document.getElementById(`${channelNameList[i]}`).text = `${premiereEmote}${channelNameList[i]}`
+                    } else {
+                        document.getElementById(`${channelNameList[i]}`).text = `${channelNameList[i]}`
+                    }
+                }
+            }
         })
 }
 function fetchAllLivestreamDataPromise() {
