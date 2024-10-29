@@ -254,96 +254,6 @@ function updateSubscriberDisplay() {
     document.getElementById('viewCount').textContent = channelData.channels[currentChannel].stats.views;
 
 }
-function latestLivestreamPromise() {
-    return new Promise((resolve, reject) => {
-        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const results = data.pageInfo.totalResults;
-                if(results == 0){
-                    //console.log("No completed strem~");
-                    channelData.channels[currentChannel].videos.completed.title = "null";
-                    channelData.channels[currentChannel].videos.completed.thumbnail = "null";
-                    channelData.channels[currentChannel].videos.completed.link = "null";
-                    channelData.channels[currentChannel].videos.completed.date = "null";
-                    localStorage.setItem('localChannelData', JSON.stringify(channelData));
-                    resolve();
-                    return;
-                }
-                const livestream = data.items[0];
-                const videoId = livestream.id.videoId;
-                const title = livestream.snippet.title;
-                const publishedAt = livestream.snippet.publishedAt;
-                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-
-                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-                const dateTime = new Date(publishedAt);
-                const localDateTime = dateTime.toLocaleString();
-
-                channelData.channels[currentChannel].videos.completed.title = title;
-                channelData.channels[currentChannel].videos.completed.thumbnail = thumbnailUrlHigh;
-                channelData.channels[currentChannel].videos.completed.link = videoUrl;
-                channelData.channels[currentChannel].videos.completed.date = localDateTime;
-                localStorage.setItem('localChannelData', JSON.stringify(channelData));
-
-//            console.log(videoId);
-//            console.log(title);
-//            console.log(videoUrl);
-//            console.log("ran latestLivestreamPromise");
-            resolve();
-            })
-            .catch(error => {
-                console.error('Error fetching latest livestream data:', error);
-                reject(error);
-            });
-    });
-}
-function currentLivestreamPromise() {
-    return new Promise((resolve, reject) => {
-        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&order=date&maxResults=1&key=${apiKey}`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const results = data.pageInfo.totalResults;
-                if(results == 0){
-                    //console.log("Not currently live~");
-                    channelData.channels[currentChannel].videos.live.title = "null";
-                    channelData.channels[currentChannel].videos.live.thumbnail = "null";
-                    channelData.channels[currentChannel].videos.live.link = "null";
-                    channelData.channels[currentChannel].videos.live.date = "null";
-                    resolve();
-                    return;
-                }
-                const livestream = data.items[0];
-                const videoId = livestream.id.videoId;
-                const title = livestream.snippet.title;
-                const publishedAt = livestream.snippet.publishedAt;
-            
-                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-
-                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-                const dateTime = new Date(publishedAt);
-                const localDateTime = dateTime.toLocaleString();
-
-                channelData.channels[currentChannel].videos.live.title = title;
-                channelData.channels[currentChannel].videos.live.thumbnail = thumbnailUrlHigh;
-                channelData.channels[currentChannel].videos.live.link = videoUrl;
-                channelData.channels[currentChannel].videos.live.date = localDateTime;
-                localStorage.setItem('localChannelData', JSON.stringify(channelData));
-            
-//            console.log(videoId);
-//            console.log(title);
-//            console.log(videoUrl);
-//            console.log("ran currentLivestreamPromise");
-            resolve();
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-                reject(error);
-            });
-    });
-}
 function updateLivestreamHoloPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://holodex.net/api/v2/live?channel_id=${channelId}&type=stream&sort=start_actual&max_upcoming_hours=168`;
@@ -566,7 +476,6 @@ function updateStreamPromise(){
     return Promise.all([
         updateLivestreamHoloPromise(),
         //updateAllLivestreamHoloPromise(),
-        latestLivestreamPromise(),
         updateSubscriberCountHoloPromise()
         
     ]);
