@@ -442,28 +442,27 @@ function updateAllLivestreamHoloPromise() {
 }
 function allLivestreamDataPromise() {
     let fetches = [];
-    let responses = [];
+
     for(let i = 0; i < channelIdList.length; i++) {
         let url = `https://holodex.net/api/v2/live?channel_id=${channelIdList[i]}&type=stream&sort=start_actual&max_upcoming_hours=168`;
-        fetch(url, {
+        fetches.push(fetch(url, {
             headers: {
                 'X-APIKEY': `${apiKeyHolo}`
             }
+        }));
+    }
+
+    Promise.all(fetches)
+        .then(responses => {
+            return Promise.all(responses.map(response => {
+                if(response.ok) return response.json();
+                console.error(response.statusText);
+            }))
         })
-            .then(response => response.json)
-            .then(data => {
-                console.log(data);
-                fetches.push(data);
-            })
-            .catch(error => {
-                console.error("error in test:", error);
-            });
-    }
-    for(let j = 0; j < fetches.length; j++) {
-        let tmp = fetches[j];
-        console.log(tmp);
-        console.log(JSON.parse(tmp));
-    }
+        .then(data => {
+            console.log(data);
+        })
+    
 }  
 
 function updateDisplay(videoType) {
