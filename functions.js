@@ -450,9 +450,9 @@ function allLivestreamDataPromise() {
                 'X-APIKEY': `${apiKeyHolo}`
             }
         })
-    console.log(fetched);
     }
-
+    console.log(fetches[i]);
+    console.log(responses[i]);
 }  
 
 function updateDisplay(videoType) {
