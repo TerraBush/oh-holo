@@ -346,7 +346,7 @@ function updateLivestreamHoloPromise() {
         const url = `https://holodex.net/api/v2/live?channel_id=${channelId}&type=stream&sort=start_actual&max_upcoming_hours=168`;
         fetch(url, {
             headers: {
-                'X-APIKEY': 'b3051192-044d-4da1-8822-75a9160af659'
+                'X-APIKEY': `${apiKeyHolo}`
             }
         })
             .then(response => response.json())
@@ -435,11 +435,26 @@ function updateAllLivestreamHoloPromise() {
     /*
         game Plan:
         new function to return an array of fetch promises as Promise.all(array) (fetchAll() or something)
-        use .map to create a corresponding array of all the responses from the promises of the input array (mapAllData() or something)
+        use .map to create a corresponding array of all the responses from the promises of the input array
         create function(similar to updateallLivestreamHoloPromise() that takes a json and adds it to channelData)
         create a promise chain; fetchAll().then(mapAllData).then(udpateAllData)
     */
 }
+function allLivestreamDataPromise() {
+    let fetches = [];
+    let responses = [];
+    for(let i = 0; i < channelIdList.length; i++) {
+        let url = `https://holodex.net/api/v2/live?channel_id=${channelIdList[i]}&type=stream&sort=start_actual&max_upcoming_hours=168`;
+        fetches.push(fetch(url, {
+            headers: {
+                'X-APIKEY': `${apiKeyHolo}`
+            }
+        })
+    console.log(fetched);
+    }
+
+}  
+
 function updateDisplay(videoType) {
     if(videoType == "premiere") {
         document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${channelData.channels[currentChannel].videos.premiere.title}`;
