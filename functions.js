@@ -452,6 +452,7 @@ function allLivestreamDataPromise() {
         })
             .then(response => response.json)
             .then(data => {
+                console.log(data);
                 fetches.push(data);
             })
             .catch(error => {
