@@ -449,7 +449,7 @@ function allLivestreamDataPromise() {
             headers: {
                 'X-APIKEY': `${apiKeyHolo}`
             }
-        })
+        });
     }
     console.log(fetches[i]);
     console.log(responses[i]);
