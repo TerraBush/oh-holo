@@ -55,7 +55,7 @@ const channelImgList = [
     "",
     "",
     "",
-    "",
+    "images\\dokilean.png",
     ""
 ];
 const channelAltImgList = [
@@ -73,7 +73,7 @@ const channelAltImgList = [
     "",
     "",
     "",
-    "",
+    "images\\dokihuh.png",
     ""
 ];
 const channelLinkList = [
