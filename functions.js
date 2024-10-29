@@ -374,7 +374,7 @@ function fetchAllLivestreamDataPromise() {
 }  
 function updateStreamStatus(data) {
     for(let i = 0; i < channelNameList.length; i++) {
-        if(data[i][0].length > 0) {
+        if(data[i].length > 0) {
             if(data[i][0].status == "live") {
                 document.getElementById(`${channelNameList[i]}`).text = `${liveEmote}${channelNameList[i]}`
             } else if (data[i][0].status == "upcoming") {
