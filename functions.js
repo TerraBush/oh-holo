@@ -433,7 +433,7 @@ function updateLivestreamHoloPromise() {
 }
 function updateAllLivestreamHoloPromise() {
     return new Promise((resolve, reject) => {
-        for(let i = (channelNameList.length - 1); i = 0; i--) {
+        for(let i = (channelNameList.length - 1); i >= 0; i--) {
             console.log(`fetching ${channelNameList[i]}`);
             const url = `https://holodex.net/api/v2/live?channel_id=${channelIdList[i]}&type=stream&sort=start_actual&max_upcoming_hours=168`;
             fetch(url, {
