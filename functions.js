@@ -451,8 +451,11 @@ function allLivestreamDataPromise() {
             }
         }));
     }
-    console.log(fetches[i]);
-    console.log(responses[i]);
+    for(let j = 0; j < fetches.length; j++) {
+        let tmp = fetches[j];
+        console.log(tmp);
+    }
+    responses.push(JSON.parse(fetches[0]);
 }  
 
 function updateDisplay(videoType) {
