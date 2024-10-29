@@ -345,25 +345,14 @@ function updateLivestreamHoloPromise() {
     });
 }
 function updateAllLivestreamHoloPromise() {
-    fetchAllLivestreamDataPromise()
+    return fetchAllLivestreamDataPromise()
         .then(data => {
             console.log(data);
-            for(let i = 0; i < channelNameList.length; i++) {
-                if(data[i].length > 1) {
-                    if(data[i][0].status == "live") {
-                        document.getElementById(`${channelNameList[i]}`).text = `${liveEmote}${channelNameList[i]}`
-                    } else if (data[i][0].status == "upcoming") {
-                        document.getElementById(`${channelNameList[i]}`).text = `${premiereEmote}${channelNameList[i]}`
-                    } else {
-                        document.getElementById(`${channelNameList[i]}`).text = `${channelNameList[i]}`
-                    }
-                }
-            }
+            return data;
         })
 }
 function fetchAllLivestreamDataPromise() {
     let fetches = [];
-
     for(let i = 0; i < channelIdList.length; i++) {
         let url = `https://holodex.net/api/v2/live?channel_id=${channelIdList[i]}&type=stream&sort=start_actual&max_upcoming_hours=168`;
         fetches.push(fetch(url, {
@@ -372,7 +361,6 @@ function fetchAllLivestreamDataPromise() {
             }
         }));
     }
-
     return Promise.all(fetches)
         .then(responses => {
             return Promise.all(responses.map(response => {
@@ -383,9 +371,23 @@ function fetchAllLivestreamDataPromise() {
         .then(data => {
             return data;
         })
-    
 }  
-
+function updateStreamStatus(data) {
+    for(let i = 0; i < channelNameList.length; i++) {
+        if(data[i][0].length > 0) {
+            if(data[i][0].status == "live") {
+                document.getElementById(`${channelNameList[i]}`).text = `${liveEmote}${channelNameList[i]}`
+            } else if (data[i][0].status == "upcoming") {
+                document.getElementById(`${channelNameList[i]}`).text = `${premiereEmote}${channelNameList[i]}`
+            } else {
+                document.getElementById(`${channelNameList[i]}`).text = `${channelNameList[i]}`
+            }
+        }
+    }
+}
+function updateAllChannelData(data) {
+    //uses data from updateAllLivestreamHoloPromise() to update channelData the same way updateLivestreamHoloPromise() does it and saves it to localChannelData
+}
 function updateDisplay(videoType) {
     if(videoType == "premiere") {
         document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${channelData.channels[currentChannel].videos.premiere.title}`;
