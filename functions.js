@@ -113,7 +113,6 @@ const channelSoundList = [
     ""
 ];
 
-
 let holoDataTest = [
   {
     "id": "J3dODan6-u8",
@@ -376,11 +375,11 @@ function updateStreamStatus(data) {
     for(let i = 0; i < channelNameList.length; i++) {
         if(data[i].length > 0) {
             if(data[i][0].status == "live") {
-                document.getElementById(`${channelNameList[i]}`).text = `${liveEmote}${channelNameList[i]}`
+                document.getElementById(`${channelNameList[i]}`).innerHTML = `<span class="small-option">${liveEmote}</span>${channelNameList[i]}`
             } else if (data[i][0].status == "upcoming") {
-                document.getElementById(`${channelNameList[i]}`).text = `${premiereEmote}${channelNameList[i]}`
+                document.getElementById(`${channelNameList[i]}`).innerHTML = `<span class="small-option">${premiereEmote}</span>${channelNameList[i]}`
             } else {
-                document.getElementById(`${channelNameList[i]}`).text = `${channelNameList[i]}`
+                document.getElementById(`${channelNameList[i]}`).innerHTML = `${channelNameList[i]}`
             }
         }
     }

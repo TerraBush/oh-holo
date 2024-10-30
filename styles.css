@@ -362,7 +362,9 @@ p.bottom-left-text {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-
+}
+.small-option {
+    font-size: 2rem;
 }
 select:focus{
     outline:none;
