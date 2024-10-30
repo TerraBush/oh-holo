@@ -423,9 +423,13 @@ function submitAllLivestreamDataPromise(data) {
                     const localDateTime = dateTime.toLocaleString();
         
                     channelData.channels[channelNameList[i]].videos.premiere.title = data[i][j].title;
+                    console.log(data[i][j].title);
                     channelData.channels[channelNameList[i]].videos.premiere.thumbnail = thumbnailUrlHigh;
+                    console.log(thumbnailUrlHigh);
                     channelData.channels[channelNameList[i]].videos.premiere.link = videoUrl;
+                    console.log(videoUrl);
                     channelData.channels[channelNameList[i]].videos.premiere.date = localDateTime;
+                    console.log(localDateTime);
 
                     console.log(`${channelNameList[i]} has a premiere`);
 
@@ -454,9 +458,13 @@ function submitAllLivestreamDataPromise(data) {
                     const localDateTime = dateTime.toLocaleString();
             
                     channelData.channels[channelNameList[i]].videos.live.title = data[i][j].title;
+                    console.log(data[i][j].title);
                     channelData.channels[channelNameList[i]].videos.live.thumbnail = thumbnailUrlHigh;
+                    console.log(thumbnailUrlHigh);
                     channelData.channels[channelNameList[i]].videos.live.link = videoUrl;
+                    console.log(videoUrl);
                     channelData.channels[channelNameList[i]].videos.live.date = localDateTime;
+                    console.log(localDateTime);
                     console.log(`${channelNameList[i]} has a live`);
 
                     if(data[i][j].length == 1) {
