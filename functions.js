@@ -395,6 +395,7 @@ function submitAllLivestreamDataPromise(data) {
                 channelData.channels[channelNameList[i]].videos.live.link = "null";
                 channelData.channels[channelNameList[i]].videos.live.date = "null";
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                console.log(`${channelNameList[i]} has no premiering or live videos`);
                 resolve();
                 return;
             }else if(data[i].length == 2 && data[0].status == "upcoming") {
@@ -402,6 +403,7 @@ function submitAllLivestreamDataPromise(data) {
                 channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
                 channelData.channels[channelNameList[i]].videos.live.link = "null";
                 channelData.channels[channelNameList[i]].videos.live.date = "null";
+                console.log(`${channelNameList[i]} has no live but two premieres`);
             }
 
             for(let j = 0; i < data[i].length; i++){
@@ -418,6 +420,7 @@ function submitAllLivestreamDataPromise(data) {
                     channelData.channels[channelNameList[i]].videos.premiere.thumbnail = thumbnailUrlHigh;
                     channelData.channels[channelNameList[i]].videos.premiere.link = videoUrl;
                     channelData.channels[channelNameList[i]].videos.premiere.date = localDateTime;
+                    console.log(`${channelNameList[i]} has a premiere`);
 
                     if(data[i][j].length == 1) {
                         channelData.channels[channelNameList[i]].videos.live.title = "null";
@@ -425,6 +428,7 @@ function submitAllLivestreamDataPromise(data) {
                         channelData.channels[channelNameList[i]].videos.live.link = "null";
                         channelData.channels[channelNameList[i]].videos.live.date = "null";
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                        console.log(`${channelNameList[i]} has no live but a premiere`);
                         resolve();
                         return;
                     }
@@ -444,6 +448,7 @@ function submitAllLivestreamDataPromise(data) {
                     channelData.channels[channelNameList[i]].videos.live.thumbnail = thumbnailUrlHigh;
                     channelData.channels[channelNameList[i]].videos.live.link = videoUrl;
                     channelData.channels[channelNameList[i]].videos.live.date = localDateTime;
+                    console.log(`${channelNameList[i]} has a live`);
 
                     if(data[i][j].length == 1) {
                         channelData.channels[channelNameList[i]].videos.premiere.title = "null";
@@ -451,6 +456,7 @@ function submitAllLivestreamDataPromise(data) {
                         channelData.channels[channelNameList[i]].videos.premiere.link = "null";
                         channelData.channels[channelNameList[i]].videos.premiere.date = "null";
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                        console.log(`${channelNameList[i]} has no premiere but a live`);
                         resolve();
                         return;
                     }
@@ -511,7 +517,7 @@ function updateStreamStatus(data) {
 function updateAllChannelData(data) {
     //uses data from updateAllLivestreamHoloPromise() to update channelData the same way updateLivestreamHoloPromise() does it and saves it to localChannelData
 }
-function updateDisplay(videoType) {
+function updateVideo(videoType) {
     if(videoType == "premiere") {
         document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${channelData.channels[currentChannel].videos.premiere.title}`;
         document.getElementById("videoThumbnail").src = channelData.channels[currentChannel].videos.premiere.thumbnail;
@@ -531,7 +537,7 @@ function updateDisplay(videoType) {
         document.getElementById("dateDisplay").innerHTML = channelData.channels[currentChannel].videos.completed.date;
         //console.log("switched to completed data!");
     } else {
-        console.log("updateDisplay has not recieved a proper arguement");
+        console.log("updateVideo has not recieved a proper arguement");
         return;
     }
 }
@@ -580,30 +586,30 @@ function updateImageDisplay() {
     document.getElementById("altClickableImage").src = findChannelAltImg(currentChannel);
     document.getElementById("channelLink").href = findChannelLink(currentChannel);
 }
-function initialDisplay() {
+function updateVideoDisplay() {
     if(channelData.channels[currentChannel].videos.premiere.link != "null"){
         //console.log("attempted to initial display premiereing livestream");
-        updateDisplay("premiere");
+        updateVideo("premiere");
         return;
     }
     //console.log("no premiereUrl");
     if(channelData.channels[currentChannel].videos.live.link != "null"){
         //console.log("attempted to initial display live livestream");
-        updateDisplay("live");
+        updateVideo("live");
         return;
     }
     //console.log("no liveUrl");
     if(channelData.channels[currentChannel].videos.completed.link != "null"){
         //console.log("attempted to initial display completed livestream");
-        updateDisplay("completed");
+        updateVideo("completed");
         return;
     }
     //console.log("no completedUrl");
-    console.log("initialDisplay unable to find data");
+    console.log("updateVideoDisplay unable to find data");
 }
-function updateAllDisplays() {
+function updateDisplays() {
     updateImageDisplay();
-    initialDisplay();
+    updateVideoDisplay();
     updateButtonDisplay();
     updateSubscriberDisplay();
 }
@@ -617,9 +623,9 @@ function updateStreamPromise(){
         
     ]);
 }
-function updateAll() {
+function updateAllDisplays() {
     updateStreamPromise()
-        .then(updateAllDisplays)
+        .then(updateDisplays)
         .catch(error => {
             console.error("Error updating:", error);
         });

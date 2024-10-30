@@ -15,14 +15,14 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         playNoise();
         updateAllLivestreamHoloPromise()
             .then(data => {
+                updateAllDisplays();
                 updateStreamStatus(data);
-                updateAll();
             })
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //reload button listener
     document.getElementById("reloadButton").addEventListener("click", function() {
-        updateAll();
+        updateAllDisplays();
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for holodex input api key field & button
@@ -36,25 +36,25 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
         setCookie("apiKeyHolo", apiKeyHoloInput, 365);
 
         document.getElementById("apiKeyHoloInputContainer").style.display = "none";
-        updateAll();
+        updateAllDisplays();
         });
         
 });
 document.addEventListener("DOMContentLoaded", function() { //premiere button listener
     document.getElementById("premiereLinkButton").addEventListener("click", function() {
-        updateDisplay("premiere");
+        updateVideo("premiere");
         //console.log("attempt switch to premiere thumbnail and link!");
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //live button listener
     document.getElementById("liveLinkButton").addEventListener("click", function() {
-        updateDisplay("live");
+        updateVideo("live");
         //console.log("attempt switch to live thumbnail and link!");
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //completed button listener
     document.getElementById("completedLinkButton").addEventListener("click", function() {
-        updateDisplay("completed");
+        updateVideo("completed");
         //console.log("attempt switch to completed thumbnail and link!");
     });
 });
