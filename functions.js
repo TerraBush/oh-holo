@@ -407,10 +407,15 @@ function submitAllLivestreamDataPromise(data) {
             }
 
             console.log(`${channelNameList[i]} has data`);
-            console.log(`running second loop with ${data[i]}`);
+            console.log(`running second loop with ${data[i][0]}`);
+            console.log(`running second loop with ${JSON.parse(data[i])}`);
+
+
             for(let j = 0; i < data[i].length; j++){
-                console.log(`index ${i} for ${channelNameList[i]}`);
+
+                console.log(`second loop`);
                 console.log(data[i][j]);
+
                 if(data[i][j].status == "upcoming") {
         
                     let videoId = data[i][j].id;
