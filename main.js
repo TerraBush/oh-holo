@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         updateAllLivestreamHoloPromise()
             .then(data => {
                 updateStreamStatus(data);
+                updateAll();
             })
     });
 });

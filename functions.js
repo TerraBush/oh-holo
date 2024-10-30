@@ -382,6 +382,90 @@ function updateLatestLivestreamHoloPromise() {
             });
     });
 }
+function updateAllLivestreamHoloPromise(data) {
+    return new Promise((resolve, reject) => {
+        for(let i = 0; i < data.length; i++) {
+            if(data[i].length == 0) {
+                channelData.channels[channelNameList[i]].videos.premiere.title = "null";
+                channelData.channels[channelNameList[i]].videos.premiere.thumbnail = "null";
+                channelData.channels[channelNameList[i]].videos.premiere.link = "null";
+                channelData.channels[channelNameList[i]].videos.premiere.date = "null";
+                channelData.channels[channelNameList[i]].videos.live.title = "null";
+                channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
+                channelData.channels[channelNameList[i]].videos.live.link = "null";
+                channelData.channels[channelNameList[i]].videos.live.date = "null";
+                localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                resolve();
+                return;
+            }else if(data[i].length == 2 && data[0].status == "upcoming") {
+                channelData.channels[channelNameList[i]].videos.live.title = "null";
+                channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
+                channelData.channels[channelNameList[i]].videos.live.link = "null";
+                channelData.channels[channelNameList[i]].videos.live.date = "null";
+            }
+
+            for(let j = 0; i < data[i].length; i++){
+                if(data[i][j].status == "upcoming") {
+        
+                    let videoId = data[i][j].id;
+                    const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                    const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        
+                    const dateTime = new Date(data[i][j].start_scheduled);
+                    const localDateTime = dateTime.toLocaleString();
+        
+                    channelData.channels[channelNameList[i]].videos.premiere.title = data[i][j].title;
+                    channelData.channels[channelNameList[i]].videos.premiere.thumbnail = thumbnailUrlHigh;
+                    channelData.channels[channelNameList[i]].videos.premiere.link = videoUrl;
+                    channelData.channels[channelNameList[i]].videos.premiere.date = localDateTime;
+
+                    if(data[i][j].length == 1) {
+                        channelData.channels[channelNameList[i]].videos.live.title = "null";
+                        channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
+                        channelData.channels[channelNameList[i]].videos.live.link = "null";
+                        channelData.channels[channelNameList[i]].videos.live.date = "null";
+                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                        resolve();
+                        return;
+                    }
+
+                    localStorage.setItem('localChannelData', JSON.stringify(channelData));
+
+                } else if(data[i][j].status == "live") {
+
+                    let videoId = data[i][j].id;
+                    const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                    const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+            
+                    const dateTime = new Date(data[i][j].start_actual);
+                    const localDateTime = dateTime.toLocaleString();
+            
+                    channelData.channels[].videos.live.title = data[i][j].title;
+                    channelData.channels[].videos.live.thumbnail = thumbnailUrlHigh;
+                    channelData.channels[].videos.live.link = videoUrl;
+                    channelData.channels[].videos.live.date = localDateTime;
+
+                    if(data[i][j].length == 1) {
+                        channelData.channels[].videos.premiere.title = "null";
+                        channelData.channels[].videos.premiere.thumbnail = "null";
+                        channelData.channels[].videos.premiere.link = "null";
+                        channelData.channels[].videos.premiere.date = "null";
+                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                        resolve();
+                        return;
+                    }
+
+                    localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                } else {
+                    console.log("no holoData");
+                    reject(error);
+                }
+            }
+        }
+        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+        resolve();
+    });
+}
 function submitAllLivestreamDataPromise(data) {
     //cycles through array
     //  checks  1. if it has stuff in it(data[i].length > 0)
@@ -397,6 +481,7 @@ function updateAllLivestreamHoloPromise() {
         .then(data => {
             console.log(data);
             submitAllLivestreamDataPromise(data)
+            updateAllLivestreamHoloPromise(data);
             return data;
         })
 }
