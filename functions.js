@@ -409,7 +409,7 @@ function submitAllLivestreamDataPromise(data) {
             console.log(`${channelNameList[i]} has data`);
 
             for(let j = 0; i < data[i].length; i++){
-                console.log(`index ${i} for ${channelNameList[i]}`)
+                console.log(`index ${i} for ${channelNameList[i]}`);
                 console.log(data[i][j]);
                 if(data[i][j].status == "upcoming") {
         
