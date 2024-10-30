@@ -355,6 +355,13 @@ p.bottom-left-text {
     font-weight: 400;
     margin: -1rem;
 } 
+select{
+    scrollbar-width: none; /*For Firefox*/;
+    -ms-overflow-style: none;  /*For Internet Explorer 10+*/;
+}
+select::-webkit-scrollbar { /*For WebKit Browsers*/
+    width: 0;
+}
 .select option {
     font-size: 4rem;
     text-align: center;
