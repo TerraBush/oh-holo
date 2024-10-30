@@ -384,10 +384,7 @@ function updateLatestLivestreamHoloPromise() {
 }
 function submitAllLivestreamDataPromise(data) {
     return new Promise((resolve, reject) => {
-        console.log(data);
-        console.log(data.length);
         for(let i = 0; i < data.length; i++) {
-            console.log(data[i]);
             if(data[i].length == 0) {
                 channelData.channels[channelNameList[i]].videos.premiere.title = "null";
                 channelData.channels[channelNameList[i]].videos.premiere.thumbnail = "null";
@@ -401,7 +398,7 @@ function submitAllLivestreamDataPromise(data) {
                 console.log(`${channelNameList[i]} has no premiering or live videos`);
                 resolve();
                 continue;
-            }else if(data[i].length == 2 && data[0].status == "upcoming") {
+            }else if(data[i].length == 2 && data[i][0].status == "upcoming") {
                 channelData.channels[channelNameList[i]].videos.live.title = "null";
                 channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
                 channelData.channels[channelNameList[i]].videos.live.link = "null";
@@ -409,8 +406,10 @@ function submitAllLivestreamDataPromise(data) {
                 console.log(`${channelNameList[i]} has no live but two premieres`);
             }
 
-            console.log(`${channelNameList[i]} has data, commencing`);
+            console.log(`${channelNameList[i]} has data`);
+
             for(let j = 0; i < data[i].length; i++){
+                console.log(`index ${i} for ${channelNameList[i]}`)
                 console.log(data[i][j]);
                 if(data[i][j].status == "upcoming") {
         
