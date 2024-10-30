@@ -382,10 +382,16 @@ function updateLatestLivestreamHoloPromise() {
             });
     });
 }
+function submitAllLivestreamDataPromise(data) {
+    //cycles through array
+    //  checks  1. if it has stuff in it(data[i].length > 0)
+    //          2. works just like updateLivestreamHoloPromise
+}
 function updateAllLivestreamHoloPromise() {
     return fetchAllLivestreamDataPromise()
         .then(data => {
             console.log(data);
+            //submitAllLivestreamDataPromise(data)
             return data;
         })
 }
