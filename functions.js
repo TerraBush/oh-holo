@@ -345,7 +345,7 @@ function updateLivestreamHoloPromise() {
 }
 function updateLatestLivestreamHoloPromise() {
     return new Promise((resolve, reject) => {
-        const url = `https://holodex.net/api/v2/live?channel_id=${channelId}&type=stream&sort=start_actual&max_upcoming_hours=168`;
+        const url = `https://holodex.net/api/v2/videos?channel_id=${channelId}&limit=1&status=past`;
         fetch(url, {
             headers: {
                 'X-APIKEY': `${apiKeyHolo}`
@@ -366,7 +366,7 @@ function updateLatestLivestreamHoloPromise() {
                 const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
                 const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
-                const dateTime = new Date(holoData.available_at);
+                const dateTime = new Date(holoData.start_actual);
                 const localDateTime = dateTime.toLocaleString();
 
                 channelData.channels[currentChannel].videos.completed.title = holoData.title;
