@@ -65,7 +65,7 @@ document.getElementById('channelSelector').addEventListener('change', function()
     document.getElementById("channelLink").href = findChannelLink(this.value);
     currentChannel = this.value;
     channelId = findChannelId(this.value);
-    updateAllDisplays();
+    updateDisplays();
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json import button
     document.getElementById('jsonImportButton').addEventListener("click", () => {
