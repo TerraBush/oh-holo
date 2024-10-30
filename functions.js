@@ -362,7 +362,7 @@ function updateLatestLivestreamHoloPromise() {
                     return;
                 }
 
-                let videoId = holoData[i].id;
+                let videoId = holoData.id;
                 const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
                 const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
