@@ -15,10 +15,12 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         playNoise();
         updateAllLivestreamHoloPromise()
             .then(data => {
-                updateDisplays();
                 updateStreamStatus(data);
-                
-            })
+                updateAllSubscriberHoloPromise()
+                    .then(() => {
+                        updateDisplays();
+                    })
+                })
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //reload button listener

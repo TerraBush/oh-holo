@@ -252,10 +252,6 @@ function updateSubscriberDisplay() {
     document.getElementById('subscriberCount').textContent = channelData.channels[currentChannel].stats.subs;;
     document.getElementById('viewCount').textContent = channelData.channels[currentChannel].stats.views;
 }
-function updateSubscriberDisplay(channel) {
-    document.getElementById('subscriberCount').textContent = channelData.channels[channel].stats.subs;;
-    document.getElementById('viewCount').textContent = channelData.channels[channel].stats.views;
-}
 function updateLivestreamHoloPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://holodex.net/api/v2/live?channel_id=${channelId}&type=stream&sort=start_actual&max_upcoming_hours=168`;
@@ -520,7 +516,55 @@ function fetchAllLivestreamDataPromise() {
         .then(data => {
             return data;
         })
-}  
+}
+function updateAllSubscriberHoloPromise() {
+    return fetchAllSubscriberHoloPromise()
+        .then(data => {
+            console.log(data);
+            submitAllSubscriberHoloPromise(data)
+            return data;
+        })
+}
+function fetchAllSubscriberHoloPromise() {
+    let fetches = [];
+    for(let i = 0; i < channelIdList.length; i++) {
+        let url = `https://holodex.net/api/v2/videos?channel_id=${channelId}&limit=1&status=past`;
+        fetches.push(fetch(url, {
+            headers: {
+                'X-APIKEY': `${apiKeyHolo}`
+            }
+        }));
+    }
+    return Promise.all(fetches)
+        .then(responses => {
+            return Promise.all(responses.map(response => {
+                if(response.ok) return response.json();
+                console.error(response.statusText);
+            }))
+        })
+        .then(data => {
+            return data;
+        })
+}
+function submitAllSubscriberHoloPromise(data) {
+    return new Promise((resolve) => {
+        for(let i = 0; i < data.length; i++) {
+
+            let subscriberCount = parseInt(data[i].subscriber_count);
+            if (subscriberCount >= 1000000) {
+                subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
+            }else{
+                subscriberCount = subscriberCount.toLocaleString();
+            }
+            let viewCount = parseInt(data[i].view_count).toLocaleString();
+
+            channelData.channels[channelNameList[i]].stats.subs = subscriberCount;
+            channelData.channels[channelNameList[i]].stats.views = viewCount;
+        }
+        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+        resolve();
+    });
+}
 function updateStreamStatus(data) {
     for(let i = 0; i < channelNameList.length; i++) {
         if(data[i].length > 0) {
@@ -601,40 +645,10 @@ function updateButtonDisplay() {
         //console.log("revealed completedButton");
     }
 }
-function updateButtonDisplay(channel) {
-    if(channelData.channels[channel].videos.premiere.link == "null"){
-        document.getElementById("premiereLinkButton").style.display = "none";
-        //console.log("hid premiereButton");
-    } else {
-        document.getElementById("premiereLinkButton").style.display = "";
-        //console.log("revealed premiereButton")
-    }
-
-    if(channelData.channels[channel].videos.live.link == "null"){
-        document.getElementById("liveLinkButton").style.display = "none";;
-        //console.log("hid liveButton");
-    } else {
-        document.getElementById("liveLinkButton").style.display = "";
-        //console.log("revealed liveButton");
-    }
-
-    if(channelData.channels[channel].videos.completed.link == "null"){
-        document.getElementById("completedLinkButton").style.display = "none";
-        //console.log("hid completedButton");
-    } else {
-        document.getElementById("completedLinkButton").style.display = "";
-        //console.log("revealed completedButton");
-    }
-}
 function updateImageDisplay() {
     document.getElementById("clickableImage").src = findChannelImg(currentChannel);
     document.getElementById("altClickableImage").src = findChannelAltImg(currentChannel);
     document.getElementById("channelLink").href = findChannelLink(currentChannel);
-}
-function updateImageDisplay(channel) {
-    document.getElementById("clickableImage").src = findChannelImg(channel);
-    document.getElementById("altClickableImage").src = findChannelAltImg(channel);
-    document.getElementById("channelLink").href = findChannelLink(channel);
 }
 function updateVideoDisplay() {
     if(channelData.channels[currentChannel].videos.premiere.link != "null"){
@@ -657,38 +671,11 @@ function updateVideoDisplay() {
     //console.log("no completedUrl");
     console.log("updateVideoDisplay unable to find data");
 }
-function updateVideoDisplay(channel) {
-    if(channelData.channels[channel].videos.premiere.link != "null"){
-        //console.log("attempted to initial display premiereing livestream");
-        updateVideo("premiere");
-        return;
-    }
-    //console.log("no premiereUrl");
-    if(channelData.channels[channel].videos.live.link != "null"){
-        //console.log("attempted to initial display live livestream");
-        updateVideo("live");
-        return;
-    }
-    //console.log("no liveUrl");
-    if(channelData.channels[channel].videos.completed.link != "null"){
-        //console.log("attempted to initial display completed livestream");
-        updateVideo("completed");
-        return;
-    }
-    //console.log("no completedUrl");
-    console.log("updateVideoDisplay unable to find data");
-}
 function updateDisplays() {
     updateImageDisplay();
     updateVideoDisplay();
     updateButtonDisplay();
     updateSubscriberDisplay();
-}
-function updateDisplays(channel) {
-    updateImageDisplay(channel);
-    updateVideoDisplay(channel);
-    updateButtonDisplay(channel);
-    updateSubscriberDisplay(channel);
 }
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
