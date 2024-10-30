@@ -422,13 +422,13 @@ function submitAllLivestreamDataPromise(data) {
                     const localDateTime = dateTime.toLocaleString();
         
                     channelData.channels[channelNameList[i]].videos.premiere.title = data[i][j].title;
-                    console.log(data[i][j].title);
+                    //console.log(data[i][j].title);
                     channelData.channels[channelNameList[i]].videos.premiere.thumbnail = thumbnailUrlHigh;
-                    console.log(thumbnailUrlHigh);
+                    //console.log(thumbnailUrlHigh);
                     channelData.channels[channelNameList[i]].videos.premiere.link = videoUrl;
-                    console.log(videoUrl);
+                    //console.log(videoUrl);
                     channelData.channels[channelNameList[i]].videos.premiere.date = localDateTime;
-                    console.log(localDateTime);
+                    //console.log(localDateTime);
 
                     console.log(`${channelNameList[i]} has a premiere`);
 
@@ -457,13 +457,13 @@ function submitAllLivestreamDataPromise(data) {
                     const localDateTime = dateTime.toLocaleString();
             
                     channelData.channels[channelNameList[i]].videos.live.title = data[i][j].title;
-                    console.log(data[i][j].title);
+                    //console.log(data[i][j].title);
                     channelData.channels[channelNameList[i]].videos.live.thumbnail = thumbnailUrlHigh;
-                    console.log(thumbnailUrlHigh);
+                    //console.log(thumbnailUrlHigh);
                     channelData.channels[channelNameList[i]].videos.live.link = videoUrl;
-                    console.log(videoUrl);
+                    //console.log(videoUrl);
                     channelData.channels[channelNameList[i]].videos.live.date = localDateTime;
-                    console.log(localDateTime);
+                    //console.log(localDateTime);
                     console.log(`${channelNameList[i]} has a live`);
 
                     if(data[i][j].length == 1) {
@@ -549,7 +549,7 @@ function fetchAllSubscriberHoloPromise() {
 function submitAllSubscriberHoloPromise(data) {
     return new Promise((resolve) => {
         for(let i = 0; i < data.length; i++) {
-
+            console.log(data[i].subscriber_count);
             let subscriberCount = parseInt(data[i].subscriber_count);
             if (subscriberCount >= 1000000) {
                 subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
