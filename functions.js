@@ -382,7 +382,7 @@ function updateLatestLivestreamHoloPromise() {
             });
     });
 }
-function updateAllLivestreamHoloPromise(data) {
+function submitAllLivestreamHoloPromise(data) {
     return new Promise((resolve, reject) => {
         for(let i = 0; i < data.length; i++) {
             if(data[i].length == 0) {
@@ -466,22 +466,11 @@ function updateAllLivestreamHoloPromise(data) {
         resolve();
     });
 }
-function submitAllLivestreamDataPromise(data) {
-    //cycles through array
-    //  checks  1. if it has stuff in it(data[i].length > 0)
-    //          2. works just like updateLivestreamHoloPromise
-    for(let i = 0; i < data.length; i++) {
-        for(let j = 0; j < data[i].length; j++) {
-            console.log(data[i][j]);
-        }
-    }
-}
 function updateAllLivestreamHoloPromise() {
     return fetchAllLivestreamDataPromise()
         .then(data => {
             console.log(data);
             submitAllLivestreamDataPromise(data)
-            updateAllLivestreamHoloPromise(data);
             return data;
         })
 }
