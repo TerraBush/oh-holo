@@ -366,10 +366,10 @@ function updateLatestLivestreamHoloPromise() {
                 const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
                 const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
-                const dateTime = new Date(holoData[i].available_at);
+                const dateTime = new Date(holoData.available_at);
                 const localDateTime = dateTime.toLocaleString();
 
-                channelData.channels[currentChannel].videos.completed.title = holoData[i].title;
+                channelData.channels[currentChannel].videos.completed.title = holoData.title;
                 channelData.channels[currentChannel].videos.completed.thumbnail = thumbnailUrlHigh;
                 channelData.channels[currentChannel].videos.completed.link = videoUrl;
                 channelData.channels[currentChannel].videos.completed.date = localDateTime;
