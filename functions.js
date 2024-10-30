@@ -408,7 +408,7 @@ function submitAllLivestreamDataPromise(data) {
 
             console.log(`${channelNameList[i]} has data`);
             //console.log(`running second loop with ${data[i][0]}`);
-            console.log(`running second loop with ${JSON.parse(data[i][j])}`);
+            console.log(`running second loop with ${JSON.parse(data[i][0])}`);
 
 
             for(let j = 0; j < data[i].length; j++){
