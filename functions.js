@@ -411,7 +411,7 @@ function submitAllLivestreamDataPromise(data) {
             console.log(`running second loop with ${JSON.parse(data[i])}`);
 
 
-            for(let j = 0; i < data[i].length; j++){
+            for(let j = 0; j < data[i].length; j++){
 
                 console.log(`second loop`);
                 console.log(data[i][j]);
