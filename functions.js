@@ -528,7 +528,7 @@ function updateAllSubscriberHoloPromise() {
 function fetchAllSubscriberHoloPromise() {
     let fetches = [];
     for(let i = 0; i < channelIdList.length; i++) {
-        let url = `https://holodex.net/api/v2/channels/${channelId}`;
+        let url = `https://holodex.net/api/v2/channels/${channelIdList[i]}`;
         fetches.push(fetch(url, {
             headers: {
                 'X-APIKEY': `${apiKeyHolo}`
