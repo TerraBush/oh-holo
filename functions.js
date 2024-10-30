@@ -409,8 +409,8 @@ function submitAllLivestreamDataPromise(data) {
 
             for(let j = 0; j < data[i].length; j++) {
 
-                console.log(`second loop`);
-                console.log(data[i][j]);
+                //console.log(`second loop`);
+                //console.log(data[i][j]);
 
                 if(data[i][j].status == "upcoming") {
         
@@ -547,6 +547,7 @@ function fetchAllSubscriberHoloPromise() {
         })
 }
 function submitAllSubscriberHoloPromise(data) {
+    console.log(data);
     return new Promise((resolve) => {
         for(let i = 0; i < data.length; i++) {
             console.log(data[i].subscriber_count);
