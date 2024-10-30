@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         playNoise();
         updateAllLivestreamHoloPromise()
             .then(data => {
-                updateAllDisplays();
+                updateDisplays();
                 updateStreamStatus(data);
             })
     });
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
 defineDataPromise()
     .then(() => {
         updateChannelData();
-        updateAllDisplays();
+        updateDisplays();
     })
     .catch(error => {
         console.error('unable to start initial stuff because of defineDataPromise:', error)

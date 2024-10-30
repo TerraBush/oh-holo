@@ -384,6 +384,7 @@ function updateLatestLivestreamHoloPromise() {
 }
 function submitAllLivestreamDataPromise(data) {
     return new Promise((resolve, reject) => {
+        console.log(data);
         for(let i = 0; i < data.length; i++) {
             if(data[i].length == 0) {
                 channelData.channels[channelNameList[i]].videos.premiere.title = "null";
