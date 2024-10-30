@@ -343,6 +343,45 @@ function updateLivestreamHoloPromise() {
             });
     });
 }
+function updateLatestLivestreamHoloPromise() {
+    return new Promise((resolve, reject) => {
+        const url = `https://holodex.net/api/v2/live?channel_id=${channelId}&type=stream&sort=start_actual&max_upcoming_hours=168`;
+        fetch(url, {
+            headers: {
+                'X-APIKEY': `${apiKeyHolo}`
+            }
+        })
+            .then(response => response.json())
+            .then(holoData => {
+                if(holoData.length == 0) {
+                    channelData.channels[currentChannel].videos.completed.title = "null";
+                    channelData.channels[currentChannel].videos.completed.thumbnail = "null";
+                    channelData.channels[currentChannel].videos.completed.link = "null";
+                    channelData.channels[currentChannel].videos.completed.date = "null";
+                    resolve();
+                    return;
+                }
+
+                let videoId = holoData[i].id;
+                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+                const dateTime = new Date(holoData[i].available_at);
+                const localDateTime = dateTime.toLocaleString();
+
+                channelData.channels[currentChannel].videos.completed.title = holoData[i].title;
+                channelData.channels[currentChannel].videos.completed.thumbnail = thumbnailUrlHigh;
+                channelData.channels[currentChannel].videos.completed.link = videoUrl;
+                channelData.channels[currentChannel].videos.completed.date = localDateTime;
+                localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                resolve();
+            })
+            .catch(error => {
+                console.error('Error fetching latest livestream holo data:', error);
+                reject(error);
+            });
+    });
+}
 function updateAllLivestreamHoloPromise() {
     return fetchAllLivestreamDataPromise()
         .then(data => {
@@ -486,6 +525,7 @@ function updateAllDisplays() {
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
     return Promise.all([
+        updateLatestLivestreamHoloPromise(),
         updateLivestreamHoloPromise(),
         //updateAllLivestreamHoloPromise(),
         updateSubscriberCountHoloPromise()
