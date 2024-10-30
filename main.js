@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function() { //event listener for 
         setCookie("apiKeyHolo", apiKeyHoloInput, 365);
 
         document.getElementById("apiKeyHoloInputContainer").style.display = "none";
+        updateAll();
         });
-    updateAll();
         
 });
 document.addEventListener("DOMContentLoaded", function() { //premiere button listener
