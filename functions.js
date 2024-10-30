@@ -547,10 +547,10 @@ function fetchAllSubscriberHoloPromise() {
         })
 }
 function submitAllSubscriberHoloPromise(data) {
-    console.log(data);
+    //console.log(data);
     return new Promise((resolve) => {
         for(let i = 0; i < data.length; i++) {
-            console.log(data[i].subscriber_count);
+            //console.log(data[i].subscriber_count);
             let subscriberCount = parseInt(data[i].subscriber_count);
             if (subscriberCount >= 1000000) {
                 subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
