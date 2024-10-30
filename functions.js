@@ -440,16 +440,16 @@ function updateAllLivestreamHoloPromise(data) {
                     const dateTime = new Date(data[i][j].start_actual);
                     const localDateTime = dateTime.toLocaleString();
             
-                    channelData.channels[].videos.live.title = data[i][j].title;
-                    channelData.channels[].videos.live.thumbnail = thumbnailUrlHigh;
-                    channelData.channels[].videos.live.link = videoUrl;
-                    channelData.channels[].videos.live.date = localDateTime;
+                    channelData.channels[channelNameList[i]].videos.live.title = data[i][j].title;
+                    channelData.channels[channelNameList[i]].videos.live.thumbnail = thumbnailUrlHigh;
+                    channelData.channels[channelNameList[i]].videos.live.link = videoUrl;
+                    channelData.channels[channelNameList[i]].videos.live.date = localDateTime;
 
                     if(data[i][j].length == 1) {
-                        channelData.channels[].videos.premiere.title = "null";
-                        channelData.channels[].videos.premiere.thumbnail = "null";
-                        channelData.channels[].videos.premiere.link = "null";
-                        channelData.channels[].videos.premiere.date = "null";
+                        channelData.channels[channelNameList[i]].videos.premiere.title = "null";
+                        channelData.channels[channelNameList[i]].videos.premiere.thumbnail = "null";
+                        channelData.channels[channelNameList[i]].videos.premiere.link = "null";
+                        channelData.channels[channelNameList[i]].videos.premiere.date = "null";
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
                         resolve();
                         return;
