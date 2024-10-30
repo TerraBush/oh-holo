@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
             .then(data => {
                 updateDisplays();
                 updateStreamStatus(data);
+                
             })
     });
 });
