@@ -362,14 +362,14 @@ function updateLatestLivestreamHoloPromise() {
                     return;
                 }
 
-                let videoId = holoData.id;
+                let videoId = holoData[0].id;
                 const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
                 const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
-                const dateTime = new Date(holoData.start_actual);
+                const dateTime = new Date(holoData[0].available_at);
                 const localDateTime = dateTime.toLocaleString();
 
-                channelData.channels[currentChannel].videos.completed.title = holoData.title;
+                channelData.channels[currentChannel].videos.completed.title = holoData[0].title;
                 channelData.channels[currentChannel].videos.completed.thumbnail = thumbnailUrlHigh;
                 channelData.channels[currentChannel].videos.completed.link = videoUrl;
                 channelData.channels[currentChannel].videos.completed.date = localDateTime;
