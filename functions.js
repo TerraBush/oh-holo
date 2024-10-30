@@ -387,6 +387,7 @@ function submitAllLivestreamDataPromise(data) {
         console.log(data);
         console.log(data.length);
         for(let i = 0; i < data.length; i++) {
+            console.log(data[i]);
             if(data[i].length == 0) {
                 channelData.channels[channelNameList[i]].videos.premiere.title = "null";
                 channelData.channels[channelNameList[i]].videos.premiere.thumbnail = "null";
@@ -399,6 +400,7 @@ function submitAllLivestreamDataPromise(data) {
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
                 console.log(`${channelNameList[i]} has no premiering or live videos`);
                 resolve();
+                continue;
             }else if(data[i].length == 2 && data[0].status == "upcoming") {
                 channelData.channels[channelNameList[i]].videos.live.title = "null";
                 channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
@@ -407,7 +409,9 @@ function submitAllLivestreamDataPromise(data) {
                 console.log(`${channelNameList[i]} has no live but two premieres`);
             }
 
+            console.log(`${channelNameList[i]} has data, commencing`);
             for(let j = 0; i < data[i].length; i++){
+                console.log(data[i][j]);
                 if(data[i][j].status == "upcoming") {
         
                     let videoId = data[i][j].id;
@@ -434,6 +438,7 @@ function submitAllLivestreamDataPromise(data) {
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
                         console.log(`${channelNameList[i]} has no live but a premiere`);
                         resolve();
+                        continue;
                     }
 
                     localStorage.setItem('localChannelData', JSON.stringify(channelData));
@@ -461,6 +466,7 @@ function submitAllLivestreamDataPromise(data) {
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
                         console.log(`${channelNameList[i]} has no premiere but a live`);
                         resolve();
+                        continue;
                     }
 
                     localStorage.setItem('localChannelData', JSON.stringify(channelData));
