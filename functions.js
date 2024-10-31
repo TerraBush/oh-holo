@@ -569,7 +569,7 @@ function updateAllLatestLivestreamHoloPromise() {
 function fetchAllLatestLivestreamDataPromise() {
     let fetches = [];
     for(let i = 0; i < channelIdList.length; i++) {
-        let url = `https://holodex.net/api/v2/videos?channel_id=${channelId}&limit=1&status=past`;
+        let url = `https://holodex.net/api/v2/videos?channel_id=${channelIdList[i]}&limit=1&status=past`;
         fetches.push(fetch(url, {
             headers: {
                 'X-APIKEY': `${apiKeyHolo}`
