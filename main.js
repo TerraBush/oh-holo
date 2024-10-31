@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
     //image.addEventListener("click", playNoise);
     image.addEventListener("click", () => {
         playNoise();
+    });
+});
+document.addEventListener("DOMContentLoaded", function() { //reload button listener
+    document.getElementById("reloadButton").addEventListener("click", function() {
+        //updateAllDisplays();
         updateAllLivestreamHoloPromise()
             .then(data => {
                 updateStreamStatus(data);
@@ -20,15 +25,8 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
                     updateAllSubscriberHoloPromise(),
                     updateAllLatestLivestreamHoloPromise()
                 ])
-                    .then(() => {
-                        updateDisplays();
-                    })
+                    .then(updateDisplays())
                 })
-    });
-});
-document.addEventListener("DOMContentLoaded", function() { //reload button listener
-    document.getElementById("reloadButton").addEventListener("click", function() {
-        updateAllDisplays();
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for holodex input api key field & button
