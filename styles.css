@@ -353,7 +353,6 @@ p.bottom-left-text {
     text-align-last: center;
     font-size: 8rem;
     font-weight: 400;
-    margin: -1rem;
 } 
 select{
     scrollbar-width: none; /*For Firefox*/;
