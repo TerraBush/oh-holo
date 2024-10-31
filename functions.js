@@ -413,7 +413,7 @@ function submitAllLivestreamDataPromise(data) {
                 channelData.channels[channelNameList[i]].videos.live.link = "null";
                 channelData.channels[channelNameList[i]].videos.live.date = "null";
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
-                console.log(`${channelNameList[i]} has no premiering or live videos`);
+                //console.log(`${channelNameList[i]} has no premiering or live videos`);
                 resolve();
                 continue;
             }else if(data[i].length == 2 && data[i][0].status == "upcoming") {
@@ -421,10 +421,10 @@ function submitAllLivestreamDataPromise(data) {
                 channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
                 channelData.channels[channelNameList[i]].videos.live.link = "null";
                 channelData.channels[channelNameList[i]].videos.live.date = "null";
-                console.log(`${channelNameList[i]} has no live but two premieres`);
+                //console.log(`${channelNameList[i]} has no live but two premieres`);
             }
 
-            console.log(`${channelNameList[i]} has data`);
+            //console.log(`${channelNameList[i]} has data`);
 
             for(let j = 0; j < data[i].length; j++) {
 
@@ -445,7 +445,7 @@ function submitAllLivestreamDataPromise(data) {
                     channelData.channels[channelNameList[i]].videos.premiere.link = videoUrl;
                     channelData.channels[channelNameList[i]].videos.premiere.date = localDateTime;
 
-                    console.log(`${channelNameList[i]} has a premiere`);
+                    //console.log(`${channelNameList[i]} has a premiere`);
 
                     if(data[i][j].length == 1) {
 
@@ -455,7 +455,7 @@ function submitAllLivestreamDataPromise(data) {
                         channelData.channels[channelNameList[i]].videos.live.date = "null";
 
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
-                        console.log(`${channelNameList[i]} has no live but a premiere`);
+                        //console.log(`${channelNameList[i]} has no live but a premiere`);
                         resolve();
                         continue;
                     }
@@ -475,15 +475,15 @@ function submitAllLivestreamDataPromise(data) {
                     channelData.channels[channelNameList[i]].videos.live.thumbnail = thumbnailUrlHigh;
                     channelData.channels[channelNameList[i]].videos.live.link = videoUrl;
                     channelData.channels[channelNameList[i]].videos.live.date = localDateTime;
-                    console.log(`${channelNameList[i]} has a live`);
+                    //console.log(`${channelNameList[i]} has a live`);
 
-                    if(data[i][j].length == 1) {
+                    if(data[i].length == 1) {
                         channelData.channels[channelNameList[i]].videos.premiere.title = "null";
                         channelData.channels[channelNameList[i]].videos.premiere.thumbnail = "null";
                         channelData.channels[channelNameList[i]].videos.premiere.link = "null";
                         channelData.channels[channelNameList[i]].videos.premiere.date = "null";
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
-                        console.log(`${channelNameList[i]} has no premiere but a live`);
+                        //console.log(`${channelNameList[i]} has no premiere but a live`);
                         resolve();
                         continue;
                     }
