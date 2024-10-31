@@ -732,7 +732,6 @@ function updateDisplays() {
     updateVideoDisplay();
     updateButtonDisplay();
     updateSubscriberDisplay();
-    document.querySelectorAll("link[rel=stylesheet]").forEach(link => link.href = link.href.replace(/\?.*|$/, "?" + Date.now()));
 }
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
