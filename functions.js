@@ -441,13 +441,9 @@ function submitAllLivestreamDataPromise(data) {
                     const localDateTime = dateTime.toLocaleString();
         
                     channelData.channels[channelNameList[i]].videos.premiere.title = data[i][j].title;
-                    //console.log(data[i][j].title);
                     channelData.channels[channelNameList[i]].videos.premiere.thumbnail = thumbnailUrlHigh;
-                    //console.log(thumbnailUrlHigh);
                     channelData.channels[channelNameList[i]].videos.premiere.link = videoUrl;
-                    //console.log(videoUrl);
                     channelData.channels[channelNameList[i]].videos.premiere.date = localDateTime;
-                    //console.log(localDateTime);
 
                     console.log(`${channelNameList[i]} has a premiere`);
 
@@ -476,13 +472,9 @@ function submitAllLivestreamDataPromise(data) {
                     const localDateTime = dateTime.toLocaleString();
             
                     channelData.channels[channelNameList[i]].videos.live.title = data[i][j].title;
-                    //console.log(data[i][j].title);
                     channelData.channels[channelNameList[i]].videos.live.thumbnail = thumbnailUrlHigh;
-                    //console.log(thumbnailUrlHigh);
                     channelData.channels[channelNameList[i]].videos.live.link = videoUrl;
-                    //console.log(videoUrl);
                     channelData.channels[channelNameList[i]].videos.live.date = localDateTime;
-                    //console.log(localDateTime);
                     console.log(`${channelNameList[i]} has a live`);
 
                     if(data[i][j].length == 1) {
@@ -541,10 +533,10 @@ function submitAllLatestLivestreamDataPromise(data) {
     return new Promise((resolve) => {
         for(let i = 0; i < data[i].length; i++) {
             if(data[i].length == 0) {
-                channelData.channels[channelIdList[i]].videos.completed.title = "null";
-                channelData.channels[channelIdList[i]].videos.completed.thumbnail = "null";
-                channelData.channels[channelIdList[i]].videos.completed.link = "null";
-                channelData.channels[channelIdList[i]].videos.completed.date = "null";
+                channelData.channels[channelNameList[i]].videos.completed.title = "null";
+                channelData.channels[channelNameList[i]].videos.completed.thumbnail = "null";
+                channelData.channels[channelNameList[i]].videos.completed.link = "null";
+                channelData.channels[channelNameList[i]].videos.completed.date = "null";
                 continue;
             }
 
@@ -555,10 +547,10 @@ function submitAllLatestLivestreamDataPromise(data) {
             const dateTime = new Date(data[i][0].available_at);
             const localDateTime = dateTime.toLocaleString();
 
-            channelData.channels[channelIdList[i]].videos.completed.title = data[i][0].title;
-            channelData.channels[channelIdList[i]].videos.completed.thumbnail = thumbnailUrlHigh;
-            channelData.channels[channelIdList[i]].videos.completed.link = videoUrl;
-            channelData.channels[channelIdList[i]].videos.completed.date = localDateTime;
+            channelData.channels[channelNameList[i]].videos.completed.title = data[i][0].title;
+            channelData.channels[channelNameList[i]].videos.completed.thumbnail = thumbnailUrlHigh;
+            channelData.channels[channelNameList[i]].videos.completed.link = videoUrl;
+            channelData.channels[channelNameList[i]].videos.completed.date = localDateTime;
             localStorage.setItem('localChannelData', JSON.stringify(channelData));
             resolve();
         }
