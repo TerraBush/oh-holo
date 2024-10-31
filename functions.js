@@ -531,7 +531,7 @@ function fetchAllLivestreamDataPromise() {
 //all latest trio
 function submitAllLatestLivestreamDataPromise(data) {
     return new Promise((resolve) => {
-        for(let i = 0; i < data[i].length; i++) {
+        for(let i = 0; i < data.length; i++) {
             if(data[i].length == 0) {
                 channelData.channels[channelNameList[i]].videos.completed.title = "null";
                 channelData.channels[channelNameList[i]].videos.completed.thumbnail = "null";
