@@ -548,11 +548,15 @@ function submitAllLatestLivestreamDataPromise(data) {
             const localDateTime = dateTime.toLocaleString();
 
             channelData.channels[channelNameList[i]].videos.completed.title = data[i][0].title;
+            console.log(data[i][0].title);
             channelData.channels[channelNameList[i]].videos.completed.thumbnail = thumbnailUrlHigh;
+            console.log(thumbnailUrlHigh);
             channelData.channels[channelNameList[i]].videos.completed.link = videoUrl;
+            console.log(videoUrl);
             channelData.channels[channelNameList[i]].videos.completed.date = localDateTime;
+            console.log(localDateTime);
+            
             localStorage.setItem('localChannelData', JSON.stringify(channelData));
-            resolve();
         }
         localStorage.setItem('localChannelData', JSON.stringify(channelData));
         resolve();
