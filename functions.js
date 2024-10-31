@@ -173,6 +173,7 @@ if(getTheme()) {
     channelId = channelIdList[0];
 }
 
+//misc use
 function setTheme(theme) {
     document.documentElement.className = theme;
     localStorage.setItem('theme', theme);
@@ -218,6 +219,22 @@ function playNoise() {
 function randomNumber(x, y){
     return Math.floor(Math.random()*y) + x;
 }
+function setCookie(name, value, days) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (1000 * 60 * 60 * 24 * days));
+    document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + expires.toUTCString() + ";path=/";
+}
+function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if(cookie.startsWith(name + '=')) {
+            return decodeURIComponent(cookie.substring(name.length + 1));
+        }
+    }
+    return null;
+}
+//subscriber
 function updateSubscriberCountHoloPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://holodex.net/api/v2/channels/${channelId}`;
@@ -252,6 +269,7 @@ function updateSubscriberDisplay() {
     document.getElementById('subscriberCount').textContent = channelData.channels[currentChannel].stats.subs;;
     document.getElementById('viewCount').textContent = channelData.channels[currentChannel].stats.views;
 }
+//livestream
 function updateLivestreamHoloPromise() {
     return new Promise((resolve, reject) => {
         const url = `https://holodex.net/api/v2/live?channel_id=${channelId}&type=stream&sort=start_actual&max_upcoming_hours=168`;
@@ -381,6 +399,7 @@ function updateLatestLivestreamHoloPromise() {
             });
     });
 }
+//all live/premiere trio
 function submitAllLivestreamDataPromise(data) {
     return new Promise((resolve, reject) => {
         for(let i = 0; i < data.length; i++) {
@@ -517,6 +536,66 @@ function fetchAllLivestreamDataPromise() {
             return data;
         })
 }
+//all latest trio
+function submitAllLatestLivestreamDataPromise(data) {
+    return new Promise((resolve) => {
+        for(let i = 0; i < data[i].length; i++) {
+            if(data[i].length == 0) {
+                channelData.channels[channelIdList[i]].videos.completed.title = "null";
+                channelData.channels[channelIdList[i]].videos.completed.thumbnail = "null";
+                channelData.channels[channelIdList[i]].videos.completed.link = "null";
+                channelData.channels[channelIdList[i]].videos.completed.date = "null";
+                continue;
+            }
+
+            let videoId = data[i][0].id;
+            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+            const dateTime = new Date(data[i][0].available_at);
+            const localDateTime = dateTime.toLocaleString();
+
+            channelData.channels[channelIdList[i]].videos.completed.title = data[i][0].title;
+            channelData.channels[channelIdList[i]].videos.completed.thumbnail = thumbnailUrlHigh;
+            channelData.channels[channelIdList[i]].videos.completed.link = videoUrl;
+            channelData.channels[channelIdList[i]].videos.completed.date = localDateTime;
+            localStorage.setItem('localChannelData', JSON.stringify(channelData));
+            resolve();
+        }
+        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+        resolve();
+    });
+}
+function updateAllLatestLivestreamHoloPromise() {
+    return fetchAllLivestreamDataPromise()
+        .then(data => {
+            console.log(data);
+            submitAllLivestreamDataPromise(data)
+            return data;
+        })
+}
+function fetchAllLatestLivestreamDataPromise() {
+    let fetches = [];
+    for(let i = 0; i < channelIdList.length; i++) {
+        let url = `https://holodex.net/api/v2/videos?channel_id=${channelId}&limit=1&status=past`;
+        fetches.push(fetch(url, {
+            headers: {
+                'X-APIKEY': `${apiKeyHolo}`
+            }
+        }));
+    }
+    return Promise.all(fetches)
+        .then(responses => {
+            return Promise.all(responses.map(response => {
+                if(response.ok) return response.json();
+                console.error(response.statusText);
+            }))
+        })
+        .then(data => {
+            return data;
+        })
+}
+//all subscriber trio
 function updateAllSubscriberHoloPromise() {
     return fetchAllSubscriberHoloPromise()
         .then(data => {
@@ -566,6 +645,7 @@ function submitAllSubscriberHoloPromise(data) {
         resolve();
     });
 }
+//account status
 function updateStreamStatus(data) {
     for(let i = 0; i < channelNameList.length; i++) {
         if(data[i].length > 0) {
@@ -578,9 +658,6 @@ function updateStreamStatus(data) {
             }
         }
     }
-}
-function updateAllChannelData(data) {
-    //uses data from updateAllLivestreamHoloPromise() to update channelData the same way updateLivestreamHoloPromise() does it and saves it to localChannelData
 }
 function updateVideo(videoType) {
     if(videoType == "premiere") {
@@ -605,21 +682,6 @@ function updateVideo(videoType) {
         console.log("updateVideo has not recieved a proper arguement");
         return;
     }
-}
-function setCookie(name, value, days) {
-    const expires = new Date();
-    expires.setTime(expires.getTime() + (1000 * 60 * 60 * 24 * days));
-    document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + expires.toUTCString() + ";path=/";
-}
-function getCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if(cookie.startsWith(name + '=')) {
-            return decodeURIComponent(cookie.substring(name.length + 1));
-        }
-    }
-    return null;
 }
 function updateButtonDisplay() {
     if(channelData.channels[currentChannel].videos.premiere.link == "null"){

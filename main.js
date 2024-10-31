@@ -16,7 +16,10 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
         updateAllLivestreamHoloPromise()
             .then(data => {
                 updateStreamStatus(data);
-                updateAllSubscriberHoloPromise()
+                Promise.all([
+                    updateAllSubscriberHoloPromise(),
+                    updateAllLatestLivestreamHoloPromise()
+                ])
                     .then(() => {
                         updateDisplays();
                     })
