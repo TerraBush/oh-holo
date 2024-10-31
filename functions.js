@@ -537,7 +537,6 @@ function submitAllLatestLivestreamDataPromise(data) {
                 channelData.channels[channelNameList[i]].videos.completed.thumbnail = "null";
                 channelData.channels[channelNameList[i]].videos.completed.link = "null";
                 channelData.channels[channelNameList[i]].videos.completed.date = "null";
-                continue;
             }
 
             let videoId = data[i][0].id;
@@ -555,8 +554,6 @@ function submitAllLatestLivestreamDataPromise(data) {
             console.log(videoUrl);
             channelData.channels[channelNameList[i]].videos.completed.date = localDateTime;
             console.log(localDateTime);
-            
-            localStorage.setItem('localChannelData', JSON.stringify(channelData));
         }
         localStorage.setItem('localChannelData', JSON.stringify(channelData));
         resolve();
