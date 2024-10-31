@@ -511,7 +511,7 @@ function updateAllLivestreamHoloPromise() {
     return fetchAllLivestreamDataPromise()
         .then(data => {
             console.log(data);
-            submitAllLivestreamDataPromise(data)
+            submitAllLivestreamDataPromise(data);
             return data;
         })
 }
@@ -567,10 +567,10 @@ function submitAllLatestLivestreamDataPromise(data) {
     });
 }
 function updateAllLatestLivestreamHoloPromise() {
-    return fetchAllLivestreamDataPromise()
+    return fetchAllLatestLivestreamDataPromise()
         .then(data => {
             console.log(data);
-            submitAllLivestreamDataPromise(data)
+            submitAllLatestLivestreamDataPromise(data);
             return data;
         })
 }
@@ -599,8 +599,8 @@ function fetchAllLatestLivestreamDataPromise() {
 function updateAllSubscriberHoloPromise() {
     return fetchAllSubscriberHoloPromise()
         .then(data => {
-            console.log(data);
-            submitAllSubscriberHoloPromise(data)
+            //console.log(data);
+            submitAllSubscriberHoloPromise(data);
             return data;
         })
 }
