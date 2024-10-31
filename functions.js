@@ -401,6 +401,7 @@ function updateLatestLivestreamHoloPromise() {
 }
 //all live/premiere trio
 function submitAllLivestreamDataPromise(data) {
+    console.log(data);
     return new Promise((resolve, reject) => {
         for(let i = 0; i < data.length; i++) {
             if(data[i].length == 0) {
@@ -447,7 +448,7 @@ function submitAllLivestreamDataPromise(data) {
 
                     //console.log(`${channelNameList[i]} has a premiere`);
 
-                    if(data[i][j].length == 1) {
+                    if(data[i].length == 1) {
 
                         channelData.channels[channelNameList[i]].videos.live.title = "null";
                         channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
@@ -456,7 +457,6 @@ function submitAllLivestreamDataPromise(data) {
 
                         localStorage.setItem('localChannelData', JSON.stringify(channelData));
                         //console.log(`${channelNameList[i]} has no live but a premiere`);
-                        resolve();
                         continue;
                     }
 
