@@ -435,7 +435,7 @@ select:focus{
 #containerLeft {
 	margin: auto;
 	margin-right: 0px;
-	width: 240px;
+	width: 25%;
 }
 #containerCenter {
 	margin: auto;
@@ -443,7 +443,7 @@ select:focus{
 #containerRight {
 	margin: auto;
 	margin-left: 0px;
-	width: 240px;
+	width: 25%;
 }
 #statusDisplay {
 	margin-right: auto;
