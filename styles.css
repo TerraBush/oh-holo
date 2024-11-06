@@ -428,3 +428,25 @@ select:focus{
     transform: scale(1.1); /* Scale image by 10% on hover */
     transition: transform 0.3s, filter 0.3s; /* Smooth transition */
 }
+#containerAll {
+	display: flex;
+	flex-direction: row;
+}
+#containerLeft {
+	margin: auto;
+	margin-right: 0px;
+	width: 240px;
+}
+#containerCenter {
+	margin: auto;
+}
+#containerRight {
+	margin: auto;
+	margin-left: 0px;
+	width: 240px;
+}
+#statusDisplay {
+	margin-right: auto;
+	margin-left: 2px;
+	padding: 2rem;
+}
