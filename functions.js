@@ -812,6 +812,15 @@ function updateChannelDataPromise() {
     });
 
 }
+function updateStatusDisplay() {
+    let display = document.getElementById("statusDisplay");
+    for(let i = 0; i < channelNameList.length; i++) {
+        display.insertAdjacentHTML("beforeend", `<p>${channelNameList[i]}</p>`);
+        if(i < (channelNameList.length - 1)) {
+            display.insertAdjacentHTML("beforeend", "<hr>")
+        }
+    }
+}
 function readFile(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();

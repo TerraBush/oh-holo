@@ -113,6 +113,7 @@ defineDataPromise()
     .then(() => {
         updateChannelData();
         updateDisplays();
+        updateStatusDisplay();
     })
     .catch(error => {
         console.error('unable to start initial stuff because of defineDataPromise:', error)
