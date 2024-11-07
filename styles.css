@@ -211,6 +211,7 @@ h1 a:hover {
 hr {
 	border-color: var(--text-color-dark);
 	height: 1px;
+	opacity: .75;
 }
 .card {
     border: 0px solid var(--border-color);
@@ -450,9 +451,9 @@ select:focus{
 	width: 25%;
 }
 #statusDisplay {
-	margin-right: auto;
-	margin-left: 2px;
-	padding: 2rem;
+	padding: 1rem 2.5rem;
+	max-width: 50%;
+	margin-left: 0;
 }
 @media screen and (max-width: 1500px) {
     #statusDisplay {
