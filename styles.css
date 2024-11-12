@@ -6,6 +6,9 @@
     margin: 0;
     position: relative;
 }
+html, body {
+    width: 100%;
+  }
 :root,
     :root.Mumei {
         --background-color: rgb(145, 108, 100);
