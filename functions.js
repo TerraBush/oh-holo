@@ -54,7 +54,7 @@ const channelImgList = [
     "",
     "",
     "",
-    "",
+    "images\\shiozoom.png",
     "images\\dokihuh.png",
     ""
 ];
@@ -72,7 +72,7 @@ const channelAltImgList = [
     "",
     "",
     "",
-    "",
+    "images\\shiogrin.png",
     "images\\dokilean.png",
     ""
 ];
