@@ -266,7 +266,7 @@ function updateSubscriberCountHoloPromise() {
     });
 }
 function updateSubscriberDisplay() {
-    document.getElementById('subscriberCount').textContent = channelData.channels[currentChannel].stats.subs;;
+    document.getElementById('subscriberCount').textContent = channelData.channels[currentChannel].stats.subs;
     document.getElementById('viewCount').textContent = channelData.channels[currentChannel].stats.views;
 }
 //livestream
@@ -682,11 +682,11 @@ function updateButtonDisplay() {
         //console.log("hid premiereButton");
     } else {
         document.getElementById("premiereLinkButton").style.display = "";
-        //console.log("revealed premiereButton")
+        //console.log("revealed premiereButton");
     }
 
     if(channelData.channels[currentChannel].videos.live.link == "null"){
-        document.getElementById("liveLinkButton").style.display = "none";;
+        document.getElementById("liveLinkButton").style.display = "none";
         //console.log("hid liveButton");
     } else {
         document.getElementById("liveLinkButton").style.display = "";
@@ -732,6 +732,44 @@ function updateDisplays() {
     updateVideoDisplay();
     updateButtonDisplay();
     updateSubscriberDisplay();
+}
+function updateDisplaysPromise() {
+    return new Promise((resolve) => {
+        //updateSubscriberDisplay
+        document.getElementById('subscriberCount').textContent = channelData.channels[currentChannel].stats.subs;
+        document.getElementById('viewCount').textContent = channelData.channels[currentChannel].stats.views;
+        //updateVideoDisplay
+        if(channelData.channels[currentChannel].videos.premiere.link != "null"){
+            updateVideo("premiere");
+        }else if(channelData.channels[currentChannel].videos.live.link != "null"){
+            updateVideo("live");
+        }else if(channelData.channels[currentChannel].videos.completed.link != "null"){
+            updateVideo("completed");
+        }else{
+            console.log("updateDisplayPromise unable to find video data");
+        }
+        //updateButtonDisplay
+        if(channelData.channels[currentChannel].videos.premiere.link == "null"){
+            document.getElementById("premiereLinkButton").style.display = "none";
+        } else {
+            document.getElementById("premiereLinkButton").style.display = "";
+        }
+        if(channelData.channels[currentChannel].videos.live.link == "null"){
+            document.getElementById("liveLinkButton").style.display = "none";
+        } else {
+            document.getElementById("liveLinkButton").style.display = "";
+        }
+        if(channelData.channels[currentChannel].videos.completed.link == "null"){
+            document.getElementById("completedLinkButton").style.display = "none";
+        } else {
+            document.getElementById("completedLinkButton").style.display = "";
+        }
+        //updateImageDisplay
+        document.getElementById("clickableImage").src = findChannelImg(currentChannel);
+        document.getElementById("altClickableImage").src = findChannelAltImg(currentChannel);
+        document.getElementById("channelLink").href = findChannelLink(currentChannel);
+        resolve();
+    });
 }
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
@@ -815,7 +853,15 @@ function updateChannelDataPromise() {
 function updateStatusDisplay() {
     let display = document.getElementById("statusDisplay");
     for(let i = 0; i < channelNameList.length; i++) {
-        display.insertAdjacentHTML("beforeend", `<p>${channelNameList[i]}</p>`);
+        //display.insertAdjacentHTML("beforeend", `<p>${channelNameList[i]}</p>`);
+        if(channelData[i][0].status == "live") {
+            display.insertAdjacentHTML("beforeend", `<p>${liveEmote}${channelNameList[i]}</p>`);
+        } else if (data[i][0].status == "upcoming") {
+            display.insertAdjacentHTML("beforeend", `<p>${premiereEmote}${channelNameList[i]}</p>`);
+        } else {
+            display.insertAdjacentHTML("beforeend", `<p>${completedEmote}${channelNameList[i]}</p>`);
+        }
+
         if(i < (channelNameList.length - 1)) {
             display.insertAdjacentHTML("beforeend", "<hr>")
         }
