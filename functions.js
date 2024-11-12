@@ -67,7 +67,7 @@ const channelAltImgList = [
     "images\\rissastare.jpg",
     "images\\guradum.jpg",
     "images\\inaeat.png",
-    "images\kiarawink.png",
+    "images\\kiarawink.png",
     "images\\mintload.png", 
     "",
     "",
