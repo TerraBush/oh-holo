@@ -854,14 +854,13 @@ function updateStatusDisplay() {
     let display = document.getElementById("statusDisplay");
     for(let i = 0; i < channelNameList.length; i++) {
         //display.insertAdjacentHTML("beforeend", `<p>${channelNameList[i]}</p>`);
-        if(channelData[i][0].status == "live") {
+        if(channelData.channels[i].videos.live.link != "null") {
             display.insertAdjacentHTML("beforeend", `<p>${liveEmote}${channelNameList[i]}</p>`);
-        } else if (data[i][0].status == "upcoming") {
+        } else if (channelData.channels[i].videos.premiere.link != "null") {
             display.insertAdjacentHTML("beforeend", `<p>${premiereEmote}${channelNameList[i]}</p>`);
         } else {
             display.insertAdjacentHTML("beforeend", `<p>${completedEmote}${channelNameList[i]}</p>`);
         }
-
         if(i < (channelNameList.length - 1)) {
             display.insertAdjacentHTML("beforeend", "<hr>")
         }

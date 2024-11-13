@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function() { //reload button liste
         updateAllLivestreamHoloPromise()
             .then(data => {
                 updateStreamStatus(data);
+                updateStatusDisplay();
                 Promise.all([
                     updateAllSubscriberHoloPromise(),
                     updateAllLatestLivestreamHoloPromise()
