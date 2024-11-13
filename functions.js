@@ -852,6 +852,11 @@ function updateChannelDataPromise() {
 }
 function updateStatusDisplay() {
     let display = document.getElementById("statusDisplay");
+    display.innerHTML = "";
+
+    display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown(${channelNameList[0]})">test</p>`);
+    display.insertAdjacentHTML("beforeend", "<hr>");
+    
     for(let i = 0; i < channelNameList.length; i++) {
         //display.insertAdjacentHTML("beforeend", `<p>${channelNameList[i]}</p>`);
         if(channelData.channels[channelNameList[i]].videos.live.link != "null") {
@@ -862,7 +867,7 @@ function updateStatusDisplay() {
             display.insertAdjacentHTML("beforeend", `<p>${completedEmote}${channelNameList[i]}</p>`);
         }
         if(i < (channelNameList.length - 1)) {
-            display.insertAdjacentHTML("beforeend", "<hr>")
+            display.insertAdjacentHTML("beforeend", "<hr>");
         }
     }
 }
@@ -880,4 +885,7 @@ function readFile(file) {
         });
         reader.readAsText(file);
     })
+}
+function switchDropdown(value) {
+    document.getElementById("channelSelector").value = value;
 }
