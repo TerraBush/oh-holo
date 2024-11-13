@@ -401,7 +401,7 @@ function updateLatestLivestreamHoloPromise() {
 }
 //all live/premiere trio
 function submitAllLivestreamDataPromise(data) {
-    console.log(data);
+    //console.log(data);
     return new Promise((resolve, reject) => {
         for(let i = 0; i < data.length; i++) {
             if(data[i].length == 0) {
@@ -502,7 +502,7 @@ function submitAllLivestreamDataPromise(data) {
 function updateAllLivestreamHoloPromise() {
     return fetchAllLivestreamDataPromise()
         .then(data => {
-            console.log(data);
+            //console.log(data);
             submitAllLivestreamDataPromise(data);
             return data;
         })
@@ -562,7 +562,7 @@ function submitAllLatestLivestreamDataPromise(data) {
 function updateAllLatestLivestreamHoloPromise() {
     return fetchAllLatestLivestreamDataPromise()
         .then(data => {
-            console.log(data);
+            //console.log(data);
             submitAllLatestLivestreamDataPromise(data);
             return data;
         })
