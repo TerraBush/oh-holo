@@ -854,7 +854,7 @@ function updateStatusDisplay() {
     let display = document.getElementById("statusDisplay");
     display.innerHTML = "";
 
-    display.insertAdjacentHTML("beforeend", `<p onclick="document.getElementById("channelSelector")".value = ${channelNameList[0]}">test</p>`);
+    display.insertAdjacentHTML("beforeend", `<p onclick="document.getElementById("channelSelector").value = "${channelNameList[0]}"">test</p>`);
     display.insertAdjacentHTML("beforeend", "<hr>");
 
     console.log(`channelNameList.length = ${channelNameList.length}`);
@@ -866,11 +866,11 @@ function updateStatusDisplay() {
         let hasPremiere = channelData.channels[channelNameList[i]].videos.premiere.link.includes("null") ? false : true;
 
 
-        if(hasLive == false) {
+        if(hasLive == true) {
 
             display.insertAdjacentHTML("beforeend", `<p>${liveEmote}${channelNameList[i]}</p>`);
 
-        } else if (hasPremiere == false) {
+        } else if (hasPremiere == true) {
 
             display.insertAdjacentHTML("beforeend", `<p>${premiereEmote}${channelNameList[i]}</p>`);
 

@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() { //reload button liste
                     updateAllSubscriberHoloPromise(),
                     updateAllLatestLivestreamHoloPromise()
                 ])
-                    .then(updateDisplays()
+                    .then(updateDisplaysPromise()
                         .then(document.body.style.zoom=0.5)
                     )
                 })
