@@ -854,9 +854,9 @@ function updateStatusDisplay() {
     let display = document.getElementById("statusDisplay");
     for(let i = 0; i < channelNameList.length; i++) {
         //display.insertAdjacentHTML("beforeend", `<p>${channelNameList[i]}</p>`);
-        if(channelData[channelNameList[i]].videos.live.link != "null") {
+        if(channelData.channels[channelNameList[i]].videos.live.link != "null") {
             display.insertAdjacentHTML("beforeend", `<p>${liveEmote}${channelNameList[i]}</p>`);
-        } else if (channelData[channelNameList[i]].videos.premiere.link != "null") {
+        } else if (channelData.channels[channelNameList[i]].videos.premiere.link != "null") {
             display.insertAdjacentHTML("beforeend", `<p>${premiereEmote}${channelNameList[i]}</p>`);
         } else {
             display.insertAdjacentHTML("beforeend", `<p>${completedEmote}${channelNameList[i]}</p>`);
