@@ -854,13 +854,12 @@ function updateStatusDisplay() {
     let display = document.getElementById("statusDisplay");
     display.innerHTML = "";
 
-    display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[0]}')">test</p><hr>`);
+    //display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[0]}')">test</p><hr>`);
 
     for(let i = 0; i < channelNameList.length; i++) {
         //display.insertAdjacentHTML("beforeend", `<p>${channelNameList[i]}</p>`);
         let hasLive = channelData.channels[channelNameList[i]].videos.live.link.includes("null") ? false : true;
         let hasPremiere = channelData.channels[channelNameList[i]].videos.premiere.link.includes("null") ? false : true;
-
 
         if(hasLive == true) {
             display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[i]}')">${liveEmote}${channelNameList[i]}</p>`);
