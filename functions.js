@@ -854,7 +854,8 @@ function updateStatusDisplay() {
     let display = document.getElementById("statusDisplay");
     display.innerHTML = "";
 
-    display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown(\"${channelNameList[0]}\")">test</p><hr>`);
+    display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[0]}')">test</p><hr>`);
+    console.log(channelNameList[0]);
 
     for(let i = 0; i < channelNameList.length; i++) {
         //display.insertAdjacentHTML("beforeend", `<p>${channelNameList[i]}</p>`);
