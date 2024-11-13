@@ -863,11 +863,11 @@ function updateStatusDisplay() {
 
 
         if(hasLive == true) {
-            display.insertAdjacentHTML("beforeend", `<p>${liveEmote}${channelNameList[i]}</p>`);
+            display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[i]}')">${liveEmote}${channelNameList[i]}</p>`);
         } else if (hasPremiere == true) {
-            display.insertAdjacentHTML("beforeend", `<p>${premiereEmote}${channelNameList[i]}</p>`);
+            display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[i]}')">${premiereEmote}${channelNameList[i]}</p>`);
         } else {
-            display.insertAdjacentHTML("beforeend", `<p>${completedEmote}${channelNameList[i]}</p>`);
+            display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[i]}')">${completedEmote}${channelNameList[i]}</p>`);
         }
         if(i < (channelNameList.length - 1)) {
             display.insertAdjacentHTML("beforeend", "<hr>");
