@@ -20,8 +20,9 @@
 
     <script>
         function switchDropdown(val) {
-            document.getElementById("channelSelector").value = val;
-            console.log(`changed select value to ${val}`);
+            const select = document.getElementById("channelSelector");
+            select.value = val;
+            select.dispatchEvent(new Event('change'));
         }
     </script>
 </head>
