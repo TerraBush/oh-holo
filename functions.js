@@ -249,6 +249,8 @@ function updateSubscriberCountHoloPromise() {
                 let subscriberCount = parseInt(holoData.subscriber_count);
                 if (subscriberCount >= 1000000) {
                     subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
+                }else if(subscriberCount >= 1000) {
+                    subscriberCount = (subscriberCount / 1000) + ' K';
                 }else{
                     subscriberCount = subscriberCount.toLocaleString();
                 }
