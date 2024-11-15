@@ -628,7 +628,9 @@ function submitAllSubscriberHoloPromise(data) {
             let subscriberCount = parseInt(data[i].subscriber_count);
             if (subscriberCount >= 1000000) {
                 subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
-            }else{
+            }else if(subscriberCount >= 1000) {
+                subscriberCount = (subscriberCount / 1000) + ' K';
+            }else{                                                                  
                 subscriberCount = subscriberCount.toLocaleString();
             }
             let viewCount = parseInt(data[i].view_count).toLocaleString();
