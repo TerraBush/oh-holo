@@ -892,3 +892,9 @@ function readFile(file) {
         reader.readAsText(file);
     })
 }
+function preloadImages() {
+    for(let i = 0; i < channelimglist; i++) {
+        new Image().src = channelImgList[i];
+        new Image().src = channelAltImgList[i];
+    }
+}
