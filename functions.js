@@ -893,7 +893,7 @@ function readFile(file) {
     })
 }
 function preloadImages() {
-    for(let i = 0; i < channelimglist; i++) {
+    for(let i = 0; i < channelImgList.length; i++) {
         new Image().src = channelImgList[i];
         new Image().src = channelAltImgList[i];
     }
