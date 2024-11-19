@@ -95,22 +95,22 @@ const channelLinkList = [
     "https://www.youtube.com/@dooby3d"
 ];
 const channelSoundList = [
-    "sounds\\hi-1.mp3",
-    "sounds\\konfauna.mp3",
-    "sounds\\wazzup.mp3",
-    "sounds\\kroniichiwa.mp3",
-    "sounds\\ohohohoho.mp3",
-    "",
-    "sounds\\a.mp3",
-    "sounds\\wah.mp3",
-    "",
-    "",
-    "",
-    "",
-    "", 
-    "",
-    "",
-    ""
+    "sounds\\hi-1.mp3",         //Mumei
+    "sounds\\konfauna.mp3",     //Fauna
+    "sounds\\wazzup.mp3",       //Bae
+    "sounds\\kroniichiwa.mp3",  //Kronii
+    "sounds\\ohohohoho.mp3",    //Liz
+    "",                         //Nerissa
+    "sounds\\a.mp3",            //Gura
+    "sounds\\wah.mp3",          //Ina
+    "",     //Kiara
+    "",     //Minto
+    "",     //Raora
+    "sounds\\kaelaGSH.mp3",     //Kaela
+    "",     //GG
+    "",     //Shiorin
+    "",     //Doki
+    ""      //Doob
 ];
 
 let holoDataTest = [
