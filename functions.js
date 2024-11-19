@@ -20,7 +20,8 @@ const channelNameList = [
     "GG",
     "Shiorin",
     "Doki", 
-    "Doob"
+    "Doob",
+    "IRyS"
 ];
 const channelIdList = [
     "UC3n5uGu18FoCy23ggWWp8tA", //Mumei
@@ -38,7 +39,8 @@ const channelIdList = [
     "UCDHABijvPBnJm7F-KlNME3w", //GG
     "UCgnfPPb9JI3e9A4cXHnWbyg", //Shiorin
     "UComInW10MkHJs-_vi4rHQCQ", //Doki
-    "UC6T7TJZbW6nO-qsc5coo8Pg"  //Doob
+    "UC6T7TJZbW6nO-qsc5coo8Pg", //Doob
+    "UC8rcEBzJSleTkf_-agPM20g"  //IRyS
 ];
 const channelImgList = [
     "images\\mumeiload.png",
@@ -56,6 +58,7 @@ const channelImgList = [
     "",
     "images\\shiozoom.png",
     "images\\dokihuh.png",
+    "",
     ""
 ];
 const channelAltImgList = [
@@ -74,6 +77,7 @@ const channelAltImgList = [
     "",
     "images\\shiogrin.png",
     "images\\dokilean.png",
+    "",
     ""
 ];
 const channelLinkList = [
@@ -92,7 +96,8 @@ const channelLinkList = [
     "https://www.youtube.com/@holoen_gigimurin",
     "https://www.youtube.com/@ShioriNovella",
     "https://www.youtube.com/@Dokibird",
-    "https://www.youtube.com/@dooby3d"
+    "https://www.youtube.com/@dooby3d",
+    "https://www.youtube.com/@IRyS"
 ];
 const channelSoundList = [
     "sounds\\hi-1.mp3",         //Mumei
@@ -110,7 +115,8 @@ const channelSoundList = [
     "",     //GG
     "",     //Shiorin
     "",     //Doki
-    ""      //Doob
+    "",     //Doob
+    ""      //IRyS
 ];
 
 let holoDataTest = [

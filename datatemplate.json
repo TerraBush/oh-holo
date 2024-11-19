@@ -207,7 +207,8 @@
                     "link": ""
                 }
             }
-        },"Kiara": {
+        },
+        "Kiara": {
             "stats": {
                 "subs": "",
                 "views": ""
@@ -390,6 +391,32 @@
             }
         },
         "Doob": {
+            "stats": {
+                "subs": "",
+                "views": ""
+            },
+            "videos": {
+                "premiere": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "live": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                },
+                "completed": {
+                    "date": "",
+                    "thumbnail": "",
+                    "title": "",
+                    "link": ""
+                }
+            }
+        },
+        "IRyS": {
             "stats": {
                 "subs": "",
                 "views": ""
