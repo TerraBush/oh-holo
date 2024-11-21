@@ -17,62 +17,51 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
 });
 document.addEventListener("DOMContentLoaded", function() { //reload button listener
     document.getElementById("reloadButton").addEventListener("click", function() {
-        updateAll();
-    });
-});
-document.addEventListener("DOMContentLoaded", function() { //event listener for input api key field & button
-    //const apiKey = getCookie("apiKey");
-    if(apiKey) { //if have api key, hide input field
-        document.getElementById("apiKeyInputContainer").style.display = "none";
-    }
-    document.getElementById("apiKeySubmitButton").addEventListener("click", function() { //button event listener, saves api key and hides input field
-        const apiKeyInput = document.getElementById("apiKeyInputBox").value;
-
-        setCookie("apiKey", apiKeyInput, 365);
-
-        document.getElementById("apiKeyInputContainer").style.display = "none";
-
-        updateSubscriberCountPromise()
-            .then(updateSubscriberDisplay)
-            .catch(error => {
-                console.error("Error updating subscriberDisplay:", error);
-            });
+        //updateAllDisplays();
+        updateAllLivestreamHoloPromise()
+            .then(data => {
+                updateStreamStatus(data);
+                updateStatusDisplay();
+                Promise.all([
+                    updateAllSubscriberHoloPromise(),
+                    updateAllLatestLivestreamHoloPromise()
+                ])
+                    .then(updateDisplaysPromise()
+                        .then(document.body.style.zoom=1.0)
+                    )
+                })
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener for holodex input api key field & button
     //const apiKey = getCookie("apiKey");
-    if(apiKey) { //if have api key, hide input field
+    if(apiKeyHolo) { //if have api key, hide input field
         document.getElementById("apiKeyHoloInputContainer").style.display = "none";
     }
     document.getElementById("apiKeyHoloSubmitButton").addEventListener("click", function() { //button event listener, saves api key and hides input field
-        const apiKeyInput = document.getElementById("apiKeyHoloInputBox").value;
+        const apiKeyHoloInput = document.getElementById("apiKeyHoloInputBox").value;
 
-        setCookie("apiKeyHolo", apiKeyInput, 365);
+        setCookie("apiKeyHolo", apiKeyHoloInput, 365);
 
         document.getElementById("apiKeyHoloInputContainer").style.display = "none";
-
-        /*updateSubscriberCountPromise()
-            .then(updateSubscriberDisplay)
-            .catch(error => {
-                console.error("Error updating subscriberDisplay:", error);
-            });*/
-    });
+        updateAllDisplays();
+        });
+        
 });
 document.addEventListener("DOMContentLoaded", function() { //premiere button listener
     document.getElementById("premiereLinkButton").addEventListener("click", function() {
-        updateDisplay("premiere");
+        updateVideo("premiere");
         //console.log("attempt switch to premiere thumbnail and link!");
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //live button listener
     document.getElementById("liveLinkButton").addEventListener("click", function() {
-        updateDisplay("live");
+        updateVideo("live");
         //console.log("attempt switch to live thumbnail and link!");
     });
 });
 document.addEventListener("DOMContentLoaded", function() { //completed button listener
     document.getElementById("completedLinkButton").addEventListener("click", function() {
-        updateDisplay("completed");
+        updateVideo("completed");
         //console.log("attempt switch to completed thumbnail and link!");
     });
 });
@@ -83,7 +72,7 @@ document.getElementById('channelSelector').addEventListener('change', function()
     document.getElementById("channelLink").href = findChannelLink(this.value);
     currentChannel = this.value;
     channelId = findChannelId(this.value);
-    updateAllDisplays();
+    updateDisplays();
 });
 document.addEventListener("DOMContentLoaded", function() { //event listener to see if someone clicks the json import button
     document.getElementById('jsonImportButton').addEventListener("click", () => {
@@ -122,10 +111,13 @@ document.addEventListener("DOMContentLoaded", function() { //event listener to s
 
 //Initial calls to update images and color scheme
 //Initial call to update subscriber count and livestream display
+
 defineDataPromise()
     .then(() => {
         updateChannelData();
-        updateAllDisplays();
+        updateDisplays();
+        updateStatusDisplay();
+        preloadImages();
     })
     .catch(error => {
         console.error('unable to start initial stuff because of defineDataPromise:', error)

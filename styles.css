@@ -6,6 +6,9 @@
     margin: 0;
     position: relative;
 }
+html, body {
+    width: 100%;
+  }
 :root,
     :root.Mumei {
         --background-color: rgb(145, 108, 100);
@@ -28,7 +31,7 @@
         --card-color: rgb(255 174 176);
         --text-color-dark: rgb(42 53 68);;
         --text-color-light: rgb(240 238 229);
-        --border-color: rgb(204 146 131);
+        --border-color: rgb(255 174 176);
         --font-family: Shadows Into Light Two;
     }
     :root.Kronii {
@@ -36,7 +39,7 @@
         --card-color: rgb(164 207 234);
         --text-color-dark: rgb(79 81 109);
         --text-color-light: rgb(212 176 53);
-        --border-color: rgb(156 215 229);
+        --border-color: rgb(164 207 234);
         --font-family: Patrick Hand;
     }
     :root.Liz {
@@ -44,7 +47,7 @@
         --card-color: rgb(28 90 163);
         --text-color-dark: rgb(231 223 208);
         --text-color-light: rgb(255 214 200);
-        --border-color: rgb(204 146 131);
+        --border-color: rgb(28 90 163);
         --font-family: Patrick Hand;
     }
     :root.Nerissa {
@@ -52,7 +55,7 @@
         --card-color: rgb(32 33 33);
         --text-color-dark: rgb(65 137 236);
         --text-color-light: rgb(215 209 187);
-        --border-color: rgb(156 215 229);
+        --border-color: rgb(32 33 33);
         --font-family: Patrick Hand;
     }
     :root.Gura {
@@ -60,7 +63,7 @@
         --card-color: rgb(193 227 235);
         --text-color-dark: rgb(15 60 120);
         --text-color-light: rgb(228 96 96);
-        --border-color: rgb(156 215 229);
+        --border-color: rgb(193 227 235);
         --font-family: Patrick Hand;
     }
     :root.Ina {
@@ -68,7 +71,79 @@
         --card-color: rgb(142 159 189);
         --text-color-dark: rgb(255 217 202);
         --text-color-light: rgb(243 164 98);
-        --border-color: rgb(156 215 229);
+        --border-color: rgb(142 159 189);
+        --font-family: Patrick Hand;
+    }
+    :root.Kiara {
+        --background-color: rgb(239 112 66);
+        --card-color: rgb(204 224 211);
+        --text-color-dark: rgb(104 58 120);
+        --text-color-light: rgb(70 78 177);
+        --border-color: rgb(204 224 211);
+        --font-family: Patrick Hand;
+    }
+    :root.Minto {
+        --background-color: rgb(91, 183, 166);
+        --card-color: rgb(158, 243, 214);
+        --text-color-dark: rgb(101 67 63);
+        --text-color-light: rgb(188 237 255);
+        --border-color: rgb(158, 243, 214);
+        --font-family: Patrick Hand;
+    }
+    :root.Raora {
+        --background-color: rgb(248 155 189);
+        --card-color: rgb(207 71 121);
+        --text-color-dark: rgb(255 233 249);
+        --text-color-light: rgb(255 217 247);
+        --border-color: rgb(207 71 121);
+        --font-family: Patrick Hand;
+    }
+    :root.Kaela {
+        --background-color: rgb(249 212 105);
+        --card-color: rgb(46 41 42);
+        --text-color-dark: rgb(206 170 132);
+        --text-color-light: rgb(248 49 49);
+        --border-color: rgb(46 41 42);
+        --font-family: Patrick Hand;
+    }
+    :root.GG {
+        --background-color: rgb(232 125 43);
+        --card-color: rgb(182 6 24);
+        --text-color-dark: rgb(255 178 210);
+        --text-color-light: rgb(255 232 115);
+        --border-color: rgb(182 6 24);
+        --font-family: Patrick Hand;
+    }
+    :root.Shiorin {
+        --background-color: rgb(68 54 95);
+        --card-color: rgb(36 30 39);
+        --text-color-dark: rgb(95 118 180);
+        --text-color-light: rgb(220 179 164);
+        --border-color: rgb(36 30 39);
+        --font-family: Patrick Hand;
+    }
+    :root.Doki {
+        --background-color: rgb(233 170 60);
+        --card-color: rgb(43 34 46);
+        --text-color-dark: rgb(134 182 182);
+        --text-color-light: rgb(201 68 88);
+        --border-color: rgb(43 34 46);
+        --font-family: Patrick Hand;
+    }
+    :root.Doob {
+        --background-color: rgb(247 212 147);
+        --card-color: rgb(85 86 120);
+		--text-color-dark: rgb(161 222 138);
+        --text-color-light: rgb(229 130 148);
+        --border-color: rgb(85 86 120);
+        --font-family: Patrick Hand;
+    }
+    :root.IRyS {
+        --background-color: rgb(135 0 88);
+        --card-color: rgb(253 252 255);
+        --text-color-dark: rgb(44 4 27);
+        --text-color-light: rgb(71 211 207);
+        --border-color: rgb(253 252 255);
         --font-family: Patrick Hand;
     }
 .image-container {
@@ -144,6 +219,11 @@ h1 a {
 h1 a:hover {
     text-decoration: underline;
 }
+hr {
+	border-color: var(--text-color-dark);
+	height: 1px;
+	opacity: .75;
+}
 .card {
     border: 0px solid var(--border-color);
     border-radius: 0.8rem;
@@ -215,7 +295,21 @@ h1 a:hover {
     border-radius: .4rem;
     text-align: center;
 }
-
+#apiKeyHoloSubmitButton {
+    background: var(--text-color-dark);
+    color: var(--text-color-light);
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    padding: 5px 10px;
+}
+#apiKeyHoloInputBox {
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    margin: .5rem;
+    border-radius: .4rem;
+    text-align: center;
+}
 #livestreamDisplay {
     padding: .5rem 1rem;
     display: flex;
@@ -275,8 +369,14 @@ p.bottom-left-text {
     text-align-last: center;
     font-size: 8rem;
     font-weight: 400;
-    margin: -1rem;
 } 
+select{
+    scrollbar-width: none; /*For Firefox*/;
+    -ms-overflow-style: none;  /*For Internet Explorer 10+*/;
+}
+select::-webkit-scrollbar { /*For WebKit Browsers*/
+    width: 0;
+}
 .select option {
     font-size: 4rem;
     text-align: center;
@@ -284,7 +384,9 @@ p.bottom-left-text {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-
+}
+.small-option {
+    font-size: 2rem;
 }
 select:focus{
     outline:none;
@@ -341,4 +443,38 @@ select:focus{
 #jsonExportButton:hover {
     transform: scale(1.1); /* Scale image by 10% on hover */
     transition: transform 0.3s, filter 0.3s; /* Smooth transition */
+}
+#containerAll {
+	display: flex;
+	flex-direction: row;
+}
+#containerLeft {
+	margin: auto;
+	margin-right: 0px;
+	width: 25%;
+}
+#containerCenter {
+	margin: auto;
+}
+#containerRight {
+	margin: auto;
+	margin-left: 0px;
+	width: 25%;
+	text-align: left;
+}
+#statusDisplay {
+	padding: 1rem 2.5rem;
+	max-width: 70%;
+	display: inline-block;
+}
+@media screen and (max-width: 1500px) {
+    #statusDisplay {
+		display: none;
+	}
+	#containerLeft {
+		display: none;
+	}
+	#containerRight {
+		display: none;
+	}
 }

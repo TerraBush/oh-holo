@@ -4,17 +4,171 @@ const premiereEmote = '🕔';
 const liveEmote = '🔴';
 const completedEmote = '🔘';
 
-const channelNameList = ["Mumei", "Fauna", "Bae", "Kronii", "Liz", "Nerissa", "Gura", "Ina", "Kiara", "Minto", "Raora", "Kaela", "Gigi", "Shiorin"];
-const channelIdList = ["UC3n5uGu18FoCy23ggWWp8tA", "UCO_aKKYxn4tvrqPjcTzZ6EQ", "UCgmPnx-EEeOrZSg5Tiw7ZRQ", "UCmbs8T6MWqUHP1tIQvSgKrg", "UCW5uhrG1eCBYditmhL0Ykjw", "UC_sFNM0z0MWm9A6WlKPuMMg", "UCoSrY_IQQVpmIRZ9Xf-y93g", "UCMwGHR0BTZuLsmjY_NT5Pwg", "UCHsx4Hqa-1ORjQTh9TYDhww", "UCcHHkJ98eSfa5aj0mdTwwLQ", "UCl69AEx4MdqMZH7Jtsm7Tig", "UCZLZ8Jjx_RN2CXloOmgTHVg", "UCDHABijvPBnJm7F-KlNME3w", "UCgnfPPb9JI3e9A4cXHnWbyg"];
-const channelImgList = ["images\\mumeiload.png", "images\\fauuuuuna.png", "images\\baeconfused.png", "images\\kroniiwink.png", "images\\lizfreak.png", "images\\rissavibe.png", "images\\guraspin.png", "images\\tomorrow.png", "", "", "", "", ""];
-const channelAltImgList = ["images\\smolmei.jpg", "images\\smolna.png", "images\\smolbae.jpg", "images\\smolnii.jpg", "images\\woahliz.png", "images\\rissastare.jpg", "images\\guradum.jpg", "images\\inaeat.png", "", "", "", "", ""];
-const channelLinkList = ["https://www.youtube.com/@NanashiMumei", "https://www.youtube.com/@ceresfauna", "https://www.youtube.com/@HakosBaelz", "https://www.youtube.com/@OuroKronii", "https://www.youtube.com/@holoen_erbloodflame", "https://www.youtube.com/@NerissaRavencroft", "https://www.youtube.com/@GawrGura", "https://www.youtube.com/@NinomaeInanis", "https://www.youtube.com/@TakanashiKiara", "https://www.youtube.com/@mintfantome", "https://www.youtube.com/@holoen_raorapanthera", "https://www.youtube.com/@KaelaKovalskia", "https://www.youtube.com/@holoen_gigimurin", "https://www.youtube.com/@ShioriNovella"];
-const channelSoundList = ["sounds\\hi-1.mp3", "sounds\\konfauna.mp3", "sounds\\wazzup.mp3", "sounds\\kroniichiwa.mp3", "sounds\\ohohohoho.mp3", "", "sounds\\a.mp3", "sounds\\wah.mp3", "", "", "", "", "", ""];
+const channelNameList = [
+    "Mumei",
+    "Fauna",
+    "Bae",
+    "Kronii",
+    "Liz",
+    "Nerissa",
+    "Gura",
+    "Ina",
+    "Kiara",
+    "Minto",
+    "Raora",
+    "Kaela",
+    "GG",
+    "Shiorin",
+    "Doki", 
+    "Doob",
+    "IRyS"
+];
+const channelIdList = [
+    "UC3n5uGu18FoCy23ggWWp8tA", //Mumei
+    "UCO_aKKYxn4tvrqPjcTzZ6EQ", //Fauna
+    "UCgmPnx-EEeOrZSg5Tiw7ZRQ", //Bae
+    "UCmbs8T6MWqUHP1tIQvSgKrg", //Kronii
+    "UCW5uhrG1eCBYditmhL0Ykjw", //Liz
+    "UC_sFNM0z0MWm9A6WlKPuMMg", //Nerissa
+    "UCoSrY_IQQVpmIRZ9Xf-y93g", //Gura
+    "UCMwGHR0BTZuLsmjY_NT5Pwg", //Ina
+    "UCHsx4Hqa-1ORjQTh9TYDhww", //Kiara
+    "UCcHHkJ98eSfa5aj0mdTwwLQ", //Minto
+    "UCl69AEx4MdqMZH7Jtsm7Tig", //Raora
+    "UCZLZ8Jjx_RN2CXloOmgTHVg", //Kaela
+    "UCDHABijvPBnJm7F-KlNME3w", //GG
+    "UCgnfPPb9JI3e9A4cXHnWbyg", //Shiorin
+    "UComInW10MkHJs-_vi4rHQCQ", //Doki
+    "UC6T7TJZbW6nO-qsc5coo8Pg", //Doob
+    "UC8rcEBzJSleTkf_-agPM20g"  //IRyS
+];
+const channelImgList = [
+    "images\\mumeiload.png",
+    "images\\fauuuuuna.png",
+    "images\\baeconfused.png",
+    "images\\kroniiwink.png",
+    "images\\lizfreak.png",
+    "images\\rissavibe.png",
+    "images\\guraspin.png",
+    "images\\tomorrow.png",
+    "images\\kiarapeek.png",
+    "images\\mintwink.png",
+    "",
+    "",
+    "",
+    "images\\shiozoom.png",
+    "images\\dokihuh.png",
+    "",
+    ""
+];
+const channelAltImgList = [
+    "images\\smolmei.jpg",
+    "images\\smolna.png",
+    "images\\smolbae.jpg",
+    "images\\smolnii.jpg",
+    "images\\woahliz.png",
+    "images\\rissastare.jpg",
+    "images\\guradum.jpg",
+    "images\\inaeat.png",
+    "images\\kiarawink.png",
+    "images\\mintload.png", 
+    "",
+    "",
+    "",
+    "images\\shiogrin.png",
+    "images\\dokilean.png",
+    "",
+    ""
+];
+const channelLinkList = [
+    "https://www.youtube.com/@NanashiMumei",
+    "https://www.youtube.com/@ceresfauna",
+    "https://www.youtube.com/@HakosBaelz",
+    "https://www.youtube.com/@OuroKronii",
+    "https://www.youtube.com/@holoen_erbloodflame",
+    "https://www.youtube.com/@NerissaRavencroft",
+    "https://www.youtube.com/@GawrGura", 
+    "https://www.youtube.com/@NinomaeInanis",
+    "https://www.youtube.com/@TakanashiKiara",
+    "https://www.youtube.com/@mintfantome",
+    "https://www.youtube.com/@holoen_raorapanthera",
+    "https://www.youtube.com/@KaelaKovalskia",
+    "https://www.youtube.com/@holoen_gigimurin",
+    "https://www.youtube.com/@ShioriNovella",
+    "https://www.youtube.com/@Dokibird",
+    "https://www.youtube.com/@dooby3d",
+    "https://www.youtube.com/@IRyS"
+];
+const channelSoundList = [
+    "sounds\\hi-1.mp3",         //Mumei
+    "sounds\\konfauna.mp3",     //Fauna
+    "sounds\\wazzup.mp3",       //Bae
+    "sounds\\kroniichiwa.mp3",  //Kronii
+    "sounds\\ohohohoho.mp3",    //Liz
+    "",                         //Nerissa
+    "sounds\\a.mp3",            //Gura
+    "sounds\\wah.mp3",          //Ina
+    "",     //Kiara
+    "",     //Minto
+    "",     //Raora
+    "sounds\\kaelaGSH.mp3",     //Kaela
+    "",     //GG
+    "",     //Shiorin
+    "",     //Doki
+    "",     //Doob
+    ""      //IRyS
+];
+
+let holoDataTest = [
+  {
+    "id": "J3dODan6-u8",
+    "title": "test upcoming",
+    "type": "stream",
+    "topic_id": "TCG_Card_Shop_Simulator",
+    "published_at": "2024-10-25T06:58:08.000Z",
+    "available_at": "2024-10-26T03:00:00.000Z",
+    "duration": 0,
+    "status": "upcoming",
+    "start_scheduled": "2024-10-26T03:00:00.000Z",
+    "live_viewers": 0,
+    "channel": {
+      "id": "UCZLZ8Jjx_RN2CXloOmgTHVg",
+      "name": "Kaela Kovalskia Ch. hololive-ID",
+      "org": "Hololive",
+      "suborg": "keIndonesia 3rd Gen (holoh3ro)",
+      "type": "vtuber",
+      "photo": "https://yt3.ggpht.com/i-aqA-4BPUKlCYErdtAkp2_s2AsG_8IB1saxXSSBXevz6bA8ptaIm53-SXB1_KIODP4SI4_l=s800-c-k-c0x00ffffff-no-rj",
+      "english_name": "Kaela Kovalskia"
+    }
+  },
+  {
+    "id": "J3dODan6-u8",
+    "title": "test live",
+    "type": "stream",
+    "topic_id": "TCG_Card_Shop_Simulator",
+    "published_at": "2024-10-25T06:58:08.000Z",
+    "available_at": "2024-10-26T03:00:00.000Z",
+    "duration": 0,
+    "status": "live",
+    "start_scheduled": "2024-10-26T03:00:00.000Z",
+    "live_viewers": 0,
+    "channel": {
+      "id": "UCZLZ8Jjx_RN2CXloOmgTHVg",
+      "name": "Kaela Kovalskia Ch. hololive-ID",
+      "org": "Hololive",
+      "suborg": "keIndonesia 3rd Gen (holoh3ro)",
+      "type": "vtuber",
+      "photo": "https://yt3.ggpht.com/i-aqA-4BPUKlCYErdtAkp2_s2AsG_8IB1saxXSSBXevz6bA8ptaIm53-SXB1_KIODP4SI4_l=s800-c-k-c0x00ffffff-no-rj",
+      "english_name": "Kaela Kovalskia"
+    }
+  }
+];
 
 var currentChannel;
 var channelId;
 
 let channelData;
+let holoChannelData;
 
 if(getTheme()) {
     currentChannel = getTheme();
@@ -25,6 +179,7 @@ if(getTheme()) {
     channelId = channelIdList[0];
 }
 
+//misc use
 function setTheme(theme) {
     document.documentElement.className = theme;
     localStorage.setItem('theme', theme);
@@ -70,28 +225,42 @@ function playNoise() {
 function randomNumber(x, y){
     return Math.floor(Math.random()*y) + x;
 }
-function updateSubscriberCountPromise() {
+function setCookie(name, value, days) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (1000 * 60 * 60 * 24 * days));
+    document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + expires.toUTCString() + ";path=/";
+}
+function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if(cookie.startsWith(name + '=')) {
+            return decodeURIComponent(cookie.substring(name.length + 1));
+        }
+    }
+    return null;
+}
+//subscriber
+function updateSubscriberCountHoloPromise() {
     return new Promise((resolve, reject) => {
-        const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
-        fetch(url)
+        const url = `https://holodex.net/api/v2/channels/${channelId}`;
+        fetch(url, {
+            headers: {
+                'X-APIKEY': 'b3051192-044d-4da1-8822-75a9160af659'
+            }
+        })
             .then(response => response.json())
-            .then(data => {
-                const results = data.pageInfo.totalResults;
-                    if(results == 0){
-                        console.log("No channel data");
-                        channelData.channels[currentChannel].stats.subs = 'null';
-                        channelData.channels[currentChannel].stats.views = 'null';
-                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
-                        resolve();
-                        return;
-                    }
-                let subscriberCount = parseInt(data.items[0].statistics.subscriberCount);
+            .then(holoData => {
+
+                let subscriberCount = parseInt(holoData.subscriber_count);
                 if (subscriberCount >= 1000000) {
                     subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
+                }else if(subscriberCount >= 1000) {
+                    subscriberCount = (subscriberCount / 1000) + ' K';
                 }else{
                     subscriberCount = subscriberCount.toLocaleString();
                 }
-                let viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString();
+                let viewCount = parseInt(holoData.view_count).toLocaleString();
 
                 channelData.channels[currentChannel].stats.subs = subscriberCount;
                 channelData.channels[currentChannel].stats.views = viewCount; 
@@ -99,152 +268,401 @@ function updateSubscriberCountPromise() {
                 resolve();
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching holo data:', error);
                 reject(error);
             });
     });
 }
 function updateSubscriberDisplay() {
-    document.getElementById('subscriberCount').textContent = channelData.channels[currentChannel].stats.subs;;
+    document.getElementById('subscriberCount').textContent = channelData.channels[currentChannel].stats.subs;
     document.getElementById('viewCount').textContent = channelData.channels[currentChannel].stats.views;
-
 }
-function latestLivestreamPromise() {
+//livestream
+function updateLivestreamHoloPromise() {
     return new Promise((resolve, reject) => {
-        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&order=date&maxResults=1&key=${apiKey}`;
-        fetch(url)
+        const url = `https://holodex.net/api/v2/live?channel_id=${channelId}&type=stream&sort=start_actual&max_upcoming_hours=168`;
+        fetch(url, {
+            headers: {
+                'X-APIKEY': `${apiKeyHolo}`
+            }
+        })
             .then(response => response.json())
-            .then(data => {
-                const results = data.pageInfo.totalResults;
-                if(results == 0){
-                    //console.log("No completed strem~");
-                    channelData.channels[currentChannel].videos.completed.title = "null";
-                    channelData.channels[currentChannel].videos.completed.thumbnail = "null";
-                    channelData.channels[currentChannel].videos.completed.link = "null";
-                    channelData.channels[currentChannel].videos.completed.date = "null";
-                    localStorage.setItem('localChannelData', JSON.stringify(channelData));
-                    resolve();
-                    return;
-                }
-                const livestream = data.items[0];
-                const videoId = livestream.id.videoId;
-                const title = livestream.snippet.title;
-                const publishedAt = livestream.snippet.publishedAt;
-                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-
-                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-                const dateTime = new Date(publishedAt);
-                const localDateTime = dateTime.toLocaleString();
-
-                channelData.channels[currentChannel].videos.completed.title = title;
-                channelData.channels[currentChannel].videos.completed.thumbnail = thumbnailUrlHigh;
-                channelData.channels[currentChannel].videos.completed.link = videoUrl;
-                channelData.channels[currentChannel].videos.completed.date = localDateTime;
-                localStorage.setItem('localChannelData', JSON.stringify(channelData));
-
-//            console.log(videoId);
-//            console.log(title);
-//            console.log(videoUrl);
-//            console.log("ran latestLivestreamPromise");
-            resolve();
-            })
-            .catch(error => {
-                console.error('Error fetching latest livestream data:', error);
-                reject(error);
-            });
-    });
-}
-function currentLivestreamPromise() {
-    return new Promise((resolve, reject) => {
-        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&order=date&maxResults=1&key=${apiKey}`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const results = data.pageInfo.totalResults;
-                if(results == 0){
-                    //console.log("Not currently live~");
+            .then(holoData => {
+                if(holoData.length == 0) {
+                    channelData.channels[currentChannel].videos.premiere.title = "null";
+                    channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
+                    channelData.channels[currentChannel].videos.premiere.link = "null";
+                    channelData.channels[currentChannel].videos.premiere.date = "null";
                     channelData.channels[currentChannel].videos.live.title = "null";
                     channelData.channels[currentChannel].videos.live.thumbnail = "null";
                     channelData.channels[currentChannel].videos.live.link = "null";
                     channelData.channels[currentChannel].videos.live.date = "null";
                     resolve();
                     return;
+                }else if(holoData.length == 2 && holoData[0].status == "upcoming") {
+                    channelData.channels[currentChannel].videos.live.title = "null";
+                    channelData.channels[currentChannel].videos.live.thumbnail = "null";
+                    channelData.channels[currentChannel].videos.live.link = "null";
+                    channelData.channels[currentChannel].videos.live.date = "null";
                 }
-                const livestream = data.items[0];
-                const videoId = livestream.id.videoId;
-                const title = livestream.snippet.title;
-                const publishedAt = livestream.snippet.publishedAt;
-            
-                const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
-                const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-                const dateTime = new Date(publishedAt);
-                const localDateTime = dateTime.toLocaleString();
+                for(let i = 0; i < holoData.length; i++){
+                    if(holoData[i].status == "upcoming") {
+        
+                        let videoId = holoData[i].id;
+                        const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                        const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        
+                        const dateTime = new Date(holoData[i].start_scheduled);
+                        const localDateTime = dateTime.toLocaleString();
+        
+                        channelData.channels[currentChannel].videos.premiere.title = holoData[i].title;
+                        channelData.channels[currentChannel].videos.premiere.thumbnail = thumbnailUrlHigh;
+                        channelData.channels[currentChannel].videos.premiere.link = videoUrl;
+                        channelData.channels[currentChannel].videos.premiere.date = localDateTime;
+                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
 
-                channelData.channels[currentChannel].videos.live.title = title;
-                channelData.channels[currentChannel].videos.live.thumbnail = thumbnailUrlHigh;
-                channelData.channels[currentChannel].videos.live.link = videoUrl;
-                channelData.channels[currentChannel].videos.live.date = localDateTime;
-                localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                        if(holoData.length == 1) {
+                            channelData.channels[currentChannel].videos.live.title = "null";
+                            channelData.channels[currentChannel].videos.live.thumbnail = "null";
+                            channelData.channels[currentChannel].videos.live.link = "null";
+                            channelData.channels[currentChannel].videos.live.date = "null";
+                            resolve();
+                            return;
+                        }
+
+                    }else if(holoData[i].status == "live") {
+
+                        let videoId = holoData[i].id;
+                        const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                        const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
             
-//            console.log(videoId);
-//            console.log(title);
-//            console.log(videoUrl);
-//            console.log("ran currentLivestreamPromise");
-            resolve();
+                        const dateTime = new Date(holoData[i].start_actual);
+                        const localDateTime = dateTime.toLocaleString();
+            
+                        channelData.channels[currentChannel].videos.live.title = holoData[i].title;
+                        channelData.channels[currentChannel].videos.live.thumbnail = thumbnailUrlHigh;
+                        channelData.channels[currentChannel].videos.live.link = videoUrl;
+                        channelData.channels[currentChannel].videos.live.date = localDateTime;
+                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+
+                        if(holoData.length == 1) {
+                            channelData.channels[currentChannel].videos.premiere.title = "null";
+                            channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
+                            channelData.channels[currentChannel].videos.premiere.link = "null";
+                            channelData.channels[currentChannel].videos.premiere.date = "null";
+                            resolve();
+                            return;
+                        }
+
+                    } else {
+                        console.log("no holoData");
+                        reject(error);
+                    }
+                }
+                resolve();
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching holo data:', error);
                 reject(error);
             });
     });
 }
-function upcomingLivestreamPromise() {
+function updateLatestLivestreamHoloPromise() {
     return new Promise((resolve, reject) => {
-        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=upcoming&type=video&order=date&maxResults=1&key=${apiKey}`;
-        fetch(url)
+        const url = `https://holodex.net/api/v2/videos?channel_id=${channelId}&limit=1&status=past`;
+        fetch(url, {
+            headers: {
+                'X-APIKEY': `${apiKeyHolo}`
+            }
+        })
             .then(response => response.json())
-            .then(data => {
-                const results = data.pageInfo.totalResults;
-                if(results == 0){
-                    //console.log("No current premiere~");
-                    channelData.channels[currentChannel].videos.premiere.title = "null";
-                    channelData.channels[currentChannel].videos.premiere.thumbnail = "null";
-                    channelData.channels[currentChannel].videos.premiere.link = "null";
-                    channelData.channels[currentChannel].videos.premiere.date = "null";
+            .then(holoData => {
+                if(holoData.length == 0) {
+                    channelData.channels[currentChannel].videos.completed.title = "null";
+                    channelData.channels[currentChannel].videos.completed.thumbnail = "null";
+                    channelData.channels[currentChannel].videos.completed.link = "null";
+                    channelData.channels[currentChannel].videos.completed.date = "null";
                     resolve();
                     return;
                 }
-                const livestream = data.items[0];
-                const videoId = livestream.id.videoId;
-                const title = livestream.snippet.title;
-                const publishedAt = livestream.snippet.publishedAt;
 
+                let videoId = holoData[0].id;
                 const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-
                 const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-                const dateTime = new Date(publishedAt);
+
+                const dateTime = new Date(holoData[0].available_at);
                 const localDateTime = dateTime.toLocaleString();
 
-                channelData.channels[currentChannel].videos.premiere.title = title;
-                channelData.channels[currentChannel].videos.premiere.thumbnail = thumbnailUrlHigh;
-                channelData.channels[currentChannel].videos.premiere.link = videoUrl;
-                channelData.channels[currentChannel].videos.premiere.date = localDateTime;
+                channelData.channels[currentChannel].videos.completed.title = holoData[0].title;
+                channelData.channels[currentChannel].videos.completed.thumbnail = thumbnailUrlHigh;
+                channelData.channels[currentChannel].videos.completed.link = videoUrl;
+                channelData.channels[currentChannel].videos.completed.date = localDateTime;
                 localStorage.setItem('localChannelData', JSON.stringify(channelData));
-            
-//            console.log(videoId);
-//            console.log(title);
-//            console.log(videoUrl);
-//            console.log("ran upcomingLivestreamPromise");
-            resolve();
+                resolve();
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching latest livestream holo data:', error);
                 reject(error);
             });
     });
 }
-function updateDisplay(videoType) {
+//all live/premiere trio
+function submitAllLivestreamDataPromise(data) {
+    //console.log(data);
+    return new Promise((resolve, reject) => {
+        for(let i = 0; i < data.length; i++) {
+            if(data[i].length == 0) {
+                channelData.channels[channelNameList[i]].videos.premiere.title = "null";
+                channelData.channels[channelNameList[i]].videos.premiere.thumbnail = "null";
+                channelData.channels[channelNameList[i]].videos.premiere.link = "null";
+                channelData.channels[channelNameList[i]].videos.premiere.date = "null";
+                channelData.channels[channelNameList[i]].videos.live.title = "null";
+                channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
+                channelData.channels[channelNameList[i]].videos.live.link = "null";
+                channelData.channels[channelNameList[i]].videos.live.date = "null";
+                localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                //console.log(`${channelNameList[i]} has no premiering or live videos`);
+                resolve();
+                continue;
+            }else if(data[i].length == 2 && data[i][0].status == "upcoming") {
+                channelData.channels[channelNameList[i]].videos.live.title = "null";
+                channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
+                channelData.channels[channelNameList[i]].videos.live.link = "null";
+                channelData.channels[channelNameList[i]].videos.live.date = "null";
+                //console.log(`${channelNameList[i]} has no live but two premieres`);
+            }
+
+            //console.log(`${channelNameList[i]} has data`);
+
+            for(let j = 0; j < data[i].length; j++) {
+
+                //console.log(`second loop`);
+                //console.log(data[i][j]);
+
+                if(data[i][j].status == "upcoming") {
+        
+                    let videoId = data[i][j].id;
+                    const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                    const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        
+                    const dateTime = new Date(data[i][j].start_scheduled);
+                    const localDateTime = dateTime.toLocaleString();
+        
+                    channelData.channels[channelNameList[i]].videos.premiere.title = data[i][j].title;
+                    channelData.channels[channelNameList[i]].videos.premiere.thumbnail = thumbnailUrlHigh;
+                    channelData.channels[channelNameList[i]].videos.premiere.link = videoUrl;
+                    channelData.channels[channelNameList[i]].videos.premiere.date = localDateTime;
+
+                    //console.log(`${channelNameList[i]} has a premiere`);
+
+                    if(data[i].length == 1) {
+
+                        channelData.channels[channelNameList[i]].videos.live.title = "null";
+                        channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
+                        channelData.channels[channelNameList[i]].videos.live.link = "null";
+                        channelData.channels[channelNameList[i]].videos.live.date = "null";
+
+                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                        //console.log(`${channelNameList[i]} has no live but a premiere`);
+                        continue;
+                    }
+
+                    localStorage.setItem('localChannelData', JSON.stringify(channelData));
+
+                } else if(data[i][j].status == "live") {
+
+                    let videoId = data[i][j].id;
+                    const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                    const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+            
+                    const dateTime = new Date(data[i][j].start_actual);
+                    const localDateTime = dateTime.toLocaleString();
+            
+                    channelData.channels[channelNameList[i]].videos.live.title = data[i][j].title;
+                    channelData.channels[channelNameList[i]].videos.live.thumbnail = thumbnailUrlHigh;
+                    channelData.channels[channelNameList[i]].videos.live.link = videoUrl;
+                    channelData.channels[channelNameList[i]].videos.live.date = localDateTime;
+                    //console.log(`${channelNameList[i]} has a live`);
+
+                    if(data[i].length == 1) {
+                        channelData.channels[channelNameList[i]].videos.premiere.title = "null";
+                        channelData.channels[channelNameList[i]].videos.premiere.thumbnail = "null";
+                        channelData.channels[channelNameList[i]].videos.premiere.link = "null";
+                        channelData.channels[channelNameList[i]].videos.premiere.date = "null";
+                        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                        //console.log(`${channelNameList[i]} has no premiere but a live`);
+                        resolve();
+                        continue;
+                    }
+
+                    localStorage.setItem('localChannelData', JSON.stringify(channelData));
+                } else {
+                    console.log("no holoData");
+                    reject(error);
+                }
+            }
+        }
+        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+        resolve();
+    });
+}
+function updateAllLivestreamHoloPromise() {
+    return fetchAllLivestreamDataPromise()
+        .then(data => {
+            //console.log(data);
+            submitAllLivestreamDataPromise(data);
+            return data;
+        })
+}
+function fetchAllLivestreamDataPromise() {
+    let fetches = [];
+    for(let i = 0; i < channelIdList.length; i++) {
+        let url = `https://holodex.net/api/v2/live?channel_id=${channelIdList[i]}&type=stream&sort=start_actual&max_upcoming_hours=168`;
+        fetches.push(fetch(url, {
+            headers: {
+                'X-APIKEY': `${apiKeyHolo}`
+            }
+        }));
+    }
+    return Promise.all(fetches)
+        .then(responses => {
+            return Promise.all(responses.map(response => {
+                if(response.ok) return response.json();
+                console.error(response.statusText);
+            }))
+        })
+        .then(data => {
+            return data;
+        })
+}
+//all latest trio
+function submitAllLatestLivestreamDataPromise(data) {
+    return new Promise((resolve) => {
+        for(let i = 0; i < data.length; i++) {
+            if(data[i].length == 0) {
+                channelData.channels[channelNameList[i]].videos.completed.title = "null";
+                channelData.channels[channelNameList[i]].videos.completed.thumbnail = "null";
+                channelData.channels[channelNameList[i]].videos.completed.link = "null";
+                channelData.channels[channelNameList[i]].videos.completed.date = "null";
+            }
+
+            let videoId = data[i][0].id;
+            const thumbnailUrlHigh = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+            const dateTime = new Date(data[i][0].available_at);
+            const localDateTime = dateTime.toLocaleString();
+
+            channelData.channels[channelNameList[i]].videos.completed.title = data[i][0].title;
+            //console.log(data[i][0].title);
+            channelData.channels[channelNameList[i]].videos.completed.thumbnail = thumbnailUrlHigh;
+            //console.log(thumbnailUrlHigh);
+            channelData.channels[channelNameList[i]].videos.completed.link = videoUrl;
+            //console.log(videoUrl);
+            channelData.channels[channelNameList[i]].videos.completed.date = localDateTime;
+            //console.log(localDateTime);
+        }
+        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+        resolve();
+    });
+}
+function updateAllLatestLivestreamHoloPromise() {
+    return fetchAllLatestLivestreamDataPromise()
+        .then(data => {
+            //console.log(data);
+            submitAllLatestLivestreamDataPromise(data);
+            return data;
+        })
+}
+function fetchAllLatestLivestreamDataPromise() {
+    let fetches = [];
+    for(let i = 0; i < channelIdList.length; i++) {
+        let url = `https://holodex.net/api/v2/videos?channel_id=${channelIdList[i]}&limit=1&status=past`;
+        fetches.push(fetch(url, {
+            headers: {
+                'X-APIKEY': `${apiKeyHolo}`
+            }
+        }));
+    }
+    return Promise.all(fetches)
+        .then(responses => {
+            return Promise.all(responses.map(response => {
+                if(response.ok) return response.json();
+                console.error(response.statusText);
+            }))
+        })
+        .then(data => {
+            return data;
+        })
+}
+//all subscriber trio
+function updateAllSubscriberHoloPromise() {
+    return fetchAllSubscriberHoloPromise()
+        .then(data => {
+            //console.log(data);
+            submitAllSubscriberHoloPromise(data);
+            return data;
+        })
+}
+function fetchAllSubscriberHoloPromise() {
+    let fetches = [];
+    for(let i = 0; i < channelIdList.length; i++) {
+        let url = `https://holodex.net/api/v2/channels/${channelIdList[i]}`;
+        fetches.push(fetch(url, {
+            headers: {
+                'X-APIKEY': `${apiKeyHolo}`
+            }
+        }));
+    }
+    return Promise.all(fetches)
+        .then(responses => {
+            return Promise.all(responses.map(response => {
+                if(response.ok) return response.json();
+                console.error(response.statusText);
+            }))
+        })
+        .then(data => {
+            return data;
+        })
+}
+function submitAllSubscriberHoloPromise(data) {
+    //console.log(data);
+    return new Promise((resolve) => {
+        for(let i = 0; i < data.length; i++) {
+            //console.log(data[i].subscriber_count);
+            let subscriberCount = parseInt(data[i].subscriber_count);
+            if (subscriberCount >= 1000000) {
+                subscriberCount = (subscriberCount / 1000000).toFixed(2) + ' M';
+            }else if(subscriberCount >= 1000) {
+                subscriberCount = (subscriberCount / 1000) + ' K';
+            }else{                                                                  
+                subscriberCount = subscriberCount.toLocaleString();
+            }
+            let viewCount = parseInt(data[i].view_count).toLocaleString();
+
+            channelData.channels[channelNameList[i]].stats.subs = subscriberCount;
+            channelData.channels[channelNameList[i]].stats.views = viewCount;
+        }
+        localStorage.setItem('localChannelData', JSON.stringify(channelData));
+        resolve();
+    });
+}
+//account status
+function updateStreamStatus(data) {
+    for(let i = 0; i < channelNameList.length; i++) {
+        if(data[i].length > 0) {
+            if(data[i][0].status == "live") {
+                document.getElementById(`${channelNameList[i]}`).text = `${liveEmote}${channelNameList[i]}`
+            } else if (data[i][0].status == "upcoming") {
+                document.getElementById(`${channelNameList[i]}`).text = `${premiereEmote}${channelNameList[i]}`
+            } else {
+                document.getElementById(`${channelNameList[i]}`).text = `${channelNameList[i]}`
+            }
+        }
+    }
+}
+function updateVideo(videoType) {
     if(videoType == "premiere") {
         document.getElementById("titleDisplay").innerHTML = `${premiereEmote}${channelData.channels[currentChannel].videos.premiere.title}`;
         document.getElementById("videoThumbnail").src = channelData.channels[currentChannel].videos.premiere.thumbnail;
@@ -264,24 +682,9 @@ function updateDisplay(videoType) {
         document.getElementById("dateDisplay").innerHTML = channelData.channels[currentChannel].videos.completed.date;
         //console.log("switched to completed data!");
     } else {
-        console.log("updateDisplay has not recieved a proper arguement");
+        console.log("updateVideo has not recieved a proper arguement");
         return;
     }
-}
-function setCookie(name, value, days) {
-    const expires = new Date();
-    expires.setTime(expires.getTime() + (1000 * 60 * 60 * 24 * days));
-    document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + expires.toUTCString() + ";path=/";
-}
-function getCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if(cookie.startsWith(name + '=')) {
-            return decodeURIComponent(cookie.substring(name.length + 1));
-        }
-    }
-    return null;
 }
 function updateButtonDisplay() {
     if(channelData.channels[currentChannel].videos.premiere.link == "null"){
@@ -289,11 +692,11 @@ function updateButtonDisplay() {
         //console.log("hid premiereButton");
     } else {
         document.getElementById("premiereLinkButton").style.display = "";
-        //console.log("revealed premiereButton")
+        //console.log("revealed premiereButton");
     }
 
     if(channelData.channels[currentChannel].videos.live.link == "null"){
-        document.getElementById("liveLinkButton").style.display = "none";;
+        document.getElementById("liveLinkButton").style.display = "none";
         //console.log("hid liveButton");
     } else {
         document.getElementById("liveLinkButton").style.display = "";
@@ -313,45 +716,84 @@ function updateImageDisplay() {
     document.getElementById("altClickableImage").src = findChannelAltImg(currentChannel);
     document.getElementById("channelLink").href = findChannelLink(currentChannel);
 }
-function initialDisplay() {
+function updateVideoDisplay() {
     if(channelData.channels[currentChannel].videos.premiere.link != "null"){
         //console.log("attempted to initial display premiereing livestream");
-        updateDisplay("premiere");
+        updateVideo("premiere");
         return;
     }
     //console.log("no premiereUrl");
     if(channelData.channels[currentChannel].videos.live.link != "null"){
         //console.log("attempted to initial display live livestream");
-        updateDisplay("live");
+        updateVideo("live");
         return;
     }
     //console.log("no liveUrl");
     if(channelData.channels[currentChannel].videos.completed.link != "null"){
         //console.log("attempted to initial display completed livestream");
-        updateDisplay("completed");
+        updateVideo("completed");
         return;
     }
     //console.log("no completedUrl");
-    console.log("initialDisplay unable to find data");
+    console.log("updateVideoDisplay unable to find data");
 }
-function updateAllDisplays() {
+function updateDisplays() {
     updateImageDisplay();
-    initialDisplay();
+    updateVideoDisplay();
     updateButtonDisplay();
     updateSubscriberDisplay();
+}
+function updateDisplaysPromise() {
+    return new Promise((resolve) => {
+        //updateSubscriberDisplay
+        document.getElementById('subscriberCount').textContent = channelData.channels[currentChannel].stats.subs;
+        document.getElementById('viewCount').textContent = channelData.channels[currentChannel].stats.views;
+        //updateVideoDisplay
+        if(channelData.channels[currentChannel].videos.premiere.link != "null"){
+            updateVideo("premiere");
+        }else if(channelData.channels[currentChannel].videos.live.link != "null"){
+            updateVideo("live");
+        }else if(channelData.channels[currentChannel].videos.completed.link != "null"){
+            updateVideo("completed");
+        }else{
+            console.log("updateDisplayPromise unable to find video data");
+        }
+        //updateButtonDisplay
+        if(channelData.channels[currentChannel].videos.premiere.link == "null"){
+            document.getElementById("premiereLinkButton").style.display = "none";
+        } else {
+            document.getElementById("premiereLinkButton").style.display = "";
+        }
+        if(channelData.channels[currentChannel].videos.live.link == "null"){
+            document.getElementById("liveLinkButton").style.display = "none";
+        } else {
+            document.getElementById("liveLinkButton").style.display = "";
+        }
+        if(channelData.channels[currentChannel].videos.completed.link == "null"){
+            document.getElementById("completedLinkButton").style.display = "none";
+        } else {
+            document.getElementById("completedLinkButton").style.display = "";
+        }
+        //updateImageDisplay
+        document.getElementById("clickableImage").src = findChannelImg(currentChannel);
+        document.getElementById("altClickableImage").src = findChannelAltImg(currentChannel);
+        document.getElementById("channelLink").href = findChannelLink(currentChannel);
+        resolve();
+    });
 }
 function updateStreamPromise(){
     console.log("run updateStreamPromise");
     return Promise.all([
-        upcomingLivestreamPromise(),
-        currentLivestreamPromise(),
-        latestLivestreamPromise(),
-        updateSubscriberCountPromise()
+        updateLatestLivestreamHoloPromise(),
+        updateLivestreamHoloPromise(),
+        //updateAllLivestreamHoloPromise(),
+        updateSubscriberCountHoloPromise()
+        
     ]);
 }
-function updateAll() {
+function updateAllDisplays() {
     updateStreamPromise()
-        .then(updateAllDisplays)
+        .then(updateDisplays)
         .catch(error => {
             console.error("Error updating:", error);
         });
@@ -409,7 +851,6 @@ function updateChannelData() {
 }
 function updateChannelDataPromise() {
     return new Promise((resolve, reject) => {
-        //console.log('running updateChannelDataPromise');
         channelData = JSON.parse(localStorage.getItem('localChannelData'));
         if(channelData) {
             resolve(channelData);
@@ -418,6 +859,29 @@ function updateChannelDataPromise() {
         }
     });
 
+}
+function updateStatusDisplay() {
+    let display = document.getElementById("statusDisplay");
+    display.innerHTML = "";
+
+    //display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[0]}')">test</p><hr>`);
+
+    for(let i = 0; i < channelNameList.length; i++) {
+        //display.insertAdjacentHTML("beforeend", `<p>${channelNameList[i]}</p>`);
+        let hasLive = channelData.channels[channelNameList[i]].videos.live.link.includes("null") ? false : true;
+        let hasPremiere = channelData.channels[channelNameList[i]].videos.premiere.link.includes("null") ? false : true;
+
+        if(hasLive == true) {
+            display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[i]}')">${liveEmote}${channelNameList[i]}</p>`);
+        } else if (hasPremiere == true) {
+            display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[i]}')">${premiereEmote}${channelNameList[i]}</p>`);
+        } else {
+            display.insertAdjacentHTML("beforeend", `<p onclick="switchDropdown('${channelNameList[i]}')">${completedEmote}${channelNameList[i]}</p>`);
+        }
+        if(i < (channelNameList.length - 1)) {
+            display.insertAdjacentHTML("beforeend", "<hr>");
+        }
+    }
 }
 function readFile(file) {
     return new Promise((resolve, reject) => {
@@ -434,17 +898,9 @@ function readFile(file) {
         reader.readAsText(file);
     })
 }
-function holoText() {
-    
-    const url = 'https://holodex.net/api/v2/users/live/channels=UC3n5uGu18FoCy23ggWWp8tA,UCO_aKKYxn4tvrqPjcTzZ6EQ,UCgmPnx-EEeOrZSg5Tiw7ZRQ';
-    
-    const response = await fetch(url, {
-      	headers: {
-        	  'X-APIKEY': '${apiKeyHolo}'
-    	  },
-    });
-    
-    const text = await response.text();
-    
-    console.log(text);
+function preloadImages() {
+    for(let i = 0; i < channelImgList.length; i++) {
+        new Image().src = channelImgList[i];
+        new Image().src = channelAltImgList[i];
+    }
 }

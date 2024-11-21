@@ -2,7 +2,7 @@
 <html lang="en" ontouchmove>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <title>"oh hi"</title>
     <link rel="icon" type="image/png" sizes="32x32" href="images\mumeiWah32x32.png">
@@ -17,73 +17,94 @@
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css?v=1234">
+
+    <script>
+        function switchDropdown(val) {
+            const select = document.getElementById("channelSelector");
+            select.value = val;
+            select.dispatchEvent(new Event('change'));
+        }
+    </script>
 </head>
 <body style="visibility: hidden;">
     <script>0</script> <!-- dummy script so firefox only shows page after all css from <head> is loaded -->
     <main>
-        <header>
-            <div id="channelSelectorContainer">
-                <select id="channelSelector" class="select">
-                    <option value="Mumei" class="selectOption">Mumei</option>
-                    <option value="Fauna" class="selectOption">Fauna</option>
-                    <option value="Bae" class="selectOption">Bae</option>
-                    <option value="Kronii" class="selectOption">Kronii</option>
-                    <option value="Liz" class="selectOption">Liz</option>
-                    <option value="Nerissa" class="selectOption">Nerissa</option>
-                    <option value="Gura" class="selectOption">Gura</option>
-                    <option value="Ina" class="selectOption">Ina</option>
-                </select>
-            </div> 
-        </header>
+        <div id="containerAll">
+            <div id="containerLeft"></div>
+            <div id="containerCenter">
+                <header>
+                    <div id="channelSelectorContainer">
+                        <select id="channelSelector" class="select">
+                            <option value="Mumei" class="selectOption" id="Mumei">Mumei</option>
+                            <option value="Fauna" class="selectOption" id="Fauna">Fauna</option>
+                            <option value="Bae" class="selectOption" id="Bae">Bae</option>
+                            <option value="Kronii" class="selectOption" id="Kronii">Kronii</option>
+                            <option value="Liz" class="selectOption" id="Liz">Liz</option>
+                            <option value="Nerissa" class="selectOption" id="Nerissa">Nerissa</option>
+                            <option value="Gura" class="selectOption" id="Gura">Gura</option>
+                            <option value="Ina" class="selectOption" id="Ina">Ina</option>
+                            <option value="Kiara" class="selectOption" id="Kiara">Kiara</option>
+                            <option value="Minto" class="selectOption" id="Minto">Minto</option>
+                            <option value="Raora" class="selectOption" id="Raora">Raora</option>
+                            <option value="Kaela" class="selectOption" id="Kaela">Kaela</option>
+                            <option value="GG" class="selectOption" id="GG">GG</option>
+                            <option value="Shiorin" class="selectOption" id="Shiorin">Shiorin</option>
+                            <option value="Doki" class="selectOption" id="Doki">Doki</option>
+                            <option value="Doob" class="selectOption" id="Doob">Doob</option>
+                            <option value="IRyS" class="selectOption" id="IRyS">IRyS</optoin>
+                        </select>
+                    </div> 
+                </header>
 
-        <div class="image-container">
-            <button id="reloadButton">↻</button>
-            <img id="clickableImage" src="images\mumeiload.png" alt="Play hello" style="border-radius: 50%;">
-            <a href="https://www.youtube.com/@NanashiMumei" id="channelLink" target="_blank">
-                <img id="altClickableImage" src="images\smolmei.jpg" style="border-radius: 100%;">
-            </a>
-        </div>
+                <div class="image-container">
+                    <button id="reloadButton">↻</button>
+                    <img id="clickableImage" src="images\mumeiload.png" alt="Play hello" style="border-radius: 50%;">
+                    <a href="https://www.youtube.com/@NanashiMumei" id="channelLink" target="_blank">
+                        <img id="altClickableImage" src="images\smolmei.jpg" style="border-radius: 100%;">
+                    </a>
+                </div>
 
-        <div class="card">
-            <div id="subs">
-                <h2>Subscribers</h2>
-                <p id="subscriberCount">Loading...</p>
-            </div>
-            <div id="horizontalDivider" class="divider"></div>
-            <div id="views">
-                <h2>Total Views</h2>
-                <p id="viewCount">Loading...</p>
-            </div>
-            <div class="clearfix"></div>
-        </div>
+                <div class="card">
+                    <div id="subs">
+                        <h2>Subscribers</h2>
+                        <p id="subscriberCount">Loading...</p>
+                    </div>
+                    <div id="horizontalDivider" class="divider"></div>
+                    <div id="views">
+                        <h2>Total Views</h2>
+                        <p id="viewCount">Loading...</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
 
-        <div class="card" id="livestreamDisplay">
-            <p class="top-left-text" id="titleDisplay">Title</p>
-            <a href="" target="_blank" id="videoThumbnailLink">
-                <img src="" class="card-image" alt="Image" id="videoThumbnail">
-            </a>
-            <div id="livestreamInfoDisplay">
-                <p class="bottom-left-text" id="dateDisplay">Date</p>
-                <div id="livestreamButtonDisplay">
-                    <button class="button" id="premiereLinkButton">🕔</button>
-                    <button class="button" id="liveLinkButton">🔴</button>
-                    <button class="button" id="completedLinkButton">🔘</button>
+                <div class="card" id="livestreamDisplay">
+                    <p class="top-left-text" id="titleDisplay">Title</p>
+                    <a href="" target="_blank" id="videoThumbnailLink">
+                        <img src="" class="card-image" alt="Image" id="videoThumbnail">
+                    </a>
+                    <div id="livestreamInfoDisplay">
+                        <p class="bottom-left-text" id="dateDisplay">Date</p>
+                        <div id="livestreamButtonDisplay">
+                            <button class="button" id="premiereLinkButton">🕔</button>
+                            <button class="button" id="liveLinkButton">🔴</button>
+                            <button class="button" id="completedLinkButton">🔘</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="apiKeyHoloInputContainer" class="card">
+                    <input type="text" id="apiKeyHoloInputBox" placeholder="Enter holodex API Key~">
+                    <button id="apiKeyHoloSubmitButton">Submit</button>
+                </div>
+                <div id="jsonImportExport" class="card">
+                    <label id="jsonImportButton" for="actualImportButton"><i class="fa-solid fa-file-import"></i></label>
+                    <input type="file" accept=".json" id="actualImportButton" hidden/>
+                    <button id="jsonExportButton"><i class="fa-solid fa-file-export"></i></button>
                 </div>
             </div>
-        </div>
-
-        <div id="apiKeyInputContainer" class="card">
-            <input type="text" id="apiKeyInputBox" placeholder="Enter API Key~">
-            <button id="apiKeySubmitButton">Submit</button>
-        </div>
-        <div id="apiKeyHoloInputContainer" class="card">
-            <input type="text" id="apiKeyHoloInputBox" placeholder="Enter holodex API Key~">
-            <button id="apiKeyHoloSubmitButton">Submit</button>
-        </div>
-        <div id="jsonImportExport" class="card">
-            <label id="jsonImportButton" for="actualImportButton"><i class="fa-solid fa-file-import"></i></label>
-            <input type="file" accept=".json" id="actualImportButton" hidden/>
-            <button id="jsonExportButton"><i class="fa-solid fa-file-export"></i></button>
+            <div id="containerRight">
+                <div class="card" id="statusDisplay">
+                </div>
+            </div>
         </div>
     </main>
 </body>
