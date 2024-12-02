@@ -26,9 +26,7 @@ document.addEventListener("DOMContentLoaded", function() { //reload button liste
                     updateAllSubscriberHoloPromise(),
                     updateAllLatestLivestreamHoloPromise()
                 ])
-                    .then(updateDisplaysPromise()
-                        .then(document.body.style.zoom=1.0)
-                    )
+                    .then(updateDisplays())
                 })
     });
 });
