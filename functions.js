@@ -425,12 +425,6 @@ function submitAllLivestreamDataPromise(data) {
                 //console.log(`${channelNameList[i]} has no premiering or live videos`);
                 resolve();
                 continue;
-            }else if(data[i].length == 2 && data[i][0].status == "upcoming") {
-                channelData.channels[channelNameList[i]].videos.live.title = "null";
-                channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
-                channelData.channels[channelNameList[i]].videos.live.link = "null";
-                channelData.channels[channelNameList[i]].videos.live.date = "null";
-                //console.log(`${channelNameList[i]} has no live but two premieres`);
             }
 
             //console.log(`${channelNameList[i]} has data`);
@@ -456,7 +450,7 @@ function submitAllLivestreamDataPromise(data) {
 
                     //console.log(`${channelNameList[i]} has a premiere`);
 
-                    if(data[i].length == 1) {
+                    if(data[i].length == 1 || j == 0) {
 
                         channelData.channels[channelNameList[i]].videos.live.title = "null";
                         channelData.channels[channelNameList[i]].videos.live.thumbnail = "null";
