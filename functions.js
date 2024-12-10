@@ -711,18 +711,18 @@ function updateImageDisplay() {
     document.getElementById("channelLink").href = findChannelLink(currentChannel);
 }
 function updateVideoDisplay() {
-    if(channelData.channels[currentChannel].videos.premiere.link != "null"){
-        //console.log("attempted to initial display premiereing livestream");
-        updateVideo("premiere");
-        return;
-    }
-    //console.log("no premiereUrl");
     if(channelData.channels[currentChannel].videos.live.link != "null"){
         //console.log("attempted to initial display live livestream");
         updateVideo("live");
         return;
     }
     //console.log("no liveUrl");
+    if(channelData.channels[currentChannel].videos.premiere.link != "null"){
+        //console.log("attempted to initial display premiereing livestream");
+        updateVideo("premiere");
+        return;
+    }
+    //console.log("no premiereUrl");
     if(channelData.channels[currentChannel].videos.completed.link != "null"){
         //console.log("attempted to initial display completed livestream");
         updateVideo("completed");
