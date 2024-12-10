@@ -892,9 +892,16 @@ function readFile(file) {
         reader.readAsText(file);
     })
 }
-function preloadImages() {
+function preloadIcons() {
     for(let i = 0; i < channelImgList.length; i++) {
         new Image().src = channelImgList[i];
         new Image().src = channelAltImgList[i];
+    }
+}
+function preloadThumbnails() {
+    for(let i = 0; i < channelNameList.length; i++) {
+        new Image().src = channelData.channels[channelNameList[i]].videos.completed.thumbnail;
+        new Image().src = channelData.channels[channelNameList[i]].videos.live.thumbnail;
+        new Image().src = channelData.channels[channelNameList[i]].videos.premiere.thumbnail;
     }
 }
